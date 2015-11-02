@@ -360,7 +360,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   //debounce #(.DELAY(270000)) db_0 (.reset(reset), .clock(clock_27mhz), .noisy(~button0), .clean(btn0_db));
   //debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
   //debounce #(.DELAY(270000)) db_2 (.reset(reset), .clock(clock_27mhz), .noisy(~button2), .clean(btn2_db));
-  //debounce #(.DELAY(270000)) db_3 (.reset(reset), .clock(clock_27mhz), .noisy(~button3), .clean(btn3_db));
+  debounce #(.DELAY(270000)) db_3 (.reset(reset), .clock(clock_27mhz), .noisy(~button3), .clean(btn3_db));
   debounce #(.DELAY(270000)) db_S0 (.reset(reset), .clock(clock_27mhz), .noisy(switch[0]), .clean(db_switch[0]));
   debounce #(.DELAY(270000)) db_S1 (.reset(reset), .clock(clock_27mhz), .noisy(switch[1]), .clean(db_switch[1]));
   debounce #(.DELAY(270000)) db_S2 (.reset(reset), .clock(clock_27mhz), .noisy(switch[2]), .clean(db_switch[2]));
@@ -413,22 +413,31 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   ////////////////////////////////////////////////////////////////////////////
   
   // variables to pass around information
+  wire transmit_ir; // send IR flag
+  wire master_on; // turn on the whole process flag
+  wire ir_signal; // IR data
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
-  wire transmit_ir;
-  wire ir_signal;
-  assign ir_signal = user3[31];
   wire [11:0] rover_location;
   wire [5:0] rover_orientation;
   wire [3:0] target_location;
-  assign target_location = db_switch[3:0];
   wire [11:0] ultrasound_commands;
   wire [11:0] ultrasound_signals;
-  // need to assign both of these to user inputs and outputs
   wire location_update;
+  wire get_distance;
+  wire run_ultrasound;
+  
+  assign ir_signal = user3[31];
+  assign master_on = ~btn3_db;
+  // need two ways to run ultrasound in case we stretch to path calculation for feedback
+  // if we do not get to stretch then get_distance will default to x so will just be master on
+  assign run_ultrasound = get_distance | master_on;
+  assign target_location = db_switch[3:0];
+  assign user3[10:0] = ultrasound_commands;
+  assign ultrasound_signals = user3[21:11];
   
   // Ultrasound
   ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
-									.ultrasound_signals(ultrasound_signals),
+									.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
 									.done(location_update),.rover_location(rover_location),
 									.ultrasound_commands(ultrasound_commands));
   
@@ -441,7 +450,13 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 			    .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
   
   // use this to display on hex display for debug
-  wire [64:0] my_hex_data = {64'hFFFFFFFF};
+  wire [64:0] my_hex_data;
+  assign my_hex_data = {rover_location,
+								 3'b0,location_update,
+								 3'b0,ultrasound_commands[0],
+								 3'b0,ultrasound_signals[0],
+								 40'hFFFFFFFFFF};
+										 
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 							disp_blank, disp_clock, disp_rs, disp_ce_b,
 							disp_reset_b, disp_data_out);
