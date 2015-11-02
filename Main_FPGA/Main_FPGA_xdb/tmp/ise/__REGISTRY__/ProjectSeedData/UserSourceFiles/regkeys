@@ -1,0 +1,42 @@
+NUM_USER_FILES
+13
+s
+user_file_1
+../Sources/Main FPGA/blob.v
+s
+user_file_10
+../Sources/Main FPGA/xvga.v
+s
+user_file_11
+../Sources/Shared/debounce.v
+s
+user_file_12
+../Sources/Shared/divider_600us.v
+s
+user_file_13
+../Sources/Shared/synchronize.v
+s
+user_file_2
+../Sources/Main FPGA/display_8hex_labkit.v
+s
+user_file_3
+../Sources/Main FPGA/ir_transmitter.v
+s
+user_file_4
+../Sources/Main FPGA/labkit_mainFPGA.v
+s
+user_file_5
+../Sources/Main FPGA/labkit.ucf
+s
+user_file_6
+../Sources/Main FPGA/orientation_path_calculator.v
+s
+user_file_7
+../Sources/Main FPGA/timer.v
+s
+user_file_8
+../Sources/Main FPGA/ultrasound_location_calculator.v
+s
+user_file_9
+../Sources/Main FPGA/vga_writer.v
+s

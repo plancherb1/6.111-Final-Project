@@ -1,0 +1,12 @@
+MO vga_writer NULL "../Sources/Main FPGA/vga_writer.v" vlg72/vga__writer.bin 1446492138
+MO ultrasound_location_calculator NULL "../Sources/Main FPGA/ultrasound_location_calculator.v" vlg3E/ultrasound__location__calculator.bin 1446492138
+MO xvga NULL "../Sources/Main FPGA/xvga.v" vlg02/xvga.bin 1446492138
+MO orientation_path_calculator NULL "../Sources/Main FPGA/orientation_path_calculator.v" vlg41/orientation__path__calculator.bin 1446492138
+MO display_16hex_labkit NULL "../Sources/Main FPGA/display_8hex_labkit.v" vlg0F/display__16hex__labkit.bin 1446492138
+MO debounce NULL ../Sources/Shared/debounce.v vlg1D/debounce.bin 1446492138
+MO labkit NULL "../Sources/Main FPGA/labkit_mainFPGA.v" vlg7B/labkit.bin 1446492138
+MO ir_transmitter NULL "../Sources/Main FPGA/ir_transmitter.v" vlg6F/ir__transmitter.bin 1446492138
+MO synchronize NULL "../Sources/Main FPGA/labkit_mainFPGA.v" vlg2C/synchronize.bin 1446491836
+MO divider_600us NULL ../Sources/Shared/divider_600us.v vlg00/divider__600us.bin 1446492138
+MO blob NULL "../Sources/Main FPGA/blob.v" vlg73/blob.bin 1446492138
+MO timer NULL "../Sources/Main FPGA/timer.v" vlg09/timer.bin 1446492138
