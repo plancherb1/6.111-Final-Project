@@ -15,6 +15,7 @@ module vga_writer (
    input [5:0] orientation,		// orientation of the rover
    input [3:0] target_location, // location of the target based on switches
    input new_data,				// ready to re-draw and use the new location
+   input orientation_ready,   // ready to draw the orientation
    input [3:0] pspeed,  		// puck speed in pixels/tick 
    input [10:0] hcount,			// horizontal index of current pixel (0..1023)
    input [9:0] 	vcount, 		// vertical index of current pixel (0..767)

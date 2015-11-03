@@ -17,20 +17,20 @@ module ultrasound_location_calculator(
    output reg [11:0] ultrasound_commands,
    output analyzer_clock, // for debug only
    output [15:0] analyzer_data, // for debug only
-	output reg [2:0] state // made output for debug
+   output reg [2:0] state // made output for debug
    );
 	
 	// state parameters and reg
-	parameter IDLE = 4'h0; // waiting to do something
-	parameter TRIGGER = 4'h1; // trigger the module
-	parameter WAIT_FOR1 = 4'h2; // waiting for distance value
-	parameter WAIT_FOR0 = 4'h3; // getting in distance value 0 marks end
-	parameter REPEAT = 4'h4; // cylce to next module if needed
-	parameter REPORT = 4'h5; // when done send out value
+	parameter IDLE = 3'h0; // waiting to do something
+	parameter TRIGGER = 3'h1; // trigger the module
+	parameter WAIT_FOR1 = 3'h2; // waiting for distance value
+	parameter WAIT_FOR0 = 3'h3; // getting in distance value 0 marks end
+	parameter REPEAT = 3'h4; // cylce to next module if needed
+	parameter REPORT = 3'h5; // when done send out value
 	
 	// distance calcing parameters and regs
 	reg [4:0] curr_ultrasound;
-	parameter TOTAL_ULTRASOUNDS = 1;
+	parameter TOTAL_ULTRASOUNDS = 6;
 	reg [8:0] trigger_count;
 	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec
 	reg [19:0] distance_count; // 32 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
@@ -136,7 +136,7 @@ module ultrasound_location_calculator(
 				
 				// report out the result
 				REPORT: begin
-					rover_location <= {best_angle,1'b1,best_distance[6:0]};
+					rover_location <= {best_angle,best_distance};
 					done <= 1;
 					best_angle <= 0;
 					best_distance <= 0;

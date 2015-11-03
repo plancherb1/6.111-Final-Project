@@ -425,6 +425,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire location_update;
   wire get_distance;
   wire run_ultrasound;
+  wire orientation_update;
   
   assign ir_signal = user3[31];
   assign master_on = btn3_db;
@@ -448,10 +449,11 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),.new_data(location_update),
-				.move_command(move_command),.location(rover_location),
-				.orientation(rover_orientation),.target_location(target_location),
-			    .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
-			    .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
+                .move_command(move_command),.location(rover_location),
+                .orientation(rover_orientation),.target_location(target_location),
+                .orientation_update(orientation_update),
+                .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
+			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
   
   // use this to display on hex display for debug
   wire [64:0] my_hex_data;
@@ -467,10 +469,16 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 							disp_reset_b, disp_data_out);
   
   // Orientation/Path activates transmitter when done to send move_command
+  reg [3:0] orient_path_state;
   orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),.enable(location_update),
 								  .rover_location(rover_location),
 								  .target_location(target_location),
-								  .done(transmit_ir),.move_command(move_command));
+                          .orientation_done(orientation_update),
+								  .move_done(transmit_ir),.move_command(move_command),
+                          .state(orient_path_state),
+                          //.analyzer_clock(analyzer3_clock),
+								  //.analyzer_data(analyzer3_data),
+                          );
 								  
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
