@@ -1,5 +1,5 @@
 NUM_USER_FILES
-13
+14
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -15,6 +15,9 @@ user_file_12
 s
 user_file_13
 ../Sources/Shared/synchronize.v
+s
+user_file_14
+../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
 s
 user_file_2
 ../Sources/Main FPGA/display_8hex_labkit.v

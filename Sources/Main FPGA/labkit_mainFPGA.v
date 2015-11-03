@@ -351,7 +351,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [7:0] db_switch;
   // reset is the OR of button enter and the FPGA reset
   debounce #(.DELAY(270000)) db_E (.reset(reset_init), .clock(clock_27mhz), .noisy(~button_enter), .clean(btnE_db));
-  wire reset = reset_init | ~btnE_db;
+  wire reset = reset_init | btnE_db;
   // rest of buttons and switches
   //debounce #(.DELAY(270000)) db_U (.reset(reset), .clock(clock_27mhz), .noisy(~button_up), .clean(btnU_db));
   //debounce #(.DELAY(270000)) db_D (.reset(reset), .clock(clock_27mhz), .noisy(~button_down), .clean(btnD_db));
@@ -427,7 +427,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire run_ultrasound;
   
   assign ir_signal = user3[31];
-  assign master_on = ~btn3_db;
+  assign master_on = btn3_db;
   // need two ways to run ultrasound in case we stretch to path calculation for feedback
   // if we do not get to stretch then get_distance will default to x so will just be master on
   assign run_ultrasound = get_distance | master_on;
@@ -435,10 +435,14 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign user3[10:0] = ultrasound_commands;
   assign ultrasound_signals = user3[21:11];
   
+  wire [2:0] ultrasound_state;
   // Ultrasound
   ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
 									.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
 									.done(location_update),.rover_location(rover_location),
+									.analyzer_clock(analyzer3_clock),
+									.analyzer_data(analyzer3_data),
+									.state(ultrasound_state),
 									.ultrasound_commands(ultrasound_commands));
   
   // VGA Display Block
@@ -455,7 +459,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								 3'b0,location_update,
 								 3'b0,ultrasound_commands[0],
 								 3'b0,ultrasound_signals[0],
-								 40'hFFFFFFFFFF};
+								 1'b0,ultrasound_state,
+								 36'hFFFFFFFFFF};
 										 
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 							disp_blank, disp_clock, disp_rs, disp_ce_b,
@@ -469,14 +474,18 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								  
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
-                                  .reset(reset),
-                                  .address(move_command[11:7]), // angle
-                                  .command(move_command[6:0]), // distance
-                                  .transmit(transmit_ir),
-                                  .signal_out(ir_signal));					  
+                               .reset(reset),
+                               .address(move_command[11:7]), // angle
+                               .command(move_command[6:0]), // distance
+                               .transmit(transmit_ir),
+                               .signal_out(ir_signal));					  
 
   // display waveform on logic analyzer for debug (if needed)
-  assign analyzer3_data = {16'hFF};
-  assign analyzer3_clock = clock_27mhz;
+  //assign analyzer3_data = {rover_location,
+	//								 ultrasound_commands[0],
+		//							 ultrasound_signals[0],
+			//						 location_update,
+				//					 run_ultrasound};
+  //assign analyzer3_clock = clock_27mhz;
 			    
 endmodule

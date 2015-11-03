@@ -1,0 +1,51 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA
+T_opt
+VTHALXO<_^IBdXb1`jA``]0
+04 33 4 work ultrasound_location_calculator_tb fast 0
+04 4 4 work glbl fast 0
+=1-f04da20f1003-5637e11b-2b61d-5dea
+o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+OE;O;6.4a;39
+vglbl
+!s100 T?5S;>bN`@zG_25]R_4A33
+IB;@1jEXmEfQXL`;Kf0IBZ3
+VnN]4Gon>inod6>M^M2[SV1
+w1202685744
+8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+L0 5
+Z1 OE;L;6.4a;39
+r1
+!s85 0
+31
+Z2 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+vultrasound_location_calculator
+INVQRJ3e@L<RiIzVL<?KWR3
+V?[O2Gl1H=D>4LRN64I=HA2
+w1446502678
+8../Sources/Main FPGA/ultrasound_location_calculator.v
+F../Sources/Main FPGA/ultrasound_location_calculator.v
+L0 10
+R1
+r1
+31
+R2
+!s100 EbEhkYP5g@]gZ>GV2[zmg3
+!s85 0
+vultrasound_location_calculator_tb
+I7>8:j0e08X7lT:l1=4U7l2
+VUzRVl:JU8JdJ?n=PFgX3L1
+w1446502365
+8../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+F../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+L0 14
+R1
+r1
+31
+R2
+!s100 ?:@hmHBFF6<O=EWn5?ZV:2
+!s85 0

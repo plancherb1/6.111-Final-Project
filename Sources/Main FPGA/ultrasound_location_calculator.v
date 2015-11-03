@@ -14,13 +14,13 @@ module ultrasound_location_calculator(
    input [11:0] ultrasound_signals,
    output reg done,
    output reg [11:0] rover_location, // {4 bits for angle, 8 for distance}
-   output reg [11:0] ultrasound_commands
-   // output analyzer_clock, // for debug only
-   // output [15:0] analyzer_data // for debug only
+   output reg [11:0] ultrasound_commands,
+   output analyzer_clock, // for debug only
+   output [15:0] analyzer_data, // for debug only
+	output reg [2:0] state // made output for debug
    );
 	
 	// state parameters and reg
-	reg [3:0] state;
 	parameter IDLE = 4'h0; // waiting to do something
 	parameter TRIGGER = 4'h1; // trigger the module
 	parameter WAIT_FOR1 = 4'h2; // waiting for distance value
@@ -33,11 +33,27 @@ module ultrasound_location_calculator(
 	parameter TOTAL_ULTRASOUNDS = 1;
 	reg [8:0] trigger_count;
 	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec
-	reg [22:0] distance_count; // 23 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
+	reg [19:0] distance_count; // 32 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
 	parameter DISTANCE_MAX = 1048576; // spec says distance in 150us to 25ms with 38ms as
 												  // nothing found which is about 2^20 clock cycles
 	reg [7:0] best_distance;
 	reg [3:0] best_angle;
+	
+	// debug only
+	assign analyzer3_clock = clock;
+	assign analyzer_data = {state, //3
+						  ultrasound_signals[0],
+						  ultrasound_commands[0],
+						  trigger_count[8],
+						  trigger_count[0],
+						  distance_count[10],
+						  distance_count[0],
+						  curr_ultrasound[0],
+						  rover_location[8],
+						  rover_location[0],
+						  done,
+						  best_distance[0],
+						  best_angle[0]};
 	
 	// synchronize on the clock
 	always @(posedge clock) begin
@@ -49,6 +65,7 @@ module ultrasound_location_calculator(
 			state <= IDLE;
 			trigger_count <= 0;
 			curr_ultrasound <= 0;
+			best_distance <= 0;
 		end
 		// else execute the FSM
 		else begin
@@ -80,12 +97,15 @@ module ultrasound_location_calculator(
 				WAIT_FOR0: begin
 					if (ultrasound_signals[curr_ultrasound] == 0)begin
 						state <= REPEAT;
-						// per spec distance in in is divide by 148 which is about 7/1024 (1% error)
-						distance_count <= (distance_count * 7) >> 10;
+						// per spec distance is microseconds divide by 148 which is 
+						// about 7/1024 (~1% error) -- but note we have 27 clock
+						// pulses per microsecond so it is actually divide by 1/3996
+						// which we can approximate with 2.5% error to 1/4096! :)
+						distance_count <= (distance_count) >> 12;
 					end
 					else if (distance_count == DISTANCE_MAX -1) begin
 						state <= REPEAT;
-						distance_count <= 23'h7FFFFF;
+						distance_count <= 0;
 					end
 					else begin
 						distance_count <= distance_count + 1;
@@ -95,14 +115,18 @@ module ultrasound_location_calculator(
 				// cycle to next module and/or finalize value
 				REPEAT: begin
 					// in all cases we need to see if our result is the new best result
-					// and then zero out the distance
-					if (distance_count < best_distance) begin
-						best_distance <= distance_count;
+					// and then zero out the distance for this round
+					if ((distance_count > 0) && 
+						 ((best_distance == 0) ||
+						  (distance_count < best_distance))) begin
+						best_distance <= distance_count[7:0];
+						best_angle <= curr_ultrasound;
 					end
 					distance_count <= 0;
 					// if done then go to report state
 					if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
 						state <= REPORT;
+						curr_ultrasound <= 0;
 					end
 					// else go to next ultrasound
 					else begin
@@ -112,7 +136,7 @@ module ultrasound_location_calculator(
 				
 				// report out the result
 				REPORT: begin
-					rover_location <= {best_angle,best_distance};
+					rover_location <= {best_angle,1'b1,best_distance[6:0]};
 					done <= 1;
 					best_angle <= 0;
 					best_distance <= 0;
@@ -121,12 +145,12 @@ module ultrasound_location_calculator(
 				
 				// default to IDLE state
 				default: begin
+					done <= 0;
 					// if we see a run_program then begin the calculation else stay in IDLE
 					if (calculate) begin
 						state <= TRIGGER;
 						ultrasound_commands[curr_ultrasound] <= 1;
 						trigger_count <= 1;
-						done <= 0;
 					end
 				end
 			

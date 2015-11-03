@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -130,6 +130,7 @@ Compiling verilog file "../Sources/Main FPGA/display_8hex_labkit.v" in library w
 Module <ir_transmitter> compiled
 Compiling verilog file "../Sources/Main FPGA/labkit_mainFPGA.v" in library work
 Module <display_16hex_labkit> compiled
+WARNING:HDLCompilers:301 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 463 Too many digits specified in hex constant
 Module <labkit> compiled
 No errors in compilation
 Analysis of file <"labkit.prj"> succeeded.
@@ -229,7 +230,7 @@ WARNING:Xst:2591 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 382: attribute 
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <labkit>.
-WARNING:Xst:852 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 446: Unconnected input port 'pspeed' of instance 'vg' is tied to GND.
+WARNING:Xst:852 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 450: Unconnected input port 'pspeed' of instance 'vg' is tied to GND.
 Module <labkit> is correct for synthesis.
  
     Set user-defined property "INIT =  FFFF" for instance <reset_sr> in unit <labkit>.
@@ -357,7 +358,6 @@ INFO:Xst:2561 - Always blocking tristate driving signal <ram1_data> in unit <lab
 INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
-INFO:Xst:2679 - Register <best_angle> in unit <ultrasound_location_calculator> has a constant value of 0000 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <paddle_x> in unit <vga_writer> has a constant value of 0000000000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
@@ -389,44 +389,33 @@ Unit <xvga> synthesized.
 
 Synthesizing Unit <ultrasound_location_calculator>.
     Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
-    Found finite state machine <FSM_0> for signal <state>.
-    -----------------------------------------------------------------------
-    | States             | 6                                              |
-    | Transitions        | 12                                             |
-    | Inputs             | 5                                              |
-    | Outputs            | 6                                              |
-    | Clock              | clock (rising_edge)                            |
-    | Reset              | reset (positive)                               |
-    | Reset type         | synchronous                                    |
-    | Reset State        | 0000                                           |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
+WARNING:Xst:1305 - Output <analyzer_clock> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <analyzer3_clock> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 3-bit register for signal <state>.
     Found 12-bit register for signal <rover_location>.
     Found 1-bit register for signal <done>.
     Found 12-bit register for signal <ultrasound_commands>.
+    Found 4-bit register for signal <best_angle>.
     Found 8-bit register for signal <best_distance>.
-    Found 23-bit comparator less for signal <best_distance$cmp_lt0000> created at line 99.
+    Found 20-bit comparator greater for signal <best_distance$cmp_gt0000> created at line 119.
+    Found 20-bit comparator less for signal <best_distance$cmp_lt0000> created at line 119.
     Found 5-bit up counter for signal <curr_ultrasound>.
-    Found 23-bit register for signal <distance_count>.
-    Found 23-bit adder for signal <distance_count$addsub0000> created at line 91.
-    Found 23x3-bit multiplier for signal <distance_count$mult0000> created at line 84.
+    Found 20-bit register for signal <distance_count>.
+    Found 20-bit adder for signal <distance_count$addsub0000> created at line 111.
     Found 9-bit register for signal <trigger_count>.
-    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 66.
+    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 83.
     Summary:
-	inferred   1 Finite State Machine(s).
 	inferred   1 Counter(s).
-	inferred  65 D-type flip-flop(s).
+	inferred  69 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
-	inferred   1 Multiplier(s).
-	inferred   1 Comparator(s).
+	inferred   2 Comparator(s).
 	inferred   1 Multiplexer(s).
 Unit <ultrasound_location_calculator> synthesized.
 
 
 Synthesizing Unit <display_16hex_labkit>.
     Related source file is "../Sources/Main FPGA/display_8hex_labkit.v".
-    Found finite state machine <FSM_1> for signal <state>.
+    Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 7                                              |
     | Transitions        | 11                                             |
@@ -578,7 +567,7 @@ Unit <timer> synthesized.
 
 Synthesizing Unit <ir_transmitter>.
     Related source file is "../Sources/Main FPGA/ir_transmitter.v".
-    Found finite state machine <FSM_2> for signal <state>.
+    Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 5                                              |
     | Transitions        | 12                                             |
@@ -927,8 +916,7 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x40-bit ROM                                         : 1
-# Multipliers                                          : 4
- 23x3-bit multiplier                                   : 1
+# Multipliers                                          : 3
  8x2-bit multiplier                                    : 3
 # Adders/Subtractors                                   : 26
  1-bit adder carry out                                 : 1
@@ -938,7 +926,7 @@ Macro Statistics
  11-bit adder carry out                                : 2
  2-bit adder                                           : 1
  2-bit adder carry out                                 : 1
- 23-bit adder                                          : 1
+ 20-bit adder                                          : 1
  3-bit adder                                           : 3
  3-bit adder carry out                                 : 1
  4-bit adder                                           : 5
@@ -953,16 +941,17 @@ Macro Statistics
  8-bit down counter                                    : 1
 # Accumulators                                         : 1
  10-bit updown accumulator                             : 1
-# Registers                                            : 50
+# Registers                                            : 52
  1-bit register                                        : 38
  10-bit register                                       : 4
  12-bit register                                       : 2
- 23-bit register                                       : 1
+ 20-bit register                                       : 1
+ 3-bit register                                        : 1
  32-bit register                                       : 1
- 4-bit register                                        : 2
+ 4-bit register                                        : 3
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 24
+# Comparators                                          : 25
  10-bit comparator equal                               : 1
  10-bit comparator greatequal                          : 3
  10-bit comparator greater                             : 1
@@ -971,7 +960,8 @@ Macro Statistics
  11-bit comparator less                                : 6
  11-bit comparator lessequal                           : 1
  12-bit comparator less                                : 4
- 23-bit comparator less                                : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator less                                : 1
  24-bit comparator greater                             : 1
  5-bit comparator not equal                            : 1
 # Multiplexers                                         : 3
@@ -987,7 +977,7 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-Analyzing FSM <FSM_2> for best encoding.
+Analyzing FSM <FSM_1> for best encoding.
 Optimizing FSM <transmitter/state/FSM> on signal <state[1:3]> with gray encoding.
 -------------------
  State | Encoding
@@ -998,7 +988,7 @@ Optimizing FSM <transmitter/state/FSM> on signal <state[1:3]> with gray encoding
  011   | 010
  100   | 110
 -------------------
-Analyzing FSM <FSM_1> for best encoding.
+Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
 ----------------------
  State    | Encoding
@@ -1011,25 +1001,8 @@ Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
  00000101 | 101
  00000110 | 110
 ----------------------
-Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <ul/state/FSM> on signal <state[1:3]> with sequential encoding.
--------------------
- State | Encoding
--------------------
- 0000  | 000
- 0001  | 010
- 0010  | 001
- 0011  | 011
- 0100  | 100
- 0101  | 101
--------------------
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
-WARNING:Xst:2404 -  FFs/Latches <rover_location<11:8>> (without init value) have a constant value of 0 in block <ultrasound_location_calculator>.
 WARNING:Xst:2404 -  FFs/Latches <puck_y<9:9>> (without init value) have a constant value of 0 in block <vga_writer>.
-
-Synthesizing (advanced) Unit <ultrasound_location_calculator>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_distance_count_mult0000 by adding 2 register level(s).
-Unit <ultrasound_location_calculator> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_writer>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_alpha_bend_R_mult0000 by adding 1 register level(s).
@@ -1065,8 +1038,7 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x40-bit ROM                                         : 1
-# Multipliers                                          : 4
- 23x3-bit multiplier                                   : 1
+# Multipliers                                          : 3
  8x2-bit multiplier                                    : 3
 # Adders/Subtractors                                   : 26
  1-bit adder carry out                                 : 1
@@ -1076,7 +1048,7 @@ Macro Statistics
  11-bit adder carry out                                : 2
  2-bit adder                                           : 1
  2-bit adder carry out                                 : 1
- 23-bit adder                                          : 1
+ 20-bit adder                                          : 1
  3-bit adder                                           : 3
  3-bit adder carry out                                 : 1
  4-bit adder                                           : 5
@@ -1091,9 +1063,9 @@ Macro Statistics
  8-bit down counter                                    : 1
 # Accumulators                                         : 1
  10-bit updown accumulator                             : 1
-# Registers                                            : 168
- Flip-Flops                                            : 168
-# Comparators                                          : 23
+# Registers                                            : 173
+ Flip-Flops                                            : 173
+# Comparators                                          : 24
  10-bit comparator equal                               : 1
  10-bit comparator greatequal                          : 3
  10-bit comparator greater                             : 1
@@ -1102,7 +1074,8 @@ Macro Statistics
  11-bit comparator less                                : 5
  11-bit comparator lessequal                           : 1
  12-bit comparator less                                : 4
- 23-bit comparator less                                : 1
+ 20-bit comparator greater                             : 1
+ 20-bit comparator less                                : 1
  24-bit comparator greater                             : 1
  5-bit comparator not equal                            : 1
 # Multiplexers                                         : 3
@@ -1309,8 +1282,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 175
- Flip-Flops                                            : 175
+# Registers                                            : 180
+ Flip-Flops                                            : 180
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -1341,30 +1314,31 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 848
+# BELS                             : 795
 #      GND                         : 1
 #      INV                         : 40
-#      LUT1                        : 90
-#      LUT2                        : 38
-#      LUT3                        : 90
-#      LUT3_D                      : 6
-#      LUT3_L                      : 3
-#      LUT4                        : 254
-#      LUT4_D                      : 5
-#      LUT4_L                      : 15
+#      LUT1                        : 82
+#      LUT2                        : 39
+#      LUT2_L                      : 4
+#      LUT3                        : 79
+#      LUT3_D                      : 1
+#      LUT3_L                      : 5
+#      LUT4                        : 259
+#      LUT4_D                      : 6
+#      LUT4_L                      : 6
 #      MULT_AND                    : 1
-#      MUXCY                       : 148
-#      MUXF5                       : 52
+#      MUXCY                       : 140
+#      MUXF5                       : 39
 #      MUXF6                       : 4
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 99
-# FlipFlops/Latches                : 189
+#      XORCY                       : 87
+# FlipFlops/Latches                : 194
 #      FD                          : 2
-#      FDE                         : 47
-#      FDR                         : 44
-#      FDRE                        : 68
-#      FDRS                        : 17
+#      FDE                         : 40
+#      FDR                         : 51
+#      FDRE                        : 72
+#      FDRS                        : 18
 #      FDS                         : 1
 #      FDSE                        : 10
 # Shift Registers                  : 5
@@ -1378,8 +1352,6 @@ Cell Usage :
 #      OBUF                        : 251
 # DCMs                             : 1
 #      DCM                         : 1
-# MULTs                            : 2
-#      MULT18X18                   : 2
 =========================================================================
 
 Device utilization summary:
@@ -1387,14 +1359,13 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      290  out of  33792     0%  
- Number of Slice Flip Flops:            189  out of  67584     0%  
- Number of 4 input LUTs:                546  out of  67584     0%  
-    Number used as logic:               541
+ Number of Slices:                      277  out of  33792     0%  
+ Number of Slice Flip Flops:            194  out of  67584     0%  
+ Number of 4 input LUTs:                526  out of  67584     0%  
+    Number used as logic:               521
     Number used as Shift registers:       5
  Number of IOs:                         576
  Number of bonded IOBs:                 265  out of    684    38%  
- Number of MULT18X18s:                    2  out of    144     1%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
 
@@ -1419,7 +1390,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 125   |
+clock_27mhz                        | IBUFG+BUFG             | 130   |
 clock_27mhz                        | vclk1:CLKFX            | 26    |
 disp/clock1                        | BUFG                   | 43    |
 -----------------------------------+------------------------+-------+
@@ -1432,10 +1403,10 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 14.405ns (Maximum Frequency: 69.421MHz)
-   Minimum input arrival time before clock: 11.290ns
+   Minimum period: 14.530ns (Maximum Frequency: 68.825MHz)
+   Minimum input arrival time before clock: 11.491ns
    Maximum output required time after clock: 12.601ns
-   Maximum combinational path delay: 6.477ns
+   Maximum combinational path delay: 5.911ns
 
 Timing Detail:
 --------------
@@ -1443,35 +1414,35 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 14.405ns (frequency: 69.421MHz)
-  Total number of paths / destination ports: 7153 / 363
+  Clock period: 14.530ns (frequency: 68.825MHz)
+  Total number of paths / destination ports: 6138 / 381
 -------------------------------------------------------------------------
-Delay:               6.002ns (Levels of Logic = 4)
-  Source:            xvga1/vcount_8 (FF)
+Delay:               6.054ns (Levels of Logic = 4)
+  Source:            xvga1/hcount_3 (FF)
   Destination:       xvga1/blank (FF)
   Source Clock:      clock_27mhz rising 2.4X
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: xvga1/vcount_8 to xvga1/blank
+  Data Path: xvga1/hcount_3 to xvga1/blank
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             7   0.568   1.102  xvga1/vcount_8 (xvga1/vcount_8)
-     LUT3:I0->O            2   0.439   0.910  xvga1/next_vblank4 (xvga1/next_vblank4)
-     LUT3:I1->O            1   0.439   0.551  xvga1/next_vblank15 (xvga1/next_vblank15)
-     LUT4_L:I2->LO         1   0.439   0.134  xvga1/vreset2_SW1 (N169)
+     FDR:C->Q              4   0.568   1.032  xvga1/hcount_3 (xvga1/hcount_3)
+     LUT3:I0->O            5   0.439   0.771  xvga1/hblankon21 (xvga1/N8)
+     MUXF5:S->O            1   0.699   0.551  xvga1/hreset2_SW1 (N133)
+     LUT4_L:I2->LO         1   0.439   0.134  xvga1/vreset2_SW1 (N122)
      LUT4:I2->O            2   0.439   0.702  xvga1/next_vblank45 (xvga1/next_vblank)
      FDS:S                     0.280          xvga1/blank
     ----------------------------------------
-    Total                      6.002ns (2.604ns logic, 3.398ns route)
-                                       (43.4% logic, 56.6% route)
+    Total                      6.054ns (2.864ns logic, 3.190ns route)
+                                       (47.3% logic, 52.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 11.635ns (frequency: 85.949MHz)
-  Total number of paths / destination ports: 3248 / 75
+  Clock period: 11.622ns (frequency: 86.047MHz)
+  Total number of paths / destination ports: 2599 / 71
 -------------------------------------------------------------------------
-Delay:               11.635ns (Levels of Logic = 11)
+Delay:               11.622ns (Levels of Logic = 11)
   Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
@@ -1481,54 +1452,54 @@ Delay:               11.635ns (Levels of Logic = 11)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             19   0.568   1.069  disp/char_index_0 (disp/char_index_0)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux_nibble_11 (disp/Mmux_nibble_11)
-     MUXF5:I1->O           1   0.436   0.557  disp/Mmux_nibble_10_f5 (disp/Mmux_nibble_10_f5)
-     LUT4:I3->O           28   0.439   1.285  disp/char_index<3> (disp/nibble<0>)
-     LUT4:I1->O            2   0.439   0.735  disp/Mrom_dots1311 (disp/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.551  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     LUT4:I2->O            1   0.439   0.551  disp/disp_data_out_mux000032_SW0 (N188)
-     LUT4_L:I2->LO         1   0.439   0.140  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
-     LUT4:I3->O            2   0.439   0.987  disp/disp_data_out_mux0000109 (disp/disp_data_out_mux0000109)
-     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000170_F (N259)
-     MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000170 (disp/disp_data_out_mux0000)
+     FDE:C->Q             19   0.568   1.320  disp/char_index_0 (disp/char_index_0)
+     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_91 (disp/Mmux_nibble_91)
+     MUXF5:I1->O           2   0.436   0.910  disp/Mmux_nibble_8_f5 (disp/Mmux_nibble_8_f5)
+     LUT4:I1->O           25   0.439   1.354  disp/char_index<3>4 (disp/nibble<0>)
+     LUT4:I0->O            2   0.439   0.735  disp/Mrom_dots171 (disp/Mrom_dots17)
+     LUT4:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_122 (disp/Mmux__varindex0000_122)
+     MUXF5:I1->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
+     MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
+     MUXF7:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux000078_F (N186)
+     MUXF5:I0->O           1   0.436   0.803  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
+     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.635ns (5.758ns logic, 5.877ns route)
-                                       (49.5% logic, 50.5% route)
+    Total                     11.622ns (5.774ns logic, 5.847ns route)
+                                       (49.7% logic, 50.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 1157 / 72
+  Total number of paths / destination ports: 541 / 69
 -------------------------------------------------------------------------
-Offset:              9.034ns (Levels of Logic = 8)
+Offset:              8.847ns (Levels of Logic = 8)
   Source:            user3<11> (PAD)
-  Destination:       ul/distance_count_15 (FF)
+  Destination:       ul/distance_count_1 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: user3<11> to ul/distance_count_15
+  Data Path: user3<11> to ul/distance_count_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.825   0.910  user3_11_IBUF (user3_11_IBUF)
+     IBUF:I->O             3   0.825   0.933  user3_11_IBUF (user3_11_IBUF)
      LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_2_9 (ul/Mmux__COND_2_9)
      MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_2_7_f5 (ul/Mmux__COND_2_7_f5)
      MUXF6:I0->O           2   0.447   0.910  ul/Mmux__COND_2_5_f6 (ul/Mmux__COND_2_5_f6)
-     LUT3:I1->O            8   0.439   1.125  ul/curr_ultrasound<3>1 (ul/_COND_2)
-     LUT3:I0->O           22   0.439   1.260  ul/distance_count_mux0000<22>21 (ul/N5)
-     LUT4:I1->O            1   0.439   0.558  ul/distance_count_mux0000<21>_SW0 (N88)
-     LUT4:I3->O            1   0.439   0.000  ul/distance_count_mux0000<21> (ul/distance_count_mux0000<21>)
+     LUT3:I1->O           14   0.439   1.012  ul/state_mux0000<2>110 (ul/N0)
+     LUT3:I2->O           13   0.439   1.162  ul/distance_count_mux0000<12>21 (ul/N36)
+     LUT4:I1->O            1   0.439   0.558  ul/distance_count_mux0000<18>_SW0 (N63)
+     LUT4:I3->O            1   0.439   0.000  ul/distance_count_mux0000<18> (ul/distance_count_mux0000<18>)
      FDE:D                     0.370          ul/distance_count_1
     ----------------------------------------
-    Total                      9.034ns (4.273ns logic, 4.761ns route)
-                                       (47.3% logic, 52.7% route)
+    Total                      8.847ns (4.273ns logic, 4.574ns route)
+                                       (48.3% logic, 51.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'disp/clock1'
-  Total number of paths / destination ports: 60 / 1
+  Total number of paths / destination ports: 29 / 1
 -------------------------------------------------------------------------
-Offset:              11.290ns (Levels of Logic = 11)
+Offset:              11.491ns (Levels of Logic = 12)
   Source:            user3<11> (PAD)
   Destination:       disp/disp_data_out (FF)
   Destination Clock: disp/clock1 rising
@@ -1537,25 +1508,26 @@ Offset:              11.290ns (Levels of Logic = 11)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.825   0.910  user3_11_IBUF (user3_11_IBUF)
-     LUT4:I1->O            1   0.439   0.552  disp/char_index<3>_SW0 (N118)
-     LUT4:I2->O           28   0.439   1.285  disp/char_index<3> (disp/nibble<0>)
-     LUT4:I1->O            2   0.439   0.735  disp/Mrom_dots1311 (disp/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.551  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     LUT4:I2->O            1   0.439   0.551  disp/disp_data_out_mux000032_SW0 (N188)
-     LUT4_L:I2->LO         1   0.439   0.140  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
-     LUT4:I3->O            2   0.439   0.987  disp/disp_data_out_mux0000109 (disp/disp_data_out_mux0000109)
-     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000170_F (N259)
-     MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000170 (disp/disp_data_out_mux0000)
+     IBUF:I->O             3   0.825   0.932  user3_11_IBUF (user3_11_IBUF)
+     LUT3:I1->O            1   0.439   0.000  disp/Mmux_nibble_91 (disp/Mmux_nibble_91)
+     MUXF5:I1->O           2   0.436   0.910  disp/Mmux_nibble_8_f5 (disp/Mmux_nibble_8_f5)
+     LUT4:I1->O           25   0.439   1.354  disp/char_index<3>4 (disp/nibble<0>)
+     LUT4:I0->O            2   0.439   0.735  disp/Mrom_dots171 (disp/Mrom_dots17)
+     LUT4:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_122 (disp/Mmux__varindex0000_122)
+     MUXF5:I1->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
+     MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
+     MUXF7:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux000078_F (N186)
+     MUXF5:I0->O           1   0.436   0.803  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
+     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.290ns (5.579ns logic, 5.711ns route)
-                                       (49.4% logic, 50.6% route)
+    Total                     11.491ns (6.031ns logic, 5.460ns route)
+                                       (52.5% logic, 47.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 1661 / 39
+  Total number of paths / destination ports: 1675 / 53
 -------------------------------------------------------------------------
 Offset:              12.601ns (Levels of Logic = 10)
   Source:            xvga1/vcount_6 (FF)
@@ -1573,7 +1545,7 @@ Offset:              12.601ns (Levels of Logic = 10)
      MUXCY:CI->O           1   0.053   0.000  vg/paddle/Mcompar_pixel_cmp_lt0001_cy<8> (vg/paddle/Mcompar_pixel_cmp_lt0001_cy<8>)
      MUXCY:CI->O           1   0.053   0.000  vg/paddle/Mcompar_pixel_cmp_lt0001_cy<9> (vg/paddle/Mcompar_pixel_cmp_lt0001_cy<9>)
      MUXCY:CI->O           1   0.942   0.802  vg/paddle/Mcompar_pixel_cmp_lt0001_cy<10> (vg/paddle/Mcompar_pixel_cmp_lt0001_cy<10>)
-     LUT4:I0->O            1   0.439   0.557  vg/pixel<0>2_SW1 (N200)
+     LUT4:I0->O            1   0.439   0.557  vg/pixel<0>2_SW1 (N204)
      LUT4:I3->O            5   0.439   1.056  vg/pixel<0>2 (vg/N2)
      LUT2:I0->O           12   0.439   0.931  vg/pixel<0>1 (pixel<0>)
      OBUF:I->O                 4.361          vga_out_blue_5_OBUF (vga_out_blue<5>)
@@ -1604,32 +1576,32 @@ Offset:              5.630ns (Levels of Logic = 1)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               6.477ns (Levels of Logic = 2)
-  Source:            clock_27mhz (PAD)
-  Destination:       analyzer3_clock (PAD)
+Delay:               5.911ns (Levels of Logic = 2)
+  Source:            user3<11> (PAD)
+  Destination:       analyzer3_data<11> (PAD)
 
-  Data Path: clock_27mhz to analyzer3_clock
+  Data Path: user3<11> to analyzer3_data<11>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUFG:I->O            2   1.414   0.701  clock_27mhz_IBUFG (analyzer3_clock_OBUF1)
-     OBUF:I->O                 4.361          analyzer3_clock_OBUF (analyzer3_clock)
+     IBUF:I->O             3   0.825   0.725  user3_11_IBUF (user3_11_IBUF)
+     OBUF:I->O                 4.361          analyzer3_data_11_OBUF (analyzer3_data<11>)
     ----------------------------------------
-    Total                      6.477ns (5.775ns logic, 0.701ns route)
-                                       (89.2% logic, 10.8% route)
+    Total                      5.911ns (5.186ns logic, 0.725ns route)
+                                       (87.7% logic, 12.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 12.45 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.40 secs
  
 --> 
 
 
-Total memory usage is 481308 kilobytes
+Total memory usage is 479056 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  503 (   0 filtered)
-Number of infos    :   18 (   0 filtered)
+Number of warnings :  505 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
 
