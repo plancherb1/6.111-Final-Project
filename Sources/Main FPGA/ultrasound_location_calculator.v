@@ -12,10 +12,11 @@ module ultrasound_location_calculator(
    input clock,
    input reset,
    input calculate,
-   input [11:0] ultrasound_signals,
+   input [11:0] ultrasound_signals, // can use up to 12 ultrasounds
    output reg done,
    output reg [11:0] rover_location, // {4 bits for angle, 8 for distance}
-   output reg [11:0] ultrasound_commands,
+   output reg [11:0] ultrasound_commands, // can use up to 12 ultrasounds
+	output reg [11:0] ultrasound_power, // can use up to 12 ultrasounds
    output analyzer_clock, // for debug only
    output [15:0] analyzer_data, // for debug only
    output reg [2:0] state // made output for debug
@@ -28,6 +29,7 @@ module ultrasound_location_calculator(
 	parameter WAIT_FOR0 = 3'h3; // getting in distance value 0 marks end
 	parameter REPEAT = 3'h4; // cylce to next module if needed
 	parameter REPORT = 3'h5; // when done send out value
+	parameter POWER_CYCLE = 3'h6; // make sure to power cycle in case stuck
 	
 	// distance calcing parameters and regs
 	reg [4:0] curr_ultrasound;
@@ -45,16 +47,10 @@ module ultrasound_location_calculator(
 	assign analyzer_data = {state, //3
 						  ultrasound_signals[0],
 						  ultrasound_commands[0],
-						  trigger_count[8],
-						  trigger_count[0],
+						  calculate,
 						  distance_count[10],
-						  distance_count[0],
-						  curr_ultrasound[0],
-						  rover_location[8],
-						  rover_location[0],
 						  done,
-						  best_distance[0],
-						  best_angle[0]};
+						  rover_location[7:0]};
 	
 	// synchronize on the clock
 	always @(posedge clock) begin
@@ -97,7 +93,7 @@ module ultrasound_location_calculator(
 				// start the division process now and will be done in next state
 				WAIT_FOR0: begin
 					if (ultrasound_signals[curr_ultrasound] == 0)begin
-						state <= REPEAT;
+						state <= POWER_CYCLE;
 						// per spec distance is microseconds divide by 148 which is 
 						// about 7/1024 (~1% error) -- but note we have 27 clock
 						// pulses per microsecond so it is actually divide by 1/3996
@@ -105,12 +101,26 @@ module ultrasound_location_calculator(
 						distance_count <= (distance_count) >> 12;
 					end
 					else if (distance_count == DISTANCE_MAX -1) begin
-						state <= REPEAT;
-						distance_count <= 0;
+						state <= POWER_CYCLE;
+						distance_count <= 10'h7FFFF;
 					end
 					else begin
 						distance_count <= distance_count + 1;
 					end
+				end
+				
+				// The HC-SR04's I have get stuck and need to be power cycled if they
+				// calc a distance of 0. To be safe we will always cycle the power
+				POWER_CYLCE: begin
+					// cut power to the ultrasound
+					// then use a counter to count for 1023 clock cycles and the power back on
+					
+					
+					// TBD
+					
+					
+					
+					state <= REPEAT;
 				end
 				
 				// cycle to next module and/or finalize value

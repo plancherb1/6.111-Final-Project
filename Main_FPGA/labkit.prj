@@ -1,5 +1,7 @@
 verilog work "../Sources/Shared/divider_600us.v"
+verilog work "../Sources/Main FPGA/triangle.v"
 verilog work "../Sources/Main FPGA/timer.v"
+verilog work "../Sources/Main FPGA/grid.v"
 verilog work "../Sources/Main FPGA/blob.v"
 verilog work "../Sources/Shared/debounce.v"
 verilog work "../Sources/Main FPGA/xvga.v"

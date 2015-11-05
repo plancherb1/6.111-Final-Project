@@ -17,7 +17,7 @@ module orientation_path_calculator(
    output reg move_done,
    output reg orientation_done,
    output reg [11:0] move_command,
-   output reg [4:0] state // exposed for debug
+   output reg [3:0] state // exposed for debug
 	// output analyzer_clock, // for debug only
 	// output [15:0] analyzer_data // for debug only
 	);
@@ -33,7 +33,6 @@ module orientation_path_calculator(
    reg [11:0] original_location;
    reg [11:0] updated_location;
    parameter ORIENTATION_MOVE = 12'h005;
-   reg [11:0]
 	
 	always @(posedge clock) begin
       // reset on reset

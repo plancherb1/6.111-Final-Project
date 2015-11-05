@@ -1,5 +1,5 @@
 NUM_USER_FILES
-14
+16
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -18,6 +18,12 @@ user_file_13
 s
 user_file_14
 ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+s
+user_file_15
+../Sources/Main FPGA/grid.v
+s
+user_file_16
+../Sources/Main FPGA/triangle.v
 s
 user_file_2
 ../Sources/Main FPGA/display_8hex_labkit.v

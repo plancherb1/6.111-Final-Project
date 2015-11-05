@@ -431,7 +431,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign master_on = btn3_db;
   // need two ways to run ultrasound in case we stretch to path calculation for feedback
   // if we do not get to stretch then get_distance will default to x so will just be master on
-  assign run_ultrasound = get_distance | master_on;
+  assign run_ultrasound = master_on | get_distance;
   assign target_location = db_switch[3:0];
   assign user3[10:0] = ultrasound_commands;
   assign ultrasound_signals = user3[21:11];
@@ -451,7 +451,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),.new_data(location_update),
                 .move_command(move_command),.location(rover_location),
                 .orientation(rover_orientation),.target_location(target_location),
-                .orientation_update(orientation_update),
+                .orientation_ready(orientation_update),
                 .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
 			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
   
@@ -462,20 +462,20 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								 3'b0,ultrasound_commands[0],
 								 3'b0,ultrasound_signals[0],
 								 1'b0,ultrasound_state,
-								 36'hFFFFFFFFFF};
+								 36'hFFFFFFFFF};
 										 
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 							disp_blank, disp_clock, disp_rs, disp_ce_b,
 							disp_reset_b, disp_data_out);
   
   // Orientation/Path activates transmitter when done to send move_command
-  reg [3:0] orient_path_state;
+  wire [3:0] orient_path_state;
   orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),.enable(location_update),
 								  .rover_location(rover_location),
 								  .target_location(target_location),
                           .orientation_done(orientation_update),
 								  .move_done(transmit_ir),.move_command(move_command),
-                          .state(orient_path_state),
+                          .state(orient_path_state)
                           //.analyzer_clock(analyzer3_clock),
 								  //.analyzer_data(analyzer3_data),
                           );

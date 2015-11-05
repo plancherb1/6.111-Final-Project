@@ -57,10 +57,11 @@ module vga_writer (
    reg signed [11:0] rover_x;
    reg signed [11:0] rover_y;
    wire signed [11:0] temp_rover_x;
-   wire signed [11:0] temp_rover_y
+   wire signed [11:0] temp_rover_y;
    
    // instantiate the helper module with continuous translation of rover (r,theta) to (x,y)
-   
+   assign temp_rover_x = 1;
+	assign temp_rover_y = 1;
    
    // TBD
    
@@ -77,7 +78,7 @@ module vga_writer (
       else if (new_data | orientation_ready) begin
          // save the updated rover location
          rover_x <= temp_rover_x;
-         rover_y <= temp_rover_y
+         rover_y <= temp_rover_y;
       end
       // in all cases target assign location based on the switches (defines center) 
       // Note: these are hard coded for various test values
@@ -95,7 +96,7 @@ module vga_writer (
    
    // instantiate the grid
    wire grid_pixel;
-   grid #(.COLOR(TARGET_COLOR),.BLANK_COLOR(BLANK_COLOR))
+   grid #(.GRID_COLOR(TARGET_COLOR),.BLANK_COLOR(BLANK_COLOR))
 		  grid(.x_value(x_value),.y_value(y_value),.pixel(grid_pixel));
    
    // instantiate the target
@@ -114,6 +115,7 @@ module vga_writer (
 		  rover_t(.x(rover_x),.y(rover_y),.x_value(x_value),.y_value(y_value),.pixel(rover_pixel_t));
         
    // use the appropriate rover
+	wire [23:0] rover_pixel;
    assign rover_pixel = orientation_ready ? rover_pixel_t : rover_pixel_s;
    
    // compute the alpha blend of the rover and the target
@@ -131,7 +133,7 @@ module vga_writer (
 	assign alpha_blend_G = ((rover_pixel[15:8]*ALPHA_M)>>ALPHA_N_LOG_2) + 
 	                           ((target_pixel[15:8]*(ALPHA_N-ALPHA_M))>>ALPHA_N_LOG_2);
 	assign alpha_blend_B = ((rover_pixel[7:0]*ALPHA_M)>>ALPHA_N_LOG_2) +
-	                           ((taret_pixel[7:0]*(ALPHA_N-ALPHA_M))>>ALPHA_N_LOG_2);
+	                           ((target_pixel[7:0]*(ALPHA_N-ALPHA_M))>>ALPHA_N_LOG_2);
    assign alpha_blend_pixel = {alpha_blend_R, alpha_blend_G, alpha_blend_B};
 	assign overlap_pixel = (rover_pixel & target_pixel > 0) ? alpha_blend_pixel : (rover_pixel | target_pixel);
    

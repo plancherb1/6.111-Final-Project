@@ -42,18 +42,18 @@ module grid
       // test if we are on one of the radial lines
       if((test_15deg - y_value == 0) || (test_45deg - y_value == 0) || (test_75deg - y_value == 0) ||
          (test_75deg + y_value == 0) || (test_45deg + y_value == 0) || (test_75deg + y_value == 0)) begin
-         grid_pixel = GRID_COLOR;
+         pixel = GRID_COLOR;
       end
       // else test if we are on one of the arcs otherwise return blank
       else begin
          case (d_2)
-            R_1: grid_pixel = GRID_COLOR;
-            R_2: grid_pixel = GRID_COLOR;
-            R_3: grid_pixel = GRID_COLOR;
-            R_4: grid_pixel = GRID_COLOR;
-            R_5: grid_pixel = GRID_COLOR;
-            R_6: grid_pixel = GRID_COLOR;
-            default: grid_pixel = BLANK_COLOR;
+            R_1: pixel = GRID_COLOR;
+            R_2: pixel = GRID_COLOR;
+            R_3: pixel = GRID_COLOR;
+            R_4: pixel = GRID_COLOR;
+            R_5: pixel = GRID_COLOR;
+            R_6: pixel = GRID_COLOR;
+            default: pixel = BLANK_COLOR;
          endcase
       end
    end

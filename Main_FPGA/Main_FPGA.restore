@@ -838,11 +838,13 @@ proc restore { { project_dir "" } } {
   set user_files { 
       "../Sources/Main FPGA/blob.v" 
       "../Sources/Main FPGA/display_8hex_labkit.v" 
+      "../Sources/Main FPGA/grid.v" 
       "../Sources/Main FPGA/ir_transmitter.v" 
       "../Sources/Main FPGA/labkit.ucf" 
       "../Sources/Main FPGA/labkit_mainFPGA.v" 
       "../Sources/Main FPGA/orientation_path_calculator.v" 
       "../Sources/Main FPGA/timer.v" 
+      "../Sources/Main FPGA/triangle.v" 
       "../Sources/Main FPGA/ultrasound_location_calculator.v" 
       "../Sources/Main FPGA/vga_writer.v" 
       "../Sources/Main FPGA/xvga.v" 
