@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 ///////////////////////////////////////////////////////////////////////////////
 // A programmable timer with 75us increments. When start_timer is asserted,
 // the timer latches length, and asserts expired for one clock cycle 

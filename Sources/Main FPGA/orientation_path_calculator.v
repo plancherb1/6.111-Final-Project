@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company:        MIT 6.111 Final Project
 // Engineer:       Brian Plancher
@@ -61,7 +62,13 @@ module orientation_path_calculator(
             
             // do the vector math to calc orientation
             CALC_ORIENTATION: begin
-               // THIS IS HARDDDDDDD
+               
+               
+               
+               // TBD -- use helper module with continuous assignment and then just pull in the value here
+               
+               
+               
                // orientation <= ?
                orientation_done <= 1;
                state <= START_MOVE;

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company:        MIT 6.111 Final Project
 // Engineer:       Brian Plancher
@@ -30,7 +31,7 @@ module ultrasound_location_calculator(
 	
 	// distance calcing parameters and regs
 	reg [4:0] curr_ultrasound;
-	parameter TOTAL_ULTRASOUNDS = 6;
+	parameter TOTAL_ULTRASOUNDS = 1;
 	reg [8:0] trigger_count;
 	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec
 	reg [19:0] distance_count; // 32 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
