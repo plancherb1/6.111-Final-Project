@@ -6,6 +6,7 @@
 // Module Name:    blob 
 //
 // Additional Comments: Updated by Brian Plancher 11/3/15 to use my custom geometry
+//                      and to pull location as the center of the square
 //
 //////////////////////////////////////////////////////////////////////////////////
 module blob

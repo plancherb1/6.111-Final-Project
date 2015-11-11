@@ -418,10 +418,11 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire ir_signal; // IR data
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location;
-  wire [5:0] rover_orientation;
+  wire [3:0] rover_orientation;
   wire [3:0] target_location;
-  wire [11:0] ultrasound_commands;
-  wire [11:0] ultrasound_signals;
+  wire [9:0] ultrasound_commands;
+  wire [9:0] ultrasound_signals;
+  wire [9:0] ultrasound_power;
   wire location_update;
   wire get_distance;
   wire run_ultrasound;
@@ -433,8 +434,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // if we do not get to stretch then get_distance will default to x so will just be master on
   assign run_ultrasound = master_on | get_distance;
   assign target_location = db_switch[3:0];
-  assign user3[10:0] = ultrasound_commands;
-  assign ultrasound_signals = user3[21:11];
+  assign user3[9:0] = ultrasound_commands;
+  assign user3[19:10] = ultrasound_commands;
+  assign ultrasound_signals = user3[29:20];
   
   wire [2:0] ultrasound_state;
   // Ultrasound
@@ -473,6 +475,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),.enable(location_update),
 								  .rover_location(rover_location),
 								  .target_location(target_location),
+                          .orientation(rover_orientation),
                           .orientation_done(orientation_update),
 								  .move_done(transmit_ir),.move_command(move_command),
                           .state(orient_path_state)

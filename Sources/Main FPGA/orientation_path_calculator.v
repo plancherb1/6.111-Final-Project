@@ -12,11 +12,12 @@ module orientation_path_calculator(
 	input clock,
 	input reset,
 	input enable,
-   input [11:0] rover_location,
+   input [11:0] rover_location, // r is [7:0] theta is [11:8]
    input [3:0] target_location,
    output reg move_done,
    output reg orientation_done,
-   output reg [11:0] move_command,
+   output reg [3:0] orientation,
+   output reg [11:0] move_command, // angle == [11:7], distance == [6:0]
    output reg [3:0] state // exposed for debug
 	// output analyzer_clock, // for debug only
 	// output [15:0] analyzer_data // for debug only
@@ -65,7 +66,8 @@ module orientation_path_calculator(
                
                
                // TBD -- use helper module with continuous assignment and then just pull in the value here
-               
+               original_location
+               updated_location
                
                
                // orientation <= ?

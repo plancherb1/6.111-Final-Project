@@ -13,7 +13,7 @@ module vga_writer (
    input reset,					// 1 to initialize module
    input [11:0] location,		// input location of the Rover
    input [11:0] move_command,  	// move command to the rover (if applicable)
-   input [5:0] orientation,		// orientation of the rover
+   input [3:0] orientation,		// orientation of the rover
    input [3:0] target_location, // location of the target based on switches
    input new_data,				// ready to re-draw and use the new location
    input orientation_ready,   // ready to draw the orientation
@@ -60,12 +60,7 @@ module vga_writer (
    wire signed [11:0] temp_rover_y;
    
    // instantiate the helper module with continuous translation of rover (r,theta) to (x,y)
-   assign temp_rover_x = 1;
-	assign temp_rover_y = 1;
-   
-   // TBD
-   
-   
+   polar_to_cartesian ptc (.r_theta(location),.x_value(temp_rover_x),.y_value(temp_rover_y));
    
    // only actually update the position every screen refresh for both the target and the rover
    always @(posedge vsync) begin
