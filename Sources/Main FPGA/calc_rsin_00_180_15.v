@@ -12,35 +12,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module calc_rsin_00_180_15
-    (input [11:0] r_theta, // r is [7:0] theta is [11:8]
-     output wire signed [11:0] rsin_00,
-     output wire signed [11:0] rsin_15,
-     output wire signed [11:0] rsin_30,
-     output wire signed [11:0] rsin_45,
-     output wire signed [11:0] rsin_60,
-     output wire signed [11:0] rsin_75,
-     output wire signed [11:0] rsin_90);
+    (input [7:0] r,
+     output wire [7:0] rsin_00,
+     output wire [7:0] rsin_15,
+     output wire [7:0] rsin_30,
+     output wire [7:0] rsin_45,
+     output wire [7:0] rsin_60,
+     output wire [7:0] rsin_75,
+     output wire [7:0] rsin_90);
 	
    // continuously create the values we could need
    // sin 00 = cos 90 = -sin 180 // is 1
    // sin 90 = cos 00 = -cos 180 // is 0
+   // sin 30 = cos 60 = sin 150 = - cos 120 // is 1/2
    assign rsin_00 = 1;
    assign rsin_90 = 0;
+   assign rsin_30 = r >> 1;
    
-   // do the math for the other values that we can't reuse our other module to compute
-   // sin 30 = cos 60 = sin 150 = - cos 120 // is about XXXXX
-   // sin 60 = cos 30 = sin 120 = - cos 150 // is about XXXXX
-   wire signed [31:0] rsin_30deg; // large bit size to multiply and shift
+   // only sin 60 needs math and then a recast
+   // sin 60 = cos 30 = sin 120 = - cos 150 // is about 222/256
    wire signed [31:0] rsin_60deg; // large bit size to multiply and shift 
-   assign rsin_15deg = (r_theta[7:0]*66) >>> 8;  
-   
-   // then after we have done multiply and shift in larger size variables output
-   // the smaller order bits that we care about (which are the only ones left anyway)
-   // all are appended with a 0 as they are signed and they are all positive
-   assign rsin_30 = {0,rsin_30deg[10:0]};
-   assign rsin_60 = {0,rsin_60deg[10:0]};
+   assign rsin_60deg = (r*222) >> 8;  
+   assign rsin_60 = rsin_60deg[7:0];
    
    // use the helper function to get the other three
-   calc_rsin_15_165_30 helper (.r_theta(r_theta),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75)))
+   calc_rsin_15_165_30 helper (.r(r),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75)))
 
 endmodule

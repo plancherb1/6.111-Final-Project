@@ -418,7 +418,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire ir_signal; // IR data
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location;
-  wire [3:0] rover_orientation;
+  wire [4:0] rover_orientation; // every 15 degrees around the circle
   wire [3:0] target_location;
   wire [9:0] ultrasound_commands;
   wire [9:0] ultrasound_signals;

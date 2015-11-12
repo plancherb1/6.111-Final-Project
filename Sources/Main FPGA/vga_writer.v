@@ -56,8 +56,8 @@ module vga_writer (
    reg signed [11:0] target_y;
    reg signed [11:0] rover_x;
    reg signed [11:0] rover_y;
-   wire signed [11:0] temp_rover_x;
-   wire signed [11:0] temp_rover_y;
+   wire signed [8:0] temp_rover_x;
+   wire signed [8:0] temp_rover_y;
    
    // instantiate the helper module with continuous translation of rover (r,theta) to (x,y)
    polar_to_cartesian ptc (.r_theta(location),.x_value(temp_rover_x),.y_value(temp_rover_y));
@@ -72,8 +72,11 @@ module vga_writer (
       // else for the location of the "Rover" we only update when we have valid new information
       else if (new_data | orientation_ready) begin
          // save the updated rover location
-         rover_x <= temp_rover_x;
-         rover_y <= temp_rover_y;
+         rover_x <= (temp_rover_x <<< 3) >>> 3;
+         rover_y <= (temp_rover_y <<< 3) >>> 3;
+         
+         // TBD NEED TO DO SCALING STUFF BASED ON TARGET LOCATIONS AS WELL
+         
       end
       // in all cases target assign location based on the switches (defines center) 
       // Note: these are hard coded for various test values

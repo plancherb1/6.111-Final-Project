@@ -120,7 +120,7 @@ module ultrasound_location_calculator(
 				// calc a distance of 0
 				POWER_CYLCE: begin
 					// count until we havae enough time and then turn it back on
-					if (power_cycle_timer == POWER_CYCLE_TIME) begin
+					if (power_cycle_timer == POWER_CYCLE_TIME - 1) begin
                   state <= REPEAT;
                   power_cycle_timer <= 0;
                   ultrasound_power[curr_ultrasound] <= 1;
@@ -138,7 +138,7 @@ module ultrasound_location_calculator(
 						 ((best_distance == 0) ||
 						  (distance_count < best_distance))) begin
 						best_distance <= distance_count[7:0];
-						best_angle <= curr_ultrasound;
+						best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
 					end
 					distance_count <= 0;
 					// if done then go to report state
