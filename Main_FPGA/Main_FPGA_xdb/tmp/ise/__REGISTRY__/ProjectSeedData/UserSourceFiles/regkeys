@@ -1,5 +1,5 @@
 NUM_USER_FILES
-16
+25
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -25,8 +25,35 @@ s
 user_file_16
 ../Sources/Main FPGA/triangle.v
 s
+user_file_17
+../Sources/Main FPGA/orientation_math.v
+s
+user_file_18
+../Sources/Main FPGA/calc_rsin_00_180_15.v
+s
+user_file_19
+../Sources/Main FPGA/calc_rsin_15_165_30.v
+s
 user_file_2
 ../Sources/Main FPGA/display_8hex_labkit.v
+s
+user_file_20
+../Sources/Main FPGA/calc_rtan_00_90.v
+s
+user_file_21
+../Sources/Main FPGA/polar_to_cartesian.v
+s
+user_file_22
+../Sources/Main FPGA/abs_val_8.v
+s
+user_file_23
+../Sources/Main FPGA/abs_diff_7.v
+s
+user_file_24
+../Sources/Main FPGA/calc_abs7rtan_00_75_15.v
+s
+user_file_25
+../Sources/Main FPGA/edge_detect.v
 s
 user_file_3
 ../Sources/Main FPGA/ir_transmitter.v

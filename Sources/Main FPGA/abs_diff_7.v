@@ -3,15 +3,17 @@
 // Company:        MIT 6.111 Final Project
 // Engineer:       Brian Plancher
 // 
-// Module Name:    Abs Value 10bit
+// Module Name:    Calculate Abs Difference of Two numbers
 // Project Name:   FPGA Phone Home
-//
 //////////////////////////////////////////////////////////////////////////////////
 
-module abs_val_10
-    (input signed [10:0] v,
-     output wire [9:0] absv);
-     
-     assign absv = (v[10] == 1) ? ((~v)+1) : v;
-     
+module abs_diff_7(
+    input [7:0] x,
+    input [7:0] y,
+    output [7:0] absdiff
+    );
+	 
+	 assign absdiff = (x>y) ? x-y : y-x;
+
+
 endmodule

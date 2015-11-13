@@ -11,7 +11,7 @@ Target Device  : xc2v6000
 Target Package : bf957
 Target Speed   : -4
 Mapper Version : virtex2 -- $Revision: 1.46.12.2 $
-Mapped Date    : Thu Nov  5 16:43:10 2015
+Mapped Date    : Thu Nov 12 19:52:58 2015
 
 Mapping design into LUTs...
 Running directed packing...
@@ -23,25 +23,25 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:  314
+Number of warnings:  306
 Logic Utilization:
-  Number of Slice Flip Flops:           197 out of  67,584    1%
-  Number of 4 input LUTs:               566 out of  67,584    1%
+  Number of Slice Flip Flops:           233 out of  67,584    1%
+  Number of 4 input LUTs:               619 out of  67,584    1%
 Logic Distribution:
-  Number of occupied Slices:            355 out of  33,792    1%
-    Number of Slices containing only related logic:     355 out of     355 100%
-    Number of Slices containing unrelated logic:          0 out of     355   0%
+  Number of occupied Slices:            399 out of  33,792    1%
+    Number of Slices containing only related logic:     399 out of     399 100%
+    Number of Slices containing unrelated logic:          0 out of     399   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         641 out of  67,584    1%
-    Number used as logic:               561
-    Number used as a route-thru:         75
+  Total Number of 4 input LUTs:         719 out of  67,584    1%
+    Number used as logic:               614
+    Number used as a route-thru:        100
     Number used as Shift registers:       5
   Number of bonded IOBs:                576 out of     684   84%
   Number of MULT18X18s:                   4 out of     144    2%
   Number of BUFGMUXs:                     3 out of      16   18%
   Number of DCMs:                         1 out of      12    8%
 
-Peak Memory Usage:  486 MB
+Peak Memory Usage:  487 MB
 Total REAL time to MAP completion:  3 secs 
 Total CPU time to MAP completion:   3 secs 
 

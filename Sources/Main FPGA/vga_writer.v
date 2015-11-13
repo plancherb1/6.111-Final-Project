@@ -50,6 +50,7 @@ module vga_writer (
    parameter ROVER_WIDTH = 64;
    parameter ROVER_COLOR = 24'hFF_FF_00;
    parameter PIXEL_ALL_1S = 24'hFF_FF_FF;
+	parameter ROVER_ORIENTED_COLOR = 24'h00_FF_FF;
    
    // display the target and rover based on the location
    reg signed [11:0] target_x;
@@ -109,7 +110,7 @@ module vga_writer (
    
    //instantiate the triangle rover
    wire [23:0] rover_pixel_t;
-   triangle #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_COLOR),.BLANK_COLOR(BLANK_COLOR))
+   triangle #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_ORIENTED_COLOR),.BLANK_COLOR(BLANK_COLOR))
 		  rover_t(.x(rover_x),.y(rover_y),.x_value(x_value),.y_value(y_value),.pixel(rover_pixel_t));
         
    // use the appropriate rover
@@ -136,6 +137,6 @@ module vga_writer (
 	assign overlap_pixel = (rover_pixel & target_pixel > 0) ? alpha_blend_pixel : (rover_pixel | target_pixel);
    
    // overall show the overlap pixel or the grid underneath it if applicable
-   assign pixel = (overlap_pixel & PIXEL_ALL_1S > 0) ? overlap_pixel : grid_pixel;
+   assign pixel = grid_pixel;//(overlap_pixel & PIXEL_ALL_1S > 0) ? overlap_pixel : grid_pixel;
 	
 endmodule

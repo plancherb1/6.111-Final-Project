@@ -16,7 +16,7 @@ module orientation_path_calculator(
    input [3:0] target_location,
    output reg move_done,
    output reg orientation_done,
-   output reg [4:0] orientation,
+   output [4:0] orientation,
    output reg [11:0] move_command, // angle == [11:7], distance == [6:0]
    output reg [3:0] state // exposed for debug
 	// output analyzer_clock, // for debug only
@@ -40,9 +40,9 @@ module orientation_path_calculator(
    
    // helper to do the math for orientation
    reg orientation_helper_enable;
-   reg orientation_helper_done;
-   orientation_math om (.rtheta_original(original_location),.rtheta_final(updated_location),.orientation(orientation),
-                        .enable(orientation_helper_enable),.done(orientation_helper_done),.reset(reset));
+   wire orientation_helper_done;
+   orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation),
+                        .enable(orientation_helper_enable),.done(orientation_helper_done),.reset(reset),.clock(clock));
 	
 	always @(posedge clock) begin
       // reset on reset
@@ -69,7 +69,7 @@ module orientation_path_calculator(
             WAIT_FOR_NEW_LOC: begin
                if(enable) begin
                   state <= CALC_ORIENTATION;
-                  updated_location <= rover_location;;
+                  updated_location <= rover_location;
                   orientation_helper_enable <= ACTIVE;
                end
             end
@@ -98,7 +98,6 @@ module orientation_path_calculator(
                   move_done <= IDLE;
                   orientation_done <= IDLE;
                   orientation_helper_enable <= IDLE;
-                  orientation_helper_counter <= 0;
                end
             end
          

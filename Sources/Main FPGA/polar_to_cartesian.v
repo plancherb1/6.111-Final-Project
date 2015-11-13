@@ -15,48 +15,42 @@ module polar_to_cartesian
     (input [11:0] r_theta, // r is [7:0] theta is [11:8]
      output reg signed [8:0] x_value, // 1 for sign and 7 for the value as the sin could be a 1 theoretically
      output reg signed [8:0] y_value);
-	
-   // seperate r and theta
-   wire r [7:0];
-   wire theta [4:0];
-   assign r = r_theta[7:0];
-   assign theta = r_theta[11:8];
    
    // use helper module to do the math
    wire [7:0] rsin_15;
    wire [7:0] rsin_45;
    wire [7:0] rsin_75;
    // we don't need the other outputs so we will allow them to be attached to nothing
-   calc_rsin_15_165_30 helper (.r(r),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75))
+   calc_rsin_15_165_30 helper (.r(r_theta[7:0]),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75));
    
    always @(*) begin
       // use a case statement to continuously assign the correct value to the output
       // note right now when we are doing the 15 + 30n up to 165 we have 6 different possible angles
       // but note that the theta is defined in 15 degree incriments and so we need to check on the right values
-      case (theta)
+      case (r_theta[11:8])
          4'h1: begin // 15deg
-            x_value <= {0,rsin_75}; 
-            y_value <= {0,rsin_15};
+            x_value = {0,rsin_75}; 
+            y_value = {0,rsin_15};
          end
          4'h3: begin // 45deg
-            x_value <= {0,rsin_45}; 
-            y_value <= {0,rsin_45};
+            x_value = {0,rsin_45}; 
+            y_value = {0,rsin_45};
          end
          4'h5: begin // 75deg
-            x_value <= {0,rsin_15}; 
-            y_value <= {0,rsin_75};
+            x_value = {0,rsin_15}; 
+            y_value = {0,rsin_75};
          end
          4'h7: begin // 105deg
-            x_value <= {1,rsin_15}; 
-            y_value <= {0,rsin_75};
+            x_value = {1,rsin_15}; 
+            y_value = {0,rsin_75};
          end
          4'h9: begin // 135deg
-            x_value <= {1,rsin_45}; 
-            y_value <= {0,rsin_45};
+            x_value = {1,rsin_45}; 
+            y_value = {0,rsin_45};
          end
          default: begin // 165deg
-            x_value <= {1,rsin_75}; 
-            y_value <= {0,rsin_15};
+            x_value = {1,rsin_75}; 
+            y_value = {0,rsin_15};
          end
       endcase
    end

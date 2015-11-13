@@ -429,13 +429,14 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire orientation_update;
   
   assign ir_signal = user3[31];
-  assign master_on = btn3_db;
+  // we only want one high when the button is pressed
+  edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
   // need two ways to run ultrasound in case we stretch to path calculation for feedback
   // if we do not get to stretch then get_distance will default to x so will just be master on
-  assign run_ultrasound = master_on | get_distance;
+  assign run_ultrasound = master_on; //| get_distance;
   assign target_location = db_switch[3:0];
   assign user3[9:0] = ultrasound_commands;
-  assign user3[19:10] = ultrasound_commands;
+  assign user3[19:10] = ultrasound_power;
   assign ultrasound_signals = user3[29:20];
   
   wire [2:0] ultrasound_state;
@@ -446,7 +447,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 									.analyzer_clock(analyzer3_clock),
 									.analyzer_data(analyzer3_data),
 									.state(ultrasound_state),
-									.ultrasound_commands(ultrasound_commands));
+									.ultrasound_commands(ultrasound_commands),
+									.ultrasound_power(ultrasound_power));
   
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
@@ -472,16 +474,17 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   
   // Orientation/Path activates transmitter when done to send move_command
   wire [3:0] orient_path_state;
-  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),.enable(location_update),
-								  .rover_location(rover_location),
-								  .target_location(target_location),
-                          .orientation(rover_orientation),
-                          .orientation_done(orientation_update),
-								  .move_done(transmit_ir),.move_command(move_command),
-                          .state(orient_path_state)
-                          //.analyzer_clock(analyzer3_clock),
-								  //.analyzer_data(analyzer3_data),
-                          );
+  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
+											  .enable(location_update),
+								           .rover_location(rover_location),
+											  .target_location(target_location),
+											  .orientation(rover_orientation),
+											  .orientation_done(orientation_update),
+											  .move_done(transmit_ir),.move_command(move_command),
+											  .state(orient_path_state)
+											//.analyzer_clock(analyzer3_clock),
+											//.analyzer_data(analyzer3_data),
+											);
 								  
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),

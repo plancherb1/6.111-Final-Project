@@ -15,13 +15,13 @@
 
 module calc_rtan_00_90_15
     (input signed [8:0] r, // our tans can scale up by a factor of 4 so we need two more bits for outputs
-     output signed wire [10:0] rtan_00, 
-     output signed wire [10:0] rtan_15,
-     output signed wire [10:0] rtan_30,
-     output signed wire [10:0] rtan_45,
-     output signed wire [10:0] rtan_60,
-     output signed wire [10:0] rtan_75,
-     output signed wire [10:0] rtan_90);
+     output signed [10:0] rtan_00, 
+     output signed [10:0] rtan_15,
+     output signed [10:0] rtan_30,
+     output signed [10:0] rtan_45,
+     output signed [10:0] rtan_60,
+     output signed [10:0] rtan_75,
+     output signed [10:0] rtan_90);
 	
    // continuously create the values we could need
    // tan 00 = 0
@@ -40,13 +40,13 @@ module calc_rtan_00_90_15
    wire signed [31:0] rtan_30deg; // large bit size to multiply and shift 
    wire signed [31:0] rtan_60deg; // large bit size to multiply and shift 
    wire signed [31:0] rtan_75deg; // large bit size to multiply and shift 
-   assign rsin_15deg = (r_theta*16'hs0225) >>> 11;
-   assign rsin_30deg = (r_theta*16'hs024f) >>> 10;
-   assign rsin_60deg = (r_theta*16'hs0DDB) >>> 11;
-   assign rsin_75deg = (r_theta*16'hs1DDB) >>> 11;
-   assign rsin_15 = rsin_15deg[10:0];
-   assign rsin_30 = rsin_30deg[10:0];
-   assign rsin_60 = rsin_60deg[10:0];
-   assign rsin_75 = rsin_75deg[10:0];
+   assign rtan_15deg = (r*16'sh0225) >>> 11;
+   assign rtab_30deg = (r*16'sh024f) >>> 10;
+   assign rtan_60deg = (r*16'sh0DDB) >>> 11;
+   assign rtan_75deg = (r*16'sh1DDB) >>> 11;
+   assign rtan_15 = rtan_15deg[10:0];
+   assign rtan_30 = rtan_30deg[10:0];
+   assign rtan_60 = rtan_60deg[10:0];
+   assign rtan_75 = rtan_75deg[10:0];
 
 endmodule

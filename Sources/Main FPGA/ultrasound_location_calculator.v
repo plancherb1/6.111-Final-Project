@@ -39,7 +39,7 @@ module ultrasound_location_calculator(
 	reg [19:0] distance_count; // 20 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
 	parameter DISTANCE_MAX = 1048576; // spec says distance in 150us to 25ms with 38ms as
 												  // nothing found which is about 2^20 clock cycles
-   parameter POWER_CYCLE_TIME = 27000000; // one milisecond just to make sure it flushes it self
+   parameter POWER_CYCLE_TIME = 27000000; // one second just to make sure it flushes it self
    reg [24:0] power_cycle_timer; // as sized for one milisecond in counting
 	reg [7:0] best_distance;
 	reg [3:0] best_angle;
@@ -47,12 +47,8 @@ module ultrasound_location_calculator(
 	// debug only
 	assign analyzer3_clock = clock;
 	assign analyzer_data = {state, //3
-						  ultrasound_signals[0],
-						  ultrasound_commands[0],
-						  calculate,
-						  distance_count[10],
-						  done,
-						  rover_location[7:0]};
+									 ultrasound_power, //10
+									 curr_ultrasound[1:0]};
 	
 	// synchronize on the clock
 	always @(posedge clock) begin
@@ -97,19 +93,19 @@ module ultrasound_location_calculator(
 				// start the division process now and will be done in next state
 				WAIT_FOR0: begin
 					if (ultrasound_signals[curr_ultrasound] == 0)begin
-						state <= REPEAT;
 						// per spec distance is microseconds divide by 148 which is 
 						// about 7/1024 (~1% error) -- but note we have 27 clock
 						// pulses per microsecond so it is actually divide by 1/3996
 						// which we can approximate with 2.5% error to 1/4096! :)
 						distance_count <= (distance_count) >> 12;
+						state <= REPEAT;
 					end
 					else if (distance_count == DISTANCE_MAX -1) begin
-						state <= POWER_CYCLE;
-						distance_count <= 10'h7FFFF;
+						distance_count <= 10'h7FF;
                   // cut power to the ultrasound and enter power cycle mode
                   ultrasound_power[curr_ultrasound] <= 0;
                   power_cycle_timer <= 1;
+						state <= POWER_CYCLE;
 					end
 					else begin
 						distance_count <= distance_count + 1;
@@ -118,7 +114,7 @@ module ultrasound_location_calculator(
 				
 				// The HC-SR04's I have get stuck and need to be power cycled if they
 				// calc a distance of 0
-				POWER_CYLCE: begin
+				POWER_CYCLE: begin
 					// count until we havae enough time and then turn it back on
 					if (power_cycle_timer == POWER_CYCLE_TIME - 1) begin
                   state <= REPEAT;
@@ -132,23 +128,35 @@ module ultrasound_location_calculator(
 				
 				// cycle to next module and/or finalize value
 				REPEAT: begin
-					// in all cases we need to see if our result is the new best result
-					// and then zero out the distance for this round
-					if ((distance_count > 0) && 
-						 ((best_distance == 0) ||
-						  (distance_count < best_distance))) begin
-						best_distance <= distance_count[7:0];
-						best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
+					// if our result was 0 then it glitched and we need to repeat
+					// this often occurs after a power cycle
+					if (distance_count == 0) begin
+						state <= TRIGGER;
+						ultrasound_commands[curr_ultrasound] <= 1;
+						trigger_count <= 1;
 					end
-					distance_count <= 0;
-					// if done then go to report state
-					if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
-						state <= REPORT;
-						curr_ultrasound <= 0;
-					end
-					// else go to next ultrasound
 					else begin
-						curr_ultrasound <= curr_ultrasound + 1;
+						// in all cases we need to see if our result is the new best result
+						// and then zero out the distance for this round
+						if ((distance_count > 0) && 
+							 ((best_distance == 0) ||
+							  (distance_count < best_distance))) begin
+							best_distance <= distance_count[7:0];
+							best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
+						end
+						distance_count <= 0;
+						// if done then go to report state
+						if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
+							state <= REPORT;
+							curr_ultrasound <= 0;
+						end
+						// else go to next ultrasound
+						else begin
+							curr_ultrasound <= curr_ultrasound + 1;
+							state <= TRIGGER;
+							ultrasound_commands[curr_ultrasound+1] <= 1;
+							trigger_count <= 1;
+						end
 					end
 				end
 				
