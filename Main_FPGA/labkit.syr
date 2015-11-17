@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: labkit.prj
@@ -109,27 +109,13 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "../Sources/Main FPGA/calc_rtan_00_90.v" in library work
 Compiling verilog file "../Sources/Main FPGA/calc_rsin_15_165_30.v" in library work
-Module <calc_rtan_00_90_15> compiled
-Compiling verilog file "../Sources/Shared/divider_600us.v" in library work
+Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
 Module <calc_rsin_15_165_30> compiled
 Compiling verilog file "../Sources/Main FPGA/polar_to_cartesian.v" in library work
-Module <divider_600us> compiled
-Compiling verilog file "../Sources/Main FPGA/calc_abs7rtan_00_75_15.v" in library work
-Module <polar_to_cartesian> compiled
-Compiling verilog file "../Sources/Main FPGA/abs_val_8.v" in library work
-Module <calc_abs7rtan_00_75_15> compiled
-Compiling verilog file "../Sources/Main FPGA/abs_diff_7.v" in library work
-Module <abs_val_8> compiled
-Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
-Module <abs_diff_7> compiled
-Compiling verilog file "../Sources/Main FPGA/timer.v" in library work
 Module <triangle> compiled
-Compiling verilog file "../Sources/Main FPGA/orientation_math.v" in library work
-Module <timer> compiled
 Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
-Module <orientation_math> compiled
+Module <polar_to_cartesian> compiled
 Compiling verilog file "../Sources/Main FPGA/blob.v" in library work
 Module <grid> compiled
 Compiling verilog file "../Sources/Shared/debounce.v" in library work
@@ -140,12 +126,8 @@ Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
 Module <xvga> compiled
 Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
 Module <vga_writer> compiled
-Compiling verilog file "../Sources/Main FPGA/orientation_path_calculator.v" in library work
-Module <ultrasound_location_calculator> compiled
-Compiling verilog file "../Sources/Main FPGA/ir_transmitter.v" in library work
-Module <orientation_path_calculator> compiled
 Compiling verilog file "../Sources/Main FPGA/edge_detect.v" in library work
-Module <ir_transmitter> compiled
+Module <ultrasound_location_calculator> compiled
 Compiling verilog file "../Sources/Main FPGA/display_8hex_labkit.v" in library work
 Module <edge_detect> compiled
 Compiling verilog file "../Sources/Main FPGA/labkit_mainFPGA.v" in library work
@@ -181,98 +163,61 @@ Analyzing hierarchy for module <ultrasound_location_calculator> in library <work
 	WAIT_FOR1 = "010"
 
 Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
-	ALPHA_M = "00000000000000000000000000000001"
+	ALPHA_M = "00000000000000000000000000000010"
 	ALPHA_N = "00000000000000000000000000000100"
 	ALPHA_N_LOG_2 = "00000000000000000000000000000010"
 	BLANK_COLOR = "000000000000000000000000"
 	GRID_COLOR = "111111110000000000000000"
+	GRID_LINE_WIDTH = "00000000000000000000000000000100"
 	PIXEL_ALL_1S = "111111111111111111111111"
-	ROVER_COLOR = "111111111111111100000000"
+	ROVER_COLOR = "000000001111111100000000"
 	ROVER_HEIGHT = "00000000000000000000000001000000"
-	ROVER_ORIENTED_COLOR = "000000001111111111111111"
+	ROVER_ORIENTED_COLOR = "111111111111111100000000"
 	ROVER_WIDTH = "00000000000000000000000001000000"
 	TARGET_COLOR = "000000000000000011111111"
-	TARGET_HEIGHT = "00000000000000000000000000010000"
-	TARGET_WIDTH = "00000000000000000000000000010000"
+	TARGET_HEIGHT = "00000000000000000000000001000000"
+	TARGET_WIDTH = "00000000000000000000000001000000"
 	TOTAL_HEIGHT = "00000000000000000000001100000000"
 	TOTAL_WIDTH = "00000000000000000000010000000000"
+	VERTICAL_OFFSET = "00000000000000000000000001000000"
 
 Analyzing hierarchy for module <display_16hex_labkit> in library <work>.
 
-Analyzing hierarchy for module <orientation_path_calculator> in library <work> with parameters.
-	ACTIVE = "1"
-	CALC_ORIENTATION = "0100"
-	IDLE = "0"
-	IDLE_STATE = "0001"
-	ORIENTATION_MOVE = "000000000101"
-	START_MOVE = "0101"
-	START_ORIENTATION = "0010"
-	WAIT_FOR_NEW_LOC = "0011"
-
-Analyzing hierarchy for module <ir_transmitter> in library <work> with parameters.
-	BIT = "100"
-	COUNT_GOAL = "00000000000000000000011111101000"
-	IDLE = "000"
-	START = "010"
-	TRANS = "011"
-	WAIT = "001"
-
-Analyzing hierarchy for module <polar_to_cartesian> in library <work>.
+Analyzing hierarchy for module <polar_to_cartesian> in library <work> with parameters.
+	NEG = "1"
+	POS = "0"
 
 Analyzing hierarchy for module <grid> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	GRID_COLOR = "000000000000000011111111"
+	GRID_COLOR = "111111110000000000000000"
 	R_1 = "00000000000000000010011100010000"
 	R_2 = "00000000000000001001110001000000"
 	R_3 = "00000000000000100111000100000000"
 	R_4 = "00000000000001010111111001000000"
 	R_5 = "00000000000010011100010000000000"
 	R_6 = "00000000000011110100001001000000"
+	VERTICAL_OFFSET = "00000000000000000000000001000000"
+	WIDTH = "00000000000000000000000000000100"
 
 Analyzing hierarchy for module <blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
 	COLOR = "000000000000000011111111"
-	HEIGHT = "00000000000000000000000000010000"
-	WIDTH = "00000000000000000000000000010000"
+	HEIGHT = "00000000000000000000000001000000"
+	WIDTH = "00000000000000000000000001000000"
 
 Analyzing hierarchy for module <blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	COLOR = "111111111111111100000000"
+	COLOR = "000000001111111100000000"
 	HEIGHT = "00000000000000000000000001000000"
 	WIDTH = "00000000000000000000000001000000"
 
 Analyzing hierarchy for module <triangle> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	COLOR = "000000001111111111111111"
+	COLOR = "111111111111111100000000"
 	HEIGHT = "00000000000000000000000001000000"
 	WIDTH = "00000000000000000000000001000000"
 
-Analyzing hierarchy for module <orientation_math> in library <work> with parameters.
-	CONTINUOUS_CALC = "0"
-	COUNTER_GOAL = "00000000000000000000000000000101"
-	DELAY = "1"
-
-Analyzing hierarchy for module <timer> in library <work> with parameters.
-	COUNT_GOAL = "00000000000000000000011111101000"
-
 Analyzing hierarchy for module <calc_rsin_15_165_30> in library <work>.
-
-Analyzing hierarchy for module <polar_to_cartesian> in library <work>.
-
-Analyzing hierarchy for module <polar_to_cartesian> in library <work>.
-
-Analyzing hierarchy for module <calc_abs7rtan_00_75_15> in library <work>.
-
-Analyzing hierarchy for module <abs_val_8> in library <work>.
-
-Analyzing hierarchy for module <abs_diff_7> in library <work>.
-
-Analyzing hierarchy for module <divider_600us> in library <work> with parameters.
-	COUNT_GOAL = "00000000000000000000011111101000"
-
-Analyzing hierarchy for module <calc_rsin_15_165_30> in library <work>.
-
-Analyzing hierarchy for module <calc_rtan_00_90_15> in library <work>.
 
 WARNING:Xst:2591 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 382: attribute on instance <CLKFX_DIVIDE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
 WARNING:Xst:2591 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 382: attribute on instance <CLKFX_MULTIPLY> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
@@ -327,24 +272,28 @@ Analyzing module <ultrasound_location_calculator> in library <work>.
 Module <ultrasound_location_calculator> is correct for synthesis.
  
 Analyzing module <vga_writer> in library <work>.
-	ALPHA_M = 32'sb00000000000000000000000000000001
+	ALPHA_M = 32'sb00000000000000000000000000000010
 	ALPHA_N = 32'sb00000000000000000000000000000100
 	ALPHA_N_LOG_2 = 32'sb00000000000000000000000000000010
 	BLANK_COLOR = 24'b000000000000000000000000
 	GRID_COLOR = 24'b111111110000000000000000
+	GRID_LINE_WIDTH = 32'sb00000000000000000000000000000100
 	PIXEL_ALL_1S = 24'b111111111111111111111111
-	ROVER_COLOR = 24'b111111111111111100000000
+	ROVER_COLOR = 24'b000000001111111100000000
 	ROVER_HEIGHT = 32'sb00000000000000000000000001000000
-	ROVER_ORIENTED_COLOR = 24'b000000001111111111111111
+	ROVER_ORIENTED_COLOR = 24'b111111111111111100000000
 	ROVER_WIDTH = 32'sb00000000000000000000000001000000
 	TARGET_COLOR = 24'b000000000000000011111111
-	TARGET_HEIGHT = 32'sb00000000000000000000000000010000
-	TARGET_WIDTH = 32'sb00000000000000000000000000010000
+	TARGET_HEIGHT = 32'sb00000000000000000000000001000000
+	TARGET_WIDTH = 32'sb00000000000000000000000001000000
 	TOTAL_HEIGHT = 32'sb00000000000000000000001100000000
 	TOTAL_WIDTH = 32'sb00000000000000000000010000000000
+	VERTICAL_OFFSET = 32'sb00000000000000000000000001000000
 Module <vga_writer> is correct for synthesis.
  
 Analyzing module <polar_to_cartesian> in library <work>.
+	NEG = 1'b1
+	POS = 1'b0
 Module <polar_to_cartesian> is correct for synthesis.
  
 Analyzing module <calc_rsin_15_165_30> in library <work>.
@@ -352,32 +301,34 @@ Module <calc_rsin_15_165_30> is correct for synthesis.
  
 Analyzing module <grid> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	GRID_COLOR = 24'b000000000000000011111111
+	GRID_COLOR = 24'b111111110000000000000000
 	R_1 = 32'sb00000000000000000010011100010000
 	R_2 = 32'sb00000000000000001001110001000000
 	R_3 = 32'sb00000000000000100111000100000000
 	R_4 = 32'sb00000000000001010111111001000000
 	R_5 = 32'sb00000000000010011100010000000000
 	R_6 = 32'sb00000000000011110100001001000000
+	VERTICAL_OFFSET = 32'sb00000000000000000000000001000000
+	WIDTH = 32'sb00000000000000000000000000000100
 Module <grid> is correct for synthesis.
  
 Analyzing module <blob.1> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
 	COLOR = 24'b000000000000000011111111
-	HEIGHT = 32'sb00000000000000000000000000010000
-	WIDTH = 32'sb00000000000000000000000000010000
+	HEIGHT = 32'sb00000000000000000000000001000000
+	WIDTH = 32'sb00000000000000000000000001000000
 Module <blob.1> is correct for synthesis.
  
 Analyzing module <blob.2> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	COLOR = 24'b111111111111111100000000
+	COLOR = 24'b000000001111111100000000
 	HEIGHT = 32'sb00000000000000000000000001000000
 	WIDTH = 32'sb00000000000000000000000001000000
 Module <blob.2> is correct for synthesis.
  
 Analyzing module <triangle> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	COLOR = 24'b000000001111111111111111
+	COLOR = 24'b111111111111111100000000
 	HEIGHT = 32'sb00000000000000000000000001000000
 	WIDTH = 32'sb00000000000000000000000001000000
 Module <triangle> is correct for synthesis.
@@ -385,52 +336,6 @@ Module <triangle> is correct for synthesis.
 Analyzing module <display_16hex_labkit> in library <work>.
 INFO:Xst:1433 - Contents of array <dots> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 Module <display_16hex_labkit> is correct for synthesis.
- 
-Analyzing module <orientation_path_calculator> in library <work>.
-	ACTIVE = 1'b1
-	CALC_ORIENTATION = 4'b0100
-	IDLE = 1'b0
-	IDLE_STATE = 4'b0001
-	ORIENTATION_MOVE = 12'b000000000101
-	START_MOVE = 4'b0101
-	START_ORIENTATION = 4'b0010
-	WAIT_FOR_NEW_LOC = 4'b0011
-Module <orientation_path_calculator> is correct for synthesis.
- 
-Analyzing module <orientation_math> in library <work>.
-	CONTINUOUS_CALC = 1'b0
-	COUNTER_GOAL = 32'sb00000000000000000000000000000101
-	DELAY = 1'b1
-Module <orientation_math> is correct for synthesis.
- 
-Analyzing module <calc_abs7rtan_00_75_15> in library <work>.
-Module <calc_abs7rtan_00_75_15> is correct for synthesis.
- 
-Analyzing module <calc_rtan_00_90_15> in library <work>.
-Module <calc_rtan_00_90_15> is correct for synthesis.
- 
-Analyzing module <abs_val_8> in library <work>.
-Module <abs_val_8> is correct for synthesis.
- 
-Analyzing module <abs_diff_7> in library <work>.
-Module <abs_diff_7> is correct for synthesis.
- 
-Analyzing module <ir_transmitter> in library <work>.
-	BIT = 3'b100
-	COUNT_GOAL = 32'sb00000000000000000000011111101000
-	IDLE = 3'b000
-	START = 3'b010
-	TRANS = 3'b011
-	WAIT = 3'b001
-Module <ir_transmitter> is correct for synthesis.
- 
-Analyzing module <timer> in library <work>.
-	COUNT_GOAL = 32'sb00000000000000000000011111101000
-Module <timer> is correct for synthesis.
- 
-Analyzing module <divider_600us> in library <work>.
-	COUNT_GOAL = 32'sb00000000000000000000011111101000
-Module <divider_600us> is correct for synthesis.
  
 
 =========================================================================
@@ -448,7 +353,7 @@ INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
 INFO:Xst:2679 - Register <target_x> in unit <vga_writer> has a constant value of 000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <move_done> in unit <orientation_path_calculator> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <target_y> in unit <vga_writer> has a constant value of 000001000000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
     Related source file is "../Sources/Shared/debounce.v".
@@ -488,8 +393,6 @@ Unit <edge_detect> synthesized.
 
 Synthesizing Unit <ultrasound_location_calculator>.
     Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
-WARNING:Xst:1305 - Output <analyzer_clock> is never assigned. Tied to value 0.
-WARNING:Xst:646 - Signal <analyzer3_clock> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 3-bit register for signal <state>.
     Found 12-bit register for signal <rover_location>.
     Found 1-bit register for signal <done>.
@@ -558,31 +461,25 @@ Unit <display_16hex_labkit> synthesized.
 
 Synthesizing Unit <grid>.
     Related source file is "../Sources/Main FPGA/grid.v".
-    Found 32-bit adder for signal <$add0000> created at line 43.
-    Found 32-bit adder for signal <$add0001> created at line 43.
-    Found 33-bit subtractor for signal <$sub0000> created at line 43.
-    Found 33-bit subtractor for signal <$sub0001> created at line 43.
-    Found 33-bit subtractor for signal <$sub0002> created at line 43.
-    Found 25-bit adder for signal <d_2$add0000> created at line 35.
-    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 35.
-    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 35.
-    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 36.
-    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 38.
+    Found 25-bit adder for signal <d_2$add0000> created at line 36.
+    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 36.
+    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 36.
+    Found 13-bit comparator less for signal <pixel$cmp_lt0000> created at line 64.
+    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 37.
+    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 39.
     Summary:
-	inferred   6 Adder/Subtractor(s).
+	inferred   1 Adder/Subtractor(s).
 	inferred   4 Multiplier(s).
+	inferred   1 Comparator(s).
 Unit <grid> synthesized.
 
 
 Synthesizing Unit <blob_1>.
     Related source file is "../Sources/Main FPGA/blob.v".
-    Found 13-bit adder for signal <$add0000> created at line 21.
-    Found 13-bit subtractor for signal <$sub0000> created at line 21.
     Found 13-bit comparator greatequal for signal <pixel$cmp_ge0001> created at line 21.
     Found 13-bit comparator less for signal <pixel$cmp_lt0000> created at line 21.
     Found 13-bit comparator less for signal <pixel$cmp_lt0001> created at line 21.
     Summary:
-	inferred   2 Adder/Subtractor(s).
 	inferred   3 Comparator(s).
 Unit <blob_1> synthesized.
 
@@ -632,91 +529,9 @@ WARNING:Xst:646 - Signal <rsin_15deg<31:8>> is assigned but never used. This unc
 Unit <calc_rsin_15_165_30> synthesized.
 
 
-Synthesizing Unit <abs_val_8>.
-    Related source file is "../Sources/Main FPGA/abs_val_8.v".
-    Found 8-bit adder for signal <absv$addsub0000> created at line 15.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <abs_val_8> synthesized.
-
-
-Synthesizing Unit <abs_diff_7>.
-    Related source file is "../Sources/Main FPGA/abs_diff_7.v".
-    Found 8-bit subtractor for signal <absdiff>.
-    Found 8-bit comparator greater for signal <absdiff$cmp_gt0000> created at line 16.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
-Unit <abs_diff_7> synthesized.
-
-
-Synthesizing Unit <calc_rtan_00_90_15>.
-    Related source file is "../Sources/Main FPGA/calc_rtan_00_90.v".
-WARNING:Xst:646 - Signal <rtan_75deg<31:11>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rtan_60deg<31:11>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <rtan_30deg<31:11>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <rtan_30deg<10:0>> is used but never assigned. This sourceless signal will be automatically connected to value 00000000000.
-WARNING:Xst:646 - Signal <rtan_15deg<31:11>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rtab_30deg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 9x12-bit multiplier for signal <rtan_15deg$mult0000> created at line 43.
-    Found 9x14-bit multiplier for signal <rtan_60deg$mult0000> created at line 45.
-    Found 9x15-bit multiplier for signal <rtan_75deg$mult0000> created at line 46.
-    Summary:
-	inferred   3 Multiplier(s).
-Unit <calc_rtan_00_90_15> synthesized.
-
-
-Synthesizing Unit <divider_600us>.
-    Related source file is "../Sources/Shared/divider_600us.v".
-    Found 11-bit up counter for signal <count>.
-    Summary:
-	inferred   1 Counter(s).
-Unit <divider_600us> synthesized.
-
-
 Synthesizing Unit <polar_to_cartesian>.
     Related source file is "../Sources/Main FPGA/polar_to_cartesian.v".
 Unit <polar_to_cartesian> synthesized.
-
-
-Synthesizing Unit <calc_abs7rtan_00_75_15>.
-    Related source file is "../Sources/Main FPGA/calc_abs7rtan_00_75_15.v".
-WARNING:Xst:646 - Signal <rtan_90> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_75<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_60<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_45<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_30<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_15<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <posrtan_00<10:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 11-bit adder for signal <posrtan_00$addsub0000> created at line 43.
-    Found 12-bit comparator less for signal <posrtan_00$cmp_lt0000> created at line 43.
-    Found 11-bit adder for signal <posrtan_15$addsub0000> created at line 44.
-    Found 12-bit comparator less for signal <posrtan_15$cmp_lt0000> created at line 44.
-    Found 11-bit adder for signal <posrtan_30$addsub0000> created at line 45.
-    Found 12-bit comparator less for signal <posrtan_30$cmp_lt0000> created at line 45.
-    Found 11-bit adder for signal <posrtan_45$addsub0000> created at line 46.
-    Found 12-bit comparator less for signal <posrtan_45$cmp_lt0000> created at line 46.
-    Found 11-bit adder for signal <posrtan_60$addsub0000> created at line 47.
-    Found 12-bit comparator less for signal <posrtan_60$cmp_lt0000> created at line 47.
-    Found 11-bit adder for signal <posrtan_75$addsub0000> created at line 48.
-    Found 12-bit comparator less for signal <posrtan_75$cmp_lt0000> created at line 48.
-    Summary:
-	inferred   6 Adder/Subtractor(s).
-	inferred   6 Comparator(s).
-Unit <calc_abs7rtan_00_75_15> synthesized.
-
-
-Synthesizing Unit <timer>.
-    Related source file is "../Sources/Main FPGA/timer.v".
-    Found 10-bit up counter for signal <count>.
-    Found 10-bit register for signal <count_length>.
-    Found 1-bit register for signal <counting>.
-    Found 10-bit comparator equal for signal <expired$cmp_eq0000> created at line 39.
-    Summary:
-	inferred   1 Counter(s).
-	inferred  11 D-type flip-flop(s).
-	inferred   1 Comparator(s).
-Unit <timer> synthesized.
 
 
 Synthesizing Unit <vga_writer>.
@@ -724,105 +539,22 @@ Synthesizing Unit <vga_writer>.
 WARNING:Xst:647 - Input <vclock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <orientation> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <move_command> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:646 - Signal <overlap_pixel> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 8x2-bit multiplier for signal <alpha_blend_B$mult0000> created at line 134.
-    Found 8x2-bit multiplier for signal <alpha_blend_G$mult0000> created at line 132.
-    Found 8x2-bit multiplier for signal <alpha_blend_R$mult0000> created at line 130.
+WARNING:Xst:647 - Input <target_location> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit adder for signal <alpha_blend_B>.
+    Found 8-bit adder for signal <alpha_blend_G>.
+    Found 8-bit adder for signal <alpha_blend_R>.
+    Found 24-bit comparator greater for signal <overlap_pixel$cmp_gt0000> created at line 148.
+    Found 24-bit comparator greater for signal <pixel$cmp_gt0000> created at line 151.
     Found 12-bit register for signal <rover_x>.
     Found 12-bit register for signal <rover_y>.
-    Found 12-bit register for signal <target_y>.
+    Found 12-bit adder for signal <rover_y$add0000> created at line 87.
     Found 12-bit subtractor for signal <x_value>.
-    Found 12-bit adder for signal <y_value$sub0000> created at line 41.
+    Found 12-bit adder for signal <y_value$sub0000> created at line 43.
     Summary:
-	inferred  36 D-type flip-flop(s).
-	inferred   2 Adder/Subtractor(s).
-	inferred   3 Multiplier(s).
-Unit <vga_writer> synthesized.
-
-
-Synthesizing Unit <ir_transmitter>.
-    Related source file is "../Sources/Main FPGA/ir_transmitter.v".
-    Found finite state machine <FSM_1> for signal <state>.
-    -----------------------------------------------------------------------
-    | States             | 5                                              |
-    | Transitions        | 12                                             |
-    | Inputs             | 3                                              |
-    | Outputs            | 12                                             |
-    | Clock              | clk (rising_edge)                              |
-    | Reset              | reset (positive)                               |
-    | Reset type         | synchronous                                    |
-    | Reset State        | 000                                            |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Found 4-bit register for signal <cur_bit>.
-    Found 4-bit adder for signal <cur_bit$addsub0000> created at line 84.
-    Found 12-bit register for signal <cur_value>.
-    Found 11-bit up counter for signal <mod_count>.
-    Found 11-bit comparator less for signal <signal_out$cmp_lt0000> created at line 108.
-    Found 5-bit comparator not equal for signal <start_timer>.
-    Found 4-bit adder for signal <sum_ones>.
-    Found 2-bit adder for signal <sum_ones$addsub0001> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0003> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0004> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0005> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0007> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0008> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0009> created at line 32.
-    Found 1-bit adder carry out for signal <sum_ones$addsub0010> created at line 32.
-    Found 2-bit adder carry out for signal <sum_ones$addsub0011> created at line 32.
-    Found 3-bit adder carry out for signal <sum_ones$addsub0012> created at line 32.
-    Found 10-bit adder for signal <WAIT_TO_45MS>.
-    Summary:
-	inferred   1 Finite State Machine(s).
-	inferred   1 Counter(s).
-	inferred  16 D-type flip-flop(s).
-	inferred  13 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   6 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
-Unit <ir_transmitter> synthesized.
-
-
-Synthesizing Unit <orientation_math>.
-    Related source file is "../Sources/Main FPGA/orientation_math.v".
-WARNING:Xst:1780 - Signal <abs7dxtan90> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-    Using one-hot encoding for signal <quadrant>.
-    Found 1-bit register for signal <done>.
-    Found 8-bit comparator greater for signal <comp00_15>.
-    Found 8-bit comparator greater for signal <comp15_30>.
-    Found 8-bit comparator greater for signal <comp30_45>.
-    Found 8-bit comparator greater for signal <comp45_60>.
-    Found 8-bit comparator greater for signal <comp60_75>.
-    Found 4-bit register for signal <counter>.
-    Found 4-bit adder for signal <counter$addsub0000> created at line 125.
-    Found 9-bit subtractor for signal <delta_x>.
-    Found 9-bit subtractor for signal <delta_y>.
-    Found 5-bit adder carry in for signal <orientation$addsub0000>.
-    Found 10-bit comparator greater for signal <quadrant$cmp_gt0000> created at line 41.
-    Found 10-bit comparator greater for signal <quadrant$cmp_gt0001> created at line 41.
-    Found 3-bit adder for signal <result_less90>.
-    Found 2-bit adder for signal <result_less90$addsub0001> created at line 84.
-    Found 1-bit adder carry out for signal <result_less90$addsub0003> created at line 84.
-    Found 2-bit adder carry out for signal <result_less90$addsub0004> created at line 84.
-    Found 1-bit register for signal <state>.
-    Summary:
-	inferred   6 D-type flip-flop(s).
-	inferred   8 Adder/Subtractor(s).
-	inferred   7 Comparator(s).
-Unit <orientation_math> synthesized.
-
-
-Synthesizing Unit <orientation_path_calculator>.
-    Related source file is "../Sources/Main FPGA/orientation_path_calculator.v".
-WARNING:Xst:647 - Input <target_location> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 4-bit register for signal <state>.
-    Found 1-bit register for signal <orientation_done>.
-    Found 12-bit register for signal <move_command>.
-    Found 1-bit register for signal <orientation_helper_enable>.
-    Found 12-bit register for signal <original_location>.
-    Found 12-bit register for signal <updated_location>.
-    Summary:
-	inferred  42 D-type flip-flop(s).
-Unit <orientation_path_calculator> synthesized.
+Unit <vga_writer> synthesized.
 
 
 Synthesizing Unit <labkit>.
@@ -1103,9 +835,12 @@ WARNING:Xst:647 - Input <mouse_clock> is never used. This port will be preserved
 WARNING:Xst:647 - Input <ac97_bit_clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user3<30>> is never assigned.
-WARNING:Xst:646 - Signal <rover_orientation<4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <orient_path_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <transmit_ir> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <rover_orientation<4>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <rover_orientation<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+WARNING:Xst:653 - Signal <orientation_update> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <my_hex_data<64>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <move_command> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000.
 WARNING:Xst:646 - Signal <ir_signal> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <get_distance> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <db_switch<7:4>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -1126,68 +861,47 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x40-bit ROM                                         : 1
-# Multipliers                                          : 19
+# Multipliers                                          : 7
  12x12-bit multiplier                                  : 2
  12x6-bit multiplier                                   : 1
  12x9-bit multiplier                                   : 1
- 8x2-bit multiplier                                    : 3
- 8x7-bit multiplier                                    : 3
- 8x8-bit multiplier                                    : 6
- 9x12-bit multiplier                                   : 1
- 9x14-bit multiplier                                   : 1
- 9x15-bit multiplier                                   : 1
-# Adders/Subtractors                                   : 58
- 1-bit adder carry out                                 : 2
- 10-bit adder                                          : 1
+ 8x7-bit multiplier                                    : 1
+ 8x8-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 21
  10-bit addsub                                         : 1
- 11-bit adder                                          : 6
- 12-bit adder                                          : 1
+ 12-bit adder                                          : 2
  12-bit subtractor                                     : 1
- 13-bit adder                                          : 5
- 13-bit subtractor                                     : 5
- 2-bit adder                                           : 2
- 2-bit adder carry out                                 : 2
+ 13-bit adder                                          : 4
+ 13-bit subtractor                                     : 4
  20-bit adder                                          : 1
  25-bit adder                                          : 2
- 3-bit adder                                           : 4
- 3-bit adder carry out                                 : 1
- 32-bit adder                                          : 2
- 33-bit subtractor                                     : 3
- 4-bit adder                                           : 7
+ 4-bit adder                                           : 1
  4-bit subtractor                                      : 1
- 5-bit adder carry in                                  : 1
- 8-bit adder                                           : 1
- 8-bit subtractor                                      : 6
+ 8-bit adder                                           : 3
  9-bit adder                                           : 1
- 9-bit subtractor                                      : 2
-# Counters                                             : 14
- 10-bit up counter                                     : 2
- 11-bit up counter                                     : 3
+# Counters                                             : 11
+ 10-bit up counter                                     : 1
+ 11-bit up counter                                     : 1
  19-bit up counter                                     : 6
  5-bit up counter                                      : 2
  8-bit down counter                                    : 1
-# Registers                                            : 71
- 1-bit register                                        : 50
- 10-bit register                                       : 2
- 12-bit register                                       : 8
+# Registers                                            : 57
+ 1-bit register                                        : 45
+ 10-bit register                                       : 1
+ 12-bit register                                       : 3
  20-bit register                                       : 1
  25-bit register                                       : 1
  3-bit register                                        : 1
  32-bit register                                       : 1
- 4-bit register                                        : 5
+ 4-bit register                                        : 2
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 35
- 10-bit comparator equal                               : 1
- 10-bit comparator greater                             : 2
- 11-bit comparator less                                : 1
- 12-bit comparator less                                : 6
+# Comparators                                          : 16
  13-bit comparator greatequal                          : 5
- 13-bit comparator less                                : 6
+ 13-bit comparator less                                : 7
  20-bit comparator greater                             : 1
  20-bit comparator less                                : 1
- 5-bit comparator not equal                            : 1
- 8-bit comparator greater                              : 11
+ 24-bit comparator greater                             : 2
 # Multiplexers                                         : 3
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
@@ -1201,17 +915,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-Analyzing FSM <FSM_1> for best encoding.
-Optimizing FSM <transmitter/state/FSM> on signal <state[1:3]> with gray encoding.
--------------------
- State | Encoding
--------------------
- 000   | 000
- 001   | 001
- 010   | 011
- 011   | 010
- 100   | 110
--------------------
 Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
 ----------------------
@@ -1226,8 +929,6 @@ Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
  00000110 | 110
 ----------------------
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
-WARNING:Xst:2404 -  FFs/Latches <target_y<11:10>> (without init value) have a constant value of 0 in block <vga_writer>.
-WARNING:Xst:2404 -  FFs/Latches <move_command<11:3>> (without init value) have a constant value of 0 in block <orientation_path_calculator>.
 
 Synthesizing (advanced) Unit <calc_rsin_15_165_30>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
@@ -1235,48 +936,15 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_75deg_mult0000 by adding 1 register level(s).
 Unit <calc_rsin_15_165_30> synthesized (advanced).
 
-Synthesizing (advanced) Unit <calc_rtan_00_90_15>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rtan_60deg_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rtan_15deg_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rtan_75deg_mult0000 by adding 1 register level(s).
-Unit <calc_rtan_00_90_15> synthesized (advanced).
-
 Synthesizing (advanced) Unit <grid>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_15deg_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_75deg_mult0000 by adding 1 register level(s).
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_d_2_mult0000 by adding 1 register level(s).
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_d_2_mult0001 by adding 1 register level(s).
 Unit <grid> synthesized (advanced).
-WARNING:Xst:1710 - FF/Latch <target_y_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <rover_x_8> in Unit <vga_writer> is equivalent to the following 3 FFs/Latches, which will be removed : <rover_x_9> <rover_x_10> <rover_x_11> 
-INFO:Xst:2261 - The FF/Latch <rover_y_8> in Unit <vga_writer> is equivalent to the following 3 FFs/Latches, which will be removed : <rover_y_9> <rover_y_10> <rover_y_11> 
-WARNING:Xst:1710 - FF/Latch <move_command_1> (without init value) has a constant value of 0 in block <orientation_path_calculator>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <move_command_0> in Unit <orientation_path_calculator> is equivalent to the following FF/Latch, which will be removed : <move_command_2> 
-WARNING:Xst:1710 - FF/Latch <state_3> (without init value) has a constant value of 0 in block <orientation_path_calculator>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_3> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_4> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_5> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_6> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_7> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_8> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_9> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_10> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_11> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S0>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S1>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S2>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S3>.
-WARNING:Xst:2677 - Node <target_y_1> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_2> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_3> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_4> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_5> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_6> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_7> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_8> of sequential type is unconnected in block <vg>.
-WARNING:Xst:2677 - Node <target_y_9> of sequential type is unconnected in block <vg>.
-WARNING:Xst:1290 - Hierarchical block <target> is unconnected in block <vg>.
-   It will be removed from the design.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -1284,57 +952,36 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x40-bit ROM                                         : 1
-# Multipliers                                          : 16
+# Multipliers                                          : 5
  12x12-bit multiplier                                  : 2
- 12x6-bit multiplier                                   : 1
- 12x9-bit multiplier                                   : 1
- 8x7-bit multiplier                                    : 3
- 8x8-bit multiplier                                    : 6
- 9x12-bit multiplier                                   : 1
- 9x14-bit multiplier                                   : 1
- 9x15-bit multiplier                                   : 1
-# Adders/Subtractors                                   : 56
- 1-bit adder carry out                                 : 2
- 10-bit adder                                          : 1
+ 8x7-bit multiplier                                    : 1
+ 8x8-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 21
  10-bit addsub                                         : 1
- 12-bit adder                                          : 1
+ 12-bit adder                                          : 2
  12-bit subtractor                                     : 1
  13-bit adder                                          : 4
  13-bit subtractor                                     : 4
- 2-bit adder                                           : 2
- 2-bit adder carry out                                 : 2
  20-bit adder                                          : 1
  25-bit adder                                          : 2
- 3-bit adder                                           : 4
- 3-bit adder carry out                                 : 1
- 32-bit adder                                          : 2
- 33-bit subtractor                                     : 3
- 4-bit adder                                           : 7
+ 4-bit adder                                           : 1
  4-bit subtractor                                      : 1
- 5-bit adder carry in                                  : 1
- 8-bit adder                                           : 7
- 8-bit subtractor                                      : 6
+ 8-bit adder                                           : 3
  9-bit adder                                           : 1
- 9-bit subtractor                                      : 2
-# Counters                                             : 14
- 10-bit up counter                                     : 2
- 11-bit up counter                                     : 3
+# Counters                                             : 11
+ 10-bit up counter                                     : 1
+ 11-bit up counter                                     : 1
  19-bit up counter                                     : 6
  5-bit up counter                                      : 2
  8-bit down counter                                    : 1
-# Registers                                            : 268
- Flip-Flops                                            : 268
-# Comparators                                          : 32
- 10-bit comparator equal                               : 1
- 10-bit comparator greater                             : 2
- 11-bit comparator less                                : 1
- 12-bit comparator less                                : 6
+# Registers                                            : 196
+ Flip-Flops                                            : 196
+# Comparators                                          : 13
  13-bit comparator greatequal                          : 4
- 13-bit comparator less                                : 4
+ 13-bit comparator less                                : 5
  20-bit comparator greater                             : 1
  20-bit comparator less                                : 1
- 5-bit comparator not equal                            : 1
- 8-bit comparator greater                              : 11
+ 24-bit comparator greater                             : 2
 # Multiplexers                                         : 3
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
@@ -1347,33 +994,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2677 - Node <target_y_1> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_2> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_3> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_4> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_5> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_6> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_7> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_8> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <target_y_9> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_0> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_1> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_2> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_3> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_4> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_5> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_6> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_7> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_x_8> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_0> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_1> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_2> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_3> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_4> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_5> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_6> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_7> of sequential type is unconnected in block <vga_writer>.
-WARNING:Xst:2677 - Node <rover_y_8> of sequential type is unconnected in block <vga_writer>.
+INFO:Xst:2261 - The FF/Latch <rover_y_9> in Unit <vga_writer> is equivalent to the following 2 FFs/Latches, which will be removed : <rover_y_10> <rover_y_11> 
 
 Optimizing unit <labkit> ...
 
@@ -1385,21 +1006,10 @@ Optimizing unit <display_16hex_labkit> ...
 
 Optimizing unit <grid> ...
 
-Optimizing unit <abs_diff_7> ...
-
 Optimizing unit <polar_to_cartesian> ...
 
-Optimizing unit <calc_abs7rtan_00_75_15> ...
-
-Optimizing unit <timer> ...
-
 Optimizing unit <vga_writer> ...
-
-Optimizing unit <ir_transmitter> ...
-
-Optimizing unit <orientation_math> ...
-
-Optimizing unit <orientation_path_calculator> ...
+WARNING:Xst:1710 - FF/Latch <vg/rover_y_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <db_S3/clean> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S3/new> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S2/clean> of sequential type is unconnected in block <labkit>.
@@ -1408,44 +1018,6 @@ WARNING:Xst:2677 - Node <db_S1/clean> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <db_S1/new> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/clean> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_18> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_18> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S1/count_0> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S1/count_1> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S1/count_2> of sequential type is unconnected in block <labkit>.
@@ -1465,6 +1037,44 @@ WARNING:Xst:2677 - Node <db_S1/count_15> of sequential type is unconnected in bl
 WARNING:Xst:2677 - Node <db_S1/count_16> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S1/count_17> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S1/count_18> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_0> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_1> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_2> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_3> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_4> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_5> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_6> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_7> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_8> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_9> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_10> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_11> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_12> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_13> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_14> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_15> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_16> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_17> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S2/count_18> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_0> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_1> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_2> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_3> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_4> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_5> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_6> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_7> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_8> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_9> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_10> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_11> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_12> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_13> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_14> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_15> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_16> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_17> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db_S3/count_18> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/count_0> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/count_1> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/count_2> of sequential type is unconnected in block <labkit>.
@@ -1484,111 +1094,26 @@ WARNING:Xst:2677 - Node <db_S0/count_15> of sequential type is unconnected in bl
 WARNING:Xst:2677 - Node <db_S0/count_16> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/count_17> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db_S0/count_18> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/counting> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/state> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/done> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/counter_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/counter_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/counter_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/om/counter_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/updated_location_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/original_location_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/move_command_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/state_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/state_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/state_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/orientation_helper_enable> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <opc/orientation_done> of sequential type is unconnected in block <labkit>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 1.
-FlipFlop xvga1/vcount_0 has been replicated 1 time(s)
-FlipFlop xvga1/vcount_1 has been replicated 1 time(s)
-FlipFlop xvga1/vcount_3 has been replicated 1 time(s)
+FlipFlop vg/rover_x_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_x_0 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop vg/rover_y_0 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -1603,8 +1128,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 219
- Flip-Flops                                            : 219
+# Registers                                            : 250
+ Flip-Flops                                            : 250
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -1635,33 +1160,32 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 1217
+# BELS                             : 1186
 #      GND                         : 1
 #      INV                         : 23
 #      LUT1                        : 100
-#      LUT2                        : 106
+#      LUT2                        : 101
 #      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 98
-#      LUT3_D                      : 5
+#      LUT3                        : 121
+#      LUT3_D                      : 7
 #      LUT3_L                      : 3
-#      LUT4                        : 369
-#      LUT4_D                      : 3
-#      LUT4_L                      : 7
-#      MUXCY                       : 238
+#      LUT4                        : 390
+#      LUT4_D                      : 6
+#      LUT4_L                      : 15
+#      MUXCY                       : 228
 #      MUXF5                       : 47
-#      MUXF6                       : 5
+#      MUXF6                       : 4
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 208
-# FlipFlops/Latches                : 233
+#      XORCY                       : 137
+# FlipFlops/Latches                : 264
 #      FD                          : 2
 #      FDE                         : 41
-#      FDR                         : 73
-#      FDRE                        : 75
-#      FDRS                        : 21
+#      FDR                         : 69
+#      FDRE                        : 104
+#      FDRS                        : 25
 #      FDS                         : 11
-#      FDSE                        : 10
+#      FDSE                        : 12
 # Shift Registers                  : 5
 #      SRL16                       : 1
 #      SRL16E                      : 4
@@ -1673,8 +1197,8 @@ Cell Usage :
 #      OBUF                        : 260
 # DCMs                             : 1
 #      DCM                         : 1
-# MULTs                            : 4
-#      MULT18X18                   : 4
+# MULTs                            : 5
+#      MULT18X18                   : 5
 =========================================================================
 
 Device utilization summary:
@@ -1682,14 +1206,15 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      382  out of  33792     1%  
- Number of Slice Flip Flops:            233  out of  67584     0%  
- Number of 4 input LUTs:                721  out of  67584     1%  
-    Number used as logic:               716
+ Number of Slices:                      412  out of  33792     1%  
+ Number of Slice Flip Flops:            248  out of  67584     0%  
+ Number of 4 input LUTs:                772  out of  67584     1%  
+    Number used as logic:               767
     Number used as Shift registers:       5
  Number of IOs:                         576
  Number of bonded IOBs:                 273  out of    684    39%  
- Number of MULT18X18s:                    4  out of    144     2%  
+    IOB Flip Flops:                      16
+ Number of MULT18X18s:                    5  out of    144     3%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
 
@@ -1715,9 +1240,11 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clock_27mhz                        | IBUFG+BUFG             | 166   |
-clock_27mhz                        | vclk1:CLKFX            | 29    |
+clock_27mhz                        | vclk1:CLKFX            | 26    |
 disp/clock1                        | BUFG                   | 43    |
+xvga1/vsync                        | NONE(vg/rover_y_8)     | 34    |
 -----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -1727,9 +1254,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 15.863ns (Maximum Frequency: 63.041MHz)
-   Minimum input arrival time before clock: 11.803ns
-   Maximum output required time after clock: 26.973ns
+   Minimum period: 16.105ns (Maximum Frequency: 62.092MHz)
+   Minimum input arrival time before clock: 11.634ns
+   Maximum output required time after clock: 28.316ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -1738,35 +1265,36 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 15.863ns (frequency: 63.041MHz)
-  Total number of paths / destination ports: 10390 / 467
+  Clock period: 16.105ns (frequency: 62.092MHz)
+  Total number of paths / destination ports: 10259 / 458
 -------------------------------------------------------------------------
-Delay:               6.609ns (Levels of Logic = 4)
-  Source:            xvga1/hcount_5 (FF)
+Delay:               6.711ns (Levels of Logic = 5)
+  Source:            xvga1/vcount_7 (FF)
   Destination:       xvga1/blank (FF)
   Source Clock:      clock_27mhz rising 2.4X
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: xvga1/hcount_5 to xvga1/blank
+  Data Path: xvga1/vcount_7 to xvga1/blank
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             10   0.568   1.170  xvga1/hcount_5 (xvga1/hcount_5)
-     LUT3_D:I0->O          5   0.439   0.804  xvga1/hblankon21 (xvga1/N8)
-     LUT4:I2->O            1   0.439   0.517  xvga1/hreset2_1 (xvga1/hreset2)
-     MUXF5:S->O            1   0.699   0.551  xvga1/vreset2_SW1 (N139)
+     FDRE:C->Q             8   0.568   1.124  xvga1/vcount_7 (xvga1/vcount_7)
+     LUT4:I0->O            1   0.439   0.557  xvga1/next_vblank13 (xvga1/next_vblank13)
+     LUT4:I3->O            2   0.439   0.736  xvga1/next_vblank14 (xvga1/next_vblank14)
+     LUT4:I2->O            1   0.439   0.000  xvga1/vreset2_SW1_G (N200)
+     MUXF5:I1->O           1   0.436   0.551  xvga1/vreset2_SW1 (N158)
      LUT4:I2->O            2   0.439   0.702  xvga1/next_vblank45 (xvga1/next_vblank)
      FDS:S                     0.280          xvga1/blank
     ----------------------------------------
-    Total                      6.609ns (2.864ns logic, 3.745ns route)
-                                       (43.3% logic, 56.7% route)
+    Total                      6.711ns (3.040ns logic, 3.670ns route)
+                                       (45.3% logic, 54.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 11.880ns (frequency: 84.179MHz)
-  Total number of paths / destination ports: 2589 / 70
+  Clock period: 11.799ns (frequency: 84.749MHz)
+  Total number of paths / destination ports: 3049 / 74
 -------------------------------------------------------------------------
-Delay:               11.880ns (Levels of Logic = 12)
+Delay:               11.799ns (Levels of Logic = 12)
   Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
@@ -1776,23 +1304,23 @@ Delay:               11.880ns (Levels of Logic = 12)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             19   0.568   1.243  disp/char_index_0 (disp/char_index_0)
-     LUT2:I1->O            1   0.439   0.000  disp/Mmux_nibble_10 (disp/Mmux_nibble_10)
-     MUXF5:I0->O           1   0.436   0.000  disp/Mmux_nibble_8_f5 (disp/Mmux_nibble_8_f5)
-     MUXF6:I0->O          10   0.447   1.094  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
-     LUT2_D:I1->O         16   0.439   1.208  disp/char_index<3>4 (disp/nibble<0>)
-     LUT4:I1->O            2   0.439   0.735  disp/Mrom_dots1311 (disp/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
-     LUT4_L:I3->LO         1   0.439   0.140  disp/disp_data_out_mux000032 (disp/disp_data_out_mux000032)
-     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
+     FDE:C->Q             21   0.568   1.332  disp/char_index_0 (disp/char_index_0)
+     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_8 (disp/Mmux_nibble_8)
+     MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_7_f5 (disp/Mmux_nibble_7_f5)
+     MUXF6:I1->O           3   0.447   0.932  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
+     LUT3:I1->O           23   0.439   1.343  disp/char_index<3> (disp/nibble<0>)
+     LUT4:I0->O            1   0.439   0.726  disp/Mrom_dots111 (disp/Mrom_dots1)
+     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_131 (disp/Mmux__varindex0000_131)
+     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
+     MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
+     MUXF7:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
+     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000108 (disp/disp_data_out_mux0000108)
+     LUT4:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.880ns (6.216ns logic, 5.663ns route)
-                                       (52.3% logic, 47.7% route)
+    Total                     11.799ns (6.224ns logic, 5.575ns route)
+                                       (52.7% logic, 47.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
@@ -1822,9 +1350,9 @@ Offset:              9.098ns (Levels of Logic = 8)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'disp/clock1'
-  Total number of paths / destination ports: 30 / 1
+  Total number of paths / destination ports: 28 / 1
 -------------------------------------------------------------------------
-Offset:              11.803ns (Levels of Logic = 13)
+Offset:              11.634ns (Levels of Logic = 13)
   Source:            user3<20> (PAD)
   Destination:       disp/disp_data_out (FF)
   Destination Clock: disp/clock1 rising
@@ -1834,54 +1362,55 @@ Offset:              11.803ns (Levels of Logic = 13)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             2   0.825   0.910  user3_20_IBUF (user3_20_IBUF)
-     LUT3:I1->O            1   0.439   0.000  disp/Mmux_nibble_91 (disp/Mmux_nibble_91)
-     MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_8_f5 (disp/Mmux_nibble_8_f5)
-     MUXF6:I0->O          10   0.447   1.094  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
-     LUT2_D:I1->O         16   0.439   1.208  disp/char_index<3>4 (disp/nibble<0>)
-     LUT4:I1->O            2   0.439   0.735  disp/Mrom_dots1311 (disp/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
-     LUT4_L:I3->LO         1   0.439   0.140  disp/disp_data_out_mux000032 (disp/disp_data_out_mux000032)
-     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
+     LUT3:I1->O            1   0.439   0.000  disp/Mmux_nibble_92 (disp/Mmux_nibble_92)
+     MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_8_f5_0 (disp/Mmux_nibble_8_f51)
+     MUXF6:I0->O           3   0.447   0.932  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
+     LUT3:I1->O           23   0.439   1.343  disp/char_index<3> (disp/nibble<0>)
+     LUT4:I0->O            1   0.439   0.726  disp/Mrom_dots111 (disp/Mrom_dots1)
+     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_131 (disp/Mmux__varindex0000_131)
+     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
+     MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
+     MUXF7:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
+     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000108 (disp/disp_data_out_mux0000108)
+     LUT4:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.803ns (6.473ns logic, 5.330ns route)
-                                       (54.8% logic, 45.2% route)
+    Total                     11.634ns (6.481ns logic, 5.153ns route)
+                                       (55.7% logic, 44.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 140768 / 40
+  Total number of paths / destination ports: 1041961 / 41
 -------------------------------------------------------------------------
-Offset:              26.973ns (Levels of Logic = 14)
+Offset:              28.316ns (Levels of Logic = 15)
   Source:            xvga1/vcount_0 (FF)
-  Destination:       vga_out_blue<0> (PAD)
+  Destination:       vga_out_red<7> (PAD)
   Source Clock:      clock_27mhz rising 2.4X
 
-  Data Path: xvga1/vcount_0 to vga_out_blue<0>
+  Data Path: xvga1/vcount_0 to vga_out_red<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            25   0.568   1.278  xvga1/vcount_0 (xvga1/vcount_0)
-     LUT3:I1->O           13   0.439   1.240  vg/Madd_y_value_sub0000_xor<4>111 (vg/N4)
-     LUT4:I0->O           16   0.439   1.285  vg/Madd_y_value_sub0000_xor<6>111 (vg/N2)
-     LUT4:I0->O            1   0.439   0.000  vg/y_value<10>1 (vg/y_value<10>1)
-     MUXF5:I1->O          37   0.436   1.101  vg/y_value<10>_f5 (vg/y_value<10>)
-     MULT18X18:A10->P18    1   6.837   0.726  vg/grid/Mmult_d_2_mult0001 (vg/grid/d_2_mult0001<18>)
-     LUT2:I1->O            1   0.439   0.000  vg/grid/Madd_d_2_add0000_lut<18> (vg/grid/Madd_d_2_add0000_lut<18>)
-     MUXCY:S->O            1   0.298   0.000  vg/grid/Madd_d_2_add0000_cy<18> (vg/grid/Madd_d_2_add0000_cy<18>)
-     XORCY:CI->O           3   1.274   1.010  vg/grid/Madd_d_2_add0000_xor<19> (vg/grid/d_2<19>)
-     LUT3:I0->O            2   0.439   0.987  vg/grid/pixel<0>994 (vg/grid/pixel<0>994)
-     LUT4:I0->O            1   0.439   0.000  vg/grid/pixel<0>1002_G (N251)
-     MUXF5:I1->O           1   0.436   0.557  vg/grid/pixel<0>1002 (vg/grid/pixel<0>1002)
-     LUT4:I3->O            1   0.439   0.551  vg/grid/pixel<0>1032 (vg/grid/pixel<0>1032)
-     LUT4:I2->O            1   0.439   0.517  vg/grid/pixel<0>1172 (pixel<0>)
-     OBUF:I->O                 4.361          vga_out_blue_0_OBUF (vga_out_blue<0>)
+     FDRE:C->Q            19   0.568   1.320  xvga1/vcount_0 (xvga1/vcount_0)
+     LUT4:I0->O            6   0.439   1.079  vg/Madd_y_value_sub0000_xor<4>111 (vg/N10)
+     LUT3:I0->O            3   0.439   1.010  vg/Madd_y_value_sub0000_xor<6>111 (vg/N4)
+     LUT3:I0->O            9   0.439   0.896  vg/Madd_y_value_sub0000_xor<9>111 (vg/N0)
+     LUT3:I2->O           16   0.439   1.000  vg/y_value<10>1 (vg/y_value<10>)
+     MULT18X18:A10->P17    1   6.630   0.726  vg/grid/Mmult_d_2_mult0001 (vg/grid/d_2_mult0001<17>)
+     LUT2:I1->O            1   0.439   0.000  vg/grid/Madd_d_2_add0000_lut<17> (vg/grid/Madd_d_2_add0000_lut<17>)
+     MUXCY:S->O            1   0.298   0.000  vg/grid/Madd_d_2_add0000_cy<17> (vg/grid/Madd_d_2_add0000_cy<17>)
+     XORCY:CI->O           4   1.274   1.033  vg/grid/Madd_d_2_add0000_xor<18> (vg/grid/d_2<18>)
+     LUT4:I0->O            1   0.439   0.552  vg/grid/pixel<16>258_SW1 (N254)
+     LUT4:I2->O            1   0.439   0.802  vg/grid/pixel<16>258 (vg/grid/pixel<16>258)
+     LUT3:I0->O            1   0.439   0.000  vg/grid/pixel<16>309_G (N291)
+     MUXF5:I1->O           1   0.436   0.551  vg/grid/pixel<16>309 (vg/grid/pixel<16>309)
+     LUT4:I2->O            1   0.439   0.551  vg/grid/pixel<16>452 (vg/grid/pixel<16>452)
+     LUT3:I2->O            8   0.439   0.839  vg/pixel<23>1 (pixel<16>)
+     OBUF:I->O                 4.361          vga_out_red_0_OBUF (vga_out_red<0>)
     ----------------------------------------
-    Total                     26.973ns (17.722ns logic, 9.251ns route)
-                                       (65.7% logic, 34.3% route)
+    Total                     28.316ns (17.957ns logic, 10.360ns route)
+                                       (63.4% logic, 36.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'disp/clock1'
@@ -1903,17 +1432,49 @@ Offset:              5.630ns (Levels of Logic = 1)
                                        (87.5% logic, 12.5% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'xvga1/vsync'
+  Total number of paths / destination ports: 4976 / 32
+-------------------------------------------------------------------------
+Offset:              14.729ns (Levels of Logic = 14)
+  Source:            vg/rover_y_6 (FF)
+  Destination:       vga_out_green<7> (PAD)
+  Source Clock:      xvga1/vsync rising
+
+  Data Path: vg/rover_y_6 to vga_out_green<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDSE:C->Q             8   0.568   1.125  vg/rover_y_6 (vg/rover_y_6)
+     LUT4:I0->O            4   0.439   0.955  vg/rover_s/_sub0001<12>11 (vg/rover_s/_sub0001<12>_bdd0)
+     LUT2:I1->O            1   0.439   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_lut<9> (vg/rover_s/Mcompar_pixel_cmp_ge0001_lut<9>)
+     MUXCY:S->O            1   0.298   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<9> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<9>)
+     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<10> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<10>)
+     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<11> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<11>)
+     MUXCY:CI->O           3   0.942   1.010  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<12> (vg/rover_s/pixel_cmp_ge0001)
+     LUT4:I0->O            1   0.439   0.000  vg/Mcompar_pixel_cmp_gt0000_lut<2>1 (vg/Mcompar_pixel_cmp_gt0000_lut<2>)
+     MUXCY:S->O            1   0.298   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<2> (vg/Mcompar_pixel_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<3> (vg/Mcompar_pixel_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.053   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<4> (vg/Mcompar_pixel_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           2   0.942   0.987  vg/Mcompar_pixel_cmp_gt0000_cy<5> (vg/Mcompar_pixel_cmp_gt0000_cy<5>)
+     LUT4:I0->O            1   0.439   0.000  vg/pixel<9>11 (vg/pixel<9>1)
+     MUXF5:I1->O           8   0.436   0.839  vg/pixel<9>1_f5 (pixel<10>)
+     OBUF:I->O                 4.361          vga_out_green_2_OBUF (vga_out_green<2>)
+    ----------------------------------------
+    Total                     14.729ns (9.813ns logic, 4.916ns route)
+                                       (66.6% logic, 33.4% route)
+
+=========================================================================
 
 
-Total REAL time to Xst completion: 19.00 secs
-Total CPU time to Xst completion: 18.35 secs
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 15.68 secs
  
 --> 
 
 
-Total memory usage is 493664 kilobytes
+Total memory usage is 481500 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  557 (   0 filtered)
-Number of infos    :   26 (   0 filtered)
+Number of warnings :  394 (   0 filtered)
+Number of infos    :   21 (   0 filtered)
 

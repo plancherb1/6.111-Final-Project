@@ -1,5 +1,5 @@
 NUM_USER_FILES
-25
+29
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -54,6 +54,18 @@ user_file_24
 s
 user_file_25
 ../Sources/Main FPGA/edge_detect.v
+s
+user_file_26
+../Test Fixtures/Main FPGA/calc_rsin_15_165_30_tb.v
+s
+user_file_27
+../Test Fixtures/Main FPGA/polar_to_cartesian_tb.v
+s
+user_file_28
+../Test Fixtures/Main FPGA/grid_tb.v
+s
+user_file_29
+../Test Fixtures/Main FPGA/vga_writer_tb.v
 s
 user_file_3
 ../Sources/Main FPGA/ir_transmitter.v

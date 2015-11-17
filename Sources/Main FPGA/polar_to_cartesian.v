@@ -16,6 +16,9 @@ module polar_to_cartesian
      output reg signed [8:0] x_value, // 1 for sign and 7 for the value as the sin could be a 1 theoretically
      output reg signed [8:0] y_value);
    
+	parameter POS = 1'b0;
+	parameter NEG = 1'b1;
+	
    // use helper module to do the math
    wire [7:0] rsin_15;
    wire [7:0] rsin_45;
@@ -29,28 +32,28 @@ module polar_to_cartesian
       // but note that the theta is defined in 15 degree incriments and so we need to check on the right values
       case (r_theta[11:8])
          4'h1: begin // 15deg
-            x_value = {0,rsin_75}; 
-            y_value = {0,rsin_15};
+            x_value = {POS,rsin_75}; 
+            y_value = {POS,rsin_15};
          end
          4'h3: begin // 45deg
-            x_value = {0,rsin_45}; 
-            y_value = {0,rsin_45};
+            x_value = {POS,rsin_45}; 
+            y_value = {POS,rsin_45};
          end
          4'h5: begin // 75deg
-            x_value = {0,rsin_15}; 
-            y_value = {0,rsin_75};
+            x_value = {POS,rsin_15}; 
+            y_value = {POS,rsin_75};
          end
          4'h7: begin // 105deg
-            x_value = {1,rsin_15}; 
-            y_value = {0,rsin_75};
+            x_value = {NEG,rsin_15}; 
+            y_value = {POS,rsin_75};
          end
          4'h9: begin // 135deg
-            x_value = {1,rsin_45}; 
-            y_value = {0,rsin_45};
+            x_value = {NEG,rsin_45}; 
+            y_value = {POS,rsin_45};
          end
          default: begin // 165deg
-            x_value = {1,rsin_75}; 
-            y_value = {0,rsin_15};
+            x_value = {NEG,rsin_75}; 
+            y_value = {POS,rsin_15};
          end
       endcase
    end

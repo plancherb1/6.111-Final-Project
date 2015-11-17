@@ -17,8 +17,8 @@ module ultrasound_location_calculator(
    output reg [11:0] rover_location, // {4 bits for angle, 8 for distance}
    output reg [9:0] ultrasound_commands, // can use up to 10 ultrasounds
 	output reg [9:0] ultrasound_power, // can use up to 10 ultrasounds
-   output analyzer_clock, // for debug only
-   output [15:0] analyzer_data, // for debug only
+   //output analyzer_clock, // for debug only
+   //output [15:0] analyzer_data, // for debug only
    output reg [2:0] state // made output for debug
    );
 	
@@ -45,10 +45,10 @@ module ultrasound_location_calculator(
 	reg [3:0] best_angle;
 	
 	// debug only
-	assign analyzer3_clock = clock;
-	assign analyzer_data = {state, //3
-									 ultrasound_power, //10
-									 curr_ultrasound[1:0]};
+	//assign analyzer3_clock = clock;
+	//assign analyzer_data = {state, //3
+	//								 ultrasound_power, //10
+	//								 curr_ultrasound[1:0]};
 	
 	// synchronize on the clock
 	always @(posedge clock) begin
@@ -171,12 +171,12 @@ module ultrasound_location_calculator(
 				
 				// default to IDLE state
 				default: begin
-					done <= 0;
 					// if we see a run_program then begin the calculation else stay in IDLE
 					if (calculate) begin
 						state <= TRIGGER;
 						ultrasound_commands[curr_ultrasound] <= 1;
 						trigger_count <= 1;
+						done <= 0;
 					end
 				end
 			

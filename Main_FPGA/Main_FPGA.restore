@@ -860,7 +860,11 @@ proc restore { { project_dir "" } } {
       "../Sources/Shared/debounce.v" 
       "../Sources/Shared/divider_600us.v" 
       "../Sources/Shared/synchronize.v" 
-      "../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v"}
+      "../Test Fixtures/Main FPGA/calc_rsin_15_165_30_tb.v" 
+      "../Test Fixtures/Main FPGA/grid_tb.v" 
+      "../Test Fixtures/Main FPGA/polar_to_cartesian_tb.v" 
+      "../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v" 
+      "../Test Fixtures/Main FPGA/vga_writer_tb.v"}
 
   HandleException {
     AddUserFiles $iProjHelper $user_files
@@ -881,7 +885,7 @@ proc restore { { project_dir "" } } {
       "A" "" "" "" "PROPEXT_xilxSynthAddBufg_virtex2" "16" 
       "A" "" "" "" "PROPEXT_xilxSynthMaxFanout_virtex2" "500" 
       "A" "" "" "" "PROP_AutoGenFile" "false" 
-      "A" "" "" "" "PROP_BehavioralSimTop" "Module|ultrasound_location_calculator_tb" 
+      "A" "" "" "" "PROP_BehavioralSimTop" "Module|vga_writer_tb" 
       "A" "" "" "" "PROP_CPLDFitkeepio" "false" 
       "A" "" "" "" "PROP_CompxlibAbelLib" "true" 
       "A" "" "" "" "PROP_CompxlibCPLDDetLib" "true" 

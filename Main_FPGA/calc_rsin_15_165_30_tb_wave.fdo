@@ -1,0 +1,4 @@
+## Project Navigator simulation template: calc_rsin_15_165_30_tb_wave.fdo
+## You may edit this file to control your simulation.
+add wave *
+add wave /glbl/GSR

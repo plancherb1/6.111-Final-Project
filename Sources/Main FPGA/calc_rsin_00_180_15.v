@@ -36,6 +36,6 @@ module calc_rsin_00_180_15
    assign rsin_60 = rsin_60deg[7:0];
    
    // use the helper function to get the other three
-   calc_rsin_15_165_30 helper (.r(r),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75)))
+   calc_rsin_15_165_30 helper (.r(r),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75));
 
 endmodule

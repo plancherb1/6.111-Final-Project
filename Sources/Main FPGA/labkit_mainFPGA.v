@@ -444,55 +444,60 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
 									.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
 									.done(location_update),.rover_location(rover_location),
-									.analyzer_clock(analyzer3_clock),
-									.analyzer_data(analyzer3_data),
+									//.analyzer_clock(analyzer3_clock),
+									//.analyzer_data(analyzer3_data),
 									.state(ultrasound_state),
 									.ultrasound_commands(ultrasound_commands),
 									.ultrasound_power(ultrasound_power));
   
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
-  vga_writer vg(.vclock(clock_65mhz),.reset(reset),.new_data(location_update),
+  vga_writer vg(.vclock(clock_65mhz),.reset(reset),
                 .move_command(move_command),.location(rover_location),
                 .orientation(rover_orientation),.target_location(target_location),
                 .orientation_ready(orientation_update),
+					 .new_data(location_update),
+					 .analyzer_clock(analyzer3_clock),
+					 .analyzer_data(analyzer3_data),
                 .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
 			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
   
   // use this to display on hex display for debug
   wire [64:0] my_hex_data;
   assign my_hex_data = {rover_location,
-								 3'b0,location_update,
-								 3'b0,ultrasound_commands[0],
-								 3'b0,ultrasound_signals[0],
-								 1'b0,ultrasound_state,
-								 36'hFFFFFFFFF};
+								3'b0,location_update,
+								3'b0,ultrasound_commands[0],
+								3'b0,ultrasound_signals[0],
+								1'b0,ultrasound_state,
+								16'hFFFF,
+								3'b0,location_update,
+								analyzer3_data};
 										 
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 							disp_blank, disp_clock, disp_rs, disp_ce_b,
 							disp_reset_b, disp_data_out);
   
   // Orientation/Path activates transmitter when done to send move_command
-  wire [3:0] orient_path_state;
-  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
-											  .enable(location_update),
-								           .rover_location(rover_location),
-											  .target_location(target_location),
-											  .orientation(rover_orientation),
-											  .orientation_done(orientation_update),
-											  .move_done(transmit_ir),.move_command(move_command),
-											  .state(orient_path_state)
-											//.analyzer_clock(analyzer3_clock),
-											//.analyzer_data(analyzer3_data),
-											);
+  //wire [3:0] orient_path_state;
+  //orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
+	//										  .enable(location_update),
+		//						           .rover_location(rover_location),
+			//								  .target_location(target_location),
+				//							  .orientation(rover_orientation),
+					//						  .orientation_done(orientation_update),
+						//					  .move_done(transmit_ir),.move_command(move_command),
+							//				  .state(orient_path_state)
+								//			//.analyzer_clock(analyzer3_clock),
+									//		//.analyzer_data(analyzer3_data),
+										//	);
 								  
   // Transmitter (from Lab5b hijacked to send IR)
-  ir_transmitter transmitter (.clk(clock_27mhz),
-                               .reset(reset),
-                               .address(move_command[11:7]), // angle
-                               .command(move_command[6:0]), // distance
-                               .transmit(transmit_ir),
-                               .signal_out(ir_signal));					  
+  //ir_transmitter transmitter (.clk(clock_27mhz),
+    //                           .reset(reset),
+      //                         .address(move_command[11:7]), // angle
+        //                       .command(move_command[6:0]), // distance
+          //                     .transmit(transmit_ir),
+            //                   .signal_out(ir_signal));					  
 
   // display waveform on logic analyzer for debug (if needed)
   //assign analyzer3_data = {rover_location,
