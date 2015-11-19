@@ -56,7 +56,7 @@
 <msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">target_x</arg>&gt; in unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; has a constant value of <arg fmt="%s" index="3">000000000000</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
-<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">target_y</arg>&gt; in unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; has a constant value of <arg fmt="%s" index="3">000001000000</arg> during circuit operation. The register is replaced by logic.
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">target_y</arg>&gt; in unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; has a constant value of <arg fmt="%s" index="3">000010000000</arg> during circuit operation. The register is replaced by logic.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rsin_75deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -968,10 +968,16 @@
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_d_2_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_d_2_mult0001</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_d_2_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_x_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_x_9&gt; &lt;rover_x_10&gt; &lt;rover_x_11&gt; </arg>

@@ -14,26 +14,44 @@
 
 module grid
 	#(parameter BLANK_COLOR = 24'h00_00_00, GRID_COLOR = 24'hFF_00_00, 
-					 VERTICAL_OFFSET = 64, WIDTH = 4)
+					 LEFT_BORDER = -128, RIGHT_BORDER = 128,
+					 TOP_BORDER = 640, BOTTOM_BORDER = 128, LINE_WIDTH = 4)
     (input signed [11:0] x_value,
      input signed [11:0] y_value,
      output reg [23:0] pixel);
 	
-   // parameters that define the radius sizes   
-	parameter R_6 = 1000*1000;
-   parameter R_5 = 800*800;
-   parameter R_4 = 600*600;
-   parameter R_3 = 400*400;
-   parameter R_2 = 200*200;
-   parameter R_1 = 100*100;
+	wire on_border;
+	wire out_of_border;
+	assign on_border = 		(x_value == RIGHT_BORDER) | (x_value == LEFT_BORDER) |
+									(y_value == TOP_BORDER) 	| (y_value == BOTTOM_BORDER);
+	assign out_of_border = 	(x_value > RIGHT_BORDER) 	| (x_value < LEFT_BORDER) |
+									(y_value > TOP_BORDER) 	| (y_value < BOTTOM_BORDER);
+	
+   // parameters that define the radius sizes for arcs
+	parameter R_7 = 224*224;
+	parameter R_6 = 192*192;
+	parameter R_5 = 160*160;
+   parameter R_4 = 128*128;
+   parameter R_3 = 96*96;
+   parameter R_2 = 64*64;
+   parameter R_1 = 32*32;
+	
+	// Then calc the distance and compare to the arcs
+	wire signed [31:0] d_2; // large bit size to handle the square
+	assign d_2 = x_value * x_value + y_value * y_value;
+	wire on_arc;
+	assign on_arc = 	((d_2 - R_1 - LINE_WIDTH/2 <= 0) && (d_2 - R_1 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_2 - LINE_WIDTH/2 <= 0) && (d_2 - R_2 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_3 - LINE_WIDTH/2 <= 0) && (d_2 - R_3 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_4 - LINE_WIDTH/2 <= 0) && (d_2 - R_4 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_5 - LINE_WIDTH/2 <= 0) && (d_2 - R_5 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_6 - LINE_WIDTH/2 <= 0) && (d_2 - R_6 + LINE_WIDTH/2 >= 0)) |
+							((d_2 - R_7 - LINE_WIDTH/2 <= 0) && (d_2 - R_7 + LINE_WIDTH/2 >= 0));
    
-   // pre-calculate always the values we need for the calculations which are easily done
-   // within each clock cycle as they are simple multiplies so we are fine
-   wire signed [31:0] d_2; // large bit size to handle the square
+   // pre-calculate the values we need to test the radial_lines
    wire signed [31:0] test_15deg; // large bit size to multiply and shift
    wire signed [31:0] test_45deg; // large bit size to multiply and shift
    wire signed [31:0] test_75deg; // large bit size to multiply and shift
-   assign d_2 = x_value * x_value + y_value * y_value;
    assign test_15deg = (x_value*17) >>> 6;  // tan 15 is about 17/64
    assign test_45deg = x_value;             // tan 45 = 1
    assign test_75deg = (x_value*240) >>> 6; // tan 75 is about 240/64
@@ -45,43 +63,27 @@ module grid
 	wire comp75pos;
 	wire comp75neg;
 	wire on_radial_line;
-	assign comp15pos = 	((test_15deg - y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_15deg - y_value - VERTICAL_OFFSET) > WIDTH/2);
-	assign comp15neg = 	((test_15deg + y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_15deg + y_value - VERTICAL_OFFSET) > WIDTH/2);
-	assign comp45pos = 	((test_45deg - y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_45deg - y_value - VERTICAL_OFFSET) > WIDTH/2);
-	assign comp45neg = 	((test_45deg + y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_45deg + y_value - VERTICAL_OFFSET) > WIDTH/2);
-	assign comp75pos = 	((test_75deg - y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_75deg - y_value - VERTICAL_OFFSET) > WIDTH/2);
-	assign comp75neg = 	((test_75deg + y_value - VERTICAL_OFFSET) < WIDTH/2) && 
-								((test_75deg + y_value - VERTICAL_OFFSET) > WIDTH/2);
+	assign comp15pos = 	((test_15deg - y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_15deg - y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
+	assign comp15neg = 	((test_15deg + y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_15deg + y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
+	assign comp45pos = 	((test_45deg - y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_45deg - y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
+	assign comp45neg = 	((test_45deg + y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_45deg + y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
+	assign comp75pos = 	((test_75deg - y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_75deg - y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
+	assign comp75neg = 	((test_75deg + y_value - BOTTOM_BORDER) - LINE_WIDTH/2 <= 0) && 
+								((test_75deg + y_value - BOTTOM_BORDER) + LINE_WIDTH/2 >= 0);
    assign on_radial_line = comp15pos | comp15neg | comp45pos | comp45neg | comp75pos | comp75neg;
 	
    always @(*) begin
-		// first make sure to draw our boundary at the bottom
-		if (y_value < VERTICAL_OFFSET) begin
+		// test to see if not out of border and on a border, radial line, or arc
+		if ((!out_of_border) && (on_border | on_arc | on_radial_line)) begin
 			pixel = GRID_COLOR;
 		end
-      // else test if we are on one of the radial lines or arcs
       else begin
-			// first radial lines
-			if (on_radial_line) begin
-				pixel = GRID_COLOR;
-			end
-			// if not then arcs or return blank
-			else begin
-				case (d_2)
-					R_1: pixel = GRID_COLOR;
-					R_2: pixel = GRID_COLOR;
-					R_3: pixel = GRID_COLOR;
-					R_4: pixel = GRID_COLOR;
-					R_5: pixel = GRID_COLOR;
-					R_6: pixel = GRID_COLOR;
-					default: pixel = BLANK_COLOR;
-				endcase
-			end
+			pixel = BLANK_COLOR;
 		end
    end
 

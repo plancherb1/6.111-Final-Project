@@ -70,6 +70,9 @@ s
 user_file_3
 ../Sources/Main FPGA/ir_transmitter.v
 s
+user_file_30
+pixel_blob.v
+s
 user_file_4
 ../Sources/Main FPGA/labkit_mainFPGA.v
 s

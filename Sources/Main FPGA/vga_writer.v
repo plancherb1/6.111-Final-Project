@@ -53,8 +53,13 @@ module vga_writer (
    parameter ROVER_COLOR = 24'h00_FF_00;
    parameter PIXEL_ALL_1S = 24'hFF_FF_FF;
 	parameter ROVER_ORIENTED_COLOR = 24'hFF_FF_00;
-	parameter VERTICAL_OFFSET = 64;
+	// and the grid
 	parameter GRID_LINE_WIDTH = 4;
+	parameter GRID_SIZE = 512;
+	parameter GRID_RIGHT_BORDER = (TOTAL_WIDTH-GRID_SIZE)/2;
+	parameter GRID_LEFT_BORDER = -1*GRID_RIGHT_BORDER;
+	parameter GRID_BOTTOM_BORDER = (TOTAL_HEIGHT-GRID_SIZE)/2;
+	parameter GRID_TOP_BORDER = TOTAL_HEIGHT - GRID_BOTTOM_BORDER;
    
    // display the target and rover based on the location
    reg signed [11:0] target_x;
@@ -76,15 +81,15 @@ module vga_writer (
       // when we reset move the rover off of the screen and wait for ultrasound to update
       if (reset) begin
          rover_x <= 0;
-         rover_y <= VERTICAL_OFFSET;
+         rover_y <= GRID_BOTTOM_BORDER;
 			target_x <= 0;
-			target_y <= VERTICAL_OFFSET;
+			target_y <= GRID_BOTTOM_BORDER;
       end
       // else for the location of the "Rover" we only update when we have valid new information
       else if (new_data | orientation_ready) begin
          // save the updated rover location
          rover_x <= {temp_rover_x[8],temp_rover_x[8],temp_rover_x[8],temp_rover_x};
-         rover_y <= {temp_rover_y[8],temp_rover_y[8],temp_rover_y[8],temp_rover_y}+VERTICAL_OFFSET;
+         rover_y <= {temp_rover_y[8],temp_rover_y[8],temp_rover_y[8],temp_rover_y}+GRID_BOTTOM_BORDER;
 			
 			// scaling?
 			
@@ -105,8 +110,10 @@ module vga_writer (
    
    // instantiate the grid
    wire [23:0] grid_pixel;
-   grid 	#(.GRID_COLOR(GRID_COLOR),.BLANK_COLOR(BLANK_COLOR),
-			  .VERTICAL_OFFSET(VERTICAL_OFFSET),.WIDTH(GRID_LINE_WIDTH))
+   grid 	#(.GRID_COLOR(GRID_COLOR),.BLANK_COLOR(BLANK_COLOR), 
+			  .BOTTOM_BORDER(GRID_BOTTOM_BORDER),.TOP_BORDER(GRID_TOP_BORDER),
+			  .LEFT_BORDER(GRID_LEFT_BORDER),.RIGHT_BORDER(GRID_RIGHT_BORDER),
+			  .LINE_WIDTH(GRID_LINE_WIDTH))
 		grid(.x_value(x_value),.y_value(y_value),.pixel(grid_pixel));
    
    // instantiate the target

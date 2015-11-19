@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: labkit.prj
@@ -167,8 +167,13 @@ Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	ALPHA_N = "00000000000000000000000000000100"
 	ALPHA_N_LOG_2 = "00000000000000000000000000000010"
 	BLANK_COLOR = "000000000000000000000000"
+	GRID_BOTTOM_BORDER = "00000000000000000000000010000000"
 	GRID_COLOR = "111111110000000000000000"
+	GRID_LEFT_BORDER = "11111111111111111111111100000000"
 	GRID_LINE_WIDTH = "00000000000000000000000000000100"
+	GRID_RIGHT_BORDER = "00000000000000000000000100000000"
+	GRID_SIZE = "00000000000000000000001000000000"
+	GRID_TOP_BORDER = "00000000000000000000001010000000"
 	PIXEL_ALL_1S = "111111111111111111111111"
 	ROVER_COLOR = "000000001111111100000000"
 	ROVER_HEIGHT = "00000000000000000000000001000000"
@@ -179,7 +184,6 @@ Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	TARGET_WIDTH = "00000000000000000000000001000000"
 	TOTAL_HEIGHT = "00000000000000000000001100000000"
 	TOTAL_WIDTH = "00000000000000000000010000000000"
-	VERTICAL_OFFSET = "00000000000000000000000001000000"
 
 Analyzing hierarchy for module <display_16hex_labkit> in library <work>.
 
@@ -189,15 +193,19 @@ Analyzing hierarchy for module <polar_to_cartesian> in library <work> with param
 
 Analyzing hierarchy for module <grid> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
+	BOTTOM_BORDER = "00000000000000000000000010000000"
 	GRID_COLOR = "111111110000000000000000"
-	R_1 = "00000000000000000010011100010000"
-	R_2 = "00000000000000001001110001000000"
-	R_3 = "00000000000000100111000100000000"
-	R_4 = "00000000000001010111111001000000"
-	R_5 = "00000000000010011100010000000000"
-	R_6 = "00000000000011110100001001000000"
-	VERTICAL_OFFSET = "00000000000000000000000001000000"
-	WIDTH = "00000000000000000000000000000100"
+	LEFT_BORDER = "11111111111111111111111100000000"
+	LINE_WIDTH = "00000000000000000000000000000100"
+	RIGHT_BORDER = "00000000000000000000000100000000"
+	R_1 = "00000000000000000000010000000000"
+	R_2 = "00000000000000000001000000000000"
+	R_3 = "00000000000000000010010000000000"
+	R_4 = "00000000000000000100000000000000"
+	R_5 = "00000000000000000110010000000000"
+	R_6 = "00000000000000001001000000000000"
+	R_7 = "00000000000000001100010000000000"
+	TOP_BORDER = "00000000000000000000001010000000"
 
 Analyzing hierarchy for module <blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
@@ -276,8 +284,13 @@ Analyzing module <vga_writer> in library <work>.
 	ALPHA_N = 32'sb00000000000000000000000000000100
 	ALPHA_N_LOG_2 = 32'sb00000000000000000000000000000010
 	BLANK_COLOR = 24'b000000000000000000000000
+	GRID_BOTTOM_BORDER = 32'sb00000000000000000000000010000000
 	GRID_COLOR = 24'b111111110000000000000000
+	GRID_LEFT_BORDER = 32'sb11111111111111111111111100000000
 	GRID_LINE_WIDTH = 32'sb00000000000000000000000000000100
+	GRID_RIGHT_BORDER = 32'sb00000000000000000000000100000000
+	GRID_SIZE = 32'sb00000000000000000000001000000000
+	GRID_TOP_BORDER = 32'sb00000000000000000000001010000000
 	PIXEL_ALL_1S = 24'b111111111111111111111111
 	ROVER_COLOR = 24'b000000001111111100000000
 	ROVER_HEIGHT = 32'sb00000000000000000000000001000000
@@ -288,7 +301,6 @@ Analyzing module <vga_writer> in library <work>.
 	TARGET_WIDTH = 32'sb00000000000000000000000001000000
 	TOTAL_HEIGHT = 32'sb00000000000000000000001100000000
 	TOTAL_WIDTH = 32'sb00000000000000000000010000000000
-	VERTICAL_OFFSET = 32'sb00000000000000000000000001000000
 Module <vga_writer> is correct for synthesis.
  
 Analyzing module <polar_to_cartesian> in library <work>.
@@ -301,15 +313,19 @@ Module <calc_rsin_15_165_30> is correct for synthesis.
  
 Analyzing module <grid> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
+	BOTTOM_BORDER = 32'sb00000000000000000000000010000000
 	GRID_COLOR = 24'b111111110000000000000000
-	R_1 = 32'sb00000000000000000010011100010000
-	R_2 = 32'sb00000000000000001001110001000000
-	R_3 = 32'sb00000000000000100111000100000000
-	R_4 = 32'sb00000000000001010111111001000000
-	R_5 = 32'sb00000000000010011100010000000000
-	R_6 = 32'sb00000000000011110100001001000000
-	VERTICAL_OFFSET = 32'sb00000000000000000000000001000000
-	WIDTH = 32'sb00000000000000000000000000000100
+	LEFT_BORDER = 32'sb11111111111111111111111100000000
+	LINE_WIDTH = 32'sb00000000000000000000000000000100
+	RIGHT_BORDER = 32'sb00000000000000000000000100000000
+	R_1 = 32'sb00000000000000000000010000000000
+	R_2 = 32'sb00000000000000000001000000000000
+	R_3 = 32'sb00000000000000000010010000000000
+	R_4 = 32'sb00000000000000000100000000000000
+	R_5 = 32'sb00000000000000000110010000000000
+	R_6 = 32'sb00000000000000001001000000000000
+	R_7 = 32'sb00000000000000001100010000000000
+	TOP_BORDER = 32'sb00000000000000000000001010000000
 Module <grid> is correct for synthesis.
  
 Analyzing module <blob.1> in library <work>.
@@ -353,7 +369,7 @@ INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
 INFO:Xst:2679 - Register <target_x> in unit <vga_writer> has a constant value of 000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <target_y> in unit <vga_writer> has a constant value of 000001000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <target_y> in unit <vga_writer> has a constant value of 000010000000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
     Related source file is "../Sources/Shared/debounce.v".
@@ -461,16 +477,106 @@ Unit <display_16hex_labkit> synthesized.
 
 Synthesizing Unit <grid>.
     Related source file is "../Sources/Main FPGA/grid.v".
-    Found 25-bit adder for signal <d_2$add0000> created at line 36.
-    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 36.
-    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 36.
-    Found 13-bit comparator less for signal <pixel$cmp_lt0000> created at line 64.
-    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 37.
-    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 39.
+    Found 32-bit adder for signal <comp15neg$add0001> created at line 68.
+    Found 32-bit adder for signal <comp15neg$add0002> created at line 68.
+    Found 32-bit subtractor for signal <comp15neg$addsub0000> created at line 68.
+    Found 33-bit comparator greatequal for signal <comp15neg$cmp_ge0000> created at line 68.
+    Found 33-bit comparator lessequal for signal <comp15neg$cmp_le0000> created at line 68.
+    Found 33-bit subtractor for signal <comp15neg$sub0000> created at line 68.
+    Found 33-bit subtractor for signal <comp15neg$sub0001> created at line 68.
+    Found 32-bit adder for signal <comp15pos$add0000> created at line 66.
+    Found 32-bit subtractor for signal <comp15pos$addsub0000> created at line 66.
+    Found 32-bit subtractor for signal <comp15pos$addsub0001> created at line 66.
+    Found 33-bit comparator greatequal for signal <comp15pos$cmp_ge0000> created at line 66.
+    Found 33-bit comparator lessequal for signal <comp15pos$cmp_le0000> created at line 66.
+    Found 33-bit subtractor for signal <comp15pos$sub0000> created at line 66.
+    Found 33-bit subtractor for signal <comp15pos$sub0001> created at line 66.
+    Found 33-bit subtractor for signal <comp15pos$sub0002> created at line 66.
+    Found 32-bit adder for signal <comp45neg$add0001> created at line 72.
+    Found 32-bit adder for signal <comp45neg$add0002> created at line 72.
+    Found 32-bit subtractor for signal <comp45neg$addsub0000> created at line 72.
+    Found 33-bit comparator greatequal for signal <comp45neg$cmp_ge0000> created at line 72.
+    Found 33-bit comparator lessequal for signal <comp45neg$cmp_le0000> created at line 72.
+    Found 33-bit subtractor for signal <comp45neg$sub0000> created at line 72.
+    Found 33-bit subtractor for signal <comp45neg$sub0001> created at line 72.
+    Found 32-bit adder for signal <comp45pos$add0000> created at line 70.
+    Found 32-bit subtractor for signal <comp45pos$addsub0000> created at line 70.
+    Found 32-bit subtractor for signal <comp45pos$addsub0001> created at line 70.
+    Found 33-bit comparator greatequal for signal <comp45pos$cmp_ge0000> created at line 70.
+    Found 33-bit comparator lessequal for signal <comp45pos$cmp_le0000> created at line 70.
+    Found 33-bit subtractor for signal <comp45pos$sub0000> created at line 70.
+    Found 33-bit subtractor for signal <comp45pos$sub0001> created at line 70.
+    Found 33-bit subtractor for signal <comp45pos$sub0002> created at line 70.
+    Found 32-bit adder for signal <comp75neg$add0001> created at line 76.
+    Found 32-bit adder for signal <comp75neg$add0002> created at line 76.
+    Found 32-bit subtractor for signal <comp75neg$addsub0000> created at line 76.
+    Found 33-bit comparator greatequal for signal <comp75neg$cmp_ge0000> created at line 76.
+    Found 33-bit comparator lessequal for signal <comp75neg$cmp_le0000> created at line 76.
+    Found 33-bit subtractor for signal <comp75neg$sub0000> created at line 76.
+    Found 33-bit subtractor for signal <comp75neg$sub0001> created at line 76.
+    Found 32-bit adder for signal <comp75pos$add0000> created at line 74.
+    Found 32-bit subtractor for signal <comp75pos$addsub0000> created at line 74.
+    Found 32-bit subtractor for signal <comp75pos$addsub0001> created at line 74.
+    Found 33-bit comparator greatequal for signal <comp75pos$cmp_ge0000> created at line 74.
+    Found 33-bit comparator lessequal for signal <comp75pos$cmp_le0000> created at line 74.
+    Found 33-bit subtractor for signal <comp75pos$sub0000> created at line 74.
+    Found 33-bit subtractor for signal <comp75pos$sub0001> created at line 74.
+    Found 33-bit subtractor for signal <comp75pos$sub0002> created at line 74.
+    Found 25-bit adder for signal <d_2$add0000> created at line 41.
+    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 41.
+    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 41.
+    Found 32-bit adder for signal <on_arc$add0000> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0001> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0002> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0003> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0004> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0005> created at line 43.
+    Found 32-bit adder for signal <on_arc$add0006> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0000> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0001> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0002> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0003> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0004> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0005> created at line 43.
+    Found 32-bit subtractor for signal <on_arc$addsub0006> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0000> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0001> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0002> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0003> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0004> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0005> created at line 43.
+    Found 33-bit comparator greatequal for signal <on_arc$cmp_ge0006> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0000> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0001> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0002> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0003> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0004> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0005> created at line 43.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0006> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0000> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0001> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0002> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0003> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0004> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0005> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0006> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0007> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0008> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0009> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0010> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0011> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0012> created at line 43.
+    Found 33-bit subtractor for signal <on_arc$sub0013> created at line 43.
+    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0000> created at line 27.
+    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0001> created at line 27.
+    Found 32-bit comparator less for signal <out_of_border$cmp_lt0000> created at line 27.
+    Found 13-bit comparator less for signal <out_of_border$cmp_lt0001> created at line 27.
+    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 55.
+    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 57.
     Summary:
-	inferred   1 Adder/Subtractor(s).
+	inferred  62 Adder/Subtractor(s).
 	inferred   4 Multiplier(s).
-	inferred   1 Comparator(s).
+	inferred  30 Comparator(s).
 Unit <grid> synthesized.
 
 
@@ -543,11 +649,11 @@ WARNING:Xst:647 - Input <target_location> is never used. This port will be prese
     Found 8-bit adder for signal <alpha_blend_B>.
     Found 8-bit adder for signal <alpha_blend_G>.
     Found 8-bit adder for signal <alpha_blend_R>.
-    Found 24-bit comparator greater for signal <overlap_pixel$cmp_gt0000> created at line 148.
-    Found 24-bit comparator greater for signal <pixel$cmp_gt0000> created at line 151.
+    Found 24-bit comparator greater for signal <overlap_pixel$cmp_gt0000> created at line 155.
+    Found 24-bit comparator greater for signal <pixel$cmp_gt0000> created at line 158.
     Found 12-bit register for signal <rover_x>.
     Found 12-bit register for signal <rover_y>.
-    Found 12-bit adder for signal <rover_y$add0000> created at line 87.
+    Found 12-bit adder for signal <rover_y$add0000> created at line 92.
     Found 12-bit subtractor for signal <x_value>.
     Found 12-bit adder for signal <y_value$sub0000> created at line 43.
     Summary:
@@ -867,7 +973,7 @@ Macro Statistics
  12x9-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 1
  8x8-bit multiplier                                    : 2
-# Adders/Subtractors                                   : 21
+# Adders/Subtractors                                   : 82
  10-bit addsub                                         : 1
  12-bit adder                                          : 2
  12-bit subtractor                                     : 1
@@ -875,6 +981,9 @@ Macro Statistics
  13-bit subtractor                                     : 4
  20-bit adder                                          : 1
  25-bit adder                                          : 2
+ 32-bit adder                                          : 16
+ 32-bit subtractor                                     : 16
+ 33-bit subtractor                                     : 29
  4-bit adder                                           : 1
  4-bit subtractor                                      : 1
  8-bit adder                                           : 3
@@ -896,12 +1005,16 @@ Macro Statistics
  4-bit register                                        : 2
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 16
+# Comparators                                          : 45
  13-bit comparator greatequal                          : 5
+ 13-bit comparator greater                             : 2
  13-bit comparator less                                : 7
  20-bit comparator greater                             : 1
  20-bit comparator less                                : 1
  24-bit comparator greater                             : 2
+ 32-bit comparator less                                : 1
+ 33-bit comparator greatequal                          : 13
+ 33-bit comparator lessequal                           : 13
 # Multiplexers                                         : 3
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
@@ -937,8 +1050,10 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 Unit <calc_rsin_15_165_30> synthesized (advanced).
 
 Synthesizing (advanced) Unit <grid>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_d_2_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_15deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_75deg_mult0000 by adding 1 register level(s).
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_d_2_mult0001 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_d_2_mult0000 by adding 1 register level(s).
 Unit <grid> synthesized (advanced).
 INFO:Xst:2261 - The FF/Latch <rover_x_8> in Unit <vga_writer> is equivalent to the following 3 FFs/Latches, which will be removed : <rover_x_9> <rover_x_10> <rover_x_11> 
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S0>.
@@ -952,11 +1067,13 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x40-bit ROM                                         : 1
-# Multipliers                                          : 5
+# Multipliers                                          : 7
  12x12-bit multiplier                                  : 2
+ 12x6-bit multiplier                                   : 1
+ 12x9-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 1
  8x8-bit multiplier                                    : 2
-# Adders/Subtractors                                   : 21
+# Adders/Subtractors                                   : 82
  10-bit addsub                                         : 1
  12-bit adder                                          : 2
  12-bit subtractor                                     : 1
@@ -964,6 +1081,9 @@ Macro Statistics
  13-bit subtractor                                     : 4
  20-bit adder                                          : 1
  25-bit adder                                          : 2
+ 32-bit adder                                          : 16
+ 32-bit subtractor                                     : 16
+ 33-bit subtractor                                     : 29
  4-bit adder                                           : 1
  4-bit subtractor                                      : 1
  8-bit adder                                           : 3
@@ -976,12 +1096,16 @@ Macro Statistics
  8-bit down counter                                    : 1
 # Registers                                            : 196
  Flip-Flops                                            : 196
-# Comparators                                          : 13
+# Comparators                                          : 42
  13-bit comparator greatequal                          : 4
+ 13-bit comparator greater                             : 2
  13-bit comparator less                                : 5
  20-bit comparator greater                             : 1
  20-bit comparator less                                : 1
  24-bit comparator greater                             : 2
+ 32-bit comparator less                                : 1
+ 33-bit comparator greatequal                          : 13
+ 33-bit comparator lessequal                           : 13
 # Multiplexers                                         : 3
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
@@ -1097,7 +1221,12 @@ WARNING:Xst:2677 - Node <db_S0/count_18> of sequential type is unconnected in bl
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 2.
+FlipFlop xvga1/hcount_10 has been replicated 1 time(s)
+FlipFlop xvga1/vcount_0 has been replicated 1 time(s)
+FlipFlop xvga1/vcount_1 has been replicated 1 time(s)
+FlipFlop xvga1/vcount_2 has been replicated 1 time(s)
+FlipFlop xvga1/vcount_9 has been replicated 1 time(s)
 FlipFlop vg/rover_x_7 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop vg/rover_x_6 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop vg/rover_x_5 has been replicated 1 time(s) to handle iob=true attribute.
@@ -1128,8 +1257,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 250
- Flip-Flops                                            : 250
+# Registers                                            : 255
+ Flip-Flops                                            : 255
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -1160,29 +1289,29 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 1186
+# BELS                             : 3650
 #      GND                         : 1
-#      INV                         : 23
-#      LUT1                        : 100
-#      LUT2                        : 101
+#      INV                         : 408
+#      LUT1                        : 337
+#      LUT2                        : 204
 #      LUT2_D                      : 1
-#      LUT3                        : 121
+#      LUT3                        : 198
 #      LUT3_D                      : 7
-#      LUT3_L                      : 3
-#      LUT4                        : 390
-#      LUT4_D                      : 6
-#      LUT4_L                      : 15
-#      MUXCY                       : 228
-#      MUXF5                       : 47
-#      MUXF6                       : 4
+#      LUT3_L                      : 5
+#      LUT4                        : 554
+#      LUT4_D                      : 10
+#      LUT4_L                      : 10
+#      MUXCY                       : 1133
+#      MUXF5                       : 46
+#      MUXF6                       : 5
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 137
-# FlipFlops/Latches                : 264
+#      XORCY                       : 729
+# FlipFlops/Latches                : 269
 #      FD                          : 2
 #      FDE                         : 41
-#      FDR                         : 69
-#      FDRE                        : 104
+#      FDR                         : 70
+#      FDRE                        : 108
 #      FDRS                        : 25
 #      FDS                         : 11
 #      FDSE                        : 12
@@ -1197,8 +1326,8 @@ Cell Usage :
 #      OBUF                        : 260
 # DCMs                             : 1
 #      DCM                         : 1
-# MULTs                            : 5
-#      MULT18X18                   : 5
+# MULTs                            : 7
+#      MULT18X18                   : 7
 =========================================================================
 
 Device utilization summary:
@@ -1206,15 +1335,15 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      412  out of  33792     1%  
- Number of Slice Flip Flops:            248  out of  67584     0%  
- Number of 4 input LUTs:                772  out of  67584     1%  
-    Number used as logic:               767
+ Number of Slices:                      902  out of  33792     2%  
+ Number of Slice Flip Flops:            253  out of  67584     0%  
+ Number of 4 input LUTs:               1739  out of  67584     2%  
+    Number used as logic:              1734
     Number used as Shift registers:       5
  Number of IOs:                         576
  Number of bonded IOBs:                 273  out of    684    39%  
     IOB Flip Flops:                      16
- Number of MULT18X18s:                    5  out of    144     3%  
+ Number of MULT18X18s:                    7  out of    144     4%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
 
@@ -1240,7 +1369,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clock_27mhz                        | IBUFG+BUFG             | 166   |
-clock_27mhz                        | vclk1:CLKFX            | 26    |
+clock_27mhz                        | vclk1:CLKFX            | 31    |
 disp/clock1                        | BUFG                   | 43    |
 xvga1/vsync                        | NONE(vg/rover_y_8)     | 34    |
 -----------------------------------+------------------------+-------+
@@ -1254,9 +1383,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 16.105ns (Maximum Frequency: 62.092MHz)
-   Minimum input arrival time before clock: 11.634ns
-   Maximum output required time after clock: 28.316ns
+   Minimum period: 16.194ns (Maximum Frequency: 61.751MHz)
+   Minimum input arrival time before clock: 11.744ns
+   Maximum output required time after clock: 37.078ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -1265,36 +1394,35 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 16.105ns (frequency: 62.092MHz)
-  Total number of paths / destination ports: 10259 / 458
+  Clock period: 16.194ns (frequency: 61.751MHz)
+  Total number of paths / destination ports: 10480 / 472
 -------------------------------------------------------------------------
-Delay:               6.711ns (Levels of Logic = 5)
-  Source:            xvga1/vcount_7 (FF)
+Delay:               6.747ns (Levels of Logic = 4)
+  Source:            xvga1/hcount_5 (FF)
   Destination:       xvga1/blank (FF)
   Source Clock:      clock_27mhz rising 2.4X
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: xvga1/vcount_7 to xvga1/blank
+  Data Path: xvga1/hcount_5 to xvga1/blank
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             8   0.568   1.124  xvga1/vcount_7 (xvga1/vcount_7)
-     LUT4:I0->O            1   0.439   0.557  xvga1/next_vblank13 (xvga1/next_vblank13)
-     LUT4:I3->O            2   0.439   0.736  xvga1/next_vblank14 (xvga1/next_vblank14)
-     LUT4:I2->O            1   0.439   0.000  xvga1/vreset2_SW1_G (N200)
-     MUXF5:I1->O           1   0.436   0.551  xvga1/vreset2_SW1 (N158)
+     FDR:C->Q             14   0.568   1.262  xvga1/hcount_5 (xvga1/hcount_5)
+     LUT3_D:I0->O          7   0.439   0.850  xvga1/hblankon21 (xvga1/N8)
+     LUT4:I2->O            1   0.439   0.517  xvga1/hreset2_1 (xvga1/hreset2)
+     MUXF5:S->O            1   0.699   0.551  xvga1/vreset2_SW1 (N166)
      LUT4:I2->O            2   0.439   0.702  xvga1/next_vblank45 (xvga1/next_vblank)
      FDS:S                     0.280          xvga1/blank
     ----------------------------------------
-    Total                      6.711ns (3.040ns logic, 3.670ns route)
-                                       (45.3% logic, 54.7% route)
+    Total                      6.747ns (2.864ns logic, 3.883ns route)
+                                       (42.4% logic, 57.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 11.799ns (frequency: 84.749MHz)
-  Total number of paths / destination ports: 3049 / 74
+  Clock period: 12.753ns (frequency: 78.410MHz)
+  Total number of paths / destination ports: 3186 / 74
 -------------------------------------------------------------------------
-Delay:               11.799ns (Levels of Logic = 12)
+Delay:               12.753ns (Levels of Logic = 11)
   Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
@@ -1304,55 +1432,54 @@ Delay:               11.799ns (Levels of Logic = 12)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             21   0.568   1.332  disp/char_index_0 (disp/char_index_0)
-     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_8 (disp/Mmux_nibble_8)
-     MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_7_f5 (disp/Mmux_nibble_7_f5)
-     MUXF6:I1->O           3   0.447   0.932  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
-     LUT3:I1->O           23   0.439   1.343  disp/char_index<3> (disp/nibble<0>)
-     LUT4:I0->O            1   0.439   0.726  disp/Mrom_dots111 (disp/Mrom_dots1)
-     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_131 (disp/Mmux__varindex0000_131)
-     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
-     MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
-     MUXF7:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
-     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
-     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000108 (disp/disp_data_out_mux0000108)
-     LUT4:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
+     FDE:C->Q             22   0.568   1.260  disp/char_index_0 (disp/char_index_0)
+     LUT2_D:I1->O          9   0.439   1.070  disp/Mmux_nibble111 (disp/N8)
+     LUT4_D:I1->O          4   0.439   1.032  disp/Mmux_nibble212 (disp/Mmux_nibble212)
+     LUT2:I0->O           27   0.439   1.360  disp/Mmux_nibble2118 (disp/nibble<2>)
+     LUT4:I0->O            1   0.439   0.726  disp/Mrom_dots12 (disp/Mrom_dots)
+     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_14 (disp/Mmux__varindex0000_14)
+     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_12_f5 (disp/Mmux__varindex0000_12_f5)
+     MUXF6:I0->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
+     MUXF7:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux000078_F (N200)
+     MUXF5:I0->O           1   0.436   0.803  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
+     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000168 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.799ns (6.224ns logic, 5.575ns route)
-                                       (52.7% logic, 47.3% route)
+    Total                     12.753ns (5.777ns logic, 6.976ns route)
+                                       (45.3% logic, 54.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
   Total number of paths / destination ports: 896 / 104
 -------------------------------------------------------------------------
-Offset:              9.098ns (Levels of Logic = 8)
+Offset:              9.063ns (Levels of Logic = 8)
   Source:            user3<20> (PAD)
-  Destination:       ul/distance_count_19 (FF)
+  Destination:       ul/power_cycle_timer_24 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: user3<20> to ul/distance_count_19
+  Data Path: user3<20> to ul/power_cycle_timer_24
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.825   0.910  user3_20_IBUF (user3_20_IBUF)
+     IBUF:I->O             2   0.825   0.909  user3_20_IBUF (user3_20_IBUF)
      LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_3_9 (ul/Mmux__COND_3_9)
      MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_3_7_f5 (ul/Mmux__COND_3_7_f5)
      MUXF6:I0->O           1   0.447   0.726  ul/Mmux__COND_3_5_f6 (ul/Mmux__COND_3_5_f6)
-     LUT3:I1->O            9   0.439   1.147  ul/curr_ultrasound<3> (ul/_COND_3)
-     LUT4:I0->O           11   0.439   1.116  ul/distance_count_mux0000<19>21 (ul/N24)
-     LUT2:I1->O           10   0.439   0.925  ul/distance_count_mux0000<0>11 (ul/N20)
-     LUT4:I3->O            1   0.439   0.000  ul/distance_count_mux0000<9>1 (ul/distance_count_mux0000<9>)
-     FDE:D                     0.370          ul/distance_count_10
+     LUT3:I1->O            9   0.439   0.896  ul/curr_ultrasound<3> (ul/_COND_3)
+     LUT3:I2->O            2   0.439   0.910  ul/power_cycle_timer_mux0000<10>111 (ul/N42)
+     LUT4:I1->O           24   0.439   1.349  ul/power_cycle_timer_mux0000<10>11 (ul/N01)
+     LUT4:I0->O            1   0.439   0.000  ul/power_cycle_timer_mux0000<9>1 (ul/power_cycle_timer_mux0000<9>)
+     FDR:D                     0.370          ul/power_cycle_timer_9
     ----------------------------------------
-    Total                      9.098ns (4.273ns logic, 4.825ns route)
-                                       (47.0% logic, 53.0% route)
+    Total                      9.063ns (4.273ns logic, 4.790ns route)
+                                       (47.1% logic, 52.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'disp/clock1'
-  Total number of paths / destination ports: 28 / 1
+  Total number of paths / destination ports: 34 / 1
 -------------------------------------------------------------------------
-Offset:              11.634ns (Levels of Logic = 13)
+Offset:              11.744ns (Levels of Logic = 13)
   Source:            user3<20> (PAD)
   Destination:       disp/disp_data_out (FF)
   Destination Clock: disp/clock1 rising
@@ -1364,26 +1491,26 @@ Offset:              11.634ns (Levels of Logic = 13)
      IBUF:I->O             2   0.825   0.910  user3_20_IBUF (user3_20_IBUF)
      LUT3:I1->O            1   0.439   0.000  disp/Mmux_nibble_92 (disp/Mmux_nibble_92)
      MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_8_f5_0 (disp/Mmux_nibble_8_f51)
-     MUXF6:I0->O           3   0.447   0.932  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
-     LUT3:I1->O           23   0.439   1.343  disp/char_index<3> (disp/nibble<0>)
+     MUXF6:I0->O           2   0.447   0.735  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
+     LUT3:I2->O           30   0.439   1.367  disp/char_index<3> (disp/nibble<0>)
      LUT4:I0->O            1   0.439   0.726  disp/Mrom_dots111 (disp/Mrom_dots1)
      LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_131 (disp/Mmux__varindex0000_131)
      MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_11_f5_0 (disp/Mmux__varindex0000_11_f51)
      MUXF6:I1->O           1   0.447   0.000  disp/Mmux__varindex0000_10_f6 (disp/Mmux__varindex0000_10_f6)
-     MUXF7:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
-     LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000060 (disp/disp_data_out_mux000060)
-     LUT4_L:I2->LO         1   0.439   0.134  disp/disp_data_out_mux0000108 (disp/disp_data_out_mux0000108)
-     LUT4:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000169 (disp/disp_data_out_mux0000)
+     MUXF7:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_8_f7 (disp/Mmux__varindex0000_8_f7)
+     LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux000078_F (N200)
+     MUXF5:I0->O           1   0.436   0.803  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
+     LUT4:I0->O            1   0.439   0.000  disp/disp_data_out_mux0000168 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.634ns (6.481ns logic, 5.153ns route)
-                                       (55.7% logic, 44.3% route)
+    Total                     11.744ns (6.478ns logic, 5.266ns route)
+                                       (55.2% logic, 44.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 1041961 / 41
+  Total number of paths / destination ports: 192827417 / 41
 -------------------------------------------------------------------------
-Offset:              28.316ns (Levels of Logic = 15)
+Offset:              37.078ns (Levels of Logic = 22)
   Source:            xvga1/vcount_0 (FF)
   Destination:       vga_out_red<7> (PAD)
   Source Clock:      clock_27mhz rising 2.4X
@@ -1392,25 +1519,32 @@ Offset:              28.316ns (Levels of Logic = 15)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            19   0.568   1.320  xvga1/vcount_0 (xvga1/vcount_0)
-     LUT4:I0->O            6   0.439   1.079  vg/Madd_y_value_sub0000_xor<4>111 (vg/N10)
+     FDRE:C->Q            44   0.568   1.404  xvga1/vcount_0 (xvga1/vcount_0)
+     LUT4:I0->O           15   0.439   1.274  vg/Madd_y_value_sub0000_xor<4>111 (vg/N10)
      LUT3:I0->O            3   0.439   1.010  vg/Madd_y_value_sub0000_xor<6>111 (vg/N4)
-     LUT3:I0->O            9   0.439   0.896  vg/Madd_y_value_sub0000_xor<9>111 (vg/N0)
-     LUT3:I2->O           16   0.439   1.000  vg/y_value<10>1 (vg/y_value<10>)
-     MULT18X18:A10->P17    1   6.630   0.726  vg/grid/Mmult_d_2_mult0001 (vg/grid/d_2_mult0001<17>)
-     LUT2:I1->O            1   0.439   0.000  vg/grid/Madd_d_2_add0000_lut<17> (vg/grid/Madd_d_2_add0000_lut<17>)
-     MUXCY:S->O            1   0.298   0.000  vg/grid/Madd_d_2_add0000_cy<17> (vg/grid/Madd_d_2_add0000_cy<17>)
-     XORCY:CI->O           4   1.274   1.033  vg/grid/Madd_d_2_add0000_xor<18> (vg/grid/d_2<18>)
-     LUT4:I0->O            1   0.439   0.552  vg/grid/pixel<16>258_SW1 (N254)
-     LUT4:I2->O            1   0.439   0.802  vg/grid/pixel<16>258 (vg/grid/pixel<16>258)
-     LUT3:I0->O            1   0.439   0.000  vg/grid/pixel<16>309_G (N291)
-     MUXF5:I1->O           1   0.436   0.551  vg/grid/pixel<16>309 (vg/grid/pixel<16>309)
-     LUT4:I2->O            1   0.439   0.551  vg/grid/pixel<16>452 (vg/grid/pixel<16>452)
-     LUT3:I2->O            8   0.439   0.839  vg/pixel<23>1 (pixel<16>)
+     LUT3:I0->O           38   0.439   1.137  vg/Madd_y_value_sub0000_xor<9>111 (vg/N0)
+     LUT3:I2->O           26   0.439   1.072  vg/y_value<10>1 (vg/y_value<10>)
+     MULT18X18:A10->P23    2   7.872   0.910  vg/grid/Mmult_d_2_mult0001 (vg/grid/d_2_mult0001<23>)
+     LUT2:I1->O            1   0.439   0.000  vg/grid/Madd_d_2_add0000_lut<23>1 (vg/grid/Madd_d_2_add0000_lut<23>1)
+     MUXCY:S->O            0   0.298   0.000  vg/grid/Madd_d_2_add0000_cy<23> (vg/grid/Madd_d_2_add0000_cy<23>)
+     XORCY:CI->O          30   1.274   1.082  vg/grid/Madd_d_2_add0000_xor<24> (vg/grid/d_2<24>)
+     INV:I->O              1   0.439   0.000  vg/grid/Msub_on_arc_sub0010_lut<24>_INV_0 (vg/grid/Msub_on_arc_sub0010_lut<24>)
+     MUXCY:S->O            0   0.298   0.000  vg/grid/Msub_on_arc_sub0010_cy<24> (vg/grid/Msub_on_arc_sub0010_cy<24>)
+     XORCY:CI->O           2   1.274   0.701  vg/grid/Msub_on_arc_sub0010_xor<25> (vg/grid/on_arc_sub0010<25>)
+     INV:I->O              1   0.439   0.000  vg/grid/Msub_on_arc_sub0011_lut<25>1_INV_0 (vg/grid/Msub_on_arc_sub0011_lut<25>1)
+     MUXCY:S->O            0   0.298   0.000  vg/grid/Msub_on_arc_sub0011_cy<25> (vg/grid/Msub_on_arc_sub0011_cy<25>)
+     XORCY:CI->O           2   1.274   0.736  vg/grid/Msub_on_arc_sub0011_xor<26> (vg/grid/on_arc_sub0011<26>)
+     LUT3:I2->O            1   0.439   0.000  vg/grid/Mcompar_on_arc_cmp_le0005_lut<6> (vg/grid/Mcompar_on_arc_cmp_le0005_lut<6>)
+     MUXCY:S->O            1   0.298   0.000  vg/grid/Mcompar_on_arc_cmp_le0005_cy<6> (vg/grid/Mcompar_on_arc_cmp_le0005_cy<6>)
+     MUXCY:CI->O           1   0.942   0.802  vg/grid/Mcompar_on_arc_cmp_le0005_cy<7> (vg/grid/on_arc_cmp_le0005)
+     LUT4:I0->O            1   0.439   0.803  vg/grid/pixel_and0000264 (vg/grid/pixel_and0000264)
+     LUT4:I0->O            1   0.439   0.726  vg/pixel<23>1_SW0_SW0 (N245)
+     LUT4:I1->O            1   0.439   0.557  vg/pixel<23>1_SW0 (N241)
+     LUT4:I3->O            8   0.439   0.839  vg/pixel<23>1 (pixel<16>)
      OBUF:I->O                 4.361          vga_out_red_0_OBUF (vga_out_red<0>)
     ----------------------------------------
-    Total                     28.316ns (17.957ns logic, 10.360ns route)
-                                       (63.4% logic, 36.6% route)
+    Total                     37.078ns (24.025ns logic, 13.053ns route)
+                                       (64.8% logic, 35.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'disp/clock1'
@@ -1435,22 +1569,22 @@ Offset:              5.630ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'xvga1/vsync'
   Total number of paths / destination ports: 4976 / 32
 -------------------------------------------------------------------------
-Offset:              14.729ns (Levels of Logic = 14)
-  Source:            vg/rover_y_6 (FF)
+Offset:              14.675ns (Levels of Logic = 14)
+  Source:            vg/rover_x_6 (FF)
   Destination:       vga_out_green<7> (PAD)
   Source Clock:      xvga1/vsync rising
 
-  Data Path: vg/rover_y_6 to vga_out_green<7>
+  Data Path: vg/rover_x_6 to vga_out_green<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDSE:C->Q             8   0.568   1.125  vg/rover_y_6 (vg/rover_y_6)
-     LUT4:I0->O            4   0.439   0.955  vg/rover_s/_sub0001<12>11 (vg/rover_s/_sub0001<12>_bdd0)
-     LUT2:I1->O            1   0.439   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_lut<9> (vg/rover_s/Mcompar_pixel_cmp_ge0001_lut<9>)
-     MUXCY:S->O            1   0.298   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<9> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<9>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<10> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<10>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<11> (vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<11>)
-     MUXCY:CI->O           3   0.942   1.010  vg/rover_s/Mcompar_pixel_cmp_ge0001_cy<12> (vg/rover_s/pixel_cmp_ge0001)
+     FDRE:C->Q             9   0.568   1.071  vg/rover_x_6 (vg/rover_x_6)
+     LUT4:I1->O            4   0.439   0.955  vg/rover_s/Msub__sub0000_xor<9>11 (vg/rover_s/_sub0000<9>)
+     LUT2:I1->O            1   0.439   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0000_lut<9> (vg/rover_s/Mcompar_pixel_cmp_ge0000_lut<9>)
+     MUXCY:S->O            1   0.298   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<9> (vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<9>)
+     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<10> (vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<10>)
+     MUXCY:CI->O           1   0.053   0.000  vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<11> (vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<11>)
+     MUXCY:CI->O           3   0.942   1.010  vg/rover_s/Mcompar_pixel_cmp_ge0000_cy<12> (vg/rover_s/pixel_cmp_ge0000)
      LUT4:I0->O            1   0.439   0.000  vg/Mcompar_pixel_cmp_gt0000_lut<2>1 (vg/Mcompar_pixel_cmp_gt0000_lut<2>)
      MUXCY:S->O            1   0.298   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<2> (vg/Mcompar_pixel_cmp_gt0000_cy<2>)
      MUXCY:CI->O           1   0.053   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<3> (vg/Mcompar_pixel_cmp_gt0000_cy<3>)
@@ -1460,21 +1594,21 @@ Offset:              14.729ns (Levels of Logic = 14)
      MUXF5:I1->O           8   0.436   0.839  vg/pixel<9>1_f5 (pixel<10>)
      OBUF:I->O                 4.361          vga_out_green_2_OBUF (vga_out_green<2>)
     ----------------------------------------
-    Total                     14.729ns (9.813ns logic, 4.916ns route)
-                                       (66.6% logic, 33.4% route)
+    Total                     14.675ns (9.813ns logic, 4.862ns route)
+                                       (66.9% logic, 33.1% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 17.00 secs
-Total CPU time to Xst completion: 15.68 secs
+Total REAL time to Xst completion: 27.00 secs
+Total CPU time to Xst completion: 25.94 secs
  
 --> 
 
 
-Total memory usage is 481500 kilobytes
+Total memory usage is 514200 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  394 (   0 filtered)
-Number of infos    :   21 (   0 filtered)
+Number of infos    :   23 (   0 filtered)
 
