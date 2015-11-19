@@ -45,20 +45,21 @@ module vga_writer (
    // parameters to define shapes
    parameter BLANK_COLOR = 24'h00_00_00;
    parameter GRID_COLOR = 24'hFF_00_00;
-   parameter TARGET_WIDTH = 64;
-	parameter TARGET_HEIGHT = 64;
+   parameter TARGET_WIDTH = 16;
+	parameter TARGET_HEIGHT = 16;
 	parameter TARGET_COLOR = 24'h00_00_FF;
-   parameter ROVER_HEIGHT = 64;
-   parameter ROVER_WIDTH = 64;
-   parameter ROVER_COLOR = 24'h00_FF_00;
-   parameter PIXEL_ALL_1S = 24'hFF_FF_FF;
+	parameter ROVER_HEIGHT = 32;
+	parameter ROVER_WIDTH = 32;
+	parameter ROVER_COLOR = 24'h00_FF_00;
 	parameter ROVER_ORIENTED_COLOR = 24'hFF_FF_00;
+	parameter PIXEL_ALL_1S = 24'hFF_FF_FF;
 	// and the grid
-	parameter GRID_LINE_WIDTH = 4;
-	parameter GRID_SIZE = 512;
-	parameter GRID_RIGHT_BORDER = (TOTAL_WIDTH-GRID_SIZE)/2;
+	parameter GRID_LINE_WIDTH = 1;
+	parameter GRID_HEIGHT = 256;
+	parameter GRID_WIDTH = 512;
+	parameter GRID_RIGHT_BORDER = (TOTAL_WIDTH-GRID_WIDTH)/2;
 	parameter GRID_LEFT_BORDER = -1*GRID_RIGHT_BORDER;
-	parameter GRID_BOTTOM_BORDER = (TOTAL_HEIGHT-GRID_SIZE)/2;
+	parameter GRID_BOTTOM_BORDER = (TOTAL_HEIGHT-GRID_HEIGHT)/2;
 	parameter GRID_TOP_BORDER = TOTAL_HEIGHT - GRID_BOTTOM_BORDER;
    
    // display the target and rover based on the location
@@ -68,13 +69,27 @@ module vga_writer (
    reg signed [11:0] rover_y;
    wire signed [8:0] temp_rover_x;
    wire signed [8:0] temp_rover_y;
+	wire signed [11:0] sized_temp_rover_x;
+	wire signed [11:0] sized_temp_rover_y;
    
    // instantiate the helper module with continuous translation of rover (r,theta) to (x,y)
    polar_to_cartesian ptc (.r_theta(location),.x_value(temp_rover_x),.y_value(temp_rover_y));
-   
+   assign sized_temp_rover_x = {temp_rover_x[8],temp_rover_x[8],temp_rover_x[8],temp_rover_x};
+	assign sized_temp_rover_y = {temp_rover_y[8],temp_rover_y[8],temp_rover_y[8],temp_rover_y};
+	
 	// for debug
-	assign analyzer_clock = vsync;
-	assign analyzer_data = {rover_x[7:0],rover_y[7:0]};
+	//assign analyzer_clock = vsync;
+	//assign analyzer_data = {rover_x[7:0],rover_y[7:0]};
+	
+	// scaling factor is how big we make the distance between each arc
+	// we default to 2 but can change it according to the rover and target location
+	// that is, the rover and target need to be in the grid so therefore scale is the
+	// min(GRID_HEIGHT/absmax(target_y, rover_y),GRID_WIDTH/absmax(target_x,rover_x))
+	reg signed [11:0] max_x;
+	reg signed [11:0] max_y;
+	// helper function for abs_max needed here
+	wire [2:0] scale_factor;
+	assign scale_factor = 2;
 	
    // only actually update the position every screen refresh for both the target and the rover
    always @(posedge vsync) begin
@@ -83,13 +98,13 @@ module vga_writer (
          rover_x <= 0;
          rover_y <= GRID_BOTTOM_BORDER;
 			target_x <= 0;
-			target_y <= GRID_BOTTOM_BORDER;
+			target_y <= GRID_TOP_BORDER;
       end
       // else for the location of the "Rover" we only update when we have valid new information
       else if (new_data | orientation_ready) begin
          // save the updated rover location
-         rover_x <= {temp_rover_x[8],temp_rover_x[8],temp_rover_x[8],temp_rover_x};
-         rover_y <= {temp_rover_y[8],temp_rover_y[8],temp_rover_y[8],temp_rover_y}+GRID_BOTTOM_BORDER;
+         rover_x <= sized_temp_rover_x * scale_factor;
+         rover_y <= (sized_temp_rover_y * scale_factor) + GRID_BOTTOM_BORDER;
 			
 			// scaling?
 			
@@ -128,12 +143,14 @@ module vga_writer (
    
    //instantiate the triangle rover
    wire [23:0] rover_pixel_t;
-   triangle #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_ORIENTED_COLOR),.BLANK_COLOR(BLANK_COLOR))
-		  rover_t(.x(rover_x),.y(rover_y),.x_value(x_value),.y_value(y_value),.pixel(rover_pixel_t));
+   triangle #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_ORIENTED_COLOR),
+				  .BLANK_COLOR(BLANK_COLOR),.INDICATOR_COLOR(ROVER_COLOR))
+		  rover_t(.center_x(rover_x),.center_y(rover_y),.x_value(x_value),.y_value(y_value),.pixel(rover_pixel_t),
+					 .orientation(orientation));
         
    // use the appropriate rover
 	wire [23:0] rover_pixel;
-   assign rover_pixel = orientation_ready ? rover_pixel_t : rover_pixel_s;
+   assign rover_pixel = rover_pixel_t; //orientation_ready ? rover_pixel_t : rover_pixel_s;
    
    // compute the alpha blend of the rover and the target
    // show either the alpha blend or both if they don't overlap
