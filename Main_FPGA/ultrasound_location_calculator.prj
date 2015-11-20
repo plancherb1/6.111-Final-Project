@@ -1,0 +1,2 @@
+verilog work "../Sources/Main FPGA/median_3.v"
+verilog work "../Sources/Main FPGA/ultrasound_location_calculator.v"

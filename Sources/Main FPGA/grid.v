@@ -24,17 +24,12 @@ module grid
 	wire out_of_border;
 	// give border width of BORDER_WIDTH extending out
 	parameter BORDER_WIDTH = 3;
-	assign on_border = 		((x_value - RIGHT_BORDER >= 0) && (x_value - RIGHT_BORDER <= BORDER_WIDTH)) |
-									//((RIGHT_BORDER - x_value >= 0) && (RIGHT_BORDER - x_value <= BORDER_WIDTH)) |
-									((y_value - TOP_BORDER >= 0) && (y_value - TOP_BORDER <= BORDER_WIDTH)); //|
-									//((BOTTOM_BORDER - y_value <= 0) && (BOTTOM_BORDER - y_value <= BORDER_WIDTH));
+	assign on_border = 		(x_value - RIGHT_BORDER >= 0) | (x_value - LEFT_BORDER <= 0) |
+									(y_value - TOP_BORDER >= 0) | (y_value - BOTTOM_BORDER <= 0);
 	assign out_of_border = 	(x_value > RIGHT_BORDER + BORDER_WIDTH) 	| (x_value < LEFT_BORDER - BORDER_WIDTH) |
 									(y_value > TOP_BORDER + BORDER_WIDTH) 	| (y_value < BOTTOM_BORDER - BORDER_WIDTH);
 	
-	/// NEED TO FINISHING FIXING THE ABOVE!!!!!!! the uncommented work so just fix commented
-	
-	
-	// get our effective y (note: effective x is the same)
+	// get our effective y (note: effective x is the same since grid is centererd on 0)
 	wire signed [11:0] y_value_e = y_value - BOTTOM_BORDER;
 	
    // parameters that define the radius sizes for arcs
@@ -53,8 +48,8 @@ module grid
 	// note from experimentation I have found that I need larger widths to account for
 	// rounding as the arcs get bigger
 	parameter ROUNDING_FACTOR = 64;
-	parameter ROUNDING_FACTOR_2 = 128;
-	parameter ROUNDING_FACTOR_4 = 256;
+	parameter ROUNDING_FACTOR_2 = 2*ROUNDING_FACTOR;
+	parameter ROUNDING_FACTOR_4 = 4*ROUNDING_FACTOR;
 	assign on_arc =  ((d_2 - R_1 - (LINE_WIDTH*ROUNDING_FACTOR) <= 0) && (d_2 - R_1 + (LINE_WIDTH*ROUNDING_FACTOR) >= 0)) |
 							((d_2 - R_2 - (LINE_WIDTH*ROUNDING_FACTOR_2) <= 0) && (d_2 - R_2 + (LINE_WIDTH*ROUNDING_FACTOR_2) >= 0)) |
 							((d_2 - R_3 - (LINE_WIDTH*ROUNDING_FACTOR_2) <= 0) && (d_2 - R_3 + (LINE_WIDTH*ROUNDING_FACTOR_2) >= 0)) |

@@ -1,4 +1,4 @@
-# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-94-generic
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-92-generic
 # //
 # //  Copyright 1991-2008 Mentor Graphics Corporation
 # //              All Rights Reserved.
@@ -8,75 +8,41 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {vga_writer_tb.fdo} 
+# do {ultrasound_location_calculator_tb.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module calc_rsin_15_165_30
+# -- Compiling module median_3
 # 
 # Top level modules:
-# 	calc_rsin_15_165_30
+# 	median_3
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module triangle
+# -- Compiling module ultrasound_location_calculator
 # 
 # Top level modules:
-# 	triangle
+# 	ultrasound_location_calculator
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module polar_to_cartesian
+# -- Compiling module ultrasound_location_calculator_tb
 # 
 # Top level modules:
-# 	polar_to_cartesian
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module grid
-# 
-# Top level modules:
-# 	grid
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module blob
-# 
-# Top level modules:
-# 	blob
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module vga_writer
-# 
-# Top level modules:
-# 	vga_writer
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module vga_writer_tb
-# 
-# Top level modules:
-# 	vga_writer_tb
+# 	ultrasound_location_calculator_tb
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps vga_writer_tb glbl 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: ../Sources/Main FPGA/vga_writer.v(110): (vopt-2241) Connection width does not match width of port 'pixel'.
-# Loading work.vga_writer_tb(fast)
-# Loading work.vga_writer(fast)
-# Loading work.polar_to_cartesian(fast)
-# Loading work.calc_rsin_15_165_30(fast)
-# Loading work.grid(fast)
-# Loading work.blob(fast)
-# Loading work.blob(fast__1)
-# Loading work.triangle(fast)
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps ultrasound_location_calculator_tb glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.ultrasound_location_calculator_tb(fast)
+# Loading work.ultrasound_location_calculator(fast)
+# Loading work.median_3(fast)
 # Loading work.glbl(fast)
-# ** Warning: (vsim-3015) ../Sources/Main FPGA/vga_writer.v(110): [PCDPC] - Port size (24 or 24) does not match connection size (1) for port 'pixel'.
-#         Region: /vga_writer_tb/uut/grid
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
+run 1000000ns
 restart -f
-# Loading work.vga_writer_tb(fast)
-# Loading work.vga_writer(fast)
-# Loading work.polar_to_cartesian(fast)
-# Loading work.calc_rsin_15_165_30(fast)
-# Loading work.grid(fast)
-# Loading work.blob(fast)
-# Loading work.blob(fast__1)
-# Loading work.triangle(fast)
+# Loading work.ultrasound_location_calculator_tb(fast)
+# Loading work.ultrasound_location_calculator(fast)
+# Loading work.median_3(fast)
 # Loading work.glbl(fast)
-# ** Warning: (vsim-3015) ../Sources/Main FPGA/vga_writer.v(110): [PCDPC] - Port size (24 or 24) does not match connection size (1) for port 'pixel'.
-#         Region: /vga_writer_tb/uut/grid
-run 2000ns
+run 1000000ns

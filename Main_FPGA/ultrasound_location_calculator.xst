@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn ultrasound_location_calculator.prj
+-ifmt mixed

@@ -1,5 +1,5 @@
 NUM_USER_FILES
-29
+31
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -17,58 +17,64 @@ user_file_13
 ../Sources/Shared/synchronize.v
 s
 user_file_14
-../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
-s
-user_file_15
 ../Sources/Main FPGA/grid.v
 s
-user_file_16
+user_file_15
 ../Sources/Main FPGA/triangle.v
 s
-user_file_17
+user_file_16
 ../Sources/Main FPGA/orientation_math.v
 s
-user_file_18
+user_file_17
 ../Sources/Main FPGA/calc_rsin_00_180_15.v
 s
-user_file_19
+user_file_18
 ../Sources/Main FPGA/calc_rsin_15_165_30.v
+s
+user_file_19
+../Sources/Main FPGA/calc_rtan_00_90.v
 s
 user_file_2
 ../Sources/Main FPGA/display_8hex_labkit.v
 s
 user_file_20
-../Sources/Main FPGA/calc_rtan_00_90.v
-s
-user_file_21
 ../Sources/Main FPGA/polar_to_cartesian.v
 s
-user_file_22
+user_file_21
 ../Sources/Main FPGA/abs_val_8.v
 s
-user_file_23
+user_file_22
 ../Sources/Main FPGA/abs_diff_7.v
 s
-user_file_24
+user_file_23
 ../Sources/Main FPGA/calc_abs7rtan_00_75_15.v
 s
-user_file_25
+user_file_24
 ../Sources/Main FPGA/edge_detect.v
 s
-user_file_26
+user_file_25
 ../Test Fixtures/Main FPGA/calc_rsin_15_165_30_tb.v
 s
-user_file_27
+user_file_26
 ../Test Fixtures/Main FPGA/polar_to_cartesian_tb.v
 s
-user_file_28
+user_file_27
 ../Test Fixtures/Main FPGA/grid_tb.v
 s
-user_file_29
+user_file_28
 ../Test Fixtures/Main FPGA/vga_writer_tb.v
+s
+user_file_29
+../Sources/Main FPGA/median_3.v
 s
 user_file_3
 ../Sources/Main FPGA/ir_transmitter.v
+s
+user_file_30
+median_3_tb.v
+s
+user_file_31
+../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
 s
 user_file_4
 ../Sources/Main FPGA/labkit_mainFPGA.v

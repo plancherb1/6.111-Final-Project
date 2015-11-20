@@ -30,7 +30,8 @@ module ultrasound_location_calculator(
 	parameter REPEAT = 3'h4; // cylce to next module if needed
 	parameter REPORT = 3'h5; // when done send out value
 	parameter POWER_CYCLE = 3'h6; // make sure to power cycle in case stuck
-	
+	parameter ERROR_CORRECT_REPEAT = 3'h7; // run each ultrasound a couple times to be safe
+
 	// distance calcing parameters and regs
 	reg [4:0] curr_ultrasound;
 	parameter TOTAL_ULTRASOUNDS = 1;
@@ -43,6 +44,18 @@ module ultrasound_location_calculator(
    reg [24:0] power_cycle_timer; // as sized for one milisecond in counting
 	reg [7:0] best_distance;
 	reg [3:0] best_angle;
+	
+	// parameters for repeat and median that we calc from it
+	// note: you will need to adjust variables and median if you want more passes
+	//       and the case statement down below
+	parameter NUM_REPEATS = 3;
+	reg [19:0] distance_pass_1;
+	reg [19:0] distance_pass_2;
+	reg [19:0] distance_pass_3;
+	reg [1:0] repeat_counter;
+	wire [19:0] median_distance;
+	median_3 m3 (.data1(distance_pass_1),.data2(distance_pass_2),
+					  .data3(distance_pass_3),.median(median_distance));	
 	
 	// debug only
 	//assign analyzer3_clock = clock;
@@ -98,7 +111,7 @@ module ultrasound_location_calculator(
 						// pulses per microsecond so it is actually divide by 1/3996
 						// which we can approximate with 2.5% error to 1/4096! :)
 						distance_count <= (distance_count) >> 12;
-						state <= REPEAT;
+						state <= ERROR_CORRECT_REPEAT;
 					end
 					else if (distance_count == DISTANCE_MAX -1) begin
 						distance_count <= 10'h7FF;
@@ -117,13 +130,41 @@ module ultrasound_location_calculator(
 				POWER_CYCLE: begin
 					// count until we havae enough time and then turn it back on
 					if (power_cycle_timer == POWER_CYCLE_TIME - 1) begin
-                  state <= REPEAT;
+                  state <= ERROR_CORRECT_REPEAT;
                   power_cycle_timer <= 0;
                   ultrasound_power[curr_ultrasound] <= 1;
                end
                else begin
                   power_cycle_timer <= power_cycle_timer + 1;
                end
+				end
+				
+				// cycle within the ultrasound module to avoid error
+				ERROR_CORRECT_REPEAT: begin
+					// we are going to do 3 passes for each reading and take the median value to
+					// adjust for any noise in the readings just to be safe
+					// if we are done then test for next ultrasound
+					if (repeat_counter == NUM_REPEATS - 1) begin
+						distance_pass_3 <= distance_count;
+	   				state <= REPEAT;
+					end
+					// else save the value and re-calculate
+					else begin
+						// save the distance in the right variable 
+						// (2D arrays keep breaking so using a case statement instead)
+						// if you increase pass size update this (note the last state
+						// appears above on the other if statement)
+						case(repeat_counter)
+							1: distance_pass_2 <= distance_count;
+							default: distance_pass_1 <= distance_count;
+						endcase
+						// then get ready for next pass
+						repeat_counter <= repeat_counter + 1;
+						state <= TRIGGER;
+						ultrasound_commands[curr_ultrasound] <= 1;
+						trigger_count <= 1;
+						distance_count <= 0;
+					end
 				end
 				
 				// cycle to next module and/or finalize value
@@ -184,4 +225,4 @@ module ultrasound_location_calculator(
 		end
 	end
 	
-endmodule	 
+endmodule	

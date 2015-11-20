@@ -6,16 +6,17 @@ entity vga_writer is
         TOTAL_HEIGHT    : integer := 768;
         BLANK_COLOR     : integer := 0;
         GRID_COLOR      : integer := 16711680;
-        TARGET_WIDTH    : integer := 64;
-        TARGET_HEIGHT   : integer := 64;
-        TARGET_COLOR    : integer := 255;
-        ROVER_HEIGHT    : integer := 64;
-        ROVER_WIDTH     : integer := 64;
+        TARGET_WIDTH    : integer := 16;
+        TARGET_HEIGHT   : integer := 16;
+        TARGET_COLOR    : integer := 16777215;
+        ROVER_HEIGHT    : integer := 16;
+        ROVER_WIDTH     : integer := 16;
         ROVER_COLOR     : integer := 65280;
-        PIXEL_ALL_1S    : integer := 16777215;
         ROVER_ORIENTED_COLOR: integer := 16776960;
-        VERTICAL_OFFSET : integer := 64;
-        GRID_LINE_WIDTH : integer := 4;
+        PIXEL_ALL_1S    : integer := 16777215;
+        GRID_LINE_WIDTH : integer := 1;
+        GRID_HEIGHT     : integer := 256;
+        GRID_WIDTH      : integer := 512;
         ALPHA_M         : integer := 2;
         ALPHA_N         : integer := 4;
         ALPHA_N_LOG_2   : integer := 2
@@ -25,7 +26,7 @@ entity vga_writer is
         reset           : in     vl_logic;
         location        : in     vl_logic_vector(11 downto 0);
         move_command    : in     vl_logic_vector(11 downto 0);
-        orientation     : in     vl_logic_vector(3 downto 0);
+        orientation     : in     vl_logic_vector(4 downto 0);
         target_location : in     vl_logic_vector(3 downto 0);
         new_data        : in     vl_logic;
         orientation_ready: in     vl_logic;

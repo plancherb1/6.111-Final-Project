@@ -69,7 +69,10 @@ module vga_writer_tb;
 		.analyzer_data(analyzer_data), 
 		.pixel(pixel)
 	);
-
+	
+	integer i;
+	
+	always #5 vsync = !vsync;
 	initial begin
 		// Initialize Inputs
 		vclock = 0;
@@ -88,17 +91,31 @@ module vga_writer_tb;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+      
+		// hard reset
+		reset = 1;
+		#10;
+		reset = 0;
+		
 		// Add stimulus here
-		// lets test the grid pixel and look for FF_00_00 for the pixel
-		vcount = 100;
-		#100;
-		vcount = 1023;
-		#100;
-		vcount = 1000;
-		#100;
-		vcount = 0;
+		// test the target and see where it shows up which should be
+		// for 16 around 512
+		hcount = 512;
+		for (i=0; i<768; i=i+1) begin
+         vcount = i;
+         #10;
+      end
 
+		
+		// lets test the grid pixel and look for FF_00_00 for the pixel (only have gird hooked up)
+		//vcount = 100;
+		//#100;
+		//vcount = 1023;
+		//#100;
+		//vcount = 1000;
+		//#100;
+		//vcount = 0;
+		
 	end
       
 endmodule

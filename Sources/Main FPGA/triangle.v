@@ -15,7 +15,7 @@ module triangle
      input signed [11:0] x_value,
      input signed [11:0] center_y,
      input signed [11:0] y_value,
-	  input [3:0] orientation,
+	  input [4:0] orientation,
      output reg [23:0] pixel);
 	 
 	 // parameters needed to define lines and directions every 15 degrees
@@ -64,7 +64,7 @@ module triangle
 	 assign test_on_75 = ((abs_delta_x*240) >>> 6) - abs_delta_y; // tan 75 is about 240/64
 	 // we need to apply a ROUNDING factor for the bit shift rounding
 	 parameter ROUNDING_FACTOR = 0;
-	 parameter ROUNDING_FACTOR_2 = 2;
+	 parameter ROUNDING_FACTOR_2 = 2 * ROUNDING_FACTOR;
 	 assign on_15 = 	(test_on_15 - ROUNDING_FACTOR <= 0) && 
 							(test_on_15 + ROUNDING_FACTOR >= 0);
 	 assign on_30 = 	(test_on_30 - ROUNDING_FACTOR <= 0) && 

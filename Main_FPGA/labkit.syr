@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -114,8 +114,10 @@ Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
 Module <calc_rsin_15_165_30> compiled
 Compiling verilog file "../Sources/Main FPGA/polar_to_cartesian.v" in library work
 Module <triangle> compiled
-Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
+Compiling verilog file "../Sources/Main FPGA/median_3.v" in library work
 Module <polar_to_cartesian> compiled
+Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
+Module <median_3> compiled
 Compiling verilog file "../Sources/Main FPGA/blob.v" in library work
 Module <grid> compiled
 Compiling verilog file "../Sources/Shared/debounce.v" in library work
@@ -151,7 +153,9 @@ Analyzing hierarchy for module <edge_detect> in library <work>.
 
 Analyzing hierarchy for module <ultrasound_location_calculator> in library <work> with parameters.
 	DISTANCE_MAX = "00000000000100000000000000000000"
+	ERROR_CORRECT_REPEAT = "111"
 	IDLE = "000"
+	NUM_REPEATS = "00000000000000000000000000000011"
 	POWER_CYCLE = "110"
 	POWER_CYCLE_TIME = "00000001100110111111110011000000"
 	REPEAT = "100"
@@ -168,7 +172,7 @@ Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	ALPHA_N_LOG_2 = "00000000000000000000000000000010"
 	BLANK_COLOR = "000000000000000000000000"
 	GRID_BOTTOM_BORDER = "00000000000000000000000100000000"
-	GRID_COLOR = "111111110000000000000000"
+	GRID_COLOR = "111111111111111111111111"
 	GRID_HEIGHT = "00000000000000000000000100000000"
 	GRID_LEFT_BORDER = "11111111111111111111111100000000"
 	GRID_LINE_WIDTH = "00000000000000000000000000000001"
@@ -176,17 +180,19 @@ Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	GRID_TOP_BORDER = "00000000000000000000001000000000"
 	GRID_WIDTH = "00000000000000000000001000000000"
 	PIXEL_ALL_1S = "111111111111111111111111"
-	ROVER_COLOR = "000000001111111100000000"
-	ROVER_HEIGHT = "00000000000000000000000000100000"
-	ROVER_ORIENTED_COLOR = "111111111111111100000000"
-	ROVER_WIDTH = "00000000000000000000000000100000"
-	TARGET_COLOR = "000000000000000011111111"
+	ROVER_COLOR = "111111110000000000000000"
+	ROVER_HEIGHT = "00000000000000000000000000010000"
+	ROVER_ORIENTED_COLOR = "000000000000000011111111"
+	ROVER_WIDTH = "00000000000000000000000000010000"
+	TARGET_COLOR = "000000001111111100000000"
 	TARGET_HEIGHT = "00000000000000000000000000010000"
 	TARGET_WIDTH = "00000000000000000000000000010000"
 	TOTAL_HEIGHT = "00000000000000000000001100000000"
 	TOTAL_WIDTH = "00000000000000000000010000000000"
 
 Analyzing hierarchy for module <display_16hex_labkit> in library <work>.
+
+Analyzing hierarchy for module <median_3> in library <work>.
 
 Analyzing hierarchy for module <polar_to_cartesian> in library <work> with parameters.
 	NEG = "1"
@@ -196,7 +202,7 @@ Analyzing hierarchy for module <grid> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
 	BORDER_WIDTH = "00000000000000000000000000000011"
 	BOTTOM_BORDER = "00000000000000000000000100000000"
-	GRID_COLOR = "111111110000000000000000"
+	GRID_COLOR = "111111111111111111111111"
 	LEFT_BORDER = "11111111111111111111111100000000"
 	LINE_WIDTH = "00000000000000000000000000000001"
 	RADIAL_ROUNDING_FACTOR = "00000000000000000000000000000011"
@@ -215,30 +221,34 @@ Analyzing hierarchy for module <grid> in library <work> with parameters.
 
 Analyzing hierarchy for module <blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	COLOR = "000000000000000011111111"
+	COLOR = "000000001111111100000000"
 	HEIGHT = "00000000000000000000000000010000"
+	HEIGHT_D2 = "00000000000000000000000000001000"
 	WIDTH = "00000000000000000000000000010000"
+	WIDTH_D2 = "00000000000000000000000000001000"
 
 Analyzing hierarchy for module <blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	COLOR = "000000001111111100000000"
-	HEIGHT = "00000000000000000000000000100000"
-	WIDTH = "00000000000000000000000000100000"
+	COLOR = "111111110000000000000000"
+	HEIGHT = "00000000000000000000000000010000"
+	HEIGHT_D2 = "00000000000000000000000000001000"
+	WIDTH = "00000000000000000000000000010000"
+	WIDTH_D2 = "00000000000000000000000000001000"
 
 Analyzing hierarchy for module <triangle> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
-	COLOR = "111111111111111100000000"
-	HEIGHT = "00000000000000000000000000100000"
-	HEIGHT_D2 = "00000000000000000000000000010000"
-	HEIGHT_D3 = "00000000000000000000000000001010"
-	HEIGHT_D6 = "00000000000000000000000000000101"
-	INDICATOR_COLOR = "000000001111111100000000"
+	COLOR = "000000000000000011111111"
+	HEIGHT = "00000000000000000000000000010000"
+	HEIGHT_D2 = "00000000000000000000000000001000"
+	HEIGHT_D3 = "00000000000000000000000000000101"
+	HEIGHT_D6 = "00000000000000000000000000000010"
+	INDICATOR_COLOR = "111111110000000000000000"
 	ROUNDING_FACTOR = "00000000000000000000000000000000"
-	ROUNDING_FACTOR_2 = "00000000000000000000000000000010"
-	WIDTH = "00000000000000000000000000100000"
-	WIDTH_D2 = "00000000000000000000000000010000"
-	WIDTH_D3 = "00000000000000000000000000001010"
-	WIDTH_D6 = "00000000000000000000000000000101"
+	ROUNDING_FACTOR_2 = "00000000000000000000000000000000"
+	WIDTH = "00000000000000000000000000010000"
+	WIDTH_D2 = "00000000000000000000000000001000"
+	WIDTH_D3 = "00000000000000000000000000000101"
+	WIDTH_D6 = "00000000000000000000000000000010"
 
 Analyzing hierarchy for module <calc_rsin_15_165_30> in library <work>.
 
@@ -282,7 +292,9 @@ Module <edge_detect> is correct for synthesis.
  
 Analyzing module <ultrasound_location_calculator> in library <work>.
 	DISTANCE_MAX = 32'sb00000000000100000000000000000000
+	ERROR_CORRECT_REPEAT = 3'b111
 	IDLE = 3'b000
+	NUM_REPEATS = 32'sb00000000000000000000000000000011
 	POWER_CYCLE = 3'b110
 	POWER_CYCLE_TIME = 32'sb00000001100110111111110011000000
 	REPEAT = 3'b100
@@ -294,13 +306,16 @@ Analyzing module <ultrasound_location_calculator> in library <work>.
 	WAIT_FOR1 = 3'b010
 Module <ultrasound_location_calculator> is correct for synthesis.
  
+Analyzing module <median_3> in library <work>.
+Module <median_3> is correct for synthesis.
+ 
 Analyzing module <vga_writer> in library <work>.
 	ALPHA_M = 32'sb00000000000000000000000000000010
 	ALPHA_N = 32'sb00000000000000000000000000000100
 	ALPHA_N_LOG_2 = 32'sb00000000000000000000000000000010
 	BLANK_COLOR = 24'b000000000000000000000000
 	GRID_BOTTOM_BORDER = 32'sb00000000000000000000000100000000
-	GRID_COLOR = 24'b111111110000000000000000
+	GRID_COLOR = 24'b111111111111111111111111
 	GRID_HEIGHT = 32'sb00000000000000000000000100000000
 	GRID_LEFT_BORDER = 32'sb11111111111111111111111100000000
 	GRID_LINE_WIDTH = 32'sb00000000000000000000000000000001
@@ -308,11 +323,11 @@ Analyzing module <vga_writer> in library <work>.
 	GRID_TOP_BORDER = 32'sb00000000000000000000001000000000
 	GRID_WIDTH = 32'sb00000000000000000000001000000000
 	PIXEL_ALL_1S = 24'b111111111111111111111111
-	ROVER_COLOR = 24'b000000001111111100000000
-	ROVER_HEIGHT = 32'sb00000000000000000000000000100000
-	ROVER_ORIENTED_COLOR = 24'b111111111111111100000000
-	ROVER_WIDTH = 32'sb00000000000000000000000000100000
-	TARGET_COLOR = 24'b000000000000000011111111
+	ROVER_COLOR = 24'b111111110000000000000000
+	ROVER_HEIGHT = 32'sb00000000000000000000000000010000
+	ROVER_ORIENTED_COLOR = 24'b000000000000000011111111
+	ROVER_WIDTH = 32'sb00000000000000000000000000010000
+	TARGET_COLOR = 24'b000000001111111100000000
 	TARGET_HEIGHT = 32'sb00000000000000000000000000010000
 	TARGET_WIDTH = 32'sb00000000000000000000000000010000
 	TOTAL_HEIGHT = 32'sb00000000000000000000001100000000
@@ -331,7 +346,7 @@ Analyzing module <grid> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
 	BORDER_WIDTH = 32'sb00000000000000000000000000000011
 	BOTTOM_BORDER = 32'sb00000000000000000000000100000000
-	GRID_COLOR = 24'b111111110000000000000000
+	GRID_COLOR = 24'b111111111111111111111111
 	LEFT_BORDER = 32'sb11111111111111111111111100000000
 	LINE_WIDTH = 32'sb00000000000000000000000000000001
 	RADIAL_ROUNDING_FACTOR = 32'sb00000000000000000000000000000011
@@ -351,32 +366,36 @@ Module <grid> is correct for synthesis.
  
 Analyzing module <blob.1> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	COLOR = 24'b000000000000000011111111
+	COLOR = 24'b000000001111111100000000
 	HEIGHT = 32'sb00000000000000000000000000010000
+	HEIGHT_D2 = 32'sb00000000000000000000000000001000
 	WIDTH = 32'sb00000000000000000000000000010000
+	WIDTH_D2 = 32'sb00000000000000000000000000001000
 Module <blob.1> is correct for synthesis.
  
 Analyzing module <blob.2> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	COLOR = 24'b000000001111111100000000
-	HEIGHT = 32'sb00000000000000000000000000100000
-	WIDTH = 32'sb00000000000000000000000000100000
+	COLOR = 24'b111111110000000000000000
+	HEIGHT = 32'sb00000000000000000000000000010000
+	HEIGHT_D2 = 32'sb00000000000000000000000000001000
+	WIDTH = 32'sb00000000000000000000000000010000
+	WIDTH_D2 = 32'sb00000000000000000000000000001000
 Module <blob.2> is correct for synthesis.
  
 Analyzing module <triangle> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
-	COLOR = 24'b111111111111111100000000
-	HEIGHT = 32'sb00000000000000000000000000100000
-	HEIGHT_D2 = 32'sb00000000000000000000000000010000
-	HEIGHT_D3 = 32'sb00000000000000000000000000001010
-	HEIGHT_D6 = 32'sb00000000000000000000000000000101
-	INDICATOR_COLOR = 24'b000000001111111100000000
+	COLOR = 24'b000000000000000011111111
+	HEIGHT = 32'sb00000000000000000000000000010000
+	HEIGHT_D2 = 32'sb00000000000000000000000000001000
+	HEIGHT_D3 = 32'sb00000000000000000000000000000101
+	HEIGHT_D6 = 32'sb00000000000000000000000000000010
+	INDICATOR_COLOR = 24'b111111110000000000000000
 	ROUNDING_FACTOR = 32'sb00000000000000000000000000000000
-	ROUNDING_FACTOR_2 = 32'sb00000000000000000000000000000010
-	WIDTH = 32'sb00000000000000000000000000100000
-	WIDTH_D2 = 32'sb00000000000000000000000000010000
-	WIDTH_D3 = 32'sb00000000000000000000000000001010
-	WIDTH_D6 = 32'sb00000000000000000000000000000101
+	ROUNDING_FACTOR_2 = 32'sb00000000000000000000000000000000
+	WIDTH = 32'sb00000000000000000000000000010000
+	WIDTH_D2 = 32'sb00000000000000000000000000001000
+	WIDTH_D3 = 32'sb00000000000000000000000000000101
+	WIDTH_D6 = 32'sb00000000000000000000000000000010
 Module <triangle> is correct for synthesis.
  
 Analyzing module <display_16hex_labkit> in library <work>.
@@ -398,8 +417,6 @@ INFO:Xst:2561 - Always blocking tristate driving signal <ram1_data> in unit <lab
 INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
-INFO:Xst:2679 - Register <target_x> in unit <vga_writer> has a constant value of 000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <target_y> in unit <vga_writer> has a constant value of 001000000000 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
     Related source file is "../Sources/Shared/debounce.v".
@@ -435,34 +452,6 @@ Synthesizing Unit <edge_detect>.
     Summary:
 	inferred   2 D-type flip-flop(s).
 Unit <edge_detect> synthesized.
-
-
-Synthesizing Unit <ultrasound_location_calculator>.
-    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
-    Found 3-bit register for signal <state>.
-    Found 12-bit register for signal <rover_location>.
-    Found 1-bit register for signal <done>.
-    Found 10-bit register for signal <ultrasound_power>.
-    Found 10-bit register for signal <ultrasound_commands>.
-    Found 4-bit register for signal <best_angle>.
-    Found 4-bit adder for signal <best_angle$addsub0000> created at line 145.
-    Found 8-bit register for signal <best_distance>.
-    Found 20-bit comparator greater for signal <best_distance$cmp_gt0000> created at line 141.
-    Found 20-bit comparator less for signal <best_distance$cmp_lt0000> created at line 141.
-    Found 5-bit up counter for signal <curr_ultrasound>.
-    Found 20-bit register for signal <distance_count>.
-    Found 20-bit adder for signal <distance_count$addsub0000> created at line 111.
-    Found 25-bit register for signal <power_cycle_timer>.
-    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 125.
-    Found 9-bit register for signal <trigger_count>.
-    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 80.
-    Summary:
-	inferred   1 Counter(s).
-	inferred 102 D-type flip-flop(s).
-	inferred   4 Adder/Subtractor(s).
-	inferred   2 Comparator(s).
-	inferred   1 Multiplexer(s).
-Unit <ultrasound_location_calculator> synthesized.
 
 
 Synthesizing Unit <display_16hex_labkit>.
@@ -505,97 +494,111 @@ Synthesizing Unit <display_16hex_labkit>.
 Unit <display_16hex_labkit> synthesized.
 
 
+Synthesizing Unit <median_3>.
+    Related source file is "../Sources/Main FPGA/median_3.v".
+    Found 20-bit comparator greater for signal <comp23>.
+    Found 20-bit comparator less for signal <max1$cmp_lt0000> created at line 21.
+    Found 20-bit comparator less for signal <max1$cmp_lt0001> created at line 21.
+    Found 20-bit comparator greater for signal <min1$cmp_gt0000> created at line 20.
+    Found 20-bit comparator greater for signal <min1$cmp_gt0001> created at line 20.
+    Summary:
+	inferred   5 Comparator(s).
+Unit <median_3> synthesized.
+
+
 Synthesizing Unit <grid>.
     Related source file is "../Sources/Main FPGA/grid.v".
-    Found 32-bit adder for signal <comp15neg$add0000> created at line 80.
-    Found 33-bit adder for signal <comp15neg$add0001> created at line 80.
-    Found 34-bit comparator greatequal for signal <comp15neg$cmp_ge0000> created at line 80.
-    Found 33-bit comparator lessequal for signal <comp15neg$cmp_le0000> created at line 80.
-    Found 33-bit subtractor for signal <comp15neg$sub0001> created at line 80.
-    Found 33-bit subtractor for signal <comp15neg$sub0002> created at line 80.
-    Found 33-bit adder for signal <comp15pos$add0000> created at line 78.
-    Found 34-bit adder for signal <comp15pos$add0001> created at line 78.
-    Found 35-bit comparator greatequal for signal <comp15pos$cmp_ge0000> created at line 78.
-    Found 34-bit comparator lessequal for signal <comp15pos$cmp_le0000> created at line 78.
-    Found 33-bit subtractor for signal <comp15pos$sub0000> created at line 78.
-    Found 34-bit subtractor for signal <comp15pos$sub0001> created at line 78.
-    Found 32-bit adder for signal <comp45neg$add0000> created at line 84.
-    Found 33-bit adder for signal <comp45neg$add0001> created at line 84.
-    Found 34-bit comparator greatequal for signal <comp45neg$cmp_ge0000> created at line 84.
-    Found 33-bit comparator lessequal for signal <comp45neg$cmp_le0000> created at line 84.
-    Found 33-bit subtractor for signal <comp45neg$sub0001> created at line 84.
-    Found 33-bit subtractor for signal <comp45neg$sub0002> created at line 84.
-    Found 33-bit adder for signal <comp45pos$add0000> created at line 82.
-    Found 34-bit adder for signal <comp45pos$add0001> created at line 82.
-    Found 35-bit comparator greatequal for signal <comp45pos$cmp_ge0000> created at line 82.
-    Found 34-bit comparator lessequal for signal <comp45pos$cmp_le0000> created at line 82.
-    Found 33-bit subtractor for signal <comp45pos$sub0000> created at line 82.
-    Found 34-bit subtractor for signal <comp45pos$sub0001> created at line 82.
-    Found 32-bit adder for signal <comp75neg$add0000> created at line 91.
-    Found 33-bit adder for signal <comp75neg$add0001> created at line 91.
-    Found 34-bit comparator greatequal for signal <comp75neg$cmp_ge0000> created at line 91.
-    Found 33-bit comparator lessequal for signal <comp75neg$cmp_le0000> created at line 91.
-    Found 33-bit subtractor for signal <comp75neg$sub0001> created at line 91.
-    Found 33-bit subtractor for signal <comp75neg$sub0002> created at line 91.
-    Found 33-bit adder for signal <comp75pos$add0000> created at line 89.
-    Found 34-bit adder for signal <comp75pos$add0001> created at line 89.
-    Found 35-bit comparator greatequal for signal <comp75pos$cmp_ge0000> created at line 89.
-    Found 34-bit comparator lessequal for signal <comp75pos$cmp_le0000> created at line 89.
-    Found 33-bit subtractor for signal <comp75pos$sub0000> created at line 89.
-    Found 34-bit subtractor for signal <comp75pos$sub0001> created at line 89.
-    Found 25-bit adder for signal <d_2$add0000> created at line 48.
-    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 48.
-    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 48.
-    Found 33-bit adder for signal <on_arc$add0000> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0001> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0002> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0003> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0004> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0005> created at line 55.
-    Found 33-bit adder for signal <on_arc$add0006> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0000> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0001> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0002> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0003> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0004> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0005> created at line 55.
-    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0006> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0000> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0001> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0002> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0003> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0004> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0005> created at line 55.
-    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0006> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0001> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0003> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0005> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0007> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0009> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0011> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0013> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0014> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0015> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0016> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0017> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0018> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0019> created at line 55.
-    Found 33-bit subtractor for signal <on_arc$sub0020> created at line 55.
+    Found 32-bit adder for signal <comp15neg$add0000> created at line 78.
+    Found 33-bit adder for signal <comp15neg$add0001> created at line 78.
+    Found 34-bit comparator greatequal for signal <comp15neg$cmp_ge0000> created at line 78.
+    Found 33-bit comparator lessequal for signal <comp15neg$cmp_le0000> created at line 78.
+    Found 33-bit subtractor for signal <comp15neg$sub0001> created at line 78.
+    Found 33-bit subtractor for signal <comp15neg$sub0002> created at line 78.
+    Found 33-bit adder for signal <comp15pos$add0000> created at line 76.
+    Found 34-bit adder for signal <comp15pos$add0001> created at line 76.
+    Found 35-bit comparator greatequal for signal <comp15pos$cmp_ge0000> created at line 76.
+    Found 34-bit comparator lessequal for signal <comp15pos$cmp_le0000> created at line 76.
+    Found 33-bit subtractor for signal <comp15pos$sub0000> created at line 76.
+    Found 34-bit subtractor for signal <comp15pos$sub0001> created at line 76.
+    Found 32-bit adder for signal <comp45neg$add0000> created at line 82.
+    Found 33-bit adder for signal <comp45neg$add0001> created at line 82.
+    Found 34-bit comparator greatequal for signal <comp45neg$cmp_ge0000> created at line 82.
+    Found 33-bit comparator lessequal for signal <comp45neg$cmp_le0000> created at line 82.
+    Found 33-bit subtractor for signal <comp45neg$sub0001> created at line 82.
+    Found 33-bit subtractor for signal <comp45neg$sub0002> created at line 82.
+    Found 33-bit adder for signal <comp45pos$add0000> created at line 80.
+    Found 34-bit adder for signal <comp45pos$add0001> created at line 80.
+    Found 35-bit comparator greatequal for signal <comp45pos$cmp_ge0000> created at line 80.
+    Found 34-bit comparator lessequal for signal <comp45pos$cmp_le0000> created at line 80.
+    Found 33-bit subtractor for signal <comp45pos$sub0000> created at line 80.
+    Found 34-bit subtractor for signal <comp45pos$sub0001> created at line 80.
+    Found 32-bit adder for signal <comp75neg$add0000> created at line 89.
+    Found 33-bit adder for signal <comp75neg$add0001> created at line 89.
+    Found 34-bit comparator greatequal for signal <comp75neg$cmp_ge0000> created at line 89.
+    Found 33-bit comparator lessequal for signal <comp75neg$cmp_le0000> created at line 89.
+    Found 33-bit subtractor for signal <comp75neg$sub0001> created at line 89.
+    Found 33-bit subtractor for signal <comp75neg$sub0002> created at line 89.
+    Found 33-bit adder for signal <comp75pos$add0000> created at line 87.
+    Found 34-bit adder for signal <comp75pos$add0001> created at line 87.
+    Found 35-bit comparator greatequal for signal <comp75pos$cmp_ge0000> created at line 87.
+    Found 34-bit comparator lessequal for signal <comp75pos$cmp_le0000> created at line 87.
+    Found 33-bit subtractor for signal <comp75pos$sub0000> created at line 87.
+    Found 34-bit subtractor for signal <comp75pos$sub0001> created at line 87.
+    Found 25-bit adder for signal <d_2$add0000> created at line 46.
+    Found 12x12-bit multiplier for signal <d_2$mult0000> created at line 46.
+    Found 12x12-bit multiplier for signal <d_2$mult0001> created at line 46.
+    Found 33-bit adder for signal <on_arc$add0000> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0001> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0002> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0003> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0004> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0005> created at line 53.
+    Found 33-bit adder for signal <on_arc$add0006> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0000> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0001> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0002> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0003> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0004> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0005> created at line 53.
+    Found 34-bit comparator greatequal for signal <on_arc$cmp_ge0006> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0000> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0001> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0002> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0003> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0004> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0005> created at line 53.
+    Found 33-bit comparator lessequal for signal <on_arc$cmp_le0006> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0001> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0003> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0005> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0007> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0009> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0011> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0013> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0014> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0015> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0016> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0017> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0018> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0019> created at line 53.
+    Found 33-bit subtractor for signal <on_arc$sub0020> created at line 53.
     Found 14-bit comparator greatequal for signal <on_border$cmp_ge0000> created at line 27.
     Found 14-bit comparator greatequal for signal <on_border$cmp_ge0001> created at line 27.
     Found 14-bit comparator lessequal for signal <on_border$cmp_le0000> created at line 27.
     Found 14-bit comparator lessequal for signal <on_border$cmp_le0001> created at line 27.
     Found 13-bit subtractor for signal <on_border$sub0000> created at line 27.
     Found 13-bit subtractor for signal <on_border$sub0001> created at line 27.
-    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0000> created at line 31.
-    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0001> created at line 31.
-    Found 32-bit comparator less for signal <out_of_border$cmp_lt0000> created at line 31.
-    Found 13-bit comparator less for signal <out_of_border$cmp_lt0001> created at line 31.
-    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 67.
-    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 69.
+    Found 13-bit subtractor for signal <on_border$sub0002> created at line 27.
+    Found 13-bit subtractor for signal <on_border$sub0003> created at line 27.
+    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0000> created at line 29.
+    Found 13-bit comparator greater for signal <out_of_border$cmp_gt0001> created at line 29.
+    Found 32-bit comparator less for signal <out_of_border$cmp_lt0000> created at line 29.
+    Found 13-bit comparator less for signal <out_of_border$cmp_lt0001> created at line 29.
+    Found 12x6-bit multiplier for signal <test_15deg$mult0000> created at line 65.
+    Found 12x9-bit multiplier for signal <test_75deg$mult0000> created at line 67.
     Found 12-bit subtractor for signal <y_value_e>.
     Summary:
-	inferred  49 Adder/Subtractor(s).
+	inferred  51 Adder/Subtractor(s).
 	inferred   4 Multiplier(s).
 	inferred  34 Comparator(s).
 Unit <grid> synthesized.
@@ -603,24 +606,30 @@ Unit <grid> synthesized.
 
 Synthesizing Unit <blob_1>.
     Related source file is "../Sources/Main FPGA/blob.v".
-    Found 13-bit comparator greatequal for signal <pixel$cmp_ge0001> created at line 21.
-    Found 13-bit comparator less for signal <pixel$cmp_lt0000> created at line 21.
-    Found 13-bit comparator less for signal <pixel$cmp_lt0001> created at line 21.
+    Found 13-bit adder for signal <$add0000> created at line 24.
+    Found 13-bit adder for signal <$add0001> created at line 24.
+    Found 13-bit subtractor for signal <$sub0000> created at line 24.
+    Found 13-bit subtractor for signal <$sub0001> created at line 24.
+    Found 13-bit comparator greatequal for signal <in_square$cmp_ge0000> created at line 24.
+    Found 13-bit comparator greatequal for signal <in_square$cmp_ge0001> created at line 24.
+    Found 13-bit comparator less for signal <in_square$cmp_lt0000> created at line 24.
+    Found 13-bit comparator less for signal <in_square$cmp_lt0001> created at line 24.
     Summary:
-	inferred   3 Comparator(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
 Unit <blob_1> synthesized.
 
 
 Synthesizing Unit <blob_2>.
     Related source file is "../Sources/Main FPGA/blob.v".
-    Found 13-bit adder for signal <$add0000> created at line 21.
-    Found 13-bit adder for signal <$add0001> created at line 21.
-    Found 13-bit subtractor for signal <$sub0000> created at line 21.
-    Found 13-bit subtractor for signal <$sub0001> created at line 21.
-    Found 13-bit comparator greatequal for signal <pixel$cmp_ge0000> created at line 21.
-    Found 13-bit comparator greatequal for signal <pixel$cmp_ge0001> created at line 21.
-    Found 13-bit comparator less for signal <pixel$cmp_lt0000> created at line 21.
-    Found 13-bit comparator less for signal <pixel$cmp_lt0001> created at line 21.
+    Found 13-bit adder for signal <$add0000> created at line 24.
+    Found 13-bit adder for signal <$add0001> created at line 24.
+    Found 13-bit subtractor for signal <$sub0000> created at line 24.
+    Found 13-bit subtractor for signal <$sub0001> created at line 24.
+    Found 13-bit comparator greatequal for signal <in_square$cmp_ge0000> created at line 24.
+    Found 13-bit comparator greatequal for signal <in_square$cmp_ge0001> created at line 24.
+    Found 13-bit comparator less for signal <in_square$cmp_lt0000> created at line 24.
+    Found 13-bit comparator less for signal <in_square$cmp_lt0001> created at line 24.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred   4 Comparator(s).
@@ -651,10 +660,9 @@ WARNING:Xst:646 - Signal <delta_x> is assigned but never used. This unconnected 
     Found 12-bit comparator equal for signal <on_45>.
     Found 33-bit comparator greatequal for signal <on_60$cmp_ge0000> created at line 72.
     Found 33-bit comparator lessequal for signal <on_60$cmp_le0000> created at line 72.
-    Found 33-bit adder for signal <on_75$add0000> created at line 74.
-    Found 34-bit comparator greatequal for signal <on_75$cmp_ge0000> created at line 74.
+    Found 33-bit comparator greatequal for signal <on_75$cmp_ge0000> created at line 74.
     Found 33-bit comparator lessequal for signal <on_75$cmp_le0000> created at line 74.
-    Found 4x7-bit multiplier for signal <quadrant$mult0000> created at line 80.
+    Found 5x7-bit multiplier for signal <quadrant$mult0000> created at line 80.
     Found 32-bit subtractor for signal <test_on_15>.
     Found 12x6-bit multiplier for signal <test_on_15$mult0000> created at line 61.
     Found 32-bit subtractor for signal <test_on_30>.
@@ -664,7 +672,7 @@ WARNING:Xst:646 - Signal <delta_x> is assigned but never used. This unconnected 
     Found 32-bit subtractor for signal <test_on_75>.
     Found 12x9-bit multiplier for signal <test_on_75$mult0000> created at line 64.
     Summary:
-	inferred  11 Adder/Subtractor(s).
+	inferred  10 Adder/Subtractor(s).
 	inferred   5 Multiplier(s).
 	inferred  15 Comparator(s).
 Unit <triangle> synthesized.
@@ -683,6 +691,52 @@ WARNING:Xst:646 - Signal <rsin_15deg<31:8>> is assigned but never used. This unc
 Unit <calc_rsin_15_165_30> synthesized.
 
 
+Synthesizing Unit <ultrasound_location_calculator>.
+    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
+WARNING:Xst:646 - Signal <median_distance> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 3-bit register for signal <state>.
+    Found 12-bit register for signal <rover_location>.
+    Found 1-bit register for signal <done>.
+    Found 10-bit register for signal <ultrasound_power>.
+    Found 10-bit register for signal <ultrasound_commands>.
+    Found 4-bit register for signal <best_angle>.
+    Found 4-bit adder for signal <best_angle$addsub0000> created at line 186.
+    Found 8-bit register for signal <best_distance>.
+    Found 20-bit comparator greater for signal <best_distance$cmp_gt0000> created at line 182.
+    Found 20-bit comparator less for signal <best_distance$cmp_lt0000> created at line 182.
+    Found 5-bit up counter for signal <curr_ultrasound>.
+    Found 20-bit register for signal <distance_count>.
+    Found 20-bit adder for signal <distance_count$addsub0000> created at line 124.
+    Found 20-bit register for signal <distance_pass_1>.
+    Found 20-bit register for signal <distance_pass_2>.
+    Found 20-bit register for signal <distance_pass_3>.
+    Found 1-bit 8-to-1 multiplexer for signal <done$mux0000> created at line 82.
+    Found 25-bit register for signal <power_cycle_timer>.
+    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 138.
+    Found 2-bit up counter for signal <repeat_counter>.
+    Found 3-bit 8-to-1 multiplexer for signal <state$mux0000> created at line 82.
+    Found 9-bit register for signal <trigger_count>.
+    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 93.
+    Found 9-bit 8-to-1 multiplexer for signal <trigger_count$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_0$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_1$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_2$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_3$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_4$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_5$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_6$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_7$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_8$mux0000> created at line 82.
+    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_9$mux0000> created at line 82.
+    Summary:
+	inferred   2 Counter(s).
+	inferred 162 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  24 Multiplexer(s).
+Unit <ultrasound_location_calculator> synthesized.
+
+
 Synthesizing Unit <polar_to_cartesian>.
     Related source file is "../Sources/Main FPGA/polar_to_cartesian.v".
 Unit <polar_to_cartesian> synthesized.
@@ -693,13 +747,13 @@ Synthesizing Unit <vga_writer>.
 WARNING:Xst:647 - Input <vclock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <move_command> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1305 - Output <analyzer_data> is never assigned. Tied to value 0000000000000000.
-WARNING:Xst:647 - Input <target_location> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1305 - Output <analyzer_clock> is never assigned. Tied to value 0.
-WARNING:Xst:646 - Signal <rover_pixel_s> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <max_y> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 !!! ADJUST CONCAT SIZE AFTER UNARY MULT OPT !!!
 !!! ADJUST CONCAT SIZE AFTER UNARY MULT OPT !!!
+    Found 4x12-bit ROM for signal <target_x>.
+    Found 4x12-bit ROM for signal <target_y>.
     Found 8-bit adder for signal <alpha_blend_B>.
     Found 8-bit adder for signal <alpha_blend_G>.
     Found 8-bit adder for signal <alpha_blend_R>.
@@ -707,10 +761,11 @@ WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected si
     Found 24-bit comparator greater for signal <pixel$cmp_gt0000> created at line 175.
     Found 12-bit register for signal <rover_x>.
     Found 12-bit register for signal <rover_y>.
-    Found 12-bit adder for signal <rover_y$add0000> created at line 107.
+    Found 12-bit adder for signal <rover_y$add0000> created at line 105.
     Found 12-bit subtractor for signal <x_value>.
     Found 12-bit adder for signal <y_value$sub0000> created at line 43.
     Summary:
+	inferred   2 ROM(s).
 	inferred  24 D-type flip-flop(s).
 	inferred   6 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
@@ -996,8 +1051,7 @@ WARNING:Xst:647 - Input <ac97_bit_clock> is never used. This port will be preser
 WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user3<30>> is never assigned.
 WARNING:Xst:1780 - Signal <transmit_ir> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <rover_orientation<4>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <rover_orientation<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+WARNING:Xst:653 - Signal <rover_orientation> is used but never assigned. This sourceless signal will be automatically connected to value 00000.
 WARNING:Xst:653 - Signal <orientation_update> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <my_hex_data<64>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <move_command> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000.
@@ -1014,33 +1068,36 @@ WARNING:Xst:1780 - Signal <btn0_db> is never used or assigned. This unconnected 
 Unit <labkit> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+WARNING:Xst:524 - All outputs of the instance <m3> of the block <median_3> are unconnected in block <ultrasound_location_calculator>.
+   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
+# ROMs                                                 : 3
  16x40-bit ROM                                         : 1
+ 4x12-bit ROM                                          : 2
 # Multipliers                                          : 12
  12x12-bit multiplier                                  : 2
  12x6-bit multiplier                                   : 2
  12x7-bit multiplier                                   : 1
  12x8-bit multiplier                                   : 1
  12x9-bit multiplier                                   : 2
- 4x7-bit multiplier                                    : 1
+ 5x7-bit multiplier                                    : 1
  8x7-bit multiplier                                    : 1
  8x8-bit multiplier                                    : 2
-# Adders/Subtractors                                   : 76
+# Adders/Subtractors                                   : 81
  10-bit addsub                                         : 1
  12-bit adder                                          : 2
  12-bit subtractor                                     : 4
- 13-bit adder                                          : 4
- 13-bit subtractor                                     : 6
+ 13-bit adder                                          : 6
+ 13-bit subtractor                                     : 10
  20-bit adder                                          : 1
  25-bit adder                                          : 2
  32-bit adder                                          : 3
  32-bit subtractor                                     : 4
- 33-bit adder                                          : 14
+ 33-bit adder                                          : 13
  33-bit subtractor                                     : 23
  34-bit adder                                          : 3
  34-bit subtractor                                     : 3
@@ -1048,10 +1105,11 @@ Macro Statistics
  4-bit subtractor                                      : 1
  8-bit adder                                           : 3
  9-bit adder                                           : 1
-# Counters                                             : 11
+# Counters                                             : 12
  10-bit up counter                                     : 1
  11-bit up counter                                     : 1
  19-bit up counter                                     : 6
+ 2-bit up counter                                      : 1
  5-bit up counter                                      : 2
  8-bit down counter                                    : 1
 # Registers                                            : 57
@@ -1065,10 +1123,10 @@ Macro Statistics
  4-bit register                                        : 2
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Comparators                                          : 60
+# Comparators                                          : 61
  12-bit comparator equal                               : 1
  12-bit comparator greater                             : 2
- 13-bit comparator greatequal                          : 5
+ 13-bit comparator greatequal                          : 6
  13-bit comparator greater                             : 2
  13-bit comparator less                                : 7
  14-bit comparator greatequal                          : 2
@@ -1077,15 +1135,18 @@ Macro Statistics
  20-bit comparator less                                : 1
  24-bit comparator greater                             : 2
  32-bit comparator less                                : 1
- 33-bit comparator greatequal                          : 3
+ 33-bit comparator greatequal                          : 4
  33-bit comparator lessequal                           : 14
- 34-bit comparator greatequal                          : 11
+ 34-bit comparator greatequal                          : 10
  34-bit comparator lessequal                           : 3
  35-bit comparator greatequal                          : 3
-# Multiplexers                                         : 3
+# Multiplexers                                         : 16
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
+ 1-bit 8-to-1 multiplexer                              : 11
+ 3-bit 8-to-1 multiplexer                              : 1
  4-bit 16-to-1 multiplexer                             : 1
+ 9-bit 8-to-1 multiplexer                              : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
 
@@ -1131,17 +1192,14 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 Unit <triangle> synthesized (advanced).
 WARNING:Xst:1710 - FF/Latch <rover_x_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <rover_x_9> in Unit <vga_writer> is equivalent to the following 2 FFs/Latches, which will be removed : <rover_x_10> <rover_x_11> 
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S0>.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S1>.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S2>.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_S3>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# ROMs                                                 : 1
+# ROMs                                                 : 3
  16x40-bit ROM                                         : 1
+ 4x12-bit ROM                                          : 2
 # Multipliers                                          : 11
  12x12-bit multiplier                                  : 2
  12x6-bit multiplier                                   : 2
@@ -1150,17 +1208,17 @@ Macro Statistics
  12x9-bit multiplier                                   : 2
  8x7-bit multiplier                                    : 1
  8x8-bit multiplier                                    : 2
-# Adders/Subtractors                                   : 76
+# Adders/Subtractors                                   : 81
  10-bit addsub                                         : 1
  12-bit adder                                          : 2
  12-bit subtractor                                     : 4
- 13-bit adder                                          : 4
- 13-bit subtractor                                     : 6
+ 13-bit adder                                          : 6
+ 13-bit subtractor                                     : 10
  20-bit adder                                          : 1
  25-bit adder                                          : 2
  32-bit adder                                          : 3
  32-bit subtractor                                     : 4
- 33-bit adder                                          : 14
+ 33-bit adder                                          : 13
  33-bit subtractor                                     : 23
  34-bit adder                                          : 3
  34-bit subtractor                                     : 3
@@ -1168,35 +1226,39 @@ Macro Statistics
  4-bit subtractor                                      : 1
  8-bit adder                                           : 3
  9-bit adder                                           : 1
-# Counters                                             : 11
+# Counters                                             : 12
  10-bit up counter                                     : 1
  11-bit up counter                                     : 1
  19-bit up counter                                     : 6
+ 2-bit up counter                                      : 1
  5-bit up counter                                      : 2
  8-bit down counter                                    : 1
 # Registers                                            : 196
  Flip-Flops                                            : 196
-# Comparators                                          : 57
+# Comparators                                          : 61
  12-bit comparator equal                               : 1
  12-bit comparator greater                             : 2
- 13-bit comparator greatequal                          : 4
+ 13-bit comparator greatequal                          : 6
  13-bit comparator greater                             : 2
- 13-bit comparator less                                : 5
+ 13-bit comparator less                                : 7
  14-bit comparator greatequal                          : 2
  14-bit comparator lessequal                           : 2
  20-bit comparator greater                             : 1
  20-bit comparator less                                : 1
  24-bit comparator greater                             : 2
  32-bit comparator less                                : 1
- 33-bit comparator greatequal                          : 3
+ 33-bit comparator greatequal                          : 4
  33-bit comparator lessequal                           : 14
- 34-bit comparator greatequal                          : 11
+ 34-bit comparator greatequal                          : 10
  34-bit comparator lessequal                           : 3
  35-bit comparator greatequal                          : 3
-# Multiplexers                                         : 3
+# Multiplexers                                         : 16
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 40-to-1 multiplexer                             : 1
+ 1-bit 8-to-1 multiplexer                              : 11
+ 3-bit 8-to-1 multiplexer                              : 1
  4-bit 16-to-1 multiplexer                             : 1
+ 9-bit 8-to-1 multiplexer                              : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
 
@@ -1212,100 +1274,18 @@ Optimizing unit <labkit> ...
 
 Optimizing unit <xvga> ...
 
-Optimizing unit <ultrasound_location_calculator> ...
-
 Optimizing unit <display_16hex_labkit> ...
 
+Optimizing unit <median_3> ...
+
 Optimizing unit <grid> ...
+
+Optimizing unit <ultrasound_location_calculator> ...
 
 Optimizing unit <polar_to_cartesian> ...
 
 Optimizing unit <vga_writer> ...
 WARNING:Xst:1710 - FF/Latch <vg/rover_y_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <db_S3/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S1/count_18> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S2/count_18> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S3/count_18> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_12> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_13> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_14> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_15> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_16> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_17> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_S0/count_18> of sequential type is unconnected in block <labkit>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -1316,7 +1296,7 @@ FlipFlop xvga1/vcount_0 has been replicated 1 time(s)
 FlipFlop xvga1/vcount_1 has been replicated 1 time(s)
 FlipFlop xvga1/vcount_3 has been replicated 1 time(s)
 FlipFlop xvga1/vcount_6 has been replicated 1 time(s)
-FlipFlop xvga1/vcount_9 has been replicated 1 time(s)
+FlipFlop xvga1/vcount_7 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1331,8 +1311,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 241
- Flip-Flops                                            : 241
+# Registers                                            : 327
+ Flip-Flops                                            : 327
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -1363,31 +1343,31 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 3491
+# BELS                             : 3573
 #      GND                         : 1
-#      INV                         : 308
-#      LUT1                        : 310
-#      LUT2                        : 230
+#      INV                         : 311
+#      LUT1                        : 387
+#      LUT2                        : 181
 #      LUT2_L                      : 2
-#      LUT3                        : 267
+#      LUT3                        : 265
 #      LUT3_D                      : 7
-#      LUT3_L                      : 2
-#      LUT4                        : 560
+#      LUT3_L                      : 5
+#      LUT4                        : 582
 #      LUT4_D                      : 6
-#      LUT4_L                      : 15
+#      LUT4_L                      : 11
 #      MULT_AND                    : 1
-#      MUXCY                       : 1087
-#      MUXF5                       : 45
-#      MUXF6                       : 5
+#      MUXCY                       : 1072
+#      MUXF5                       : 78
+#      MUXF6                       : 26
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 643
-# FlipFlops/Latches                : 255
+#      XORCY                       : 636
+# FlipFlops/Latches                : 341
 #      FD                          : 2
-#      FDE                         : 41
-#      FDR                         : 70
-#      FDRE                        : 94
-#      FDRS                        : 26
+#      FDE                         : 51
+#      FDR                         : 80
+#      FDRE                        : 170
+#      FDRS                        : 16
 #      FDS                         : 11
 #      FDSE                        : 11
 # Shift Registers                  : 5
@@ -1395,14 +1375,14 @@ Cell Usage :
 #      SRL16E                      : 4
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 273
-#      IBUF                        : 12
+# IO Buffers                       : 277
+#      IBUF                        : 16
 #      IBUFG                       : 1
 #      OBUF                        : 260
 # DCMs                             : 1
 #      DCM                         : 1
-# MULTs                            : 11
-#      MULT18X18                   : 11
+# MULTs                            : 7
+#      MULT18X18                   : 7
 =========================================================================
 
 Device utilization summary:
@@ -1410,14 +1390,14 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      899  out of  33792     2%  
- Number of Slice Flip Flops:            255  out of  67584     0%  
- Number of 4 input LUTs:               1712  out of  67584     2%  
-    Number used as logic:              1707
+ Number of Slices:                      921  out of  33792     2%  
+ Number of Slice Flip Flops:            341  out of  67584     0%  
+ Number of 4 input LUTs:               1762  out of  67584     2%  
+    Number used as logic:              1757
     Number used as Shift registers:       5
  Number of IOs:                         576
- Number of bonded IOBs:                 273  out of    684    39%  
- Number of MULT18X18s:                   11  out of    144     7%  
+ Number of bonded IOBs:                 277  out of    684    40%  
+ Number of MULT18X18s:                    7  out of    144     4%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
 
@@ -1442,7 +1422,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 166   |
+clock_27mhz                        | IBUFG+BUFG             | 252   |
 clock_27mhz                        | vclk1:CLKFX            | 33    |
 disp/clock1                        | BUFG                   | 43    |
 xvga1/vsync                        | NONE(vg/rover_y_9)     | 18    |
@@ -1457,9 +1437,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 15.968ns (Maximum Frequency: 62.624MHz)
+   Minimum period: 15.932ns (Maximum Frequency: 62.765MHz)
    Minimum input arrival time before clock: 11.324ns
-   Maximum output required time after clock: 36.457ns
+   Maximum output required time after clock: 38.188ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -1468,51 +1448,52 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 15.968ns (frequency: 62.624MHz)
-  Total number of paths / destination ports: 10550 / 478
+  Clock period: 15.932ns (frequency: 62.765MHz)
+  Total number of paths / destination ports: 12926 / 712
 -------------------------------------------------------------------------
-Delay:               6.654ns (Levels of Logic = 4)
-  Source:            xvga1/hcount_1 (FF)
+Delay:               6.638ns (Levels of Logic = 4)
+  Source:            xvga1/hcount_0 (FF)
   Destination:       xvga1/blank (FF)
   Source Clock:      clock_27mhz rising 2.4X
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: xvga1/hcount_1 to xvga1/blank
+  Data Path: xvga1/hcount_0 to xvga1/blank
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             14   0.568   1.186  xvga1/hcount_1 (xvga1/hcount_1)
-     LUT4_D:I1->O          6   0.439   0.833  xvga1/hblankon11 (xvga1/N5)
+     FDR:C->Q             10   0.568   1.170  xvga1/hcount_0 (xvga1/hcount_0)
+     LUT4_D:I0->O          6   0.439   0.833  xvga1/hblankon11 (xvga1/N5)
      LUT4:I3->O            1   0.439   0.517  xvga1/hreset2_1 (xvga1/hreset2)
-     MUXF5:S->O            1   0.699   0.551  xvga1/vreset2_SW1 (N166)
+     MUXF5:S->O            1   0.699   0.551  xvga1/vreset2_SW1 (N174)
      LUT4:I2->O            2   0.439   0.702  xvga1/next_vblank45 (xvga1/next_vblank)
      FDS:S                     0.280          xvga1/blank
     ----------------------------------------
-    Total                      6.654ns (2.864ns logic, 3.789ns route)
-                                       (43.0% logic, 57.0% route)
+    Total                      6.638ns (2.864ns logic, 3.774ns route)
+                                       (43.1% logic, 56.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 11.532ns (frequency: 86.716MHz)
+  Clock period: 11.420ns (frequency: 87.564MHz)
   Total number of paths / destination ports: 2474 / 74
 -------------------------------------------------------------------------
-Delay:               11.532ns (Levels of Logic = 11)
-  Source:            disp/char_index_2 (FF)
+Delay:               11.420ns (Levels of Logic = 12)
+  Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
   Destination Clock: disp/clock1 rising
 
-  Data Path: disp/char_index_2 to disp/disp_data_out
+  Data Path: disp/char_index_0 to disp/disp_data_out
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             19   0.568   1.243  disp/char_index_2 (disp/char_index_2)
-     LUT2:I1->O            2   0.439   0.986  disp/Mmux_nibble28 (disp/Mmux_nibble18)
-     LUT4_L:I0->LO         1   0.439   0.140  disp/Mmux_nibble213 (disp/Mmux_nibble213)
-     LUT4:I3->O           29   0.439   1.288  disp/Mmux_nibble255 (disp/nibble<2>)
-     LUT3:I1->O            1   0.439   0.726  disp/Mrom_dots28_SW0 (N204)
-     LUT4:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_151 (disp/Mmux__varindex0000_151)
-     MUXF5:I1->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
+     FDE:C->Q             14   0.568   1.262  disp/char_index_0 (disp/char_index_0)
+     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_8 (disp/Mmux_nibble_8)
+     MUXF5:I1->O           1   0.436   0.000  disp/Mmux_nibble_7_f5 (disp/Mmux_nibble_7_f5)
+     MUXF6:I1->O           1   0.447   0.557  disp/Mmux_nibble_6_f6 (disp/Mmux_nibble_6_f6)
+     LUT4_D:I3->O         24   0.439   1.272  disp/char_index<3> (disp/nibble<0>)
+     LUT4:I1->O            2   0.439   0.735  disp/Mrom_dots1311 (disp/Mrom_dots12)
+     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
+     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
      MUXF6:I0->O           1   0.447   0.551  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
      LUT4_L:I2->LO         1   0.439   0.140  disp/disp_data_out_mux000032 (disp/disp_data_out_mux000032)
      LUT4:I3->O            1   0.439   0.551  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
@@ -1520,14 +1501,14 @@ Delay:               11.532ns (Levels of Logic = 11)
      LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000168 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     11.532ns (5.772ns logic, 5.760ns route)
-                                       (50.1% logic, 49.9% route)
+    Total                     11.420ns (6.216ns logic, 5.204ns route)
+                                       (54.4% logic, 45.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 896 / 104
+  Total number of paths / destination ports: 898 / 195
 -------------------------------------------------------------------------
-Offset:              9.063ns (Levels of Logic = 8)
+Offset:              9.284ns (Levels of Logic = 8)
   Source:            user3<20> (PAD)
   Destination:       ul/power_cycle_timer_24 (FF)
   Destination Clock: clock_27mhz rising
@@ -1537,17 +1518,17 @@ Offset:              9.063ns (Levels of Logic = 8)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             2   0.825   0.909  user3_20_IBUF (user3_20_IBUF)
-     LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_3_9 (ul/Mmux__COND_3_9)
-     MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_3_7_f5 (ul/Mmux__COND_3_7_f5)
-     MUXF6:I0->O           1   0.447   0.726  ul/Mmux__COND_3_5_f6 (ul/Mmux__COND_3_5_f6)
-     LUT3:I1->O            9   0.439   0.896  ul/curr_ultrasound<3> (ul/_COND_3)
-     LUT3:I2->O            2   0.439   0.910  ul/power_cycle_timer_mux0000<10>111 (ul/N42)
-     LUT4:I1->O           24   0.439   1.349  ul/power_cycle_timer_mux0000<10>11 (ul/N01)
+     LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_2_9 (ul/Mmux__COND_2_9)
+     MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_2_7_f5 (ul/Mmux__COND_2_7_f5)
+     MUXF6:I0->O           1   0.447   0.726  ul/Mmux__COND_2_5_f6 (ul/Mmux__COND_2_5_f6)
+     LUT3:I1->O           16   0.439   1.285  ul/curr_ultrasound<3> (ul/_COND_2)
+     LUT3:I0->O            2   0.439   0.741  ul/power_cycle_timer_mux0000<10>111 (ul/N25)
+     LUT4:I3->O           24   0.439   1.349  ul/power_cycle_timer_mux0000<10>12 (ul/N01)
      LUT4:I0->O            1   0.439   0.000  ul/power_cycle_timer_mux0000<9>1 (ul/power_cycle_timer_mux0000<9>)
      FDR:D                     0.370          ul/power_cycle_timer_9
     ----------------------------------------
-    Total                      9.063ns (4.273ns logic, 4.790ns route)
-                                       (47.1% logic, 52.9% route)
+    Total                      9.284ns (4.273ns logic, 5.011ns route)
+                                       (46.0% logic, 54.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'disp/clock1'
@@ -1582,9 +1563,9 @@ Offset:              11.324ns (Levels of Logic = 13)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 292570992 / 40
+  Total number of paths / destination ports: 696975912 / 48
 -------------------------------------------------------------------------
-Offset:              36.457ns (Levels of Logic = 22)
+Offset:              38.188ns (Levels of Logic = 23)
   Source:            xvga1/vcount_0 (FF)
   Destination:       vga_out_red<7> (PAD)
   Source Clock:      clock_27mhz rising 2.4X
@@ -1593,32 +1574,33 @@ Offset:              36.457ns (Levels of Logic = 22)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            41   0.568   1.396  xvga1/vcount_0 (xvga1/vcount_0)
-     LUT3:I0->O           24   0.439   1.349  vg/Madd_y_value_sub0000_xor<3>111 (vg/N41)
-     LUT4:I0->O           25   0.439   1.354  vg/Madd_y_value_sub0000_xor<6>111 (vg/N5)
-     LUT3:I0->O           59   0.439   1.192  vg/Madd_y_value_sub0000_xor<8>111 (vg/N71)
-     LUT3:I2->O           14   0.439   0.978  vg/grid/Msub_y_value_e_xor<11>11 (vg/grid/y_value_e<11>)
+     FDRE:C->Q            35   0.568   1.303  xvga1/vcount_0 (xvga1/vcount_0)
+     LUT3:I1->O           19   0.439   1.320  vg/Madd_y_value_sub0000_xor<4>111 (vg/N18)
+     LUT4:I0->O           34   0.439   1.301  vg/Madd_y_value_sub0000_xor<6>111 (vg/N5)
+     LUT2:I1->O            2   0.439   0.736  vg/Madd_y_value_sub0000_xor<9>1_SW0 (N296)
+     LUT4:I2->O           17   0.439   1.297  vg/Madd_y_value_sub0000_xor<9>1 (vg/y_value<9>)
+     LUT3:I0->O           14   0.439   0.978  vg/grid/Msub_on_border_sub0003_xor<12>11 (vg/grid/y_value_e<11>)
      MULT18X18:A11->P23    2   7.872   0.910  vg/grid/Mmult_d_2_mult0001 (vg/grid/d_2_mult0001<23>)
      LUT2:I1->O            1   0.439   0.000  vg/grid/Madd_d_2_add0000_lut<23>1 (vg/grid/Madd_d_2_add0000_lut<23>1)
      MUXCY:S->O            0   0.298   0.000  vg/grid/Madd_d_2_add0000_cy<23> (vg/grid/Madd_d_2_add0000_cy<23>)
      XORCY:CI->O          18   1.274   1.024  vg/grid/Madd_d_2_add0000_xor<24> (vg/grid/d_2_add0000<24>)
      INV:I->O              1   0.439   0.000  vg/grid/Msub_on_arc_sub0014_lut<24>1_INV_0 (vg/grid/Msub_on_arc_sub0014_lut<24>1)
      MUXCY:S->O            0   0.298   0.000  vg/grid/Msub_on_arc_sub0014_cy<24> (vg/grid/Msub_on_arc_sub0014_cy<24>)
-     XORCY:CI->O           4   1.274   0.748  vg/grid/Msub_on_arc_sub0014_xor<25> (vg/grid/on_arc_sub0014<25>)
+     XORCY:CI->O           4   1.274   0.747  vg/grid/Msub_on_arc_sub0014_xor<25> (vg/grid/on_arc_sub0014<25>)
      INV:I->O              1   0.439   0.000  vg/grid/Msub_on_arc_sub0001_lut<25>1_INV_0 (vg/grid/Msub_on_arc_sub0001_lut<25>1)
      MUXCY:S->O            0   0.298   0.000  vg/grid/Msub_on_arc_sub0001_cy<25> (vg/grid/Msub_on_arc_sub0001_cy<25>)
      XORCY:CI->O           2   1.274   0.736  vg/grid/Msub_on_arc_sub0001_xor<26> (vg/grid/on_arc_sub0001<26>)
      LUT3:I2->O            1   0.439   0.000  vg/grid/Mcompar_on_arc_cmp_le0000_lut<6> (vg/grid/Mcompar_on_arc_cmp_le0000_lut<6>)
      MUXCY:S->O            1   0.298   0.000  vg/grid/Mcompar_on_arc_cmp_le0000_cy<6> (vg/grid/Mcompar_on_arc_cmp_le0000_cy<6>)
      MUXCY:CI->O           1   0.942   0.802  vg/grid/Mcompar_on_arc_cmp_le0000_cy<7> (vg/grid/on_arc_cmp_le0000)
-     LUT4:I0->O            1   0.439   0.551  vg/grid/pixel_and0000180_SW0 (N215)
-     LUT4:I2->O            1   0.439   0.557  vg/grid/pixel_and0000180 (vg/grid/pixel_and0000180)
-     LUT4:I3->O            1   0.439   0.000  vg/pixel<23>11 (vg/pixel<23>1)
-     MUXF5:I1->O           8   0.436   0.839  vg/pixel<23>1_f5 (pixel<16>)
-     OBUF:I->O                 4.361          vga_out_red_0_OBUF (vga_out_red<0>)
+     LUT4:I0->O            1   0.439   0.726  vg/grid/pixel_and0000176 (vg/grid/pixel_and0000176)
+     LUT4:I1->O            3   0.439   1.010  vg/grid/pixel_and0000228 (vg/grid/pixel_and0000228)
+     LUT2:I0->O            1   0.439   0.000  vg/pixel<9>11 (vg/pixel<9>1)
+     MUXF5:I1->O           8   0.436   0.839  vg/pixel<9>1_f5 (pixel<10>)
+     OBUF:I->O                 4.361          vga_out_green_2_OBUF (vga_out_green<2>)
     ----------------------------------------
-    Total                     36.457ns (24.022ns logic, 12.435ns route)
-                                       (65.9% logic, 34.1% route)
+    Total                     38.188ns (24.461ns logic, 13.727ns route)
+                                       (64.1% logic, 35.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'disp/clock1'
@@ -1641,69 +1623,44 @@ Offset:              5.630ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'xvga1/vsync'
-  Total number of paths / destination ports: 55595160 / 16
+  Total number of paths / destination ports: 12040 / 24
 -------------------------------------------------------------------------
-Offset:              32.633ns (Levels of Logic = 35)
+Offset:              15.405ns (Levels of Logic = 10)
   Source:            vg/rover_x_4 (FF)
-  Destination:       vga_out_green<7> (PAD)
+  Destination:       vga_out_red<7> (PAD)
   Source Clock:      xvga1/vsync rising
 
-  Data Path: vg/rover_x_4 to vga_out_green<7>
+  Data Path: vg/rover_x_4 to vga_out_red<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            16   0.568   1.208  vg/rover_x_4 (vg/rover_x_4)
-     LUT2:I1->O            1   0.439   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_lut<3> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_lut<3>)
-     MUXCY:S->O            1   0.298   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<3> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<3>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<4> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<4>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<5> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<5>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<6> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<6>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<7> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<7>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<8> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<8>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<9> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<9>)
-     MUXCY:CI->O          10   0.942   1.170  vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<10> (vg/rover_t/Mcompar_abs_delta_x_cmp_gt0000_cy<10>)
-     LUT3:I0->O            0   0.439   0.000  vg/rover_t/abs_delta_x_mux0000<1>1 (vg/rover_t/abs_delta_x_mux0000<1>)
-     MUXCY:DI->O           1   0.462   0.000  vg/rover_t/Msub_abs_delta_x_cy<1> (vg/rover_t/Msub_abs_delta_x_cy<1>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<2> (vg/rover_t/Msub_abs_delta_x_cy<2>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<3> (vg/rover_t/Msub_abs_delta_x_cy<3>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<4> (vg/rover_t/Msub_abs_delta_x_cy<4>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<5> (vg/rover_t/Msub_abs_delta_x_cy<5>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<6> (vg/rover_t/Msub_abs_delta_x_cy<6>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<7> (vg/rover_t/Msub_abs_delta_x_cy<7>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<8> (vg/rover_t/Msub_abs_delta_x_cy<8>)
-     MUXCY:CI->O           1   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<9> (vg/rover_t/Msub_abs_delta_x_cy<9>)
-     MUXCY:CI->O           0   0.053   0.000  vg/rover_t/Msub_abs_delta_x_cy<10> (vg/rover_t/Msub_abs_delta_x_cy<10>)
-     XORCY:CI->O          30   1.274   1.082  vg/rover_t/Msub_abs_delta_x_xor<11> (vg/rover_t/abs_delta_x<11>)
-     MULT18X18:A11->P19    2   7.044   0.986  vg/rover_t/Mmult_test_on_60_mult0000 (vg/rover_t/test_on_60_mult0000<19>)
-     LUT2:I0->O            1   0.439   0.000  vg/rover_t/Msub_test_on_60_lut<13> (vg/rover_t/Msub_test_on_60_lut<13>)
-     MUXCY:S->O            0   0.298   0.000  vg/rover_t/Msub_test_on_60_cy<13> (vg/rover_t/Msub_test_on_60_cy<13>)
-     XORCY:CI->O           3   1.274   0.759  vg/rover_t/Msub_test_on_60_xor<14> (vg/rover_t/test_on_60<14>)
-     LUT3:I2->O            1   0.439   0.000  vg/rover_t/Mcompar_on_60_cmp_le0000_lut<3> (vg/rover_t/Mcompar_on_60_cmp_le0000_lut<3>)
-     MUXCY:S->O            1   0.298   0.000  vg/rover_t/Mcompar_on_60_cmp_le0000_cy<3> (vg/rover_t/Mcompar_on_60_cmp_le0000_cy<3>)
-     MUXCY:CI->O           1   0.942   0.802  vg/rover_t/Mcompar_on_60_cmp_le0000_cy<4> (vg/rover_t/on_60_cmp_le0000)
-     LUT4:I0->O            1   0.439   0.557  vg/rover_t/pixel_or000037 (vg/rover_t/pixel_or000037)
-     LUT4:I3->O            3   0.439   0.932  vg/rover_t/pixel_or000059 (vg/rover_t/pixel_or0000)
-     LUT2:I1->O            1   0.439   0.000  vg/Mcompar_pixel_cmp_gt0000_lut<4>1 (vg/Mcompar_pixel_cmp_gt0000_lut<4>)
+     FDRE:C->Q            10   0.568   1.170  vg/rover_x_4 (vg/rover_x_4)
+     LUT4:I0->O            4   0.439   0.788  vg/rover_noO/_sub0000<10>21 (vg/rover_noO/_sub0000<10>_bdd2)
+     LUT4:I3->O            3   0.439   1.010  vg/rover_noO/_sub0000<10>1 (vg/rover_noO/_sub0000<10>)
+     LUT3:I0->O            1   0.439   0.000  vg/rover_noO/Mcompar_in_square_cmp_ge0000_lut<10> (vg/rover_noO/Mcompar_in_square_cmp_ge0000_lut<10>)
+     MUXCY:S->O            1   0.298   0.000  vg/rover_noO/Mcompar_in_square_cmp_ge0000_cy<10> (vg/rover_noO/Mcompar_in_square_cmp_ge0000_cy<10>)
+     MUXCY:CI->O           3   0.942   1.010  vg/rover_noO/Mcompar_in_square_cmp_ge0000_cy<11> (vg/rover_noO/in_square_cmp_ge0000)
+     LUT4:I0->O            1   0.439   0.000  vg/Mcompar_pixel_cmp_gt0000_lut<4>1 (vg/Mcompar_pixel_cmp_gt0000_lut<4>)
      MUXCY:S->O            1   0.298   0.000  vg/Mcompar_pixel_cmp_gt0000_cy<4> (vg/Mcompar_pixel_cmp_gt0000_cy<4>)
-     MUXCY:CI->O           2   0.942   0.987  vg/Mcompar_pixel_cmp_gt0000_cy<5> (vg/Mcompar_pixel_cmp_gt0000_cy<5>)
-     LUT2:I0->O            8   0.439   0.839  vg/pixel<10>11 (pixel<10>)
-     OBUF:I->O                 4.361          vga_out_green_7_OBUF (vga_out_green<7>)
+     MUXCY:CI->O           3   0.942   0.725  vg/Mcompar_pixel_cmp_gt0000_cy<5> (vg/Mcompar_pixel_cmp_gt0000_cy<5>)
+     MUXF5:S->O            8   0.699   0.839  vg/pixel<9>1_f5 (pixel<10>)
+     OBUF:I->O                 4.361          vga_out_green_2_OBUF (vga_out_green<2>)
     ----------------------------------------
-    Total                     32.633ns (23.308ns logic, 9.325ns route)
-                                       (71.4% logic, 28.6% route)
+    Total                     15.405ns (9.864ns logic, 5.541ns route)
+                                       (64.0% logic, 36.0% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 27.00 secs
-Total CPU time to Xst completion: 26.62 secs
+Total CPU time to Xst completion: 26.04 secs
  
 --> 
 
 
-Total memory usage is 510332 kilobytes
+Total memory usage is 511660 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  403 (   0 filtered)
-Number of infos    :   27 (   0 filtered)
+Number of warnings :  313 (   0 filtered)
+Number of infos    :   25 (   0 filtered)
 
