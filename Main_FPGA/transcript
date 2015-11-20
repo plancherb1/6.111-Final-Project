@@ -39,10 +39,4 @@
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-run 1000000ns
-restart -f
-# Loading work.ultrasound_location_calculator_tb(fast)
-# Loading work.ultrasound_location_calculator(fast)
-# Loading work.median_3(fast)
-# Loading work.glbl(fast)
-run 1000000ns
+run 1000

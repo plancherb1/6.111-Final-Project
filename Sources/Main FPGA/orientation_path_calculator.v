@@ -61,6 +61,7 @@ module orientation_path_calculator(
          
             // start the orientation by sending a command to move forward a short amount
             START_ORIENTATION: begin
+					original_location <= 12'h105;//rover_location;
                move_command <= ORIENTATION_MOVE;
                state <= WAIT_FOR_NEW_LOC;
             end
@@ -69,7 +70,7 @@ module orientation_path_calculator(
             WAIT_FOR_NEW_LOC: begin
                if(enable) begin
                   state <= CALC_ORIENTATION;
-                  updated_location <= rover_location;
+                  updated_location <= 12'h10A;//rover_location;
                   orientation_helper_enable <= ACTIVE;
                end
             end
@@ -94,7 +95,6 @@ module orientation_path_calculator(
                // if you see enable then move to the first orientation state else wiat
                if (enable) begin
                   state <= START_ORIENTATION;
-                  original_location <= rover_location;
                   move_done <= IDLE;
                   orientation_done <= IDLE;
                   orientation_helper_enable <= IDLE;

@@ -14,8 +14,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module calc_abs7rtan_00_75_15
-    (input signed [8:0] r,
-     output wire [7:0] abs7rtan_00,
+    (input [7:0] r,
      output wire [7:0] abs7rtan_15,
      output wire [7:0] abs7rtan_30,
      output wire [7:0] abs7rtan_45,
@@ -33,20 +32,7 @@ module calc_abs7rtan_00_75_15
      calc_rtan_00_90_15 originalTans (.r(r),.rtan_00(rtan_00),.rtan_15(rtan_15),.rtan_30(rtan_30),
                                       .rtan_45(rtan_45),.rtan_60(rtan_60),.rtan_75(rtan_75),.rtan_90(rtan_90));
      
-     // convert back from 2s compliment and cast
-	  wire [10:0] posrtan_00;
-	  wire [10:0] posrtan_15;
-	  wire [10:0] posrtan_30;
-	  wire [10:0] posrtan_45;
-	  wire [10:0] posrtan_60;
-	  wire [10:0] posrtan_75;
-     assign posrtan_00 = (rtan_00 < 0) ? ((~rtan_00)+1) : rtan_00;
-	  assign posrtan_15 = (rtan_15 < 0) ? ((~rtan_15)+1) : rtan_15;
-     assign posrtan_30 = (rtan_30 < 0) ? ((~rtan_30)+1) : rtan_30;
-     assign posrtan_45 = (rtan_45 < 0) ? ((~rtan_45)+1) : rtan_45;
-     assign posrtan_60 = (rtan_60 < 0) ? ((~rtan_60)+1) : rtan_60;
-     assign posrtan_75 = (rtan_75 < 0) ? ((~rtan_75)+1) : rtan_75;
-	  assign abs7rtan_00 = posrtan_00[7:0];
+     // we know the input is positive so all outputs are positive so just reduce size
 	  assign abs7rtan_15 = posrtan_15[7:0];
 	  assign abs7rtan_30 = posrtan_30[7:0];
 	  assign abs7rtan_45 = posrtan_45[7:0];

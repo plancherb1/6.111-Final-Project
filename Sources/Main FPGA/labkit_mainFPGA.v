@@ -478,18 +478,18 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 							disp_reset_b, disp_data_out);
   
   // Orientation/Path activates transmitter when done to send move_command
-  //wire [3:0] orient_path_state;
-  //orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
-	//										  .enable(location_update),
-		//						           .rover_location(rover_location),
-			//								  .target_location(target_location),
-				//							  .orientation(rover_orientation),
-					//						  .orientation_done(orientation_update),
-						//					  .move_done(transmit_ir),.move_command(move_command),
-							//				  .state(orient_path_state)
-								//			//.analyzer_clock(analyzer3_clock),
-									//		//.analyzer_data(analyzer3_data),
-										//	);
+  wire [3:0] orient_path_state;
+  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
+											  .enable(location_update),
+											  .rover_location(rover_location),
+											  .target_location(target_location),
+											  .orientation(rover_orientation),
+											  .orientation_done(orientation_update),
+											  .move_done(transmit_ir),.move_command(move_command),
+											  .state(orient_path_state)
+											//.analyzer_clock(analyzer3_clock),
+											//.analyzer_data(analyzer3_data),
+											);
 								  
   // Transmitter (from Lab5b hijacked to send IR)
   //ir_transmitter transmitter (.clk(clock_27mhz),
