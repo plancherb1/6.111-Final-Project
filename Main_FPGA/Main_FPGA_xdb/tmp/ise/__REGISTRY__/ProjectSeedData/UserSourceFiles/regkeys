@@ -1,5 +1,5 @@
 NUM_USER_FILES
-31
+32
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -75,6 +75,9 @@ median_3_tb.v
 s
 user_file_31
 ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+s
+user_file_32
+../Sources/Main FPGA/find_min_5_vals_cascading.v
 s
 user_file_4
 ../Sources/Main FPGA/labkit_mainFPGA.v

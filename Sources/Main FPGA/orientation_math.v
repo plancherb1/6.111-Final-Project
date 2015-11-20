@@ -27,21 +27,32 @@ module orientation_math
 	// use helper module to do the translation for us and then we need to solve
    // tan theta * delta_x = delta_y 	
 	
+	// Helper Angles
+	parameter DEG360 = 5'h18;
+	parameter DEG180 = 5'h0C;
+	
+	// error factor in calcs
+	parameter ERROR_FACTOR = 4;
+	
 	// FSM states
 	reg [3:0] state;
 	parameter IDLE 			 	= 4'h0;
-	parameter PTC					= 4'h1;
-	parameter DELTA_QUAD 		= 4'h2;
-	parameter ABS_DELTA 			= 4'h3;
-	parameter DX_TAN				= 4'h4;
-	parameter ABS_DIFF			= 4'h5;
+	parameter SHORTCUT_TEST		= 4'h1;
+	parameter PTC					= 4'h2;
+	parameter DELTAS				= 4'h3;
+	parameter ABS_DELTA_QUAD 	= 4'h4;
+	parameter ABS_DELTA 			= 4'h5;
+	parameter DX_TAN				= 4'h6;
+	parameter ABS_DIFF			= 4'h7;
+	parameter BASE_ANGLE_CALC	= 4'h8;
+	parameter CALC_ORIENTATION	= 4'h9;
 	parameter REPORT			 	= 4'hF;
    
 	// PTC helpers
-	wire signed [8:0] x_original;
-	wire signed [8:0] y_original;
-	wire signed [8:0] x_final;
-	wire signed [8:0] y_final;
+	reg signed [8:0] x_original;
+	reg signed [8:0] y_original;
+	reg signed [8:0] x_final;
+	reg signed [8:0] y_final;
 	wire signed [8:0] x_original_t;
 	wire signed [8:0] y_original_t;
 	wire signed [8:0] x_final_t;
@@ -50,51 +61,57 @@ module orientation_math
 	polar_to_cartesian ptc_final (.r_theta(r_theta_final),.x_value(x_final_t),.y_value(y_final_t));
 	
 	// DELTA and ABS_DELTA_QUAD helpers
-	wire signed [8:0] delta_y;
-	wire signed [8:0] delta_x
+	reg signed [8:0] delta_y;
+	reg signed [8:0] delta_x;
 	wire [7:0] abs_delta_x_t;
 	wire [7:0] abs_delta_y_t;
-	wire [7:0] abs_delta_x;
-	wire [7:0] abs_delta_y;
-	wire [1:0] quadrant;
-   abs_val_8 abs1 (.v(delta_y),.absv(absdelta_y_t));
-   abs_val_8 abs1 (.v(delta_x),.absv(absdelta_x_t));
+	reg [7:0] abs_delta_x;
+	reg [7:0] abs_delta_y;
+	reg [1:0] quadrant;
+	abs_val_8 absx (.v(delta_x),.absv(absdelta_x_t));
+	abs_val_8 absy (.v(delta_y),.absv(absdelta_y_t));
 	
 	// DX_TAN helpers
-   wire [7:0] abs_dx_tan15;
-   wire [7:0] abs_dx_tan30;
-   wire [7:0] abs_dx_tan45;
-   wire [7:0] abs_dx_tan60;
-   wire [7:0] abs_dx_tan75;
+	reg [7:0] abs_dx_tan15;
+	reg [7:0] abs_dx_tan30;
+	reg [7:0] abs_dx_tan45;
+	reg [7:0] abs_dx_tan60;
+	reg [7:0] abs_dx_tan75;
 	wire [7:0] abs_dx_tan00_t;
-   wire [7:0] abs_dx_tan15_t;
-   wire [7:0] abs_dx_tan30_t;
-   wire [7:0] abs_dx_tan45_t;
-   wire [7:0] abs_dx_tan60_t;
-   wire [7:0] abs_dx_tan75_t;
-   //use a helper function for the abs(delta x * theta)
-   calc_abs7rtan_00_75_15 abstan(.r(abs_delta_x),.abs7rtan_15(abs_dx_tan15),
-											 .abs7rtan_30(abs_dx_tan30),.abs7rtan_45(abs_dx_tan45),
-											 .absrtan_60(abs_dx_tan60),.abs7rtan_75(abs_dxtan75));
+	wire [7:0] abs_dx_tan15_t;
+	wire [7:0] abs_dx_tan30_t;
+	wire [7:0] abs_dx_tan45_t;
+	wire [7:0] abs_dx_tan60_t;
+	wire [7:0] abs_dx_tan75_t;
+	//use a helper function for the abs(delta x * theta)
+	calc_abs7rtan_00_75_15 abstan(.r(abs_delta_x),.abs7rtan_15(abs_dx_tan15_t),
+											 .abs7rtan_30(abs_dx_tan30_t),.abs7rtan_45(abs_dx_tan45_t),
+											 .abs7rtan_60(abs_dx_tan60_t),.abs7rtan_75(abs_dxtan75_t));
 	
 	// ABS_DIFF helpers
-	wire [7:0] diff_15;
-   wire [7:0] diff_30;
-   wire [7:0] diff_45;
-   wire [7:0] diff_60;
-   wire [7:0] diff_75;
+	reg [7:0] diff_15;
+	reg [7:0] diff_30;
+	reg [7:0] diff_45;
+	reg [7:0] diff_60;
+	reg [7:0] diff_75;
 	wire [7:0] diff_15_t;
-   wire [7:0] diff_30_t;
-   wire [7:0] diff_45_t;
-   wire [7:0] diff_60_t;
-   wire [7:0] diff_75_t;
-   abs_diff_7 abdiff15 (.y(abs_delta_y),.x(abs_dxtan_15),.absdiff(diff_15));
-   abs_diff_7 abdiff30 (.y(abs_delta_y),.x(abs_dxtan_30),.absdiff(diff_30));
-   abs_diff_7 abdiff45 (.y(abs_delta_y),.x(abs_dxtan_45),.absdiff(diff_45));
-   abs_diff_7 abdiff60 (.y(abs_delta_y),.x(abs_dxtan_60),.absdiff(diff_60));
-   abs_diff_7 abdiff75 (.y(abs_delta_y),.x(abs_dxtan_75),.absdiff(diff_75));
-
-   
+	wire [7:0] diff_30_t;
+	wire [7:0] diff_45_t;
+	wire [7:0] diff_60_t;
+	wire [7:0] diff_75_t;
+	abs_diff_7 abdiff15 (.y(abs_delta_y),.x(abs_dxtan_15),.absdiff(diff_15_t));
+	abs_diff_7 abdiff30 (.y(abs_delta_y),.x(abs_dxtan_30),.absdiff(diff_30_t));
+	abs_diff_7 abdiff45 (.y(abs_delta_y),.x(abs_dxtan_45),.absdiff(diff_45_t));
+	abs_diff_7 abdiff60 (.y(abs_delta_y),.x(abs_dxtan_60),.absdiff(diff_60_t));
+	abs_diff_7 abdiff75 (.y(abs_delta_y),.x(abs_dxtan_75),.absdiff(diff_75_t));
+	
+	// BASE_ANGLE helpers
+	reg [2:0] base_angle;
+	wire [2:0] base_angle_t;
+	find_min_5_vals_cascading min5( 	.input1(diff_15),.input2(diff_30),
+												.input3(diff_45),.input4(diff_60),
+												.input5(diff_75),.output_index(base_angle_t));
+	
    always @(posedge clock) begin
       if (reset) begin
          state <= IDLE;
@@ -122,7 +139,7 @@ module orientation_math
 					y_original <= y_original_t;
 					x_final <= x_final_t;
 					y_final <= y_final_t;
-					state <= DELTA_QUAD;
+					state <= DELTAS;
 				end
 				
 				// then lets find the deltas in x and y
@@ -177,15 +194,32 @@ module orientation_math
 					diff_45 <= diff_45_t;
 					diff_60 <= diff_60_t;
 					diff_75 <= diff_75_t;
+					state <= BASE_ANGLE_CALC;
    			end
+				
+				// find the base angle through a series of comparators
+				BASE_ANGLE_CALC: begin
+					base_angle <= base_angle_t;
+					state <= CALC_ORIENTATION;
+				end
+				
+				// then use the base angle and quadrant to return the orientation
+				CALC_ORIENTATION: begin
+					case(quadrant)
+						2: orientation <= (DEG180 - base_angle); // 75 = 180-75, 15 = 180-15
+						3: orientation <= (DEG180 + base_angle); // 15 = 180+15, 75 = 180+75
+						4: orientation <= (DEG360 - base_angle); // 75 = 360-75, 15 = 360-15
+						default: orientation <= base_angle; // 15 = 15, 75 = 75
+					endcase
+				end
 				
 				// report out the answer is done and get ready for next math
 				REPORT: begin
 					done <= 1;
 					state <= IDLE;
 					// make sure to module 24 if needed aka reduce angle to [0 to 360) 
-					if (orientation >= 24) begin
-						orientation = orientation - 24;
+					if (orientation >= DEG360) begin
+						orientation <= orientation - DEG360;
 					end
 				end
 				
@@ -200,37 +234,5 @@ module orientation_math
 			endcase
 		end
 	end
-   
-	// then we can find the smallest one which is the best angle approximation
-	wire comp15_30;
-	wire comp30_45;
-	wire comp15_45;
-	wire [1:0] min15_30_45;
-	assign comp15_30 = diff15 > diff30;
-	assign comp30_45 = diff30 > diff45;
-	assign comp15_45 = diff15 > diff45;
-	assign min15_30_45 = comp15_30 && comp15_45
-	wire comp45_60;
-	wire comp60_75;
-	
-	assign comp45_60 = diff45 < diff60;
-	assign comp60_75 = diff60 < diff75;
-	wire [2:0] result_less90 = comp15_30 + comp30_45 + comp45_60 + comp60_75;
-   wire [4:0] base_angle;
-	
-	wire on_15;
-	
-	assign base_angle = 	(diff15 < diff30) + (diff30 < diff45) + 
-								(diff45 < diff60) + (diff60 < diff75);
-   
-   // then we can find orientation based on the base angle and quadrant
-   always @(*) begin
-      case(quadrant)
-         2: orientation = (5'h0C - base_angle); // 75 = 180-75, 15 = 180-15
-         3: orientation = (5'h0C + base_angle); // 15 = 180+15, 75 = 180+75
-         4: orientation = (5'h18 - base_angle); // 75 = 360-75, 15 = 360-15
-			default: orientation = base_angle; // 15 = 15, 75 = 75
-      endcase
-   end
 
 endmodule

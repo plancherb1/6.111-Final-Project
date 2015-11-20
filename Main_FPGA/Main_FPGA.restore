@@ -845,6 +845,7 @@ proc restore { { project_dir "" } } {
       "../Sources/Main FPGA/calc_rtan_00_90.v" 
       "../Sources/Main FPGA/display_8hex_labkit.v" 
       "../Sources/Main FPGA/edge_detect.v" 
+      "../Sources/Main FPGA/find_min_5_vals_cascading.v" 
       "../Sources/Main FPGA/grid.v" 
       "../Sources/Main FPGA/ir_transmitter.v" 
       "../Sources/Main FPGA/labkit.ucf" 

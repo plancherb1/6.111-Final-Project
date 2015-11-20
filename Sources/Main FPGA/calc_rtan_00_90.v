@@ -41,7 +41,7 @@ module calc_rtan_00_90_15
    wire signed [31:0] rtan_60deg; // large bit size to multiply and shift 
    wire signed [31:0] rtan_75deg; // large bit size to multiply and shift 
    assign rtan_15deg = (r*16'sh0225) >>> 11;
-   assign rtab_30deg = (r*16'sh024f) >>> 10;
+   assign rtan_30deg = (r*16'sh024f) >>> 10;
    assign rtan_60deg = (r*16'sh0DDB) >>> 11;
    assign rtan_75deg = (r*16'sh1DDB) >>> 11;
    assign rtan_15 = rtan_15deg[10:0];

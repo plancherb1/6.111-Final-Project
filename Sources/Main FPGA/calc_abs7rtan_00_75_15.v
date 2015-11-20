@@ -33,10 +33,10 @@ module calc_abs7rtan_00_75_15
                                       .rtan_45(rtan_45),.rtan_60(rtan_60),.rtan_75(rtan_75),.rtan_90(rtan_90));
      
      // we know the input is positive so all outputs are positive so just reduce size
-	  assign abs7rtan_15 = posrtan_15[7:0];
-	  assign abs7rtan_30 = posrtan_30[7:0];
-	  assign abs7rtan_45 = posrtan_45[7:0];
-	  assign abs7rtan_60 = posrtan_60[7:0];
-	  assign abs7rtan_75 = posrtan_75[7:0];
+	  assign abs7rtan_15 = rtan_15[7:0];
+	  assign abs7rtan_30 = rtan_30[7:0];
+	  assign abs7rtan_45 = rtan_45[7:0];
+	  assign abs7rtan_60 = rtan_60[7:0];
+	  assign abs7rtan_75 = rtan_75[7:0];
     
 endmodule
