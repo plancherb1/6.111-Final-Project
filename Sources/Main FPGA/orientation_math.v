@@ -20,7 +20,8 @@ module orientation_math
      output reg done,
      output reg [4:0] orientation);
 	  
-	// We need to pipieline this math as there is a lot of it
+	// We need to pipieline this math as there is a lot of it and since we only run this once every couple seconds we can do it with states
+   // which induces a delay in all of the logic (which doesn't matter in this case) and ensures there won't be errors
 	// total timing is cartesian to polar (1 mul, 1 shift, 1 comp) + convert to delta (1 add and cast to 2s compliment so 2 add 1 shift) +
 	// calc abs rtan (1 mul, 1 shift + 2 add 1 shift) + quad (2 comp) + comps (1 comp + 1 add) + final (1 add) = (2 mul, 4 shift, 6 add, 6 comp)
 	// but the compiler can't do this all in parallel and fan out slows things down
