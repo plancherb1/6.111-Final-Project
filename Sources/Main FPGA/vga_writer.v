@@ -27,7 +27,7 @@ module vga_writer (
    output pblank,					// output blanking
 	output analyzer_clock,			// debug only
 	output [15:0] analyzer_data,	// debug only
-   output [23:0] pixel				// output pixel  // r=23:16, g=15:8, b=7:0 
+   output reg [23:0] pixel		// output pixel  // r=23:16, g=15:8, b=7:0 
    );
 
    assign phsync = hsync;
@@ -52,7 +52,6 @@ module vga_writer (
 	parameter ROVER_WIDTH = 16;
 	parameter ROVER_COLOR = 24'hFF_00_00;
 	parameter ROVER_ORIENTED_COLOR = 24'h00_00_FF;
-	parameter PIXEL_ALL_1S = 24'hFF_FF_FF;
 	// and the grid
 	parameter GRID_LINE_WIDTH = 1;
 	parameter GRID_HEIGHT = 256;
@@ -95,7 +94,7 @@ module vga_writer (
 			  .BOTTOM_BORDER(GRID_BOTTOM_BORDER),.TOP_BORDER(GRID_TOP_BORDER),
 			  .LEFT_BORDER(GRID_LEFT_BORDER),.RIGHT_BORDER(GRID_RIGHT_BORDER),
 			  .LINE_WIDTH(GRID_LINE_WIDTH))
-		grid(.x_value(x_value),.y_value(y_value),.r(r_theta[7:0]),.pixel(grid_pixel),.clock(vclock));
+		grid(.x_value(x_value),.y_value(y_value),.pixel(grid_pixel),.clock(vclock));
    
    // instantiate the target
    wire [23:0] target_pixel;
@@ -115,83 +114,81 @@ module vga_writer (
 						 .orientation(orientation),.clock(vclock));
 	
    // helpers for the delays
-   wire [23:0] target_pixel2;
-   wire [23:0] target_pixel3;
-   wire [23:0] target_pixel4;
-   wire [23:0] rover_pixel_noO2;
-   wire [23:0] rover_pixel_noO3;
-   wire [23:0] rover_pixel;
+   reg [23:0] target_pixel2;
+   reg [23:0] target_pixel3;
+   reg [23:0] target_pixel4;
+   reg [23:0] rover_pixel_noO2;
+   reg [23:0] rover_pixel_noO3;
+   reg [23:0] rover_pixel;
    
    // helper modules for ALPHA_BLEND
    parameter ALPHA_M = 2;
    parameter ALPHA_N = 4;
    parameter ALPHA_N_LOG_2 = 2;
    wire [23:0] overlap_pixel;
-   alpha_blend ab #(.ALPHA_M(ALPHA_M),.ALPHA_N(ALPHA_N),.ALPHA_N_LOG_2(ALPHA_N_LOG_2))
-                   (.pixel_1(rover_pixel),.pixel_2(target_pixel4),.overlap_pixel(overlap_pixel));
+   alpha_blend #(.ALPHA_M(ALPHA_M),.ALPHA_N(ALPHA_N),.ALPHA_N_LOG_2(ALPHA_N_LOG_2))
+              ab(.pixel_1(rover_pixel),.pixel_2(target_pixel4),.overlap_pixel(overlap_pixel));
    
    // we then pipeline the rest of the VGA display because it takes too long to clear
    always @(posedge vclock) begin
-      // only actually update the position every screen refresh for both the target and the rover
-      if (vsync) begin
-          // when we reset move the rover off of the screen and wait for ultrasound to update
-         if (reset) begin
+		// when we reset move the rover off of the screen and wait for ultrasound to update
+		if (reset) begin
             rover_x <= 0; 
             rover_y <= GRID_BOTTOM_BORDER;
             
             // UPDATE THESE ONCE YOU ARE DONE DEBUGGING TO THE ACTUALLY RESET POSITION---------------------
             
-         end
-         // else for the location of the "Rover" we only update when we have valid new information
-         else if (new_data | orientation_ready) begin
-            // save the updated rover location
-            rover_x <= sized_temp_rover_x * scale_factor;
-            rover_y <= (sized_temp_rover_y * scale_factor) + GRID_BOTTOM_BORDER;		
-         end
-         // always update the target to the state of the switches
-         case(target_location[1:0])
-            2'h1: target_x <= 0;
-            2'h2: target_x <= GRID_LEFT_BORDER;
-            2'h3: target_x <= GRID_RIGHT_BORDER;
-            default: target_x <= GRID_RIGHT_BORDER/2;
-         endcase
-         case(target_location[3:2])
-            2'h1: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/4 + GRID_BOTTOM_BORDER;
-            2'h2: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/2 + GRID_BOTTOM_BORDER;
-            2'h3: target_y <= GRID_TOP_BORDER;
-            default: target_y <= GRID_BOTTOM_BORDER;
-         endcase
-         
-         // UPDATE THE SCALE FACTOR ???? ----- STRETCH GOAL WOULD GO HERE USING MAXX AND MAXY
-         
       end
-      
-      // else enter the pipelined FSM to calculate all of the correct pixel values
-      // total pipeline delay is 1 clock cycle for alpha blend + max(rover_yes0, grid) delay
-      // which is 4 for rover_yes0 and 4 for grid so total is 5
-      else begin
-         case(state)
-            
-            // Get the values back from the helper functions
-            // grid takes 4 clock cycles so delay 0
-            // triangle (oriented target) takes 3 clock cycles so delay 1
-            // blobs (un-oriented rover and target) take 1 cycle so delay 3
-            // alpha blend takes 1 clock cycle
-            
-            // 1st clock cycle only the blobs clear
-            rover_pixel_noO_2 <= rover_pixel_noO;
-            target_pixel2 <= target_pixel;
-            // 2nd clock cylce still only the blobs clear so delay again
-            rover_pixel_noO_3 <= rover_pixel_noO2;
-            target_pixel3 <= target_pixel2;
-            // 3rd clock cycle create rover pixel and delay target once more as triangle cleared
-            rover_pixel <= orientation_ready ? rover_pixel_yesO : rover_pixel_noO_3;
-            target_pixel4 <= target_pixel3;
-            // 4th clock cycle alpha blend and display the grid as alpha blend is 1 cycle and grid is now done
-            pixel <= ((overlap_pixel & PIXEL_ALL_1S) > 0) ? overlap_pixel : grid_pixel;
-            
-         endcase
-      end
+		else begin
+			// only actually update the position every screen refresh for both the target and the rover
+			if (!vsync) begin
+				// else for the location of the "Rover" we only update when we have valid new information
+				if (new_data | orientation_ready) begin
+					// save the updated rover location
+					rover_x <= sized_temp_rover_x * scale_factor;
+					rover_y <= (sized_temp_rover_y * scale_factor) + GRID_BOTTOM_BORDER;		
+				end
+				// always update the target to the state of the switches
+				case(target_location[1:0])
+					2'h1: target_x <= 0;
+					2'h2: target_x <= GRID_LEFT_BORDER;
+					2'h3: target_x <= GRID_RIGHT_BORDER;
+					default: target_x <= GRID_RIGHT_BORDER/2;
+				endcase
+				case(target_location[3:2])
+					2'h1: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/4 + GRID_BOTTOM_BORDER;
+					2'h2: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/2 + GRID_BOTTOM_BORDER;
+					2'h3: target_y <= GRID_TOP_BORDER;
+					default: target_y <= GRID_BOTTOM_BORDER;
+				endcase
+				
+				// UPDATE THE SCALE FACTOR ???? ----- STRETCH GOAL WOULD GO HERE USING MAXX AND MAXY
+				
+			end
+			
+			// else enter the pipelined FSM to calculate all of the correct pixel values
+			// total pipeline delay is 1 clock cycle for alpha blend + max(rover_yes0, grid) delay
+			// which is 4 for rover_yes0 and 4 for grid so total is 5
+			else begin
+				// Get the values back from the helper functions
+				// grid takes 4 clock cycles so delay 0
+				// triangle (oriented target) takes 3 clock cycles so delay 1
+				// blobs (un-oriented rover and target) take 1 cycle so delay 3
+				// alpha blend takes 1 clock cycle
+				
+				// 1st clock cycle only the blobs clearrover_pixel_yesO
+				rover_pixel_noO2 <= rover_pixel_noO;
+				target_pixel2 <= target_pixel;
+				// 2nd clock cylce still only the blobs clear so delay again
+				rover_pixel_noO3 <= rover_pixel_noO2;
+				target_pixel3 <= target_pixel2;
+				// 3rd clock cycle create rover pixel and delay target once more as triangle cleared
+				rover_pixel <= orientation_ready ? rover_pixel_yesO : rover_pixel_noO3;
+				target_pixel4 <= target_pixel3;
+				// 4th clock cycle alpha blend and display the grid as alpha blend is 1 cycle and grid is now done
+				pixel <= |overlap_pixel ? overlap_pixel : grid_pixel;
+			end
+		end
    end
    
 endmodule

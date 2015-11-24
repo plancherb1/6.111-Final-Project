@@ -145,7 +145,7 @@ module triangle
          endcase
       end
       else begin
-         pixel = BLANK_COLOR;
+         pixel <= BLANK_COLOR;
       end
     end
 endmodule

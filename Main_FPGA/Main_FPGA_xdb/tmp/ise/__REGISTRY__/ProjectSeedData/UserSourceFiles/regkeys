@@ -1,5 +1,5 @@
 NUM_USER_FILES
-32
+34
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -78,6 +78,12 @@ user_file_31
 s
 user_file_32
 ../Sources/Main FPGA/find_min_5_vals_cascading.v
+s
+user_file_33
+../Sources/Main FPGA/find_min_5_vals_cascading.v
+s
+user_file_34
+../Sources/Main FPGA/alpha_blend.v
 s
 user_file_4
 ../Sources/Main FPGA/labkit_mainFPGA.v

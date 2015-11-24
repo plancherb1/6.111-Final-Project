@@ -14,6 +14,7 @@ entity triangle is
         center_y        : in     vl_logic_vector(11 downto 0);
         y_value         : in     vl_logic_vector(11 downto 0);
         orientation     : in     vl_logic_vector(4 downto 0);
+        clock           : in     vl_logic;
         pixel           : out    vl_logic_vector(23 downto 0)
     );
 end triangle;

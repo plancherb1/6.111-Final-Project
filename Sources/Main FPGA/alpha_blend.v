@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////////   
    
 module alpha_blend 
-   #(parameter ALPHA_M = 2,ALPHA_M = 4,ALPHA_N_LOG_2 = 2)
+   #(parameter ALPHA_M = 2,ALPHA_N = 4,ALPHA_N_LOG_2 = 2)
    (input [23:0] pixel_1,
     input [23:0] pixel_2,
     output [23:0] overlap_pixel);

@@ -5,7 +5,7 @@ Parameter TMPDIR set to ./xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 
@@ -21,20 +21,25 @@ Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
 Module <polar_to_cartesian> compiled
 Compiling verilog file "../Sources/Main FPGA/blob.v" in library work
 Module <grid> compiled
-Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
+Compiling verilog file "../Sources/Main FPGA/alpha_blend.v" in library work
 Module <blob> compiled
-ERROR:HDLCompilers:28 - "../Sources/Main FPGA/vga_writer.v" line 175 'pixel_temp1' has not been declared
-ERROR:HDLCompilers:28 - "../Sources/Main FPGA/vga_writer.v" line 176 'pixel_temp2' has not been declared
-ERROR:HDLCompilers:28 - "../Sources/Main FPGA/vga_writer.v" line 176 'pixel_temp1' has not been declared
-ERROR:HDLCompilers:28 - "../Sources/Main FPGA/vga_writer.v" line 177 'pixel_temp2' has not been declared
+Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
+Module <alpha_blend> compiled
 Module <vga_writer> compiled
-Analysis of file <"vga_writer.prj"> failed.
+No errors in compilation
+Analysis of file <"vga_writer.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
 --> 
 
 
-Total memory usage is 283672 kilobytes
+Total memory usage is 284040 kilobytes
 
-Number of errors   :    4 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
