@@ -25,14 +25,17 @@ module vga_writer (
    output phsync,					// output horizontal sync
    output pvsync,					// output vertical sync
    output pblank,					// output blanking
-	output analyzer_clock,			// debug only
-	output [15:0] analyzer_data,	// debug only
+	//output analyzer_clock,			// debug only
+	//output [15:0] analyzer_data,	// debug only
    output reg [23:0] pixel		// output pixel  // r=23:16, g=15:8, b=7:0 
    );
-
-   assign phsync = hsync;
-   assign pvsync = vsync;
-   assign pblank = blank;
+	
+	// we need to delay hxync, vsync, and blank by the same amount as our
+	// total pipeline time below
+	parameter PIPELINE_LENGTH = 4;
+	delayN #(.NDELAY(PIPELINE_LENGTH)) hdekay (.clk(vclock),.in(hsync),.out(phsync));
+	delayN #(.NDELAY(PIPELINE_LENGTH)) vdelay (.clk(vclock),.in(vsync),.out(pvsync));
+	delayN #(.NDELAY(PIPELINE_LENGTH)) bdelay (.clk(vclock),.in(blank),.out(pblank));
    
    // turn hcount and vcount into x,y for easier analysis
    parameter TOTAL_WIDTH = 1024;
@@ -175,6 +178,7 @@ module vga_writer (
 				// triangle (oriented target) takes 3 clock cycles so delay 1
 				// blobs (un-oriented rover and target) take 1 cycle so delay 3
 				// alpha blend takes 1 clock cycle
+				// final output is delayed then by 4 clock cycles
 				
 				// 1st clock cycle only the blobs clearrover_pixel_yesO
 				rover_pixel_noO2 <= rover_pixel_noO;

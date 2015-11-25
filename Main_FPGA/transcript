@@ -8,38 +8,33 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {grid_tb.fdo} 
+# do {triangle_tb.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module grid
+# -- Compiling module triangle
 # 
 # Top level modules:
-# 	grid
+# 	triangle
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module grid_tb
+# -- Compiling module triangle_tb
 # 
 # Top level modules:
-# 	grid_tb
+# 	triangle_tb
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps grid_tb glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps triangle_tb glbl 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.grid_tb(fast)
-# Loading work.grid(fast)
+# Loading work.triangle_tb(fast)
+# Loading work.triangle(fast)
 # Loading work.glbl(fast)
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
 restart -f
-# Loading work.grid_tb(fast)
-# Loading work.grid(fast)
+# Loading work.triangle_tb(fast)
+# Loading work.triangle(fast)
 # Loading work.glbl(fast)
-run 2000ns
-restart -f
-# Loading work.grid_tb(fast)
-# Loading work.grid(fast)
-# Loading work.glbl(fast)
-run 2000ns
+run 1000ns

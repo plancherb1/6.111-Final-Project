@@ -1,4 +1,0 @@
-set -tmpdir "./xst/projnav.tmp"
-elaborate
--ifn calc_rsin_15_165_30.prj
--ifmt mixed

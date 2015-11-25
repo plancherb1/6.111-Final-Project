@@ -423,32 +423,42 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [9:0] ultrasound_commands;
   wire [9:0] ultrasound_signals;
   wire [9:0] ultrasound_power;
-  wire location_update;
-  wire get_distance;
+  wire ultrasound_done;
   wire run_ultrasound;
   wire orientation_update;
+  wire move_ready;
+  wire reached_target;
+  wire missed_target;
+  wire enable_orientation;
   
   assign ir_signal = user3[31];
   // we only want one high when the button is pressed
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
-  // need two ways to run ultrasound in case we stretch to path calculation for feedback
-  // if we do not get to stretch then get_distance will default to x so will just be master on
-  assign run_ultrasound = master_on; //| get_distance;
+  // need two ways to run ultrasound both the start manually and from the orientation / path
   assign target_location = db_switch[3:0];
   assign user3[9:0] = ultrasound_commands;
   assign user3[19:10] = ultrasound_power;
   assign ultrasound_signals = user3[29:20];
   
+  wire [3:0] main_state;
+  // master FSM to control all modules
+  main_fsm msfm (.clock(clock_27mhz),.reset(reset),.enable(master_on),
+						.ultrasound_done(ultrasound_done),.move_ready(move_ready),
+						.orientation_done(orientation_update),.reached_target(reached_target),
+						.missed_target(missed_target),.move_command(move_command),
+						.run_ultrasound(run_ultrasound),.enable_orientation(enable_orientation),
+						.transmit_ir(transmit_ir),.state(main_state));
+  
   wire [2:0] ultrasound_state;
   // Ultrasound
-  //ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
-		//							.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
-			//						.done(location_update),.rover_location(rover_location),
-				//					//.analyzer_clock(analyzer3_clock),
-					//				//.analyzer_data(analyzer3_data),
-						//			.state(ultrasound_state),
-							//		.ultrasound_commands(ultrasound_commands),
-								//	.ultrasound_power(ultrasound_power));
+  ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
+									.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
+									.done(ultrasound_done),.rover_location(rover_location),
+									//.analyzer_clock(analyzer3_clock),
+									//.analyzer_data(analyzer3_data),
+									.state(ultrasound_state),
+									.ultrasound_commands(ultrasound_commands),
+									.ultrasound_power(ultrasound_power));
   
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
@@ -456,55 +466,56 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
                 .move_command(move_command),.location(rover_location),
                 .orientation(rover_orientation),.target_location(target_location),
                 .orientation_ready(orientation_update),
-					 .new_data(location_update),
-					 .analyzer_clock(analyzer3_clock),
-					 .analyzer_data(analyzer3_data),
+					 .new_data(ultrasound_done),
+					 //.analyzer_clock(analyzer3_clock),
+					 //.analyzer_data(analyzer3_data),
                 .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
 			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
   
+  // Orientation/Path activates transmitter when done to send move_command
+  wire [3:0] orient_path_state;
+  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
+											  .enable(enable_orientation),
+											  .rover_location(rover_location),
+											  .target_location(target_location),
+											  .orientation(rover_orientation),
+											  .orientation_done(orientation_update),
+											  .move_ready(move_ready),.move_command(move_command),
+											//.analyzer_clock(analyzer3_clock),
+											//.analyzer_data(analyzer3_data),
+											  .state(orient_path_state),
+											  .missed_target(missed_target),
+											  .reached_target(reached_target)
+											);
+								  
+  // Transmitter (from Lab5b hijacked to send IR)
+  ir_transmitter transmitter (.clk(clock_27mhz),
+                               .reset(reset),
+                               .address(move_command[11:7]), // angle
+                               .command(move_command[6:0]), // distance
+                               .transmit(transmit_ir),
+                               .signal_out(ir_signal));					  
+
+
   // use this to display on hex display for debug
-  wire [64:0] my_hex_data;
+  wire [63:0] my_hex_data;
   assign my_hex_data = {rover_location,
-								3'b0,location_update,
+								3'b0,ultrasound_done,
 								3'b0,ultrasound_commands[0],
 								3'b0,ultrasound_signals[0],
 								1'b0,ultrasound_state,
-								16'hFFFF,
-								3'b0,location_update,
-								analyzer3_data};
+								3'b0,rover_orientation,
+							   orient_path_state,
+								3'b0, transmit_ir,
+								12'hFFF, main_state};
 										 
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 										disp_blank, disp_clock, disp_rs, disp_ce_b,
 										disp_reset_b, disp_data_out);
-  
-  // Orientation/Path activates transmitter when done to send move_command
-  wire [3:0] orient_path_state;
-  //orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
-		//									  .enable(location_update),
-			//								  .rover_location(rover_location),
-				//							  .target_location(target_location),
-					//						  .orientation(rover_orientation),
-						//					  .orientation_done(orientation_update),
-							//				  .move_done(transmit_ir),.move_command(move_command),
-								//			  .state(orient_path_state)
-											//.analyzer_clock(analyzer3_clock),
-											//.analyzer_data(analyzer3_data),
-									//		);
-								  
-  // Transmitter (from Lab5b hijacked to send IR)
-  //ir_transmitter transmitter (.clk(clock_27mhz),
-    //                           .reset(reset),
-      //                         .address(move_command[11:7]), // angle
-        //                       .command(move_command[6:0]), // distance
-          //                     .transmit(transmit_ir),
-            //                   .signal_out(ir_signal));					  
+
 
   // display waveform on logic analyzer for debug (if needed)
-  //assign analyzer3_data = {rover_location,
-	//								 ultrasound_commands[0],
-		//							 ultrasound_signals[0],
-			//						 location_update,
-				//					 run_ultrasound};
-  //assign analyzer3_clock = clock_27mhz;
+  assign analyzer3_data = 16'hFFFF;
+  assign analyzer3_clock = clock_27mhz;
 			    
 endmodule

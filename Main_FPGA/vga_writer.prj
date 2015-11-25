@@ -1,7 +1,0 @@
-verilog work "../Sources/Main FPGA/calc_rsin_15_165_30.v"
-verilog work "../Sources/Main FPGA/triangle.v"
-verilog work "../Sources/Main FPGA/polar_to_cartesian.v"
-verilog work "../Sources/Main FPGA/grid.v"
-verilog work "../Sources/Main FPGA/blob.v"
-verilog work "../Sources/Main FPGA/alpha_blend.v"
-verilog work "../Sources/Main FPGA/vga_writer.v"

@@ -1,25 +1,27 @@
-MO calc_rsin_15_165_30 NULL "../Sources/Main FPGA/calc_rsin_15_165_30.v" vlg60/calc__rsin__15__165__30.bin 1448340130
-MO vga_writer NULL "../Sources/Main FPGA/vga_writer.v" vlg72/vga__writer.bin 1448340130
-MO orientation_math NULL "../Sources/Main FPGA/orientation_math.v" vlg69/orientation__math.bin 1448337218
-MO ultrasound_location_calculator NULL "../Sources/Main FPGA/ultrasound_location_calculator.v" vlg3E/ultrasound__location__calculator.bin 1448337218
-MO xvga NULL "../Sources/Main FPGA/xvga.v" vlg02/xvga.bin 1448340130
-MO median_3 NULL "../Sources/Main FPGA/median_3.v" vlg6C/median__3.bin 1448337218
-MO abs_diff_7 NULL "../Sources/Main FPGA/abs_diff_7.v" vlg58/abs__diff__7.bin 1448337218
-MO edge_detect NULL "../Sources/Main FPGA/edge_detect.v" vlg7D/edge__detect.bin 1448340130
-MO abs_val_8 NULL "../Sources/Main FPGA/abs_val_8.v" vlg43/abs__val__8.bin 1448337218
-MO triangle NULL "../Sources/Main FPGA/triangle.v" vlg3A/triangle.bin 1448340130
-MO orientation_path_calculator NULL "../Sources/Main FPGA/orientation_path_calculator.v" vlg41/orientation__path__calculator.bin 1448337218
-MO display_16hex_labkit NULL "../Sources/Main FPGA/display_8hex_labkit.v" vlg0F/display__16hex__labkit.bin 1448340130
-MO debounce NULL ../Sources/Shared/debounce.v vlg1D/debounce.bin 1448340130
-MO labkit NULL "../Sources/Main FPGA/labkit_mainFPGA.v" vlg7B/labkit.bin 1448340130
-MO ir_transmitter NULL "../Sources/Main FPGA/ir_transmitter.v" vlg6F/ir__transmitter.bin 1447375941
-MO calc_rtan_00_90_15 NULL "../Sources/Main FPGA/calc_rtan_00_90.v" vlg7B/calc__rtan__00__90__15.bin 1448337218
-MO grid NULL "../Sources/Main FPGA/grid.v" vlg5E/grid.bin 1448340130
-MO calc_abs7rtan_00_75_15 NULL "../Sources/Main FPGA/calc_abs7rtan_00_75_15.v" vlg33/calc__abs7rtan__00__75__15.bin 1448337218
-MO find_min_5_vals_cascading NULL "../Sources/Main FPGA/find_min_5_vals_cascading.v" vlg01/find__min__5__vals__cascading.bin 1448337218
-MO alpha_blend NULL "../Sources/Main FPGA/alpha_blend.v" vlg26/alpha__blend.bin 1448340130
-MO synchronize NULL "../Sources/Main FPGA/labkit_mainFPGA.v" vlg2C/synchronize.bin 1446491836
-MO divider_600us NULL ../Sources/Shared/divider_600us.v vlg00/divider__600us.bin 1447375941
-MO blob NULL "../Sources/Main FPGA/blob.v" vlg73/blob.bin 1448340130
-MO timer NULL "../Sources/Main FPGA/timer.v" vlg09/timer.bin 1447375941
-MO polar_to_cartesian NULL "../Sources/Main FPGA/polar_to_cartesian.v" vlg09/polar__to__cartesian.bin 1448340130
+MO quadrant NULL ../Sources/Shared/quadrant.v vlg70/quadrant.bin 1448425580
+MO main_fsm NULL "../Sources/Main FPGA/main_fsm.v" vlg62/main__fsm.bin 1448425580
+MO calc_rsin_15_165_30 NULL ../Sources/Shared/calc_rsin_15_165_30.v vlg60/calc__rsin__15__165__30.bin 1448425580
+MO vga_writer NULL "../Sources/Main FPGA/vga_writer.v" vlg72/vga__writer.bin 1448425580
+MO orientation_math NULL "../Sources/Main FPGA/orientation_math.v" vlg69/orientation__math.bin 1448425580
+MO ultrasound_location_calculator NULL "../Sources/Main FPGA/ultrasound_location_calculator.v" vlg3E/ultrasound__location__calculator.bin 1448425580
+MO xvga NULL "../Sources/Main FPGA/xvga.v" vlg02/xvga.bin 1448425580
+MO median_3 NULL ../Sources/Shared/median_3.v vlg6C/median__3.bin 1448425580
+MO delayN NULL ../Sources/Shared/delay.v vlg29/delay_n.bin 1448425580
+MO abs_diff_7 NULL ../Sources/Shared/abs_diff_7.v vlg58/abs__diff__7.bin 1448425580
+MO edge_detect NULL ../Sources/Shared/edge_detect.v vlg7D/edge__detect.bin 1448425580
+MO abs_val_8 NULL ../Sources/Shared/abs_val_8.v vlg43/abs__val__8.bin 1448425580
+MO abs_diff_9 NULL ../Sources/Shared/abs_diff_9.v vlg5A/abs__diff__9.bin 1448425580
+MO triangle NULL "../Sources/Main FPGA/triangle.v" vlg3A/triangle.bin 1448425580
+MO orientation_path_calculator NULL "../Sources/Main FPGA/orientation_path_calculator.v" vlg41/orientation__path__calculator.bin 1448425580
+MO display_16hex_labkit NULL "../Sources/Main FPGA/display_8hex_labkit.v" vlg0F/display__16hex__labkit.bin 1448425580
+MO debounce NULL ../Sources/Shared/debounce.v vlg1D/debounce.bin 1448425580
+MO labkit NULL "../Sources/Main FPGA/labkit_mainFPGA.v" vlg7B/labkit.bin 1448425580
+MO ir_transmitter NULL "../Sources/Main FPGA/ir_transmitter.v" vlg6F/ir__transmitter.bin 1448425580
+MO grid NULL "../Sources/Main FPGA/grid.v" vlg5E/grid.bin 1448425580
+MO calc_abs7rtan_00_75_15 NULL ../Sources/Shared/calc_abs7rtan_00_75_15.v vlg33/calc__abs7rtan__00__75__15.bin 1448425580
+MO find_min_5_vals_cascading NULL ../Sources/Shared/find_min_5_vals_cascading.v vlg01/find__min__5__vals__cascading.bin 1448425580
+MO alpha_blend NULL "../Sources/Main FPGA/alpha_blend.v" vlg26/alpha__blend.bin 1448425580
+MO divider_600us NULL ../Sources/Shared/divider_600us.v vlg00/divider__600us.bin 1448425580
+MO blob NULL "../Sources/Main FPGA/blob.v" vlg73/blob.bin 1448425580
+MO polar_to_cartesian NULL ../Sources/Shared/polar_to_cartesian.v vlg09/polar__to__cartesian.bin 1448425580
+MO timer NULL ../Sources/Shared/timer.v vlg09/timer.bin 1448425580

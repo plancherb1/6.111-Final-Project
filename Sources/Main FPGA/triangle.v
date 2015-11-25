@@ -54,11 +54,12 @@ module triangle
 	 assign test_on_60 = ((abs_delta_x*111) >>> 6) - abs_delta_y; // tan 75 is about 111/64
 	 assign test_on_75 = ((abs_delta_x*240) >>> 6) - abs_delta_y; // tan 75 is about 240/64
     // we need to apply a ROUNDING factor for the bit shift rounding
-	 parameter ROUNDING_FACTOR = 0;
+	 parameter ROUNDING_FACTOR = 2;
 	 parameter ROUNDING_FACTOR_2 = 2 * ROUNDING_FACTOR;
-    // keep the quadrant and orientation around
+    // keep the quadrant and orientation and in square around
     reg right_quadrant;
     reg [2:0] orientation_angle;
+	 reg in_square2;
     
     // we need to pipeline all of this as it doesn't clear fast enough
     always @(posedge clock) begin
@@ -85,7 +86,7 @@ module triangle
 					(test_on_30 + ROUNDING_FACTOR >= 0);
       on_60 <= (test_on_60 - ROUNDING_FACTOR <= 0) && 
 					(test_on_60 + ROUNDING_FACTOR >= 0);
-      on_75 <= (test_on_75 - ROUNDING_FACTOR <= 0) && 
+      on_75 <= (test_on_75 - ROUNDING_FACTOR_2 <= 0) && 
 					(test_on_75 + ROUNDING_FACTOR_2 >= 0);
       // see if we are in the right quadrant of the square and get angle
       case (orientation_quadrant[1:0])         
@@ -110,6 +111,7 @@ module triangle
             orientation_angle <= orientation2;
          end
       endcase
+		in_square2 <= in_square;
       
       // Phase 3 is output the result based on angle
       if (right_quadrant) begin
@@ -145,7 +147,13 @@ module triangle
          endcase
       end
       else begin
-         pixel <= BLANK_COLOR;
+			// if in square but not right quadrant then COLOR else BLANK
+			if (in_square2) begin
+				pixel <= COLOR;
+			end
+			else begin
+				pixel <= BLANK_COLOR;
+			end
       end
     end
 endmodule

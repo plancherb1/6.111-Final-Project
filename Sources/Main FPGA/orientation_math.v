@@ -20,12 +20,15 @@ module orientation_math
      output reg done,
      output reg [4:0] orientation);
 	  
-	// We need to pipieline this math as there is a lot of it and since we only run this once every couple seconds we can do it with states
-   // which induces a delay in all of the logic (which doesn't matter in this case) and ensures there won't be errors
-	// total timing is cartesian to polar (1 mul, 1 shift, 1 comp) + convert to delta (1 add and cast to 2s compliment so 2 add 1 shift) +
-	// calc abs rtan (1 mul, 1 shift + 2 add 1 shift) + quad (2 comp) + comps (1 comp + 1 add) + final (1 add) = (2 mul, 4 shift, 6 add, 6 comp)
-	// but the compiler can't do this all in parallel and fan out slows things down
-	// use helper module to do the translation for us and then we need to solve
+	// We need to pipieline this math as there is a lot of it and since we only run this 
+	// once every couple seconds we can do it with states which induces a delay in all 
+	// of the logic (which doesn't matter in this case) and ensures there won't be errors
+	// total timing is cartesian to polar (1 mul, 1 shift, 1 comp) + convert to delta 
+	// (1 add and cast to 2s compliment so 2 add 1 shift) + calc abs rtan (1 mul, 
+	// 1 shift + 2 add 1 shift) + quad (2 comp) + comps (1 comp + 1 add) + final (1 add) 
+	// = (2 mul, 4 shift, 6 add, 6 comp) but the compiler can't do this all in 
+	// parallel and fan out slows things down with big bit sizes so we will
+	// use helper modules to do the translation for us in states to solve
    // tan theta * delta_x = delta_y 	
 	
 	// Helper Angles
@@ -42,11 +45,10 @@ module orientation_math
 	parameter PTC					= 4'h2;
 	parameter DELTAS				= 4'h3;
 	parameter ABS_DELTA_QUAD 	= 4'h4;
-	parameter ABS_DELTA 			= 4'h5;
-	parameter DX_TAN				= 4'h6;
-	parameter ABS_DIFF			= 4'h7;
-	parameter BASE_ANGLE_CALC	= 4'h8;
-	parameter CALC_ORIENTATION	= 4'h9;
+	parameter DX_TAN				= 4'h5;
+	parameter ABS_DIFF			= 4'h6;
+	parameter BASE_ANGLE_CALC	= 4'h7;
+	parameter CALC_ORIENTATION	= 4'h8;
 	parameter REPORT			 	= 4'hF;
    
 	// PTC helpers
@@ -61,33 +63,36 @@ module orientation_math
 	polar_to_cartesian ptc_original (.r_theta(r_theta_original),.x_value(x_original_t),.y_value(y_original_t));
 	polar_to_cartesian ptc_final (.r_theta(r_theta_final),.x_value(x_final_t),.y_value(y_final_t));
 	
-	// DELTA and ABS_DELTA_QUAD helpers
+	// DELTAS helpers 
 	reg signed [8:0] delta_y;
 	reg signed [8:0] delta_x;
+	
+	// ABS_DELTA_QUAD helpers
 	wire [7:0] abs_delta_x_t;
 	wire [7:0] abs_delta_y_t;
 	reg [7:0] abs_delta_x;
 	reg [7:0] abs_delta_y;
 	reg [1:0] quadrant;
-	abs_val_8 absx (.v(delta_x),.absv(absdelta_x_t));
-	abs_val_8 absy (.v(delta_y),.absv(absdelta_y_t));
+	wire [1:0] quadrant_t;
+	abs_val_8 absx (.v(delta_x),.absv(abs_delta_x_t));
+	abs_val_8 absy (.v(delta_y),.absv(abs_delta_y_t));
+	quadrant q1 (.x(delta_x),.y(delta_y),.q(quadrant_t));
 	
 	// DX_TAN helpers
 	reg [7:0] abs_dx_tan15;
 	reg [7:0] abs_dx_tan30;
 	reg [7:0] abs_dx_tan45;
-	reg [7:0] abs_dx_tan60;
-	reg [7:0] abs_dx_tan75;
-	wire [7:0] abs_dx_tan00_t;
+	reg [9:0] abs_dx_tan60;
+	reg [9:0] abs_dx_tan75;
 	wire [7:0] abs_dx_tan15_t;
 	wire [7:0] abs_dx_tan30_t;
 	wire [7:0] abs_dx_tan45_t;
-	wire [7:0] abs_dx_tan60_t;
-	wire [7:0] abs_dx_tan75_t;
+	wire [9:0] abs_dx_tan60_t;
+	wire [9:0] abs_dx_tan75_t;
 	//use a helper function for the abs(delta x * theta)
 	calc_abs7rtan_00_75_15 abstan(.r(abs_delta_x),.abs7rtan_15(abs_dx_tan15_t),
 											 .abs7rtan_30(abs_dx_tan30_t),.abs7rtan_45(abs_dx_tan45_t),
-											 .abs7rtan_60(abs_dx_tan60_t),.abs7rtan_75(abs_dxtan75_t));
+											 .abs7rtan_60(abs_dx_tan60_t),.abs7rtan_75(abs_dx_tan75_t));
 	
 	// ABS_DIFF helpers
 	reg [7:0] diff_15;
@@ -98,13 +103,13 @@ module orientation_math
 	wire [7:0] diff_15_t;
 	wire [7:0] diff_30_t;
 	wire [7:0] diff_45_t;
-	wire [7:0] diff_60_t;
-	wire [7:0] diff_75_t;
-	abs_diff_7 abdiff15 (.y(abs_delta_y),.x(abs_dxtan_15),.absdiff(diff_15_t));
-	abs_diff_7 abdiff30 (.y(abs_delta_y),.x(abs_dxtan_30),.absdiff(diff_30_t));
-	abs_diff_7 abdiff45 (.y(abs_delta_y),.x(abs_dxtan_45),.absdiff(diff_45_t));
-	abs_diff_7 abdiff60 (.y(abs_delta_y),.x(abs_dxtan_60),.absdiff(diff_60_t));
-	abs_diff_7 abdiff75 (.y(abs_delta_y),.x(abs_dxtan_75),.absdiff(diff_75_t));
+	wire [9:0] diff_60_t;
+	wire [9:0] diff_75_t;
+	abs_diff_7 abdiff15 (.y(abs_delta_y),.x(abs_dx_tan15),.absdiff(diff_15_t));
+	abs_diff_7 abdiff30 (.y(abs_delta_y),.x(abs_dx_tan30),.absdiff(diff_30_t));
+	abs_diff_7 abdiff45 (.y(abs_delta_y),.x(abs_dx_tan45),.absdiff(diff_45_t));
+	abs_diff_9 abdiff60 (.y({0,0,abs_delta_y}),.x(abs_dx_tan60),.absdiff(diff_60_t));
+	abs_diff_9 abdiff75 (.y({0,0,abs_delta_y}),.x(abs_dx_tan75),.absdiff(diff_75_t));
 	
 	// BASE_ANGLE helpers
 	reg [2:0] base_angle;
@@ -117,6 +122,7 @@ module orientation_math
       if (reset) begin
          state <= IDLE;
          done <= 0;
+			orientation <= 5'h00;
       end
       else begin
          case(state)
@@ -126,7 +132,7 @@ module orientation_math
 					if (r_theta_original[11:8] == r_theta_final[11:8]) begin
 						// if we traveled farther than headed on original angle
 						// else 180 + angle which is orientaton 12 + angle
-						orientation <= r_theta_original[11:8] + (r_theta_original[7:0] > r_theta_final[7:0]) ? 12 : 0;
+						orientation <= r_theta_original[11:8] + ((r_theta_original[7:0] > r_theta_final[7:0]) ? 12 : 0);
 						state <= REPORT;
 					end
 					else begin
@@ -157,7 +163,7 @@ module orientation_math
 					// we can determine quadrant with the following:
 					// if delta y positive and delta x positive then Q1, both negative Q3 --> tan  positive
 					// if delta y positive and delta x negative then Q2, inverse Q4 --> tan negative
-					quadrant <= ((delta_x > 0) && (delta_y > 0)) ? 1 : ((delta_y > 0) ? 2 : ((delta_x > 0) ? 4 : 3));			
+					quadrant <= quadrant_t;
 					state <= DX_TAN;
 				end
 				
@@ -193,8 +199,9 @@ module orientation_math
 					diff_15 <= diff_15_t;
 					diff_30 <= diff_30_t;
 					diff_45 <= diff_45_t;
-					diff_60 <= diff_60_t;
-					diff_75 <= diff_75_t;
+					// if bigger than 8 bits then set to max because still bad
+					diff_60 <= diff_60_t > 8'hFF ? 8'hFE : diff_60_t[7:0]; // make one smaller
+					diff_75 <= diff_75_t > 8'hFF ? 8'hFF : diff_75_t[7:0];
 					state <= BASE_ANGLE_CALC;
    			end
 				
@@ -207,11 +214,12 @@ module orientation_math
 				// then use the base angle and quadrant to return the orientation
 				CALC_ORIENTATION: begin
 					case(quadrant)
-						2: orientation <= (DEG180 - base_angle); // 75 = 180-75, 15 = 180-15
-						3: orientation <= (DEG180 + base_angle); // 15 = 180+15, 75 = 180+75
-						4: orientation <= (DEG360 - base_angle); // 75 = 360-75, 15 = 360-15
+						1: orientation <= (DEG180 - base_angle); // 75 = 180-75, 15 = 180-15
+						2: orientation <= (DEG180 + base_angle); // 15 = 180+15, 75 = 180+75
+						3: orientation <= (DEG360 - base_angle); // 75 = 360-75, 15 = 360-15
 						default: orientation <= base_angle; // 15 = 15, 75 = 75
 					endcase
+					state <= REPORT;
 				end
 				
 				// report out the answer is done and get ready for next math

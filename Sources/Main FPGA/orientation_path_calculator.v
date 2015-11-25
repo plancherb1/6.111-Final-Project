@@ -14,13 +14,15 @@ module orientation_path_calculator(
 	input enable,
    input [11:0] rover_location, // r is [7:0] theta is [11:8]
    input [3:0] target_location,
-   output reg move_done,
+   output reg move_ready,
    output reg orientation_done,
    output [4:0] orientation,
    output reg [11:0] move_command, // angle == [11:7], distance == [6:0]
-   output reg [3:0] state // exposed for debug
+   output reg [3:0] state, // exposed for debug
 	// output analyzer_clock, // for debug only
 	// output [15:0] analyzer_data // for debug only
+	output reg missed_target,
+	output reg reached_target
 	);
 	
    parameter ACTIVE = 1'b1;
@@ -48,7 +50,7 @@ module orientation_path_calculator(
       // reset on reset
       if (reset) begin
          move_command <= 12'h000;
-         move_done <= IDLE;
+         move_ready <= IDLE;
          orientation_done <= IDLE;
          orientation_helper_enable <= IDLE;
          state <= IDLE_STATE;
@@ -61,16 +63,18 @@ module orientation_path_calculator(
          
             // start the orientation by sending a command to move forward a short amount
             START_ORIENTATION: begin
-					original_location <= 12'h105;//rover_location;
+					original_location <= rover_location;
                move_command <= ORIENTATION_MOVE;
+					move_ready <= ACTIVE;
                state <= WAIT_FOR_NEW_LOC;
             end
             
             // wait for the new location and then move to calculate step
             WAIT_FOR_NEW_LOC: begin
+					move_ready <= IDLE;
                if(enable) begin
                   state <= CALC_ORIENTATION;
-                  updated_location <= 12'h10A;//rover_location;
+                  updated_location <= rover_location;
                   orientation_helper_enable <= ACTIVE;
                end
             end
@@ -95,7 +99,7 @@ module orientation_path_calculator(
                // if you see enable then move to the first orientation state else wiat
                if (enable) begin
                   state <= START_ORIENTATION;
-                  move_done <= IDLE;
+                  move_ready <= IDLE;
                   orientation_done <= IDLE;
                   orientation_helper_enable <= IDLE;
                end
