@@ -67,15 +67,21 @@ module ultrasound_location_calculator(
 	always @(posedge clock) begin
 		// if reset set back to default
 		if (reset) begin
+         state <= IDLE;
 			done <= 0;
 			rover_location <= 12'h000;
 			ultrasound_commands <= 12'h000;
-			state <= IDLE;
+         ultrasound_power <= 10'h3FF;
 			trigger_count <= 0;
 			curr_ultrasound <= 0;
 			best_distance <= 0;
-         ultrasound_power <= 10'h3FF;
+         best_angle <= 0;
          power_cycle_timer <= 0;
+         repeat_counter <= 0;
+         distance_count <= 0;
+         distance_pass_1 <= 0;
+         distance_pass_2 <= 0;
+         distance_pass_3 <= 0;
 		end
 		// else execute the FSM
 		else begin
@@ -143,62 +149,61 @@ module ultrasound_location_calculator(
 				ERROR_CORRECT_REPEAT: begin
 					// we are going to do 3 passes for each reading and take the median value to
 					// adjust for any noise in the readings just to be safe
-					// if we are done then test for next ultrasound
+					// if we are done then test for next ultrasound (but delay 1 for median to clear)
 					if (repeat_counter == NUM_REPEATS - 1) begin
 						distance_pass_3 <= distance_count;
-	   				state <= REPEAT;
+                  distance_count <= 0;
+                  repeat_counter <= repeat_counter + 1;
+	   				state <= ERROR_CORRECT_REPEAT; // for one cycle delay
 					end
-					// else save the value and re-calculate
+					// else we are in delay or save the value and re-calculate
 					else begin
-						// save the distance in the right variable 
-						// (2D arrays keep breaking so using a case statement instead)
-						// if you increase pass size update this (note the last state
-						// appears above on the other if statement)
-						case(repeat_counter)
-							1: distance_pass_2 <= distance_count;
-							default: distance_pass_1 <= distance_count;
-						endcase
-						// then get ready for next pass
-						repeat_counter <= repeat_counter + 1;
-						state <= TRIGGER;
-						ultrasound_commands[curr_ultrasound] <= 1;
-						trigger_count <= 1;
-						distance_count <= 0;
+                  // delay done go to repeat
+                  if (repeat_counter == NUM_REPEATS) begin
+                     state <= REPEAT;
+                     repeat_counter <= 0;
+                  end
+                  else begin
+                     // save the distance in the right variable 
+                     // (2D arrays keep breaking so using a case statement instead)
+                     // if you increase pass size update this (note the last state
+                     // appears above on the other if statement)
+                     case(repeat_counter)
+                        1: distance_pass_2 <= distance_count;
+                        default: distance_pass_1 <= distance_count;
+                     endcase
+                     // then get ready for next pass
+                     repeat_counter <= repeat_counter + 1;
+                     state <= TRIGGER;
+                     ultrasound_commands[curr_ultrasound] <= 1;
+                     trigger_count <= 1;
+                     distance_count <= 0;
+                  end
 					end
 				end
 				
 				// cycle to next module and/or finalize value
 				REPEAT: begin
-					// if our result was 0 then it glitched and we need to repeat
-					// this often occurs after a power cycle
-					if (distance_count == 0) begin
-						state <= TRIGGER;
-						ultrasound_commands[curr_ultrasound] <= 1;
-						trigger_count <= 1;
-					end
-					else begin
-						// in all cases we need to see if our result is the new best result
-						// and then zero out the distance for this round
-						if ((distance_count > 0) && 
-							 ((best_distance == 0) ||
-							  (distance_count < best_distance))) begin
-							best_distance <= distance_count[7:0];
-							best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
-						end
-						distance_count <= 0;
-						// if done then go to report state
-						if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
-							state <= REPORT;
-							curr_ultrasound <= 0;
-						end
-						// else go to next ultrasound
-						else begin
-							curr_ultrasound <= curr_ultrasound + 1;
-							state <= TRIGGER;
-							ultrasound_commands[curr_ultrasound+1] <= 1;
-							trigger_count <= 1;
-						end
-					end
+               // in all cases we need to see if our result is the new best result
+               // and then zero out the distance for this round
+               if ((median_distance > 0) && 
+                   ((best_distance == 0) ||
+                    (median_distance < best_distance))) begin
+                  best_distance <= median_distance[7:0];
+                  best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
+               end
+               // if done then go to report state
+               if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
+                  state <= REPORT;
+                  curr_ultrasound <= 0;
+               end
+               // else go to next ultrasound
+               else begin
+                  curr_ultrasound <= curr_ultrasound + 1;
+                  state <= TRIGGER;
+                  ultrasound_commands[curr_ultrasound+1] <= 1;
+                  trigger_count <= 1;
+               end
 				end
 				
 				// report out the result
@@ -216,8 +221,17 @@ module ultrasound_location_calculator(
 					if (calculate) begin
 						state <= TRIGGER;
 						ultrasound_commands[curr_ultrasound] <= 1;
-						trigger_count <= 1;
 						done <= 0;
+                  trigger_count <= 1;
+                  curr_ultrasound <= 0;
+                  best_distance <= 0;
+                  best_angle <= 0;
+                  power_cycle_timer <= 0;
+                  repeat_counter <= 0;
+                  distance_count <= 0;
+                  distance_pass_1 <= 0;
+                  distance_pass_2 <= 0;
+                  distance_pass_3 <= 0;
 					end
 				end
 			

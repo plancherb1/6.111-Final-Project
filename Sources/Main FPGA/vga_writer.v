@@ -32,7 +32,7 @@ module vga_writer (
 	
 	// we need to delay hxync, vsync, and blank by the same amount as our
 	// total pipeline time below
-	parameter PIPELINE_LENGTH = 4;
+	parameter PIPELINE_LENGTH = 5;
 	delayN #(.NDELAY(PIPELINE_LENGTH)) hdekay (.clk(vclock),.in(hsync),.out(phsync));
 	delayN #(.NDELAY(PIPELINE_LENGTH)) vdelay (.clk(vclock),.in(vsync),.out(pvsync));
 	delayN #(.NDELAY(PIPELINE_LENGTH)) bdelay (.clk(vclock),.in(blank),.out(pblank));
@@ -120,9 +120,12 @@ module vga_writer (
    reg [23:0] target_pixel2;
    reg [23:0] target_pixel3;
    reg [23:0] target_pixel4;
+   reg [23:0] target_pixel5;
    reg [23:0] rover_pixel_noO2;
    reg [23:0] rover_pixel_noO3;
+   reg [23:0] rover_pixel_noO4;
    reg [23:0] rover_pixel;
+   reg [23:0] grid_pixel2;
    
    // helper modules for ALPHA_BLEND
    parameter ALPHA_M = 2;
@@ -170,15 +173,13 @@ module vga_writer (
 			end
 			
 			// else enter the pipelined FSM to calculate all of the correct pixel values
-			// total pipeline delay is 1 clock cycle for alpha blend + max(rover_yes0, grid) delay
-			// which is 4 for rover_yes0 and 4 for grid so total is 5
 			else begin
 				// Get the values back from the helper functions
-				// grid takes 4 clock cycles so delay 0
-				// triangle (oriented target) takes 3 clock cycles so delay 1
-				// blobs (un-oriented rover and target) take 1 cycle so delay 3
+				// grid takes 4 clock cycles so delay 1 for rover combos
+				// triangle (oriented target) takes 4 clock cycles so delay 0
+				// blobs (un-oriented rover and target) take 1 cycle so delay 4
 				// alpha blend takes 1 clock cycle
-				// final output is delayed then by 4 clock cycles
+				// final output is delayed then by 5 clock cycles
 				
 				// 1st clock cycle only the blobs clearrover_pixel_yesO
 				rover_pixel_noO2 <= rover_pixel_noO;
@@ -186,11 +187,15 @@ module vga_writer (
 				// 2nd clock cylce still only the blobs clear so delay again
 				rover_pixel_noO3 <= rover_pixel_noO2;
 				target_pixel3 <= target_pixel2;
-				// 3rd clock cycle create rover pixel and delay target once more as triangle cleared
+            // 3rd clock cycle still only the blobs clear so delay again
+            rover_pixel_noO4 <= rover_pixel_noO3;
+            target_pixel4 <= target_pixel3;
+				// 4th clock cycle create rover pixel and delay target once more as triangle cleared and delay grid 1
 				rover_pixel <= orientation_ready ? rover_pixel_yesO : rover_pixel_noO3;
-				target_pixel4 <= target_pixel3;
-				// 4th clock cycle alpha blend and display the grid as alpha blend is 1 cycle and grid is now done
-				pixel <= |overlap_pixel ? overlap_pixel : grid_pixel;
+				target_pixel5 <= target_pixel4;
+            grid_pixel2 <= grid_pixel;
+				// 5th clock cycle alpha blend and display the grid as alpha blend is 1 cycle and grid is now done
+				pixel <= |overlap_pixel ? overlap_pixel : grid_pixel2;
 			end
 		end
    end
