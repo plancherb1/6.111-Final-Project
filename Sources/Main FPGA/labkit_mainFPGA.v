@@ -416,21 +416,18 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire transmit_ir; // send IR flag
   wire master_on; // turn on the whole process flag
   wire ir_signal; // IR data
+  wire ultrasound_done; // flag for new location ready
+  wire orientation_update; // flag for new orientation ready
+  wire reached_target; // flag for reached target
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
-  wire [11:0] rover_location;
+  wire [11:0] rover_location; // theta == [11:8], r == [7:0]
   wire [4:0] rover_orientation; // every 15 degrees around the circle
   wire [3:0] target_location;
   wire [9:0] ultrasound_commands;
   wire [9:0] ultrasound_signals;
   wire [9:0] ultrasound_power;
-  wire ultrasound_done;
-  wire run_ultrasound;
-  wire orientation_update;
-  wire move_ready;
-  wire reached_target;
-  wire missed_target;
-  wire enable_orientation;
   
+  // assignments of some of those variables to inputs and outputs
   assign ir_signal = user3[31];
   // we only want one high when the button is pressed
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
@@ -445,25 +442,17 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 										  user3[17],user3[20],user3[23],user3[26],user3[29]};
   
   wire [3:0] main_state;
-  // master FSM to control all modules
+  // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
   main_fsm msfm (.clock(clock_27mhz),.reset(reset),.enable(master_on),
-						.ultrasound_done(ultrasound_done),.move_ready(move_ready),
-						.orientation_done(orientation_update),.reached_target(reached_target),
-						.missed_target(missed_target),.move_command(move_command),
-						.run_ultrasound(run_ultrasound),.enable_orientation(enable_orientation),
-						.transmit_ir(transmit_ir),.state(main_state));
-  
-  wire [2:0] ultrasound_state;
-  // Ultrasound
-  ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
-									.calculate(run_ultrasound),.ultrasound_signals(ultrasound_signals),
-									.done(ultrasound_done),.rover_location(rover_location),
-									//.analyzer_clock(analyzer3_clock),
-									//.analyzer_data(analyzer3_data),
-									.state(ultrasound_state),
-									.ultrasound_commands(ultrasound_commands),
-									.ultrasound_power(ultrasound_power));
-  
+						.target_location(target_location),.ultrasound_signals(ultrasound_signals),
+                  .ultrasound_commands(ultrasound_commands),.ultrasound_power(ultrasound_power),
+                  .ultrasound_done(ultrasound_done),.rover_location(rover_location),
+						.orientation_done(orientation_update),.orientation(orientation),
+						.move_command(move_command),.transmit_ir(transmit_ir),
+                  //.analyzer_clock(analyzer3_clock),
+                  //.analyzer_data(analyzer3_data),
+                  .reached_target(reached_target),.state(main_state));
+                  
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),
@@ -475,22 +464,6 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 					 //.analyzer_data(analyzer3_data),
                 .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
 			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
-  
-  // Orientation/Path activates transmitter when done to send move_command
-  wire [3:0] orient_path_state;
-  orientation_path_calculator opc(.clock(clock_27mhz),.reset(reset),
-											  .enable(enable_orientation),
-											  .rover_location(rover_location),
-											  .target_location(target_location),
-											  .orientation(rover_orientation),
-											  .orientation_done(orientation_update),
-											  .move_ready(move_ready),.move_command(move_command),
-											//.analyzer_clock(analyzer3_clock),
-											//.analyzer_data(analyzer3_data),
-											  .state(orient_path_state),
-											  .missed_target(missed_target),
-											  .reached_target(reached_target)
-											);
 								  
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
