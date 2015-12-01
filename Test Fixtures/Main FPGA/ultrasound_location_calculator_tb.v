@@ -73,20 +73,32 @@ module ultrasound_location_calculator_tb;
 		calculate = 1;
 		#10;
 		calculate = 0;
-		#3000;
+		#40;
 		// now we are "trigered" lets get some data back
+		#10;
 		ultrasound_signals = 1;
-		#60000;
+		#400;
 		ultrasound_signals = 0;
-		#40;
+		// should have registered 40 cycles which gets us 20 for the first one
+		#10;
+		// now we should be triggering again
+		#50;
+		// now we are triggered
+		#10;
 		ultrasound_signals = 1;
-		#120000;
+		#280;
 		ultrasound_signals = 0;
-		#40;
+		// loaded in a 14 for #2
+		#10;
+		#50;
+		#10;
 		ultrasound_signals = 1;
-		#180000;
+		#450;
 		ultrasound_signals = 0;
-		#40;
+		// loaded in a 22 for #3 so median is 20
+		#50;
+		// we should now be done
+		
 	end
       
 endmodule

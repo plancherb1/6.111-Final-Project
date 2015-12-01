@@ -22,8 +22,12 @@ module ultrasound_location_calculator(
    output reg [2:0] state // made output for debug
    );
 	
+	// parameter for the physical device
+	parameter DISTANCE_OFFSET = 5;
+	parameter NOTHING_FOUND = 19'h7_FFFF;
+	
 	// state parameters and reg
-	parameter IDLE = 3'h0; // waiting to do something
+	parameter IDLE = 3'h0; // w    aiting to do something
 	parameter TRIGGER = 3'h1; // trigger the module
 	parameter WAIT_FOR1 = 3'h2; // waiting for distance value
 	parameter WAIT_FOR0 = 3'h3; // getting in distance value 0 marks end
@@ -36,11 +40,11 @@ module ultrasound_location_calculator(
 	reg [4:0] curr_ultrasound;
 	parameter TOTAL_ULTRASOUNDS = 1;
 	reg [8:0] trigger_count;
-	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec
+	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec -- set to 5 for test
 	reg [19:0] distance_count; // 20 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
-	parameter DISTANCE_MAX = 1048576; // spec says distance in 150us to 25ms with 38ms as
+	parameter DISTANCE_MAX = 1048576; // spec says distance in 150us to 25ms with 38ms as -- set to 50 for test
 												  // nothing found which is about 2^20 clock cycles
-   parameter POWER_CYCLE_TIME = 27000000; // one second just to make sure it flushes it self
+   parameter POWER_CYCLE_TIME = 27000000; // one second just to make sure it flushes it self -- set to 12 for test
    reg [24:0] power_cycle_timer; // as sized for one milisecond in counting
 	reg [7:0] best_distance;
 	reg [3:0] best_angle;
@@ -116,11 +120,11 @@ module ultrasound_location_calculator(
 						// about 7/1024 (~1% error) -- but note we have 27 clock
 						// pulses per microsecond so it is actually divide by 1/3996
 						// which we can approximate with 2.5% error to 1/4096! :)
-						distance_count <= (distance_count) >> 12;
+						distance_count <= (distance_count) >> 12; // set to >> 1 for test
 						state <= ERROR_CORRECT_REPEAT;
 					end
 					else if (distance_count == DISTANCE_MAX -1) begin
-						distance_count <= 10'h7FF;
+						distance_count <= NOTHING_FOUND;
                   // cut power to the ultrasound and enter power cycle mode
                   ultrasound_power[curr_ultrasound] <= 0;
                   power_cycle_timer <= 1;
@@ -184,31 +188,45 @@ module ultrasound_location_calculator(
 				
 				// cycle to next module and/or finalize value
 				REPEAT: begin
-               // in all cases we need to see if our result is the new best result
-               // and then zero out the distance for this round
-               if ((median_distance > 0) && 
-                   ((best_distance == 0) ||
-                    (median_distance < best_distance))) begin
-                  best_distance <= median_distance[7:0];
-                  best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
-               end
-               // if done then go to report state
-               if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
-                  state <= REPORT;
-                  curr_ultrasound <= 0;
-               end
-               // else go to next ultrasound
-               else begin
-                  curr_ultrasound <= curr_ultrasound + 1;
+					// if our median distance is 0 then we know there was an error so repeat
+					if (median_distance == 0) begin
                   state <= TRIGGER;
-                  ultrasound_commands[curr_ultrasound+1] <= 1;
+                  ultrasound_commands[curr_ultrasound] <= 1;
                   trigger_count <= 1;
                end
+					// else cycle ultrasound or finalize value
+					else begin
+						// in all cases we need to see if our result is the new best result
+						// and then zero out the distance for this round
+						if ((best_distance == 0) ||
+							 ((median_distance + DISTANCE_OFFSET) < best_distance)) begin
+							best_distance <= median_distance[7:0] + DISTANCE_OFFSET;
+							best_angle <= curr_ultrasound + curr_ultrasound + 1; // occurs at 1,3,5,7,9,11 times 15 degrees for 0,1,2,3,4,5 ultrasound numbers
+						end
+						// if done then go to report state
+						if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
+							state <= REPORT;
+							curr_ultrasound <= 0;
+						end
+						// else go to next ultrasound
+						else begin
+							curr_ultrasound <= curr_ultrasound + 1;
+							state <= TRIGGER;
+							ultrasound_commands[curr_ultrasound+1] <= 1;
+							trigger_count <= 1;
+						end
+					end
 				end
 				
 				// report out the result
 				REPORT: begin
-					rover_location <= {best_angle,best_distance};
+					// if the best distance is NOTHING_FOUND (all 1s) set to 0 else report as is
+					if (&best_distance) begin
+						rover_location <= 12'h100; // since at origin doesn't matter what angle
+					end
+					else begin
+						rover_location <= {best_angle,best_distance};
+					end
 					done <= 1;
 					best_angle <= 0;
 					best_distance <= 0;

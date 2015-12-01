@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map K.39 on Tue Nov 24 23:27:22 2015
+// Written by: Map K.39 on Mon Nov 30 23:32:48 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -579,7 +579,6 @@ COMP "daughtercard<6>" LOCATE = SITE "H5" LEVEL 1;
 COMP "daughtercard<7>" LOCATE = SITE "G5" LEVEL 1;
 COMP "daughtercard<8>" LOCATE = SITE "F5" LEVEL 1;
 COMP "daughtercard<9>" LOCATE = SITE "E1" LEVEL 1;
-NET "analyzer3_clock_OBUF1" BEL "analyzer3_clock_OBUF_BUFG.GCLKMUX"
-        USELOCALCONNECT;
+NET "clock_27mhz_IBUFG1" BEL "clock_27mhz_IBUFG_BUFG.GCLKMUX" USELOCALCONNECT;
 SCHEMATIC END;
 

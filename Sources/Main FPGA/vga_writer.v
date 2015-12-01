@@ -33,7 +33,7 @@ module vga_writer (
 	// we need to delay hxync, vsync, and blank by the same amount as our
 	// total pipeline time below
 	parameter PIPELINE_LENGTH = 5;
-	delayN #(.NDELAY(PIPELINE_LENGTH)) hdekay (.clk(vclock),.in(hsync),.out(phsync));
+	delayN #(.NDELAY(PIPELINE_LENGTH)) hdelay (.clk(vclock),.in(hsync),.out(phsync));
 	delayN #(.NDELAY(PIPELINE_LENGTH)) vdelay (.clk(vclock),.in(vsync),.out(pvsync));
 	delayN #(.NDELAY(PIPELINE_LENGTH)) bdelay (.clk(vclock),.in(blank),.out(pblank));
    
@@ -133,7 +133,7 @@ module vga_writer (
    parameter ALPHA_N_LOG_2 = 2;
    wire [23:0] overlap_pixel;
    alpha_blend #(.ALPHA_M(ALPHA_M),.ALPHA_N(ALPHA_N),.ALPHA_N_LOG_2(ALPHA_N_LOG_2))
-              ab(.pixel_1(rover_pixel),.pixel_2(target_pixel4),.overlap_pixel(overlap_pixel));
+              ab(.pixel_1(rover_pixel),.pixel_2(target_pixel5),.overlap_pixel(overlap_pixel));
    
    // we then pipeline the rest of the VGA display because it takes too long to clear
    always @(posedge vclock) begin
@@ -191,7 +191,7 @@ module vga_writer (
             rover_pixel_noO4 <= rover_pixel_noO3;
             target_pixel4 <= target_pixel3;
 				// 4th clock cycle create rover pixel and delay target once more as triangle cleared and delay grid 1
-				rover_pixel <= orientation_ready ? rover_pixel_yesO : rover_pixel_noO3;
+				rover_pixel <= orientation_ready ? rover_pixel_yesO : rover_pixel_noO4;
 				target_pixel5 <= target_pixel4;
             grid_pixel2 <= grid_pixel;
 				// 5th clock cycle alpha blend and display the grid as alpha blend is 1 cycle and grid is now done

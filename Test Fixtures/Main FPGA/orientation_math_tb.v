@@ -61,20 +61,20 @@ module orientation_math_tb;
 		// Add stimulus here
 		
 		// test shortcut
-		//enable = 1;
-		//#10;
-		//r_theta_original = 12'h110;
-		//r_theta_final = 12'h115;
-		//enable = 0;
-		//#60;
+		enable = 1;
+		#10;
+		r_theta_original = 12'h110;
+		r_theta_final = 12'h115;
+		enable = 0;
+		#60;
 		// should report out 1
 		
-		//enable = 1;
-		//#10;
-		//r_theta_original = 12'h110;
-		//r_theta_final = 12'h105;
-		//enable = 0;
-		//#60;
+		enable = 1;
+		#10;
+		r_theta_original = 12'h110;
+		r_theta_final = 12'h105;
+		enable = 0;
+		#60;
 		// shoudl report 13
 		
 		// test 90 degree and 0 degree movements

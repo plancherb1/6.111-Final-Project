@@ -6,28 +6,37 @@
 // Module Name:    main fsm
 // Project Name:   FPGA Phone Home
 //
-// Notes: controls all of the modules and makes sure they only fire when needed
+// Note: controls all of the modules and makes sure they only fire when needed
+//
+// Note2: Updated 12/1 to include orientation and path calculation logic for simplicity
+//			 and ultrasound module declaration
 //
 //////////////////////////////////////////////////////////////////////////////////
 module main_fsm(
 	 input clock,
 	 input reset,
 	 input enable,
-	 input ultrasound_done,
-	 input move_ready,
-	 input orientation_done,
-	 input reached_target,
-	 input missed_target,
-	 input [11:0] move_command,
-	 output reg run_ultrasound,
-	 output reg enable_orientation,
+	 input ultrasound_done, // becomes output (put ultrasound inside)
+	 input move_ready, // becomes output
+	 input orientation_done, //becomes output
+	 input reached_target, // goes away as is internal
+	 input missed_target, //goes away as is internal
+	 //input [11:0] rover_location, // r is [7:0] theta is [11:8]
+	 //input [3:0] target_location,
+	 input [11:0] move_command, // becoms output
+	 // output [4:0] orientation,
+	 output reg run_ultrasound,// goes away as is internal
+	 output reg enable_orientation, // goes away as is internal
 	 output reg transmit_ir,
-	 output reg [3:0] state
+	 // output analyzer_clock, // for debug only
+	 // output [15:0] analyzer_data // for debug only
+	 output reg [3:0] state // exposed for debug
 	 );
 		
-	 // state and on/off parameters
+	 // on/off parameters
 	 parameter OFF 						= 1'b0;
 	 parameter ON 							= 1'b1;
+	 // state parameters
 	 parameter IDLE 						= 4'h0;
 	 parameter RUN_ULTRASOUND_1		= 4'h1;
 	 parameter ORIENTATION_PHASE_1 	= 4'h2;
@@ -39,6 +48,19 @@ module main_fsm(
 	 parameter RUN_ULTRASOUND_3		= 4'h8;
 	 parameter ARE_WE_DONE				= 4'h9;
 	 
+	 
+	 // ORIENTATION_PHASE_1 helper memory and paramenters for orientation and path
+   reg [11:0] original_location;
+   reg [11:0] updated_location;
+   parameter ORIENTATION_MOVE = 12'h005;
+   
+   // ORIENTATION_PHASE_2 helper to do the math for orientation
+   reg orientation_helper_enable;
+   wire orientation_helper_done;
+   orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation),
+                        .enable(orientation_helper_enable),.done(orientation_helper_done),.reset(reset),.clock(clock));
+	 
+	 // ORIENTATION_MOVE and MOVE_MOVE helpers
 	 reg [33:0] move_delay_timer; // 34 bits for max of 255 seconds
 	 parameter MOVE_DELAY_FACTOR = 27000000;
 	 

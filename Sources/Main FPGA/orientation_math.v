@@ -42,15 +42,20 @@ module orientation_math
 	reg [3:0] state;
 	parameter IDLE 			 	= 4'h0;
 	parameter SHORTCUT_TEST		= 4'h1;
-	parameter PTC					= 4'h2;
-	parameter DELTAS				= 4'h3;
-	parameter ABS_DELTA_QUAD 	= 4'h4;
-	parameter DX_TAN				= 4'h5;
-	parameter ABS_DIFF			= 4'h6;
-	parameter BASE_ANGLE_CALC	= 4'h7;
-	parameter CALC_ORIENTATION	= 4'h8;
+	parameter SHORTCUT_TEST_2	= 4'h2;
+	parameter PTC					= 4'h3;
+	parameter DELTAS				= 4'h4;
+	parameter ABS_DELTA_QUAD 	= 4'h5;
+	parameter DX_TAN				= 4'h6;
+	parameter ABS_DIFF			= 4'h7;
+	parameter BASE_ANGLE_CALC	= 4'h8;
+	parameter CALC_ORIENTATION	= 4'h9;
 	parameter REPORT			 	= 4'hF;
    
+	// SHORTCUT HELPERS
+	reg [4:0] original_base_angle;
+	reg [4:0] shortcut_quadrant_adjust;
+	
 	// PTC helpers
 	reg signed [8:0] x_original;
 	reg signed [8:0] y_original;
@@ -132,12 +137,19 @@ module orientation_math
 					if (r_theta_original[11:8] == r_theta_final[11:8]) begin
 						// if we traveled farther than headed on original angle
 						// else 180 + angle which is orientaton 12 + angle
-						orientation <= r_theta_original[11:8] + ((r_theta_original[7:0] > r_theta_final[7:0]) ? 12 : 0);
-						state <= REPORT;
+						original_base_angle <= {1'b0,r_theta_original[11:8]};
+						shortcut_quadrant_adjust <= (r_theta_final[7:0] >= r_theta_original[7:0]) ? 0 : 12;
+						state <= SHORTCUT_TEST_2;
 					end
 					else begin
 						state <= PTC;
 					end
+				end
+				
+				// finalize the shortcut
+				SHORTCUT_TEST_2: begin
+					orientation <= original_base_angle + shortcut_quadrant_adjust;
+					state <= REPORT;
 				end
 				
 				// then we pipeline the Polar to Cartesian (PTC) calc

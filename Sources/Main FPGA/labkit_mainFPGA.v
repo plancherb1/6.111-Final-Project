@@ -318,8 +318,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    assign analyzer1_clock = 1'b1;
    assign analyzer2_data = 16'h0;
    assign analyzer2_clock = 1'b1;
-   //assign analyzer3_data = 16'h0;
-   //assign analyzer3_clock = 1'b1;
+   assign analyzer3_data = 16'h0;
+   assign analyzer3_clock = 1'b1;
    assign analyzer4_data = 16'h0;
    assign analyzer4_clock = 1'b1;
 
@@ -436,9 +436,13 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
   // need two ways to run ultrasound both the start manually and from the orientation / path
   assign target_location = db_switch[3:0];
-  assign user3[9:0] = ultrasound_commands;
-  assign user3[19:10] = ultrasound_power;
-  assign ultrasound_signals = user3[29:20];
+  // assign command, power, signal, to 0,1,2 + 3n
+  assign {user3[0],user3[3],user3[6],user3[9],user3[12],
+			 user3[15],user3[18],user3[21],user3[24],user3[27]} = ultrasound_commands;
+  assign {user3[1],user3[4],user3[7],user3[10],user3[13],
+			 user3[16],user3[19],user3[22],user3[25],user3[28]} = ultrasound_power;
+  assign ultrasound_signals = {user3[2],user3[5],user3[8],user3[11],user3[14],
+										  user3[17],user3[20],user3[23],user3[26],user3[29]};
   
   wire [3:0] main_state;
   // master FSM to control all modules
@@ -498,8 +502,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 
 
   // use this to display on hex display for debug
-  wire [63:0] my_hex_data;
-  assign my_hex_data = {rover_location,
+  reg [63:0] my_hex_data;
+  //assign my_hex_data = 64'hFFFF_FFFF_FFFF_FFFF;
+  always @(posedge clock_27mhz) begin
+		my_hex_data <= {	rover_location,
 								3'b0,ultrasound_done,
 								3'b0,ultrasound_commands[0],
 								3'b0,ultrasound_signals[0],
@@ -507,15 +513,17 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								3'b0,rover_orientation,
 							   orient_path_state,
 								3'b0, transmit_ir,
-								12'hFFF, main_state};
-										 
+								12'hFFF, main_state	};
+  end
+  //assign led = ~ultrasound_signals[7:0];
+	
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 										disp_blank, disp_clock, disp_rs, disp_ce_b,
 										disp_reset_b, disp_data_out);
 
 
   // display waveform on logic analyzer for debug (if needed)
-  assign analyzer3_data = 16'hFFFF;
-  assign analyzer3_clock = clock_27mhz;
+  //assign analyzer3_data = 16'hFFFF;
+  //assign analyzer3_clock = clock_27mhz;
 			    
 endmodule

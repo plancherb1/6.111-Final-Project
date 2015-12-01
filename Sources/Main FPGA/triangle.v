@@ -85,10 +85,10 @@ module triangle
       test_on_00 <= (!(abs_delta_x == 0)) && (abs_delta_y == 0); // change in x but none in y
       test_on_90 <= (abs_delta_x == 0) && (!(abs_delta_y == 0)); // change in y but none in x
       test_on_45 <= abs_delta_x == abs_delta_y; // for 45 we need delta x = delta y
-      test_on_15 = ((abs_delta_x*17) >>> 6) - abs_delta_y;  // tan 15 is about 17/64
-      test_on_30 = ((abs_delta_x*37) >>> 6) - abs_delta_y; // tan 75 is about 37/64
-      test_on_60 = ((abs_delta_x*111) >>> 6) - abs_delta_y; // tan 75 is about 111/64
-      test_on_75 = ((abs_delta_x*240) >>> 6) - abs_delta_y; // tan 75 is about 240/64
+      test_on_15 <= ((abs_delta_x*17) >>> 6) - abs_delta_y;  // tan 15 is about 17/64
+      test_on_30 <= ((abs_delta_x*37) >>> 6) - abs_delta_y; // tan 75 is about 37/64
+      test_on_60 <= ((abs_delta_x*111) >>> 6) - abs_delta_y; // tan 75 is about 111/64
+      test_on_75 <= ((abs_delta_x*240) >>> 6) - abs_delta_y; // tan 75 is about 240/64
       // save values for next phase
       orientation_quadrant2 <= orientation_quadrant[1:0];
       in_square2 <= in_square;
@@ -122,7 +122,7 @@ module triangle
          // base 0 so 3 is 4th quadrant
          3: begin
             right_quadrant <= (delta_x2 >= 0) && (delta_y2 <=0) && in_square2;
-            orientation_angle <= D360 - orientation3; // 12 is 180 which is 0 (0), 7 is 105 which is 75 (5)
+            orientation_angle <= D360 - orientation3; // 24 is 360 which is 0 (0), 23 is 345 which is 15 (1)
          end
          // default to 1st quadrant
          default: begin

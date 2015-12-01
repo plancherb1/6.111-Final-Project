@@ -8,33 +8,82 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {triangle_tb.fdo} 
+# do {orientation_math_tb.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module triangle
+# -- Compiling module calc_rsin_15_165_30
 # 
 # Top level modules:
-# 	triangle
+# 	calc_rsin_15_165_30
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module triangle_tb
+# -- Compiling module quadrant
 # 
 # Top level modules:
-# 	triangle_tb
+# 	quadrant
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module polar_to_cartesian
+# 
+# Top level modules:
+# 	polar_to_cartesian
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module find_min_5_vals_cascading
+# 
+# Top level modules:
+# 	find_min_5_vals_cascading
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module calc_abs7rtan_00_75_15
+# 
+# Top level modules:
+# 	calc_abs7rtan_00_75_15
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module abs_val_8
+# 
+# Top level modules:
+# 	abs_val_8
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module abs_diff_9
+# 
+# Top level modules:
+# 	abs_diff_9
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module abs_diff_7
+# 
+# Top level modules:
+# 	abs_diff_7
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module orientation_math
+# 
+# Top level modules:
+# 	orientation_math
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module orientation_math_tb
+# 
+# Top level modules:
+# 	orientation_math_tb
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps triangle_tb glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps orientation_math_tb glbl 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.triangle_tb(fast)
-# Loading work.triangle(fast)
+# ** Warning: ../Sources/Main FPGA/orientation_math.v(116): (vopt-2241) Connection width does not match width of port 'y'.
+# ** Warning: ../Sources/Main FPGA/orientation_math.v(117): (vopt-2241) Connection width does not match width of port 'y'.
+# Loading work.orientation_math_tb(fast)
+# Loading work.orientation_math(fast)
+# Loading work.polar_to_cartesian(fast)
+# Loading work.calc_rsin_15_165_30(fast)
+# Loading work.abs_val_8(fast)
+# Loading work.quadrant(fast)
+# Loading work.calc_abs7rtan_00_75_15(fast)
+# Loading work.abs_diff_7(fast)
+# Loading work.abs_diff_9(fast)
+# Loading work.find_min_5_vals_cascading(fast)
 # Loading work.glbl(fast)
+# ** Warning: (vsim-3015) ../Sources/Main FPGA/orientation_math.v(116): [PCDPC] - Port size (10 or 10) does not match connection size (72) for port 'y'.
+#         Region: /orientation_math_tb/uut/abdiff60
+# ** Warning: (vsim-3015) ../Sources/Main FPGA/orientation_math.v(117): [PCDPC] - Port size (10 or 10) does not match connection size (72) for port 'y'.
+#         Region: /orientation_math_tb/uut/abdiff75
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-restart -f
-# Loading work.triangle_tb(fast)
-# Loading work.triangle(fast)
-# Loading work.glbl(fast)
-run 1000ns

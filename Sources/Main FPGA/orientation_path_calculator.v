@@ -60,14 +60,6 @@ module orientation_path_calculator(
       // else do the FSM
       else begin
          case(state)
-         
-            // start the orientation by sending a command to move forward a short amount
-            START_ORIENTATION: begin
-					original_location <= rover_location;
-               move_command <= ORIENTATION_MOVE;
-					move_ready <= ACTIVE;
-               state <= WAIT_FOR_NEW_LOC;
-            end
             
             // wait for the new location and then move to calculate step
             WAIT_FOR_NEW_LOC: begin
@@ -81,11 +73,11 @@ module orientation_path_calculator(
             
             // do the vector math to calc orientation
             CALC_ORIENTATION: begin
+					orientation_helper_enable <= IDLE;
                // wait for our helper function to finish
                if (orientation_helper_done) begin
                   orientation_done <= ACTIVE;
                   state <= START_MOVE;
-                  orientation_helper_enable <= IDLE;
                end
             end
             
@@ -96,12 +88,13 @@ module orientation_path_calculator(
             
             // default to IDLE state
             default: begin
-               // if you see enable then move to the first orientation state else wiat
+               // if you see enable then save the current location and get ready for the next one
                if (enable) begin
-                  state <= START_ORIENTATION;
-                  move_ready <= IDLE;
                   orientation_done <= IDLE;
-                  orientation_helper_enable <= IDLE;
+						original_location <= rover_location;
+						move_command <= ORIENTATION_MOVE;
+						move_ready <= ACTIVE;
+						state <= WAIT_FOR_NEW_LOC;
                end
             end
          
