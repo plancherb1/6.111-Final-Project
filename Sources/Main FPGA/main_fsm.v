@@ -17,12 +17,10 @@ module main_fsm(
 	 input reset,
 	 input enable,
 	 input [3:0] target_location,
-    input [9:0] ultrasound_signals, // can use up to 10 ultrasounds
-    output [9:0] ultrasound_commands, // can use up to 10 ultrasounds
-    output [9:0] ultrasound_power, // can use up to 10 ultrasounds
-    output ultrasound_done,
-    output reg [11:0] rover_location, // r is [7:0] theta is [11:8]
-    output orientation_done,
+	 input ultrasound_done,
+	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
+	 output reg run_ultrasound,
+	 output orientation_done,
 	 output [4:0] orientation,
 	 output reg [11:0] move_command,
 	 output reg transmit_ir,
@@ -44,32 +42,16 @@ module main_fsm(
 	 parameter ORIENTATION_MOVE_S		= 4'h3;
 	 parameter RUN_ULTRASOUND_2		= 4'h4;
 	 parameter ORIENTATION_PHASE_2	= 4'h5;
-    parameter ORIENTATION_PHASE_3	= 4'h6;
+	 parameter ORIENTATION_PHASE_3	= 4'h6;
 	 parameter CALC_MOVE_COMMAND		= 4'h7;
 	 parameter MOVE_MOVE					= 4'h8;
 	 parameter RUN_ULTRASOUND_3		= 4'h9;
 	 parameter ARE_WE_DONE				= 4'hA;
-	 
-	
-   // ultrasound helpers
-   reg run_ultrasound;
-   wire [3:0] ultrasound_state;
-   wire [11:0] rover_location_t;
-   ultrasound_location_calculator ul(.clock(clock),.reset(reset),
-									.calculate(run_ultrasound),
-                           .rover_location(rover_location_t),
-									.done(ultrasound_done),
-									//.analyzer_clock(analyzer3_clock),
-									//.analyzer_data(analyzer3_data),
-									.state(ultrasound_state),
-                           .ultrasound_signals(ultrasound_signals),
-									.ultrasound_commands(ultrasound_commands),
-									.ultrasound_power(ultrasound_power));
 	
     // ORIENTATION_PHASE_1/2/3 helper memory and paramenters for orientation and path
-    reg [1:0] delay_count;
-	 parameter LOCATION_DELAY = 3; // delay a few cycles just to be safe for this to clear because
-											  // weird things are happening
+    reg [31:0] delay_count;
+	 parameter LOCATION_DELAY = 27000000; // delay a second just to be safe for this to clear because
+														// weird things are happening
 	 parameter ORIENTATION_MOVE = 12'h005;
     reg orientation_helper_enable;
     orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation),
@@ -125,12 +107,18 @@ module main_fsm(
 				// in phase 1 of orientation we send out the move command
 				// to just move the rover forward
 				ORIENTATION_PHASE_1: begin
-               transmit_ir <= ON;
-					original_location <= rover_location_t;
-					rover_location <= rover_location_t;
-					move_command <= ORIENTATION_MOVE;
-               move_delay_timer <= ORIENTATION_DELAY;
-               state <= ORIENTATION_MOVE_S;
+					// induce a delay to solve potential timing issue
+					if (delay_count == LOCATION_DELAY - 1) begin
+						transmit_ir <= ON;
+						original_location <= rover_location;
+						move_command <= ORIENTATION_MOVE;
+						move_delay_timer <= ORIENTATION_DELAY;
+						state <= ORIENTATION_MOVE_S;
+						delay_count <= 0;
+					end
+					else begin
+						delay_count <= delay_count + 1;
+					end
 				end
 				
 				// we then wait for the move to complete
@@ -158,8 +146,7 @@ module main_fsm(
 				ORIENTATION_PHASE_2: begin
 					// induce a delay to solve potential timing issue
 					if (delay_count == LOCATION_DELAY - 1) begin
-						updated_location <= rover_location_t;
-						rover_location <= rover_location_t;
+						updated_location <= rover_location;
 						orientation_helper_enable <= ON;
 						state <= ORIENTATION_PHASE_3;
 						delay_count <= 0;

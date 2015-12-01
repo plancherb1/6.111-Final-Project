@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -112,10 +112,8 @@ Slice Utilization Ratio Delta      : 5
 Compiling verilog file "../Sources/Shared/quadrant.v" in library work
 Compiling verilog file "../Sources/Shared/polar_to_cartesian.v" in library work
 Module <quadrant> compiled
-Compiling verilog file "../Sources/Shared/median_3.v" in library work
-Module <polar_to_cartesian> compiled
 Compiling verilog file "../Sources/Shared/find_min_5_vals_cascading.v" in library work
-Module <median_3> compiled
+Module <polar_to_cartesian> compiled
 Compiling verilog file "../Sources/Shared/divider_600us.v" in library work
 Module <find_min_5_vals_cascading> compiled
 Compiling verilog file "../Sources/Shared/calc_abs7rtan_00_75_15.v" in library work
@@ -128,12 +126,12 @@ Compiling verilog file "../Sources/Shared/abs_diff_7.v" in library work
 Module <abs_diff_9> compiled
 Compiling verilog file "../Sources/Shared/timer.v" in library work
 Module <abs_diff_7> compiled
-Compiling verilog file "../Sources/Shared/delay.v" in library work
+Compiling verilog file "../Sources/Shared/median_3.v" in library work
 Module <timer> compiled
-Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
-Module <delayN> compiled
+Compiling verilog file "../Sources/Shared/delay.v" in library work
+Module <median_3> compiled
 Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
-Module <ultrasound_location_calculator> compiled
+Module <delayN> compiled
 Compiling verilog file "../Sources/Main FPGA/orientation_math.v" in library work
 Module <triangle> compiled
 Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
@@ -150,8 +148,10 @@ Compiling verilog file "../Sources/Main FPGA/xvga.v" in library work
 Module <debounce> compiled
 Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
 Module <xvga> compiled
-Compiling verilog file "../Sources/Main FPGA/main_fsm.v" in library work
+Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
 Module <vga_writer> compiled
+Compiling verilog file "../Sources/Main FPGA/main_fsm.v" in library work
+Module <ultrasound_location_calculator> compiled
 Compiling verilog file "../Sources/Main FPGA/ir_transmitter.v" in library work
 Module <main_fsm> compiled
 Compiling verilog file "../Sources/Main FPGA/display_8hex_labkit.v" in library work
@@ -179,6 +179,7 @@ Analyzing hierarchy for module <main_fsm> in library <work> with parameters.
 	ARE_WE_DONE = "1010"
 	CALC_MOVE_COMMAND = "0111"
 	IDLE = "0000"
+	LOCATION_DELAY = "00000001100110111111110011000000"
 	MOVE_DELAY_FACTOR = "00000001100110111111110011000000"
 	MOVE_MOVE = "1000"
 	OFF = "0"
@@ -192,6 +193,24 @@ Analyzing hierarchy for module <main_fsm> in library <work> with parameters.
 	RUN_ULTRASOUND_1 = "0001"
 	RUN_ULTRASOUND_2 = "0100"
 	RUN_ULTRASOUND_3 = "1001"
+
+Analyzing hierarchy for module <ultrasound_location_calculator> in library <work> with parameters.
+	DISTANCE_MAX = "00000000000100000000000000000000"
+	DISTANCE_OFFSET = "00000000000000000000000000000101"
+	ERROR_CORRECT_REPEAT = "1000"
+	IDLE = "0000"
+	NOTHING_FOUND = "1111111111111111111"
+	NUM_REPEATS = "00000000000000000000000000000011"
+	POWER_CYCLE = "0111"
+	POWER_CYCLE_TIME = "00000001100110111111110011000000"
+	REPEAT = "0100"
+	REPORT_1 = "0101"
+	REPORT_2 = "0110"
+	TOTAL_ULTRASOUNDS = "00000000000000000000000000000110"
+	TRIGGER = "0001"
+	TRIGGER_TARGET = "00000000000000000000000100010011"
+	WAIT_FOR0 = "0011"
+	WAIT_FOR1 = "0010"
 
 Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	ALPHA_M = "00000000000000000000000000000010"
@@ -227,26 +246,6 @@ Analyzing hierarchy for module <ir_transmitter> in library <work> with parameter
 
 Analyzing hierarchy for module <display_16hex_labkit> in library <work>.
 
-Analyzing hierarchy for module <ultrasound_location_calculator> in library <work> with parameters.
-	CALC_GOOD_VALUE = "1001"
-	CALC_MAX_TIME = "1010"
-	DISTANCE_MAX = "00000000000100000000000000000000"
-	DISTANCE_OFFSET = "00000000000000000000000000000101"
-	ERROR_CORRECT_REPEAT = "1000"
-	IDLE = "0000"
-	NOTHING_FOUND = "1111111111111111111"
-	NUM_REPEATS = "00000000000000000000000000000011"
-	POWER_CYCLE = "0111"
-	POWER_CYCLE_TIME = "00000001100110111111110011000000"
-	REPEAT = "0100"
-	REPORT_1 = "0101"
-	REPORT_2 = "0110"
-	TOTAL_ULTRASOUNDS = "00000000000000000000000000000001"
-	TRIGGER = "0001"
-	TRIGGER_TARGET = "00000000000000000000000100010011"
-	WAIT_FOR0 = "0011"
-	WAIT_FOR1 = "0010"
-
 Analyzing hierarchy for module <orientation_math> in library <work> with parameters.
 	ABS_DELTA_QUAD = "0101"
 	ABS_DIFF = "0111"
@@ -262,6 +261,8 @@ Analyzing hierarchy for module <orientation_math> in library <work> with paramet
 	REPORT = "1111"
 	SHORTCUT_TEST = "0001"
 	SHORTCUT_TEST_2 = "0010"
+
+Analyzing hierarchy for module <median_3> in library <work>.
 
 Analyzing hierarchy for module <delayN> in library <work> with parameters.
 	NDELAY = "00000000000000000000000000000101"
@@ -328,8 +329,6 @@ Analyzing hierarchy for module <alpha_blend> in library <work> with parameters.
 Analyzing hierarchy for module <timer> in library <work> with parameters.
 	COUNT_GOAL = "00000000000000000000011111101000"
 
-Analyzing hierarchy for module <median_3> in library <work>.
-
 Analyzing hierarchy for module <abs_val_8> in library <work>.
 
 Analyzing hierarchy for module <quadrant> in library <work>.
@@ -387,6 +386,7 @@ Analyzing module <main_fsm> in library <work>.
 	ARE_WE_DONE = 4'b1010
 	CALC_MOVE_COMMAND = 4'b0111
 	IDLE = 4'b0000
+	LOCATION_DELAY = 32'sb00000001100110111111110011000000
 	MOVE_DELAY_FACTOR = 32'sb00000001100110111111110011000000
 	MOVE_MOVE = 4'b1000
 	OFF = 1'b0
@@ -401,30 +401,6 @@ Analyzing module <main_fsm> in library <work>.
 	RUN_ULTRASOUND_2 = 4'b0100
 	RUN_ULTRASOUND_3 = 4'b1001
 Module <main_fsm> is correct for synthesis.
- 
-Analyzing module <ultrasound_location_calculator> in library <work>.
-	CALC_GOOD_VALUE = 4'b1001
-	CALC_MAX_TIME = 4'b1010
-	DISTANCE_MAX = 32'sb00000000000100000000000000000000
-	DISTANCE_OFFSET = 32'sb00000000000000000000000000000101
-	ERROR_CORRECT_REPEAT = 4'b1000
-	IDLE = 4'b0000
-	NOTHING_FOUND = 19'b1111111111111111111
-	NUM_REPEATS = 32'sb00000000000000000000000000000011
-	POWER_CYCLE = 4'b0111
-	POWER_CYCLE_TIME = 32'sb00000001100110111111110011000000
-	REPEAT = 4'b0100
-	REPORT_1 = 4'b0101
-	REPORT_2 = 4'b0110
-	TOTAL_ULTRASOUNDS = 32'sb00000000000000000000000000000001
-	TRIGGER = 4'b0001
-	TRIGGER_TARGET = 32'sb00000000000000000000000100010011
-	WAIT_FOR0 = 4'b0011
-	WAIT_FOR1 = 4'b0010
-Module <ultrasound_location_calculator> is correct for synthesis.
- 
-Analyzing module <median_3> in library <work>.
-Module <median_3> is correct for synthesis.
  
 Analyzing module <orientation_math> in library <work>.
 	ABS_DELTA_QUAD = 4'b0101
@@ -465,6 +441,28 @@ Module <abs_diff_9> is correct for synthesis.
  
 Analyzing module <find_min_5_vals_cascading> in library <work>.
 Module <find_min_5_vals_cascading> is correct for synthesis.
+ 
+Analyzing module <ultrasound_location_calculator> in library <work>.
+	DISTANCE_MAX = 32'sb00000000000100000000000000000000
+	DISTANCE_OFFSET = 32'sb00000000000000000000000000000101
+	ERROR_CORRECT_REPEAT = 4'b1000
+	IDLE = 4'b0000
+	NOTHING_FOUND = 19'b1111111111111111111
+	NUM_REPEATS = 32'sb00000000000000000000000000000011
+	POWER_CYCLE = 4'b0111
+	POWER_CYCLE_TIME = 32'sb00000001100110111111110011000000
+	REPEAT = 4'b0100
+	REPORT_1 = 4'b0101
+	REPORT_2 = 4'b0110
+	TOTAL_ULTRASOUNDS = 32'sb00000000000000000000000000000110
+	TRIGGER = 4'b0001
+	TRIGGER_TARGET = 32'sb00000000000000000000000100010011
+	WAIT_FOR0 = 4'b0011
+	WAIT_FOR1 = 4'b0010
+Module <ultrasound_location_calculator> is correct for synthesis.
+ 
+Analyzing module <median_3> in library <work>.
+Module <median_3> is correct for synthesis.
  
 Analyzing module <vga_writer> in library <work>.
 	ALPHA_M = 32'sb00000000000000000000000000000010
@@ -670,18 +668,6 @@ Synthesizing Unit <display_16hex_labkit>.
 Unit <display_16hex_labkit> synthesized.
 
 
-Synthesizing Unit <median_3>.
-    Related source file is "../Sources/Shared/median_3.v".
-    Found 20-bit comparator greater for signal <comp23>.
-    Found 20-bit comparator less for signal <max1$cmp_lt0000> created at line 21.
-    Found 20-bit comparator less for signal <max1$cmp_lt0001> created at line 21.
-    Found 20-bit comparator greater for signal <min1$cmp_gt0000> created at line 20.
-    Found 20-bit comparator greater for signal <min1$cmp_gt0001> created at line 20.
-    Summary:
-	inferred   5 Comparator(s).
-Unit <median_3> synthesized.
-
-
 Synthesizing Unit <polar_to_cartesian>.
     Related source file is "../Sources/Shared/polar_to_cartesian.v".
 WARNING:Xst:646 - Signal <rsin_75deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -756,6 +742,18 @@ Synthesizing Unit <find_min_5_vals_cascading>.
     Summary:
 	inferred   4 Comparator(s).
 Unit <find_min_5_vals_cascading> synthesized.
+
+
+Synthesizing Unit <median_3>.
+    Related source file is "../Sources/Shared/median_3.v".
+    Found 20-bit comparator greater for signal <comp23>.
+    Found 20-bit comparator less for signal <max1$cmp_lt0000> created at line 21.
+    Found 20-bit comparator less for signal <max1$cmp_lt0001> created at line 21.
+    Found 20-bit comparator greater for signal <min1$cmp_gt0000> created at line 20.
+    Found 20-bit comparator greater for signal <min1$cmp_gt0001> created at line 20.
+    Summary:
+	inferred   5 Comparator(s).
+Unit <median_3> synthesized.
 
 
 Synthesizing Unit <delayN>.
@@ -1024,6 +1022,40 @@ Synthesizing Unit <divider_600us>.
 Unit <divider_600us> synthesized.
 
 
+Synthesizing Unit <ultrasound_location_calculator>.
+    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
+    Found 4-bit register for signal <state>.
+    Found 12-bit register for signal <rover_location>.
+    Found 1-bit register for signal <done>.
+    Found 10-bit register for signal <ultrasound_power>.
+    Found 10-bit register for signal <ultrasound_commands>.
+    Found 20-bit adder carry out for signal <add0000$addsub0000> created at line 205.
+    Found 4-bit register for signal <best_angle>.
+    Found 4-bit adder for signal <best_angle$addsub0000> created at line 208.
+    Found 8-bit register for signal <best_distance>.
+    Found 8-bit adder for signal <best_distance$addsub0000> created at line 207.
+    Found 21-bit comparator less for signal <best_distance$cmp_lt0000> created at line 205.
+    Found 5-bit register for signal <curr_ultrasound>.
+    Found 5-bit adder for signal <curr_ultrasound$addsub0000> created at line 217.
+    Found 20-bit register for signal <distance_count>.
+    Found 20-bit adder for signal <distance_count$addsub0000> created at line 138.
+    Found 20-bit register for signal <distance_pass_1>.
+    Found 20-bit register for signal <distance_pass_2>.
+    Found 20-bit register for signal <distance_pass_3>.
+    Found 25-bit register for signal <power_cycle_timer>.
+    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 152.
+    Found 2-bit register for signal <repeat_counter>.
+    Found 2-bit adder for signal <repeat_counter$addsub0000> created at line 184.
+    Found 9-bit register for signal <trigger_count>.
+    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 104.
+    Summary:
+	inferred 170 D-type flip-flop(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <ultrasound_location_calculator> synthesized.
+
+
 Synthesizing Unit <vga_writer>.
     Related source file is "../Sources/Main FPGA/vga_writer.v".
 WARNING:Xst:647 - Input <move_command> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -1055,42 +1087,6 @@ WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected si
 	inferred 288 D-type flip-flop(s).
 	inferred   3 Adder/Subtractor(s).
 Unit <vga_writer> synthesized.
-
-
-Synthesizing Unit <ultrasound_location_calculator>.
-    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
-    Found 4-bit register for signal <state>.
-    Found 12-bit register for signal <rover_location>.
-    Found 1-bit register for signal <done>.
-    Found 10-bit register for signal <ultrasound_power>.
-    Found 10-bit register for signal <ultrasound_commands>.
-    Found 20-bit adder carry out for signal <add0000$addsub0000> created at line 224.
-    Found 4-bit register for signal <best_angle>.
-    Found 4-bit adder for signal <best_angle$addsub0000> created at line 227.
-    Found 8-bit register for signal <best_distance>.
-    Found 8-bit adder for signal <best_distance$addsub0000> created at line 226.
-    Found 21-bit comparator less for signal <best_distance$cmp_lt0000> created at line 224.
-    Found 5-bit register for signal <curr_ultrasound>.
-    Found 5-bit adder for signal <curr_ultrasound$addsub0000> created at line 236.
-    Found 20-bit register for signal <distance_count>.
-    Found 20-bit adder for signal <distance_count$addsub0000> created at line 128.
-    Found 20-bit register for signal <distance_pass_1>.
-    Found 20-bit register for signal <distance_pass_2>.
-    Found 20-bit register for signal <distance_pass_3>.
-    Found 1-bit register for signal <max_time_reached>.
-    Found 25-bit register for signal <power_cycle_timer>.
-    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 171.
-    Found 2-bit register for signal <repeat_counter>.
-    Found 2-bit adder for signal <repeat_counter$addsub0000> created at line 203.
-    Found 1-bit register for signal <saw_0>.
-    Found 9-bit register for signal <trigger_count>.
-    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 112.
-    Summary:
-	inferred 172 D-type flip-flop(s).
-	inferred   8 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
-	inferred   1 Multiplexer(s).
-Unit <ultrasound_location_calculator> synthesized.
 
 
 Synthesizing Unit <orientation_math>.
@@ -1172,7 +1168,6 @@ Unit <timer> synthesized.
 Synthesizing Unit <main_fsm>.
     Related source file is "../Sources/Main FPGA/main_fsm.v".
 WARNING:Xst:647 - Input <target_location> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:646 - Signal <ultrasound_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <move_command_t> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000.
 WARNING:Xst:646 - Signal <move_command_calc_helper_enable> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <move_command_calc_helper_done> is used but never assigned. This sourceless signal will be automatically connected to value 0.
@@ -1181,16 +1176,19 @@ WARNING:Xst:653 - Signal <location_reached_helper_done> is used but never assign
     Found 4-bit register for signal <state>.
     Found 1-bit register for signal <transmit_ir>.
     Found 12-bit register for signal <move_command>.
-    Found 12-bit register for signal <rover_location>.
     Found 12-bit register for signal <original_location>.
     Found 12-bit register for signal <updated_location>.
+    Found 1-bit register for signal <run_ultrasound>.
+    Found 32-bit register for signal <delay_count>.
+    Found 32-bit adder for signal <delay_count$addsub0000>.
+    Found 32-bit 4-to-1 multiplexer for signal <delay_count$mux0000> created at line 97.
     Found 34-bit register for signal <move_delay_timer>.
     Found 34-bit subtractor for signal <move_delay_timer$addsub0000>.
     Found 1-bit register for signal <orientation_helper_enable>.
-    Found 1-bit register for signal <run_ultrasound>.
     Summary:
-	inferred  89 D-type flip-flop(s).
-	inferred   1 Adder/Subtractor(s).
+	inferred 109 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  32 Multiplexer(s).
 Unit <main_fsm> synthesized.
 
 
@@ -1514,6 +1512,7 @@ WARNING:Xst:647 - Input <mouse_clock> is never used. This port will be preserved
 WARNING:Xst:647 - Input <ac97_bit_clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user3<30>> is never assigned.
+WARNING:Xst:646 - Signal <ultrasound_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <reached_target> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <ir_signal> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <db_switch<7:4>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -1550,7 +1549,7 @@ Macro Statistics
  8x13-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 3
  8x8-bit multiplier                                    : 6
-# Adders/Subtractors                                   : 119
+# Adders/Subtractors                                   : 120
  1-bit adder carry out                                 : 1
  10-bit adder                                          : 1
  10-bit addsub                                         : 1
@@ -1567,7 +1566,7 @@ Macro Statistics
  3-bit adder                                           : 5
  3-bit adder carry out                                 : 1
  3-bit subtractor                                      : 1
- 32-bit adder                                          : 3
+ 32-bit adder                                          : 4
  32-bit subtractor                                     : 4
  33-bit adder                                          : 10
  33-bit subtractor                                     : 13
@@ -1589,16 +1588,16 @@ Macro Statistics
  19-bit up counter                                     : 6
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 168
- 1-bit register                                        : 79
+# Registers                                            : 166
+ 1-bit register                                        : 77
  10-bit register                                       : 4
- 12-bit register                                       : 19
+ 12-bit register                                       : 18
  2-bit register                                        : 3
  20-bit register                                       : 4
  24-bit register                                       : 12
  25-bit register                                       : 1
  3-bit register                                        : 2
- 32-bit register                                       : 10
+ 32-bit register                                       : 11
  34-bit register                                       : 1
  4-bit register                                        : 5
  5-bit register                                        : 9
@@ -1635,11 +1634,12 @@ Macro Statistics
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 3
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 5
+# Multiplexers                                         : 6
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 4-to-1 multiplexer                              : 1
  1-bit 40-to-1 multiplexer                             : 1
  3-bit 4-to-1 multiplexer                              : 1
+ 32-bit 4-to-1 multiplexer                             : 1
  4-bit 16-to-1 multiplexer                             : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
@@ -1967,7 +1967,7 @@ Macro Statistics
  8x13-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 3
  8x8-bit multiplier                                    : 6
-# Adders/Subtractors                                   : 119
+# Adders/Subtractors                                   : 120
  1-bit adder carry out                                 : 1
  10-bit adder                                          : 1
  10-bit addsub                                         : 1
@@ -1984,7 +1984,7 @@ Macro Statistics
  3-bit adder                                           : 5
  3-bit adder carry out                                 : 1
  3-bit subtractor                                      : 1
- 32-bit adder                                          : 3
+ 32-bit adder                                          : 4
  32-bit subtractor                                     : 4
  33-bit adder                                          : 10
  33-bit subtractor                                     : 13
@@ -2006,8 +2006,8 @@ Macro Statistics
  19-bit up counter                                     : 6
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 1218
- Flip-Flops                                            : 1218
+# Registers                                            : 1236
+ Flip-Flops                                            : 1236
 # Comparators                                          : 92
  10-bit comparator equal                               : 1
  10-bit comparator greatequal                          : 2
@@ -2038,11 +2038,12 @@ Macro Statistics
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 3
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 5
+# Multiplexers                                         : 6
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 4-to-1 multiplexer                              : 1
  1-bit 40-to-1 multiplexer                             : 1
  3-bit 4-to-1 multiplexer                              : 1
+ 32-bit 4-to-1 multiplexer                             : 1
  4-bit 16-to-1 multiplexer                             : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
@@ -2172,13 +2173,13 @@ Optimizing unit <xvga> ...
 
 Optimizing unit <display_16hex_labkit> ...
 
-Optimizing unit <median_3> ...
-
 Optimizing unit <polar_to_cartesian> ...
 
 Optimizing unit <abs_diff_7> ...
 
 Optimizing unit <abs_diff_9> ...
+
+Optimizing unit <median_3> ...
 
 Optimizing unit <grid> ...
 
@@ -2186,9 +2187,9 @@ Optimizing unit <triangle> ...
 
 Optimizing unit <alpha_blend> ...
 
-Optimizing unit <vga_writer> ...
-
 Optimizing unit <ultrasound_location_calculator> ...
+
+Optimizing unit <vga_writer> ...
 
 Optimizing unit <orientation_math> ...
 
@@ -2334,8 +2335,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 904
- Flip-Flops                                            : 904
+# Registers                                            : 922
+ Flip-Flops                                            : 922
 # Shift Registers                                      : 37
  2-bit shift register                                  : 29
  3-bit shift register                                  : 1
@@ -2369,30 +2370,30 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 6067
+# BELS                             : 6173
 #      GND                         : 1
-#      INV                         : 563
-#      LUT1                        : 544
-#      LUT2                        : 581
+#      INV                         : 564
+#      LUT1                        : 575
+#      LUT2                        : 580
 #      LUT2_D                      : 1
-#      LUT3                        : 482
+#      LUT3                        : 455
 #      LUT3_D                      : 1
 #      LUT3_L                      : 1
-#      LUT4                        : 894
+#      LUT4                        : 923
 #      LUT4_D                      : 3
 #      LUT4_L                      : 15
-#      MUXCY                       : 1864
-#      MUXF5                       : 91
+#      MUXCY                       : 1908
+#      MUXF5                       : 88
 #      MUXF6                       : 10
 #      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 1013
-# FlipFlops/Latches                : 951
+#      XORCY                       : 1045
+# FlipFlops/Latches                : 969
 #      FD                          : 278
-#      FDE                         : 214
-#      FDR                         : 201
+#      FDE                         : 234
+#      FDR                         : 200
 #      FDRE                        : 160
-#      FDRS                        : 73
+#      FDRS                        : 72
 #      FDS                         : 14
 #      FDSE                        : 11
 # Shift Registers                  : 38
@@ -2415,10 +2416,10 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                     1649  out of  33792     4%  
- Number of Slice Flip Flops:            951  out of  67584     1%  
- Number of 4 input LUTs:               3123  out of  67584     4%  
-    Number used as logic:              3085
+ Number of Slices:                     1672  out of  33792     4%  
+ Number of Slice Flip Flops:            969  out of  67584     1%  
+ Number of 4 input LUTs:               3156  out of  67584     4%  
+    Number used as logic:              3118
     Number used as Shift registers:      38
  Number of IOs:                         576
  Number of bonded IOBs:                 277  out of    684    40%  
@@ -2447,7 +2448,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 606   |
+clock_27mhz                        | IBUFG+BUFG             | 624   |
 clock_27mhz                        | vclk1:CLKFX            | 340   |
 disp/clock1                        | BUFG                   | 43    |
 -----------------------------------+------------------------+-------+
@@ -2460,8 +2461,8 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 37.884ns (Maximum Frequency: 26.396MHz)
-   Minimum input arrival time before clock: 7.548ns
+   Minimum period: 37.976ns (Maximum Frequency: 26.332MHz)
+   Minimum input arrival time before clock: 8.320ns
    Maximum output required time after clock: 6.771ns
    Maximum combinational path delay: No path found
 
@@ -2471,34 +2472,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 37.884ns (frequency: 26.396MHz)
-  Total number of paths / destination ports: 7071821 / 1791
+  Clock period: 37.976ns (frequency: 26.332MHz)
+  Total number of paths / destination ports: 7097772 / 1826
 -------------------------------------------------------------------------
-Delay:               9.471ns (Levels of Logic = 3)
-  Source:            msfm/rover_location_7 (FF)
+Delay:               9.494ns (Levels of Logic = 3)
+  Source:            ul/rover_location_7 (FF)
   Destination:       vg/rover_y_7 (FF)
   Source Clock:      clock_27mhz rising
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: msfm/rover_location_7 to vg/rover_y_7
+  Data Path: ul/rover_location_7 to vg/rover_y_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              5   0.568   0.771  msfm/rover_location_7 (msfm/rover_location_7)
+     FDRE:C->Q             6   0.568   0.793  ul/rover_location_7 (ul/rover_location_7)
      MULT18X18:A7->P14     2   6.009   0.741  vg/ptc/Mmult_rsin_15deg_mult0000 (vg/ptc/rsin_15deg_mult0000<14>)
-     LUT4_L:I3->LO         1   0.439   0.134  vg/ptc/y_value<6>_SW0 (N402)
+     LUT4_L:I3->LO         1   0.439   0.134  vg/ptc/y_value<6>_SW0 (N367)
      LUT3:I2->O            1   0.439   0.000  vg/ptc/y_value<6> (vg/temp_rover_y<6>)
      FDRE:D                    0.370          vg/rover_y_7
     ----------------------------------------
-    Total                      9.471ns (7.825ns logic, 1.646ns route)
-                                       (82.6% logic, 17.4% route)
+    Total                      9.494ns (7.825ns logic, 1.669ns route)
+                                       (82.4% logic, 17.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 16.235ns (frequency: 61.597MHz)
+  Clock period: 16.241ns (frequency: 61.574MHz)
   Total number of paths / destination ports: 6370 / 74
 -------------------------------------------------------------------------
-Delay:               16.235ns (Levels of Logic = 16)
+Delay:               16.241ns (Levels of Logic = 16)
   Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
@@ -2513,47 +2514,48 @@ Delay:               16.235ns (Levels of Logic = 16)
      MUXF5:I1->O           2   0.436   0.910  disp/Mmux_nibble_10_f5 (disp/Mmux_nibble_10_f5)
      LUT2:I1->O            1   0.439   0.000  disp/char_index<3>1113 (disp/char_index<3>1112)
      MUXF5:I0->O           3   0.436   0.759  disp/char_index<3>111_f5 (disp/char_index<3>11)
-     LUT3:I2->O           28   0.439   1.362  disp/char_index<3>291 (disp/nibble<1>)
-     LUT4:I0->O            2   0.439   0.742  disp/Mrom_dots2811 (disp/Mrom_dots29)
-     LUT4:I3->O            1   0.439   0.551  disp/Mrom_dots28 (disp/Mrom_dots28)
-     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_151 (disp/Mmux__varindex0000_151)
-     MUXF5:I1->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
-     LUT4:I3->O            1   0.439   0.557  disp/disp_data_out_mux000033 (disp/disp_data_out_mux000033)
+     LUT3:I2->O           28   0.439   1.117  disp/char_index<3>291 (disp/nibble<1>)
+     LUT4:I3->O            3   0.439   1.010  disp/Mrom_dots191 (disp/Mrom_dots19)
+     LUT2:I0->O            1   0.439   0.000  disp/Mrom_dots302 (disp/Mrom_dots302)
+     MUXF5:I0->O           1   0.436   0.551  disp/Mrom_dots30_f5 (disp/Mrom_dots30)
+     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux000014_G (N470)
+     MUXF5:I1->O           1   0.436   0.551  disp/disp_data_out_mux000014 (disp/disp_data_out_mux000014)
+     LUT4:I2->O            1   0.439   0.557  disp/disp_data_out_mux000033 (disp/disp_data_out_mux000033)
      LUT4:I3->O            1   0.439   0.552  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N569)
+     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N488)
      MUXF5:I1->O           2   0.436   0.910  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
      LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux00001682 (disp/disp_data_out_mux00001681)
      MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000168_f5 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     16.235ns (7.955ns logic, 8.280ns route)
-                                       (49.0% logic, 51.0% route)
+    Total                     16.241ns (7.944ns logic, 8.297ns route)
+                                       (48.9% logic, 51.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 358 / 160
+  Total number of paths / destination ports: 1188 / 216
 -------------------------------------------------------------------------
-Offset:              7.548ns (Levels of Logic = 7)
+Offset:              8.320ns (Levels of Logic = 8)
   Source:            user3<29> (PAD)
-  Destination:       msfm/ul/distance_count_1 (FF)
+  Destination:       ul/distance_count_5 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: user3<29> to msfm/ul/distance_count_1
+  Data Path: user3<29> to ul/distance_count_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   0.825   0.726  user3_29_IBUF (user3_29_IBUF)
-     LUT3:I1->O            1   0.439   0.000  msfm/ul/Mmux__COND_3_9 (msfm/ul/Mmux__COND_3_9)
-     MUXF5:I0->O           1   0.436   0.000  msfm/ul/Mmux__COND_3_7_f5 (msfm/ul/Mmux__COND_3_7_f5)
-     MUXF6:I0->O           2   0.447   0.910  msfm/ul/Mmux__COND_3_5_f6 (msfm/ul/Mmux__COND_3_5_f6)
-     LUT3:I1->O            3   0.439   0.759  msfm/ul/curr_ultrasound<3> (msfm/ul/_COND_3)
-     LUT4:I2->O           19   0.439   1.320  msfm/ul/distance_count_mux0000<12>11 (msfm/ul/N21)
-     LUT3:I0->O            1   0.439   0.000  msfm/ul/distance_count_mux0000<18>1 (msfm/ul/distance_count_mux0000<18>1)
-     FDRS:D                    0.370          msfm/ul/distance_count_1
+     LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_6_9 (ul/Mmux__COND_6_9)
+     MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_6_7_f5 (ul/Mmux__COND_6_7_f5)
+     MUXF6:I0->O           2   0.447   0.910  ul/Mmux__COND_6_5_f6 (ul/Mmux__COND_6_5_f6)
+     LUT3:I1->O           18   0.439   1.058  ul/curr_ultrasound<3> (ul/_COND_6)
+     LUT4:I2->O           26   0.439   1.357  ul/distance_count_mux0000<12>1 (ul/N3)
+     LUT4:I0->O            1   0.439   0.000  ul/distance_count_mux0000<14>11 (ul/distance_count_mux0000<14>11)
+     MUXF5:I1->O           1   0.436   0.000  ul/distance_count_mux0000<14>1_f5 (ul/distance_count_mux0000<14>1)
+     FDRS:D                    0.370          ul/distance_count_5
     ----------------------------------------
-    Total                      7.548ns (3.834ns logic, 3.714ns route)
-                                       (50.8% logic, 49.2% route)
+    Total                      8.320ns (4.270ns logic, 4.050ns route)
+                                       (51.3% logic, 48.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
@@ -2597,13 +2599,13 @@ Offset:              5.630ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 43.00 secs
-Total CPU time to Xst completion: 42.08 secs
+Total REAL time to Xst completion: 44.00 secs
+Total CPU time to Xst completion: 41.91 secs
  
 --> 
 
 
-Total memory usage is 546204 kilobytes
+Total memory usage is 546740 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  694 (   0 filtered)

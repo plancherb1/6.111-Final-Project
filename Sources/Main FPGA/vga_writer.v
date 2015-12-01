@@ -89,7 +89,7 @@ module vga_writer (
 	reg signed [11:0] max_y;
 	// helper function for abs_max needed here
 	wire [2:0] scale_factor;
-	assign scale_factor = 2;
+	assign scale_factor = 10;
    
    // instantiate the grid
    wire [23:0] grid_pixel;

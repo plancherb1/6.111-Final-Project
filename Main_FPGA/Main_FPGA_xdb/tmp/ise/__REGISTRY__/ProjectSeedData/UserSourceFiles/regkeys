@@ -94,12 +94,6 @@ s
 user_file_37
 ../Sources/Main FPGA/labkit.ucf
 s
-user_file_38
-../Sources/Main FPGA/labkit.ucf
-s
-user_file_39
-../Sources/Main FPGA/labkit.ucf
-s
 user_file_4
 ../Sources/Main FPGA/ultrasound_location_calculator.v
 s

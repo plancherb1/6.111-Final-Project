@@ -1,0 +1,81 @@
+Release 10.1.03 - xst K.39 (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../Sources/Shared/quadrant.v" in library work
+Compiling verilog file "../Sources/Shared/polar_to_cartesian.v" in library work
+Module <quadrant> compiled
+Compiling verilog file "../Sources/Shared/find_min_5_vals_cascading.v" in library work
+Module <polar_to_cartesian> compiled
+Compiling verilog file "../Sources/Shared/divider_600us.v" in library work
+Module <find_min_5_vals_cascading> compiled
+Compiling verilog file "../Sources/Shared/calc_abs7rtan_00_75_15.v" in library work
+Module <divider_600us> compiled
+Compiling verilog file "../Sources/Shared/abs_val_8.v" in library work
+Module <calc_abs7rtan_00_75_15> compiled
+Compiling verilog file "../Sources/Shared/abs_diff_9.v" in library work
+Module <abs_val_8> compiled
+Compiling verilog file "../Sources/Shared/abs_diff_7.v" in library work
+Module <abs_diff_9> compiled
+Compiling verilog file "../Sources/Shared/timer.v" in library work
+Module <abs_diff_7> compiled
+Compiling verilog file "../Sources/Shared/median_3.v" in library work
+Module <timer> compiled
+Compiling verilog file "../Sources/Shared/delay.v" in library work
+Module <median_3> compiled
+Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
+Module <delayN> compiled
+Compiling verilog file "../Sources/Main FPGA/orientation_math.v" in library work
+Module <triangle> compiled
+Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
+Module <orientation_math> compiled
+Compiling verilog file "../Sources/Main FPGA/blob.v" in library work
+Module <grid> compiled
+Compiling verilog file "../Sources/Main FPGA/alpha_blend.v" in library work
+Module <blob> compiled
+Compiling verilog file "../Sources/Shared/edge_detect.v" in library work
+Module <alpha_blend> compiled
+Compiling verilog file "../Sources/Shared/debounce.v" in library work
+Module <edge_detect> compiled
+Compiling verilog file "../Sources/Main FPGA/xvga.v" in library work
+Module <debounce> compiled
+Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
+Module <xvga> compiled
+Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
+Module <vga_writer> compiled
+Compiling verilog file "../Sources/Main FPGA/main_fsm.v" in library work
+Module <ultrasound_location_calculator> compiled
+Compiling verilog file "../Sources/Main FPGA/ir_transmitter.v" in library work
+Module <main_fsm> compiled
+Compiling verilog file "../Sources/Main FPGA/display_8hex_labkit.v" in library work
+Module <ir_transmitter> compiled
+Compiling verilog file "../Sources/Main FPGA/labkit_mainFPGA.v" in library work
+Module <display_16hex_labkit> compiled
+Module <labkit> compiled
+No errors in compilation
+Analysis of file <"labkit.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> 
+
+
+Total memory usage is 285180 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

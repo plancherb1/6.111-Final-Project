@@ -416,8 +416,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire transmit_ir; // send IR flag
   wire master_on; // turn on the whole process flag
   wire ir_signal; // IR data
+  wire run_ultrasound; // flag to turn on the ultrasound
   wire ultrasound_done; // flag for new location ready
-  wire orientation_update; // flag for new orientation ready
+  wire orientation_done; // flag for new orientation ready
   wire reached_target; // flag for reached target
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location; // theta == [11:8], r == [7:0]
@@ -446,24 +447,40 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [11:0] updated_location;
   // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
   main_fsm msfm (.clock(clock_27mhz),.reset(reset),.enable(master_on),
-						.target_location(target_location),.ultrasound_signals(ultrasound_signals),
-                  .ultrasound_commands(ultrasound_commands),.ultrasound_power(ultrasound_power),
-                  .ultrasound_done(ultrasound_done),.rover_location(rover_location),
-						.orientation_done(orientation_update),.orientation(rover_orientation),
-						.move_command(move_command),.transmit_ir(transmit_ir),
+						.target_location(target_location),
+                  .ultrasound_done(ultrasound_done),
+						.rover_location(rover_location),
+						.run_ultrasound(run_ultrasound),
+						.orientation_done(orientation_done),
+						.orientation(rover_orientation),
+						.move_command(move_command),
+						.transmit_ir(transmit_ir),
                   //.analyzer_clock(analyzer3_clock),
                   //.analyzer_data(analyzer3_data),
                   .reached_target(reached_target),
 						.original_location(original_location),
 						.updated_location(updated_location),
 						.state(main_state));
-                  
+	 
+  // Ultrasound Block
+  wire [3:0] ultrasound_state;
+  ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
+												.calculate(run_ultrasound),
+												.rover_location(rover_location),
+												.done(ultrasound_done),
+												//.analyzer_clock(analyzer3_clock),
+												//.analyzer_data(analyzer3_data),
+												.state(ultrasound_state),
+												.ultrasound_signals(ultrasound_signals),
+												.ultrasound_commands(ultrasound_commands),
+												.ultrasound_power(ultrasound_power));
+  
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),
                 .move_command(move_command),.location(rover_location),
                 .orientation(rover_orientation),.target_location(target_location),
-                .orientation_ready(orientation_update),
+                .orientation_ready(orientation_done),
 					 .new_data(ultrasound_done),
 					 //.analyzer_clock(analyzer3_clock),
 					 //.analyzer_data(analyzer3_data),
@@ -486,7 +503,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								3'b0,rover_orientation, // 8 bits
 								//8'hFF,
 								3'b0, ultrasound_done,
-								3'b0, orientation_update,
+								3'b0, orientation_done,
 								//3'b0, transmit_ir,
 								//3'b0, reached_target,
 								//4'hF,
