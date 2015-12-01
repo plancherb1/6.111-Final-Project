@@ -49,7 +49,7 @@ module triangle
     reg signed [11:0] delta_x2;
     reg signed [11:0] delta_y2;
     reg in_square2;
-    reg orientation3;
+    reg [4:0] orientation3;
     
     // Phase 3 helpers
     // we need to apply a ROUNDING factor for the bit shift rounding

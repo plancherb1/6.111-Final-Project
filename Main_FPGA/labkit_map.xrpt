@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Mon Nov 30 23:32:50 2015">
+  <application stringID="Map" timeStamp="Tue Dec  1 13:13:37 2015">
     <task stringID="MAP_PACK_REPORT">
       <section stringID="MAP_DESIGN_INFORMATION">
         <item stringID="MAP_PART" value="2v6000bf957-4"/>
@@ -18,29 +18,29 @@
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
         <item dataType="int" stringID="MAP_NUM_WARNINGS" value="302"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="546260"/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="541652"/>
         <item stringID="MAP_TOTAL_REAL_TIME" value="8 secs "/>
         <item stringID="MAP_TOTAL_CPU_TIME" value="7 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING"/>
       <section stringID="MAP_LOGIC_UTILIZATION">
-        <item dataType="int" stringID="MAP_NUM_SLICE_FF" value="951"/>
+        <item dataType="int" stringID="MAP_NUM_SLICE_FF" value="949"/>
         <item dataType="int" stringID="MAP_NUM_SLICE_LATCH" value="0"/>
         <item dataType="int" stringID="MAP_NUM_SLICE" value="33792"/>
         <item dataType="int" stringID="MAP_FLOPS_PER_SLICE" value="2"/>
-        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="2867"/>
-        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="2867"/>
+        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="2556"/>
+        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="2556"/>
       </section>
       <section stringID="MAP_LOGIC_DISTRIBUTION">
-        <item dataType="int" stringID="MAP_AGG_SLICE" value="1909"/>
+        <item dataType="int" stringID="MAP_AGG_SLICE" value="1717"/>
         <item dataType="int" stringID="MAP_NUM_SLICE_UNRELATED" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="3481"/>
-        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="614"/>
+        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="3101"/>
+        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="545"/>
         <item dataType="int" stringID="MAP_NUM_DP_RAM" value="0"/>
         <item dataType="int" stringID="MAP_NUM_RAM32" value="0"/>
         <item dataType="int" stringID="MAP_NUM_RAM16" value="0"/>
         <item dataType="int" stringID="MAP_NUM_ROM16" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_SHIFT" value="36"/>
+        <item dataType="int" stringID="MAP_NUM_SHIFT" value="38"/>
       </section>
       <section stringID="MAP_IOB_REPORTING">
         <item AVAILABLE="684" dataType="int" stringID="MAP_AGG_BONDED_IO" value="576"/>
@@ -3853,7 +3853,7 @@
       </section>
       <section stringID="MAP_RPM_MACROS">
         <section stringID="MAP_SHAPE_SECTION">
-          <item dataType="int" stringID="MAP_NUM_SHAPE" value="176"/>
+          <item dataType="int" stringID="MAP_NUM_SHAPE" value="151"/>
         </section>
       </section>
       <section stringID="MAP_GUIDE_REPORT"/>

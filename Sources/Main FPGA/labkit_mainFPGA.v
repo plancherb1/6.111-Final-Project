@@ -442,16 +442,21 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 										  user3[17],user3[20],user3[23],user3[26],user3[29]};
   
   wire [3:0] main_state;
+  wire [11:0] original_location;
+  wire [11:0] updated_location;
   // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
   main_fsm msfm (.clock(clock_27mhz),.reset(reset),.enable(master_on),
 						.target_location(target_location),.ultrasound_signals(ultrasound_signals),
                   .ultrasound_commands(ultrasound_commands),.ultrasound_power(ultrasound_power),
                   .ultrasound_done(ultrasound_done),.rover_location(rover_location),
-						.orientation_done(orientation_update),.orientation(orientation),
+						.orientation_done(orientation_update),.orientation(rover_orientation),
 						.move_command(move_command),.transmit_ir(transmit_ir),
                   //.analyzer_clock(analyzer3_clock),
                   //.analyzer_data(analyzer3_data),
-                  .reached_target(reached_target),.state(main_state));
+                  .reached_target(reached_target),
+						.original_location(original_location),
+						.updated_location(updated_location),
+						.state(main_state));
                   
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
@@ -473,22 +478,26 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
                                .transmit(transmit_ir),
                                .signal_out(ir_signal));					  
 
-
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
-  //assign my_hex_data = 64'hFFFF_FFFF_FFFF_FFFF;
   always @(posedge clock_27mhz) begin
-		my_hex_data <= {	rover_location,
-								3'b0,ultrasound_done,
-								3'b0,ultrasound_commands[0],
-								3'b0,ultrasound_signals[0],
-								1'b0,ultrasound_state,
-								3'b0,rover_orientation,
-							   orient_path_state,
-								3'b0, transmit_ir,
-								12'hFFF, main_state	};
+		my_hex_data <= {	main_state, // 4 bits
+								rover_location,// 12 bits
+								3'b0,rover_orientation, // 8 bits
+								//8'hFF,
+								3'b0, ultrasound_done,
+								3'b0, orientation_update,
+								//3'b0, transmit_ir,
+								//3'b0, reached_target,
+								//4'hF,
+								//move_command // 12 bits
+								4'hF,
+								original_location, // 12 bits
+								4'hF,
+								updated_location // 12 bits
+							};
   end
-  //assign led = ~ultrasound_signals[7:0];
+	
 	
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 										disp_blank, disp_clock, disp_rs, disp_ce_b,

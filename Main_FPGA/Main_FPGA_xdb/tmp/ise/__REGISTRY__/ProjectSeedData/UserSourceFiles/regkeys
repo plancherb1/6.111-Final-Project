@@ -1,123 +1,120 @@
 NUM_USER_FILES
-40
+37
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
 s
 user_file_10
-../Sources/Shared/synchronize.v
-s
-user_file_11
 ../Sources/Main FPGA/grid.v
 s
-user_file_12
+user_file_11
 ../Sources/Main FPGA/triangle.v
 s
-user_file_13
+user_file_12
 ../Sources/Main FPGA/orientation_math.v
 s
-user_file_14
+user_file_13
 ../Test Fixtures/Main FPGA/grid_tb.v
 s
-user_file_15
+user_file_14
 ../Test Fixtures/Main FPGA/vga_writer_tb.v
 s
-user_file_16
+user_file_15
 ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
 s
-user_file_17
+user_file_16
 ../Sources/Main FPGA/alpha_blend.v
 s
-user_file_18
+user_file_17
 ../Sources/Shared/delay.v
 s
-user_file_19
+user_file_18
 ../Sources/Shared/abs_diff_9.v
+s
+user_file_19
+../Test Fixtures/Shared/calc_abs7rtan_00_75_15_tb.v
 s
 user_file_2
 ../Sources/Main FPGA/display_8hex_labkit.v
 s
 user_file_20
-../Test Fixtures/Shared/calc_abs7rtan_00_75_15_tb.v
-s
-user_file_21
-../Test Fixtures/Shared/calc_rsin_15_165_30_tb.v
-s
-user_file_22
 ../Test Fixtures/Shared/median_3_tb.v
 s
-user_file_23
+user_file_21
 ../Test Fixtures/Shared/polar_to_cartesian_tb.v
 s
-user_file_24
+user_file_22
 ../Test Fixtures/Shared/abs_val_8_tb.v
 s
-user_file_25
+user_file_23
 ../Sources/Shared/abs_diff_7.v
 s
-user_file_26
+user_file_24
 ../Sources/Shared/abs_val_8.v
 s
-user_file_27
+user_file_25
 ../Sources/Shared/calc_abs7rtan_00_75_15.v
 s
+user_file_26
+../Sources/Shared/edge_detect.v
+s
+user_file_27
+../Sources/Shared/find_min_5_vals_cascading.v
+s
 user_file_28
-../Sources/Shared/calc_rsin_15_165_30.v
+../Sources/Shared/median_3.v
 s
 user_file_29
-../Sources/Shared/edge_detect.v
+../Sources/Shared/polar_to_cartesian.v
 s
 user_file_3
 ../Sources/Main FPGA/ir_transmitter.v
 s
 user_file_30
-../Sources/Shared/find_min_5_vals_cascading.v
-s
-user_file_31
-../Sources/Shared/median_3.v
-s
-user_file_32
-../Sources/Shared/polar_to_cartesian.v
-s
-user_file_33
 ../Test Fixtures/Main FPGA/orientation_math_tb.v
 s
-user_file_34
+user_file_31
 ../Test Fixtures/Shared/find_min_5_vals_cascading_tb.v
 s
-user_file_35
+user_file_32
 ../Sources/Shared/quadrant.v
 s
-user_file_36
+user_file_33
 ../Sources/Main FPGA/main_fsm.v
 s
-user_file_37
+user_file_34
 ../Test Fixtures/Main FPGA/triangle_tb.v
 s
-user_file_38
+user_file_35
 ../Sources/Shared/timer.v
 s
-user_file_39
+user_file_36
 ../Sources/Main FPGA/labkit_mainFPGA.v
 s
-user_file_4
-../Sources/Main FPGA/orientation_path_calculator.v
-s
-user_file_40
+user_file_37
 ../Sources/Main FPGA/labkit.ucf
 s
-user_file_5
+user_file_38
+../Sources/Main FPGA/labkit.ucf
+s
+user_file_39
+../Sources/Main FPGA/labkit.ucf
+s
+user_file_4
 ../Sources/Main FPGA/ultrasound_location_calculator.v
 s
-user_file_6
+user_file_5
 ../Sources/Main FPGA/vga_writer.v
 s
-user_file_7
+user_file_6
 ../Sources/Main FPGA/xvga.v
 s
-user_file_8
+user_file_7
 ../Sources/Shared/debounce.v
 s
-user_file_9
+user_file_8
 ../Sources/Shared/divider_600us.v
+s
+user_file_9
+../Sources/Shared/synchronize.v
 s

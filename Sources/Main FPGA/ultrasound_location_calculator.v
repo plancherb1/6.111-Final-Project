@@ -19,7 +19,7 @@ module ultrasound_location_calculator(
 	output reg [9:0] ultrasound_power, // can use up to 10 ultrasounds
    //output analyzer_clock, // for debug only
    //output [15:0] analyzer_data, // for debug only
-   output reg [2:0] state // made output for debug
+   output reg [3:0] state // made output for debug
    );
 	
 	// parameter for the physical device
@@ -27,15 +27,18 @@ module ultrasound_location_calculator(
 	parameter NOTHING_FOUND = 19'h7_FFFF;
 	
 	// state parameters and reg
-	parameter IDLE = 3'h0; // w    aiting to do something
-	parameter TRIGGER = 3'h1; // trigger the module
-	parameter WAIT_FOR1 = 3'h2; // waiting for distance value
-	parameter WAIT_FOR0 = 3'h3; // getting in distance value 0 marks end
-	parameter REPEAT = 3'h4; // cylce to next module if needed
-	parameter REPORT = 3'h5; // when done send out value
-	parameter POWER_CYCLE = 3'h6; // make sure to power cycle in case stuck
-	parameter ERROR_CORRECT_REPEAT = 3'h7; // run each ultrasound a couple times to be safe
-
+	parameter IDLE 						= 4'h0; // waiting to do something
+	parameter TRIGGER 					= 4'h1; // trigger the module
+	parameter WAIT_FOR1 					= 4'h2; // waiting for distance value
+	parameter WAIT_FOR0 					= 4'h3; // getting in distance value 0 marks end
+	parameter REPEAT 						= 4'h4; // cylce to next module if needed
+	parameter REPORT_1 					= 4'h5; // when done send out value
+	parameter REPORT_2					= 4'h6; // delay for timing constraint
+	parameter POWER_CYCLE 				= 4'h7; // make sure to power cycle in case stuck
+	parameter ERROR_CORRECT_REPEAT 	= 4'h8; // run each ultrasound a couple times to be safe
+	parameter CALC_GOOD_VALUE			= 4'h9; // timing constraint breakout
+	parameter CALC_MAX_TIME				= 4'hA; // timing constraint breakout
+	
 	// distance calcing parameters and regs
 	reg [4:0] curr_ultrasound;
 	parameter TOTAL_ULTRASOUNDS = 1;
@@ -59,7 +62,11 @@ module ultrasound_location_calculator(
 	reg [1:0] repeat_counter;
 	wire [19:0] median_distance;
 	median_3 m3 (.data1(distance_pass_1),.data2(distance_pass_2),
-					  .data3(distance_pass_3),.median(median_distance));	
+					  .data3(distance_pass_3),.median(median_distance));
+
+	//helpers for timing on WAIT_0
+	reg saw_0;
+	reg max_time_reached;
 	
 	// debug only
 	//assign analyzer3_clock = clock;
@@ -86,6 +93,8 @@ module ultrasound_location_calculator(
          distance_pass_1 <= 0;
          distance_pass_2 <= 0;
          distance_pass_3 <= 0;
+			saw_0 <= 0;
+			max_time_reached <= 0;
 		end
 		// else execute the FSM
 		else begin
@@ -115,24 +124,38 @@ module ultrasound_location_calculator(
 				// count until we see a 0 or hit max time indicating the length
 				// start the division process now and will be done in next state
 				WAIT_FOR0: begin
-					if (ultrasound_signals[curr_ultrasound] == 0)begin
-						// per spec distance is microseconds divide by 148 which is 
-						// about 7/1024 (~1% error) -- but note we have 27 clock
-						// pulses per microsecond so it is actually divide by 1/3996
-						// which we can approximate with 2.5% error to 1/4096! :)
-						distance_count <= (distance_count) >> 12; // set to >> 1 for test
-						state <= ERROR_CORRECT_REPEAT;
+					// continuously increment and calc exit conditions
+					distance_count <= distance_count + 1;
+					saw_0 <= ultrasound_signals[curr_ultrasound] == 0;
+					max_time_reached <= distance_count == (DISTANCE_MAX - 1);
+					// wait for exit condition and leave accordingly
+					// note: distance may be off by 1 or 2 clock cycles but since we
+					//       are dividing by ~4K that won't matter
+					if (saw_0) begin
+						state <= CALC_GOOD_VALUE;
 					end
-					else if (distance_count == DISTANCE_MAX -1) begin
-						distance_count <= NOTHING_FOUND;
-                  // cut power to the ultrasound and enter power cycle mode
-                  ultrasound_power[curr_ultrasound] <= 0;
-                  power_cycle_timer <= 1;
-						state <= POWER_CYCLE;
+					if (max_time_reached) begin
+						state <= CALC_MAX_TIME;
 					end
-					else begin
-						distance_count <= distance_count + 1;
-					end
+				end
+				
+				// if we saw a 0 then get teh value (broken out for timing)
+				CALC_GOOD_VALUE: begin
+					// per spec distance is microseconds divide by 148 which is 
+					// about 7/1024 (~1% error) -- but note we have 27 clock
+					// pulses per microsecond so it is actually divide by 1/3996
+					// which we can approximate with 2.5% error to 1/4096! :)
+					distance_count <= (distance_count) >> 12; // set to >> 1 for test
+					state <= ERROR_CORRECT_REPEAT;
+				end
+				
+				// if max time return nothing found and power cycle (broken out for timing)
+				CALC_MAX_TIME: begin
+					distance_count <= NOTHING_FOUND;
+					// cut power to the ultrasound and enter power cycle mode
+					ultrasound_power[curr_ultrasound] <= 0;
+					power_cycle_timer <= 1;
+					state <= POWER_CYCLE;
 				end
 				
 				// The HC-SR04's I have get stuck and need to be power cycled if they
@@ -205,7 +228,7 @@ module ultrasound_location_calculator(
 						end
 						// if done then go to report state
 						if (curr_ultrasound == TOTAL_ULTRASOUNDS - 1) begin
-							state <= REPORT;
+							state <= REPORT_1;
 							curr_ultrasound <= 0;
 						end
 						// else go to next ultrasound
@@ -218,8 +241,8 @@ module ultrasound_location_calculator(
 					end
 				end
 				
-				// report out the result
-				REPORT: begin
+				// prepare to report out the result
+				REPORT_1: begin
 					// if the best distance is NOTHING_FOUND (all 1s) set to 0 else report as is
 					if (&best_distance) begin
 						rover_location <= 12'h100; // since at origin doesn't matter what angle
@@ -227,9 +250,14 @@ module ultrasound_location_calculator(
 					else begin
 						rover_location <= {best_angle,best_distance};
 					end
-					done <= 1;
 					best_angle <= 0;
 					best_distance <= 0;
+					state <= REPORT_2;
+				end
+				
+				// finalize the report
+				REPORT_2: begin
+					done <= 1;
 					state <= IDLE;
 				end
 				
@@ -250,6 +278,8 @@ module ultrasound_location_calculator(
                   distance_pass_1 <= 0;
                   distance_pass_2 <= 0;
                   distance_pass_3 <= 0;
+						saw_0 <= 0;
+						max_time_reached <= 0;
 					end
 				end
 			

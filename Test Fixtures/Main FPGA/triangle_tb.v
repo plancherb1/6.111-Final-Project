@@ -36,14 +36,20 @@ module triangle_tb;
 	wire [23:0] pixel;
 
 	// Instantiate the Unit Under Test (UUT)
-	triangle uut (
-		.center_x(center_x), 
-		.x_value(x_value), 
-		.center_y(center_y), 
-		.y_value(y_value), 
-		.orientation(orientation), 
-		.clock(clock), 
-		.pixel(pixel)
+	triangle 
+	 #(	.WIDTH(200),
+			.HEIGHT(200),
+			.COLOR(24'hFF_FF_FF),
+			.BLANK_COLOR(24'h00_00_00),
+			.INDICATOR_COLOR(24'h00_FF_00)
+	)
+    uut(	.center_x(center_x), 
+			.x_value(x_value), 
+			.center_y(center_y), 
+			.y_value(y_value), 
+			.orientation(orientation), 
+			.clock(clock), 
+			.pixel(pixel)
 	);
 	
 	always #5 clock = !clock;
@@ -105,9 +111,23 @@ module triangle_tb;
 		x_value = 0;
 		#10; // shoudl be on90
 		
-		// lets test a couple quandrants for beign right
+		// now given an orientationa and a point lets see if it gets it right
 		center_x = 0;
-		center_y = 0;
+		center_y = 100;
+		orientation = 13;
+		x_value = 26;
+		y_value = 3; // delta y is negative 97
+		// we should have on_75 light up and be an output
+		#10;
+		x_value = 0;
+		y_value = 0;
+		// we should be on normal color inside shape
+		#10;
+		y_value = 1000;
+		//out of border
+		#10;
+		x_value = -97;
+		y_value = 100-26; // delta y is negative 26
 		
 		
 

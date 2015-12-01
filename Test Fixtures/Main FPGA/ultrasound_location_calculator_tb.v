@@ -35,7 +35,7 @@ module ultrasound_location_calculator_tb;
 	wire [11:0] rover_location;
 	wire [9:0] ultrasound_commands;
 	wire [9:0] ultrasound_power;
-	wire [2:0] state;
+	wire [3:0] state;
 
 	// Instantiate the Unit Under Test (UUT)
 	ultrasound_location_calculator uut (

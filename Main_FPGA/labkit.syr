@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: labkit.prj
@@ -109,13 +109,13 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "../Sources/Shared/calc_rsin_15_165_30.v" in library work
 Compiling verilog file "../Sources/Shared/quadrant.v" in library work
-Module <calc_rsin_15_165_30> compiled
 Compiling verilog file "../Sources/Shared/polar_to_cartesian.v" in library work
 Module <quadrant> compiled
-Compiling verilog file "../Sources/Shared/find_min_5_vals_cascading.v" in library work
+Compiling verilog file "../Sources/Shared/median_3.v" in library work
 Module <polar_to_cartesian> compiled
+Compiling verilog file "../Sources/Shared/find_min_5_vals_cascading.v" in library work
+Module <median_3> compiled
 Compiling verilog file "../Sources/Shared/divider_600us.v" in library work
 Module <find_min_5_vals_cascading> compiled
 Compiling verilog file "../Sources/Shared/calc_abs7rtan_00_75_15.v" in library work
@@ -128,12 +128,12 @@ Compiling verilog file "../Sources/Shared/abs_diff_7.v" in library work
 Module <abs_diff_9> compiled
 Compiling verilog file "../Sources/Shared/timer.v" in library work
 Module <abs_diff_7> compiled
-Compiling verilog file "../Sources/Shared/median_3.v" in library work
-Module <timer> compiled
 Compiling verilog file "../Sources/Shared/delay.v" in library work
-Module <median_3> compiled
-Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
+Module <timer> compiled
+Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
 Module <delayN> compiled
+Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
+Module <ultrasound_location_calculator> compiled
 Compiling verilog file "../Sources/Main FPGA/orientation_math.v" in library work
 Module <triangle> compiled
 Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
@@ -150,12 +150,8 @@ Compiling verilog file "../Sources/Main FPGA/xvga.v" in library work
 Module <debounce> compiled
 Compiling verilog file "../Sources/Main FPGA/vga_writer.v" in library work
 Module <xvga> compiled
-Compiling verilog file "../Sources/Main FPGA/ultrasound_location_calculator.v" in library work
-Module <vga_writer> compiled
-Compiling verilog file "../Sources/Main FPGA/orientation_path_calculator.v" in library work
-Module <ultrasound_location_calculator> compiled
 Compiling verilog file "../Sources/Main FPGA/main_fsm.v" in library work
-Module <orientation_path_calculator> compiled
+Module <vga_writer> compiled
 Compiling verilog file "../Sources/Main FPGA/ir_transmitter.v" in library work
 Module <main_fsm> compiled
 Compiling verilog file "../Sources/Main FPGA/display_8hex_labkit.v" in library work
@@ -180,36 +176,22 @@ Analyzing hierarchy for module <xvga> in library <work>.
 Analyzing hierarchy for module <edge_detect> in library <work>.
 
 Analyzing hierarchy for module <main_fsm> in library <work> with parameters.
-	ARE_WE_DONE = "1001"
-	CALC_MOVE_COMMAND = "0110"
+	ARE_WE_DONE = "1010"
+	CALC_MOVE_COMMAND = "0111"
 	IDLE = "0000"
 	MOVE_DELAY_FACTOR = "00000001100110111111110011000000"
-	MOVE_MOVE = "0111"
+	MOVE_MOVE = "1000"
 	OFF = "0"
 	ON = "1"
-	ORIENTATION_MOVE = "0011"
+	ORIENTATION_DELAY = "00001000000010111110111111000000"
+	ORIENTATION_MOVE = "000000000101"
+	ORIENTATION_MOVE_S = "0011"
 	ORIENTATION_PHASE_1 = "0010"
 	ORIENTATION_PHASE_2 = "0101"
+	ORIENTATION_PHASE_3 = "0110"
 	RUN_ULTRASOUND_1 = "0001"
 	RUN_ULTRASOUND_2 = "0100"
-	RUN_ULTRASOUND_3 = "1000"
-
-Analyzing hierarchy for module <ultrasound_location_calculator> in library <work> with parameters.
-	DISTANCE_MAX = "00000000000100000000000000000000"
-	DISTANCE_OFFSET = "00000000000000000000000000000101"
-	ERROR_CORRECT_REPEAT = "111"
-	IDLE = "000"
-	NOTHING_FOUND = "1111111111111111111"
-	NUM_REPEATS = "00000000000000000000000000000011"
-	POWER_CYCLE = "110"
-	POWER_CYCLE_TIME = "00000001100110111111110011000000"
-	REPEAT = "100"
-	REPORT = "101"
-	TOTAL_ULTRASOUNDS = "00000000000000000000000000000001"
-	TRIGGER = "001"
-	TRIGGER_TARGET = "00000000000000000000000100010011"
-	WAIT_FOR0 = "011"
-	WAIT_FOR1 = "010"
+	RUN_ULTRASOUND_3 = "1001"
 
 Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	ALPHA_M = "00000000000000000000000000000010"
@@ -235,16 +217,6 @@ Analyzing hierarchy for module <vga_writer> in library <work> with parameters.
 	TOTAL_HEIGHT = "00000000000000000000001100000000"
 	TOTAL_WIDTH = "00000000000000000000010000000000"
 
-Analyzing hierarchy for module <orientation_path_calculator> in library <work> with parameters.
-	ACTIVE = "1"
-	CALC_ORIENTATION = "0100"
-	IDLE = "0"
-	IDLE_STATE = "0001"
-	ORIENTATION_MOVE = "000000000101"
-	START_MOVE = "0101"
-	START_ORIENTATION = "0010"
-	WAIT_FOR_NEW_LOC = "0011"
-
 Analyzing hierarchy for module <ir_transmitter> in library <work> with parameters.
 	BIT = "100"
 	COUNT_GOAL = "00000000000000000000011111101000"
@@ -255,7 +227,41 @@ Analyzing hierarchy for module <ir_transmitter> in library <work> with parameter
 
 Analyzing hierarchy for module <display_16hex_labkit> in library <work>.
 
-Analyzing hierarchy for module <median_3> in library <work>.
+Analyzing hierarchy for module <ultrasound_location_calculator> in library <work> with parameters.
+	CALC_GOOD_VALUE = "1001"
+	CALC_MAX_TIME = "1010"
+	DISTANCE_MAX = "00000000000100000000000000000000"
+	DISTANCE_OFFSET = "00000000000000000000000000000101"
+	ERROR_CORRECT_REPEAT = "1000"
+	IDLE = "0000"
+	NOTHING_FOUND = "1111111111111111111"
+	NUM_REPEATS = "00000000000000000000000000000011"
+	POWER_CYCLE = "0111"
+	POWER_CYCLE_TIME = "00000001100110111111110011000000"
+	REPEAT = "0100"
+	REPORT_1 = "0101"
+	REPORT_2 = "0110"
+	TOTAL_ULTRASOUNDS = "00000000000000000000000000000001"
+	TRIGGER = "0001"
+	TRIGGER_TARGET = "00000000000000000000000100010011"
+	WAIT_FOR0 = "0011"
+	WAIT_FOR1 = "0010"
+
+Analyzing hierarchy for module <orientation_math> in library <work> with parameters.
+	ABS_DELTA_QUAD = "0101"
+	ABS_DIFF = "0111"
+	BASE_ANGLE_CALC = "1000"
+	CALC_ORIENTATION = "1001"
+	DEG180 = "01100"
+	DEG360 = "11000"
+	DELTAS = "0100"
+	DX_TAN = "0110"
+	ERROR_FACTOR = "00000000000000000000000000000100"
+	IDLE = "0000"
+	PTC = "0011"
+	REPORT = "1111"
+	SHORTCUT_TEST = "0001"
+	SHORTCUT_TEST_2 = "0010"
 
 Analyzing hierarchy for module <delayN> in library <work> with parameters.
 	NDELAY = "00000000000000000000000000000101"
@@ -319,30 +325,10 @@ Analyzing hierarchy for module <alpha_blend> in library <work> with parameters.
 	ALPHA_N = "00000000000000000000000000000100"
 	ALPHA_N_LOG_2 = "00000000000000000000000000000010"
 
-Analyzing hierarchy for module <orientation_math> in library <work> with parameters.
-	ABS_DELTA_QUAD = "0101"
-	ABS_DIFF = "0111"
-	BASE_ANGLE_CALC = "1000"
-	CALC_ORIENTATION = "1001"
-	DEG180 = "01100"
-	DEG360 = "11000"
-	DELTAS = "0100"
-	DX_TAN = "0110"
-	ERROR_FACTOR = "00000000000000000000000000000100"
-	IDLE = "0000"
-	PTC = "0011"
-	REPORT = "1111"
-	SHORTCUT_TEST = "0001"
-	SHORTCUT_TEST_2 = "0010"
-
 Analyzing hierarchy for module <timer> in library <work> with parameters.
 	COUNT_GOAL = "00000000000000000000011111101000"
 
-Analyzing hierarchy for module <calc_rsin_15_165_30> in library <work>.
-
-Analyzing hierarchy for module <polar_to_cartesian> in library <work> with parameters.
-	NEG = "1"
-	POS = "0"
+Analyzing hierarchy for module <median_3> in library <work>.
 
 Analyzing hierarchy for module <abs_val_8> in library <work>.
 
@@ -358,8 +344,6 @@ Analyzing hierarchy for module <find_min_5_vals_cascading> in library <work>.
 
 Analyzing hierarchy for module <divider_600us> in library <work> with parameters.
 	COUNT_GOAL = "00000000000000000000011111101000"
-
-Analyzing hierarchy for module <calc_rsin_15_165_30> in library <work>.
 
 WARNING:Xst:2591 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 382: attribute on instance <CLKFX_DIVIDE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
 WARNING:Xst:2591 - "../Sources/Main FPGA/labkit_mainFPGA.v" line 382: attribute on instance <CLKFX_MULTIPLY> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
@@ -400,41 +384,87 @@ Analyzing module <edge_detect> in library <work>.
 Module <edge_detect> is correct for synthesis.
  
 Analyzing module <main_fsm> in library <work>.
-	ARE_WE_DONE = 4'b1001
-	CALC_MOVE_COMMAND = 4'b0110
+	ARE_WE_DONE = 4'b1010
+	CALC_MOVE_COMMAND = 4'b0111
 	IDLE = 4'b0000
 	MOVE_DELAY_FACTOR = 32'sb00000001100110111111110011000000
-	MOVE_MOVE = 4'b0111
+	MOVE_MOVE = 4'b1000
 	OFF = 1'b0
 	ON = 1'b1
-	ORIENTATION_MOVE = 4'b0011
+	ORIENTATION_DELAY = 32'b00001000000010111110111111000000
+	ORIENTATION_MOVE = 12'b000000000101
+	ORIENTATION_MOVE_S = 4'b0011
 	ORIENTATION_PHASE_1 = 4'b0010
 	ORIENTATION_PHASE_2 = 4'b0101
+	ORIENTATION_PHASE_3 = 4'b0110
 	RUN_ULTRASOUND_1 = 4'b0001
 	RUN_ULTRASOUND_2 = 4'b0100
-	RUN_ULTRASOUND_3 = 4'b1000
+	RUN_ULTRASOUND_3 = 4'b1001
 Module <main_fsm> is correct for synthesis.
  
 Analyzing module <ultrasound_location_calculator> in library <work>.
+	CALC_GOOD_VALUE = 4'b1001
+	CALC_MAX_TIME = 4'b1010
 	DISTANCE_MAX = 32'sb00000000000100000000000000000000
 	DISTANCE_OFFSET = 32'sb00000000000000000000000000000101
-	ERROR_CORRECT_REPEAT = 3'b111
-	IDLE = 3'b000
+	ERROR_CORRECT_REPEAT = 4'b1000
+	IDLE = 4'b0000
 	NOTHING_FOUND = 19'b1111111111111111111
 	NUM_REPEATS = 32'sb00000000000000000000000000000011
-	POWER_CYCLE = 3'b110
+	POWER_CYCLE = 4'b0111
 	POWER_CYCLE_TIME = 32'sb00000001100110111111110011000000
-	REPEAT = 3'b100
-	REPORT = 3'b101
+	REPEAT = 4'b0100
+	REPORT_1 = 4'b0101
+	REPORT_2 = 4'b0110
 	TOTAL_ULTRASOUNDS = 32'sb00000000000000000000000000000001
-	TRIGGER = 3'b001
+	TRIGGER = 4'b0001
 	TRIGGER_TARGET = 32'sb00000000000000000000000100010011
-	WAIT_FOR0 = 3'b011
-	WAIT_FOR1 = 3'b010
+	WAIT_FOR0 = 4'b0011
+	WAIT_FOR1 = 4'b0010
 Module <ultrasound_location_calculator> is correct for synthesis.
  
 Analyzing module <median_3> in library <work>.
 Module <median_3> is correct for synthesis.
+ 
+Analyzing module <orientation_math> in library <work>.
+	ABS_DELTA_QUAD = 4'b0101
+	ABS_DIFF = 4'b0111
+	BASE_ANGLE_CALC = 4'b1000
+	CALC_ORIENTATION = 4'b1001
+	DEG180 = 5'b01100
+	DEG360 = 5'b11000
+	DELTAS = 4'b0100
+	DX_TAN = 4'b0110
+	ERROR_FACTOR = 32'sb00000000000000000000000000000100
+	IDLE = 4'b0000
+	PTC = 4'b0011
+	REPORT = 4'b1111
+	SHORTCUT_TEST = 4'b0001
+	SHORTCUT_TEST_2 = 4'b0010
+Module <orientation_math> is correct for synthesis.
+ 
+Analyzing module <polar_to_cartesian> in library <work>.
+	NEG = 1'b1
+	POS = 1'b0
+Module <polar_to_cartesian> is correct for synthesis.
+ 
+Analyzing module <abs_val_8> in library <work>.
+Module <abs_val_8> is correct for synthesis.
+ 
+Analyzing module <quadrant> in library <work>.
+Module <quadrant> is correct for synthesis.
+ 
+Analyzing module <calc_abs7rtan_00_75_15> in library <work>.
+Module <calc_abs7rtan_00_75_15> is correct for synthesis.
+ 
+Analyzing module <abs_diff_7> in library <work>.
+Module <abs_diff_7> is correct for synthesis.
+ 
+Analyzing module <abs_diff_9> in library <work>.
+Module <abs_diff_9> is correct for synthesis.
+ 
+Analyzing module <find_min_5_vals_cascading> in library <work>.
+Module <find_min_5_vals_cascading> is correct for synthesis.
  
 Analyzing module <vga_writer> in library <work>.
 	ALPHA_M = 32'sb00000000000000000000000000000010
@@ -464,14 +494,6 @@ Module <vga_writer> is correct for synthesis.
 Analyzing module <delayN> in library <work>.
 	NDELAY = 32'sb00000000000000000000000000000101
 Module <delayN> is correct for synthesis.
- 
-Analyzing module <polar_to_cartesian> in library <work>.
-	NEG = 1'b1
-	POS = 1'b0
-Module <polar_to_cartesian> is correct for synthesis.
- 
-Analyzing module <calc_rsin_15_165_30> in library <work>.
-Module <calc_rsin_15_165_30> is correct for synthesis.
  
 Analyzing module <grid> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
@@ -533,52 +555,6 @@ Analyzing module <alpha_blend> in library <work>.
 	ALPHA_N_LOG_2 = 32'sb00000000000000000000000000000010
 Module <alpha_blend> is correct for synthesis.
  
-Analyzing module <orientation_path_calculator> in library <work>.
-	ACTIVE = 1'b1
-	CALC_ORIENTATION = 4'b0100
-	IDLE = 1'b0
-	IDLE_STATE = 4'b0001
-	ORIENTATION_MOVE = 12'b000000000101
-	START_MOVE = 4'b0101
-	START_ORIENTATION = 4'b0010
-	WAIT_FOR_NEW_LOC = 4'b0011
-Module <orientation_path_calculator> is correct for synthesis.
- 
-Analyzing module <orientation_math> in library <work>.
-	ABS_DELTA_QUAD = 4'b0101
-	ABS_DIFF = 4'b0111
-	BASE_ANGLE_CALC = 4'b1000
-	CALC_ORIENTATION = 4'b1001
-	DEG180 = 5'b01100
-	DEG360 = 5'b11000
-	DELTAS = 4'b0100
-	DX_TAN = 4'b0110
-	ERROR_FACTOR = 32'sb00000000000000000000000000000100
-	IDLE = 4'b0000
-	PTC = 4'b0011
-	REPORT = 4'b1111
-	SHORTCUT_TEST = 4'b0001
-	SHORTCUT_TEST_2 = 4'b0010
-Module <orientation_math> is correct for synthesis.
- 
-Analyzing module <abs_val_8> in library <work>.
-Module <abs_val_8> is correct for synthesis.
- 
-Analyzing module <quadrant> in library <work>.
-Module <quadrant> is correct for synthesis.
- 
-Analyzing module <calc_abs7rtan_00_75_15> in library <work>.
-Module <calc_abs7rtan_00_75_15> is correct for synthesis.
- 
-Analyzing module <abs_diff_7> in library <work>.
-Module <abs_diff_7> is correct for synthesis.
- 
-Analyzing module <abs_diff_9> in library <work>.
-Module <abs_diff_9> is correct for synthesis.
- 
-Analyzing module <find_min_5_vals_cascading> in library <work>.
-Module <find_min_5_vals_cascading> is correct for synthesis.
- 
 Analyzing module <ir_transmitter> in library <work>.
 	BIT = 3'b100
 	COUNT_GOAL = 32'sb00000000000000000000011111101000
@@ -615,6 +591,8 @@ INFO:Xst:2561 - Always blocking tristate driving signal <ram1_data> in unit <lab
 INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
+INFO:Xst:2679 - Register <move_command_calc_helper_enable> in unit <main_fsm> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <reached_target> in unit <main_fsm> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
     Related source file is "../Sources/Shared/debounce.v".
@@ -650,23 +628,6 @@ Synthesizing Unit <edge_detect>.
     Summary:
 	inferred   2 D-type flip-flop(s).
 Unit <edge_detect> synthesized.
-
-
-Synthesizing Unit <main_fsm>.
-    Related source file is "../Sources/Main FPGA/main_fsm.v".
-WARNING:Xst:647 - Input <move_command<11:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit register for signal <enable_orientation>.
-    Found 4-bit register for signal <state>.
-    Found 1-bit register for signal <transmit_ir>.
-    Found 1-bit register for signal <run_ultrasound>.
-    Found 34-bit register for signal <move_delay_timer>.
-    Found 34-bit subtractor for signal <move_delay_timer$addsub0000>.
-    Found 8x26-bit multiplier for signal <move_delay_timer$mult0000> created at line 76.
-    Summary:
-	inferred  41 D-type flip-flop(s).
-	inferred   1 Adder/Subtractor(s).
-	inferred   1 Multiplier(s).
-Unit <main_fsm> synthesized.
 
 
 Synthesizing Unit <display_16hex_labkit>.
@@ -719,6 +680,82 @@ Synthesizing Unit <median_3>.
     Summary:
 	inferred   5 Comparator(s).
 Unit <median_3> synthesized.
+
+
+Synthesizing Unit <polar_to_cartesian>.
+    Related source file is "../Sources/Shared/polar_to_cartesian.v".
+WARNING:Xst:646 - Signal <rsin_75deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rsin_45deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rsin_15deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8x7-bit multiplier for signal <rsin_15deg$mult0000> created at line 29.
+    Found 8x8-bit multiplier for signal <rsin_45deg$mult0000> created at line 30.
+    Found 8x8-bit multiplier for signal <rsin_75deg$mult0000> created at line 31.
+    Summary:
+	inferred   3 Multiplier(s).
+Unit <polar_to_cartesian> synthesized.
+
+
+Synthesizing Unit <abs_val_8>.
+    Related source file is "../Sources/Shared/abs_val_8.v".
+    Found 8-bit adder for signal <absv$addsub0000> created at line 15.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <abs_val_8> synthesized.
+
+
+Synthesizing Unit <quadrant>.
+    Related source file is "../Sources/Shared/quadrant.v".
+    Found 10-bit comparator greatequal for signal <q$cmp_ge0000> created at line 20.
+    Found 10-bit comparator greatequal for signal <x_p$cmp_ge0000> created at line 18.
+    Summary:
+	inferred   2 Comparator(s).
+Unit <quadrant> synthesized.
+
+
+Synthesizing Unit <calc_abs7rtan_00_75_15>.
+    Related source file is "../Sources/Shared/calc_abs7rtan_00_75_15.v".
+WARNING:Xst:646 - Signal <rtan_75deg<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rtan_60deg<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rtan_30deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rtan_15deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8x10-bit multiplier for signal <rtan_15deg$mult0000> created at line 33.
+    Found 8x10-bit multiplier for signal <rtan_30deg$mult0000> created at line 34.
+    Found 8x12-bit multiplier for signal <rtan_60deg$mult0000> created at line 35.
+    Found 8x13-bit multiplier for signal <rtan_75deg$mult0000> created at line 36.
+    Summary:
+	inferred   4 Multiplier(s).
+Unit <calc_abs7rtan_00_75_15> synthesized.
+
+
+Synthesizing Unit <abs_diff_7>.
+    Related source file is "../Sources/Shared/abs_diff_7.v".
+    Found 8-bit subtractor for signal <absdiff>.
+    Found 8-bit comparator greater for signal <absdiff$cmp_gt0000> created at line 16.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <abs_diff_7> synthesized.
+
+
+Synthesizing Unit <abs_diff_9>.
+    Related source file is "../Sources/Shared/abs_diff_9.v".
+    Found 10-bit subtractor for signal <absdiff>.
+    Found 10-bit comparator greater for signal <absdiff$cmp_gt0000> created at line 16.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <abs_diff_9> synthesized.
+
+
+Synthesizing Unit <find_min_5_vals_cascading>.
+    Related source file is "../Sources/Shared/find_min_5_vals_cascading.v".
+    Found 8-bit comparator greatequal for signal <comp1_2>.
+    Found 8-bit comparator greatequal for signal <comp2_3>.
+    Found 8-bit comparator greatequal for signal <comp3_4>.
+    Found 8-bit comparator greatequal for signal <comp4_5>.
+    Summary:
+	inferred   4 Comparator(s).
+Unit <find_min_5_vals_cascading> synthesized.
 
 
 Synthesizing Unit <delayN>.
@@ -878,7 +915,7 @@ Unit <blob_2> synthesized.
 Synthesizing Unit <triangle>.
     Related source file is "../Sources/Main FPGA/triangle.v".
 WARNING:Xst:646 - Signal <orientation_quadrant<31:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <orientation2<4:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <orientation3<4:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 24-bit register for signal <pixel>.
     Found 12-bit register for signal <abs_delta_x>.
     Found 12-bit subtractor for signal <abs_delta_x$addsub0000> created at line 78.
@@ -925,7 +962,7 @@ WARNING:Xst:646 - Signal <orientation2<4:1>> is assigned but never used. This un
     Found 33-bit subtractor for signal <on_75$sub0000> created at line 109.
     Found 1-bit register for signal <on_90>.
     Found 5-bit register for signal <orientation2>.
-    Found 1-bit register for signal <orientation3>.
+    Found 5-bit register for signal <orientation3>.
     Found 3-bit register for signal <orientation_angle>.
     Found 3-bit adder for signal <orientation_angle$addsub0000> created at line 115.
     Found 3-bit subtractor for signal <orientation_angle$addsub0001> created at line 120.
@@ -959,7 +996,7 @@ WARNING:Xst:646 - Signal <orientation2<4:1>> is assigned but never used. This un
     Found 32-bit subtractor for signal <test_on_75$sub0000> created at line 91.
     Found 1-bit register for signal <test_on_90>.
     Summary:
-	inferred 281 D-type flip-flop(s).
+	inferred 285 D-type flip-flop(s).
 	inferred  23 Adder/Subtractor(s).
 	inferred   5 Multiplier(s).
 	inferred  19 Comparator(s).
@@ -979,162 +1016,12 @@ Synthesizing Unit <alpha_blend>.
 Unit <alpha_blend> synthesized.
 
 
-Synthesizing Unit <calc_rsin_15_165_30>.
-    Related source file is "../Sources/Shared/calc_rsin_15_165_30.v".
-WARNING:Xst:646 - Signal <rsin_75deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rsin_45deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rsin_15deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 8x7-bit multiplier for signal <rsin_15deg$mult0000> created at line 27.
-    Found 8x8-bit multiplier for signal <rsin_45deg$mult0000> created at line 28.
-    Found 8x8-bit multiplier for signal <rsin_75deg$mult0000> created at line 29.
-    Summary:
-	inferred   3 Multiplier(s).
-Unit <calc_rsin_15_165_30> synthesized.
-
-
-Synthesizing Unit <abs_val_8>.
-    Related source file is "../Sources/Shared/abs_val_8.v".
-    Found 8-bit adder for signal <absv$addsub0000> created at line 15.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <abs_val_8> synthesized.
-
-
-Synthesizing Unit <quadrant>.
-    Related source file is "../Sources/Shared/quadrant.v".
-    Found 10-bit comparator greatequal for signal <q$cmp_ge0000> created at line 20.
-    Found 10-bit comparator greatequal for signal <x_p$cmp_ge0000> created at line 18.
-    Summary:
-	inferred   2 Comparator(s).
-Unit <quadrant> synthesized.
-
-
-Synthesizing Unit <calc_abs7rtan_00_75_15>.
-    Related source file is "../Sources/Shared/calc_abs7rtan_00_75_15.v".
-WARNING:Xst:646 - Signal <rtan_75deg<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rtan_60deg<31:10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rtan_30deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <rtan_15deg<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 8x10-bit multiplier for signal <rtan_15deg$mult0000> created at line 33.
-    Found 8x10-bit multiplier for signal <rtan_30deg$mult0000> created at line 34.
-    Found 8x12-bit multiplier for signal <rtan_60deg$mult0000> created at line 35.
-    Found 8x13-bit multiplier for signal <rtan_75deg$mult0000> created at line 36.
-    Summary:
-	inferred   4 Multiplier(s).
-Unit <calc_abs7rtan_00_75_15> synthesized.
-
-
-Synthesizing Unit <abs_diff_7>.
-    Related source file is "../Sources/Shared/abs_diff_7.v".
-    Found 8-bit subtractor for signal <absdiff>.
-    Found 8-bit comparator greater for signal <absdiff$cmp_gt0000> created at line 16.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
-Unit <abs_diff_7> synthesized.
-
-
-Synthesizing Unit <abs_diff_9>.
-    Related source file is "../Sources/Shared/abs_diff_9.v".
-    Found 10-bit subtractor for signal <absdiff>.
-    Found 10-bit comparator greater for signal <absdiff$cmp_gt0000> created at line 16.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
-Unit <abs_diff_9> synthesized.
-
-
-Synthesizing Unit <find_min_5_vals_cascading>.
-    Related source file is "../Sources/Shared/find_min_5_vals_cascading.v".
-    Found 8-bit comparator greatequal for signal <comp1_2>.
-    Found 8-bit comparator greatequal for signal <comp2_3>.
-    Found 8-bit comparator greatequal for signal <comp3_4>.
-    Found 8-bit comparator greatequal for signal <comp4_5>.
-    Summary:
-	inferred   4 Comparator(s).
-Unit <find_min_5_vals_cascading> synthesized.
-
-
 Synthesizing Unit <divider_600us>.
     Related source file is "../Sources/Shared/divider_600us.v".
     Found 11-bit up counter for signal <count>.
     Summary:
 	inferred   1 Counter(s).
 Unit <divider_600us> synthesized.
-
-
-Synthesizing Unit <ultrasound_location_calculator>.
-    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
-    Found 3-bit register for signal <state>.
-    Found 12-bit register for signal <rover_location>.
-    Found 1-bit register for signal <done>.
-    Found 10-bit register for signal <ultrasound_power>.
-    Found 10-bit register for signal <ultrasound_commands>.
-    Found 20-bit adder carry out for signal <add0000$addsub0000> created at line 201.
-    Found 4-bit register for signal <best_angle>.
-    Found 4-bit adder for signal <best_angle$addsub0000> created at line 204.
-    Found 4-bit 8-to-1 multiplexer for signal <best_angle$mux0000> created at line 92.
-    Found 8-bit register for signal <best_distance>.
-    Found 8-bit adder for signal <best_distance$addsub0000> created at line 203.
-    Found 21-bit comparator less for signal <best_distance$cmp_lt0000> created at line 201.
-    Found 8-bit 8-to-1 multiplexer for signal <best_distance$mux0000> created at line 92.
-    Found 5-bit register for signal <curr_ultrasound>.
-    Found 5-bit adder for signal <curr_ultrasound$addsub0000> created at line 213.
-    Found 5-bit 8-to-1 multiplexer for signal <curr_ultrasound$mux0000> created at line 92.
-    Found 20-bit register for signal <distance_count>.
-    Found 20-bit adder for signal <distance_count$addsub0000> created at line 134.
-    Found 20-bit 8-to-1 multiplexer for signal <distance_count$mux0000> created at line 92.
-    Found 20-bit register for signal <distance_pass_1>.
-    Found 20-bit 8-to-1 multiplexer for signal <distance_pass_1$mux0000> created at line 92.
-    Found 20-bit register for signal <distance_pass_2>.
-    Found 20-bit 8-to-1 multiplexer for signal <distance_pass_2$mux0000> created at line 92.
-    Found 20-bit register for signal <distance_pass_3>.
-    Found 20-bit 8-to-1 multiplexer for signal <distance_pass_3$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <done$mux0000> created at line 92.
-    Found 25-bit register for signal <power_cycle_timer>.
-    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 148.
-    Found 25-bit 8-to-1 multiplexer for signal <power_cycle_timer$mux0000> created at line 92.
-    Found 2-bit register for signal <repeat_counter>.
-    Found 2-bit adder for signal <repeat_counter$addsub0000> created at line 180.
-    Found 2-bit 8-to-1 multiplexer for signal <repeat_counter$mux0000> created at line 92.
-    Found 3-bit 8-to-1 multiplexer for signal <state$mux0000> created at line 92.
-    Found 9-bit register for signal <trigger_count>.
-    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 103.
-    Found 9-bit 8-to-1 multiplexer for signal <trigger_count$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_0$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_1$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_2$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_3$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_4$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_5$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_6$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_7$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_8$mux0000> created at line 92.
-    Found 1-bit 8-to-1 multiplexer for signal <ultrasound_commands_9$mux0000> created at line 92.
-    Summary:
-	inferred 169 D-type flip-flop(s).
-	inferred   8 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
-	inferred 148 Multiplexer(s).
-Unit <ultrasound_location_calculator> synthesized.
-
-
-Synthesizing Unit <polar_to_cartesian>.
-    Related source file is "../Sources/Shared/polar_to_cartesian.v".
-Unit <polar_to_cartesian> synthesized.
-
-
-Synthesizing Unit <timer>.
-    Related source file is "../Sources/Shared/timer.v".
-    Found 10-bit up counter for signal <count>.
-    Found 10-bit register for signal <count_length>.
-    Found 1-bit register for signal <counting>.
-    Found 10-bit comparator equal for signal <expired$cmp_eq0000> created at line 39.
-    Summary:
-	inferred   1 Counter(s).
-	inferred  11 D-type flip-flop(s).
-	inferred   1 Comparator(s).
-Unit <timer> synthesized.
 
 
 Synthesizing Unit <vga_writer>.
@@ -1170,51 +1057,45 @@ WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected si
 Unit <vga_writer> synthesized.
 
 
-Synthesizing Unit <ir_transmitter>.
-    Related source file is "../Sources/Main FPGA/ir_transmitter.v".
-    Found finite state machine <FSM_1> for signal <state>.
-    -----------------------------------------------------------------------
-    | States             | 5                                              |
-    | Transitions        | 12                                             |
-    | Inputs             | 3                                              |
-    | Outputs            | 12                                             |
-    | Clock              | clk (rising_edge)                              |
-    | Reset              | reset (positive)                               |
-    | Reset type         | synchronous                                    |
-    | Reset State        | 000                                            |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Found 4-bit register for signal <cur_bit>.
-    Found 4-bit adder for signal <cur_bit$addsub0000> created at line 84.
-    Found 12-bit register for signal <cur_value>.
-    Found 11-bit up counter for signal <mod_count>.
-    Found 11-bit comparator less for signal <signal_out$cmp_lt0000> created at line 108.
-    Found 5-bit comparator not equal for signal <start_timer>.
-    Found 4-bit adder for signal <sum_ones>.
-    Found 2-bit adder for signal <sum_ones$addsub0001> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0003> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0004> created at line 32.
-    Found 3-bit adder for signal <sum_ones$addsub0005> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0007> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0008> created at line 32.
-    Found 4-bit adder for signal <sum_ones$addsub0009> created at line 32.
-    Found 1-bit adder carry out for signal <sum_ones$addsub0010> created at line 32.
-    Found 2-bit adder carry out for signal <sum_ones$addsub0011> created at line 32.
-    Found 3-bit adder carry out for signal <sum_ones$addsub0012> created at line 32.
-    Found 10-bit adder for signal <WAIT_TO_45MS>.
+Synthesizing Unit <ultrasound_location_calculator>.
+    Related source file is "../Sources/Main FPGA/ultrasound_location_calculator.v".
+    Found 4-bit register for signal <state>.
+    Found 12-bit register for signal <rover_location>.
+    Found 1-bit register for signal <done>.
+    Found 10-bit register for signal <ultrasound_power>.
+    Found 10-bit register for signal <ultrasound_commands>.
+    Found 20-bit adder carry out for signal <add0000$addsub0000> created at line 224.
+    Found 4-bit register for signal <best_angle>.
+    Found 4-bit adder for signal <best_angle$addsub0000> created at line 227.
+    Found 8-bit register for signal <best_distance>.
+    Found 8-bit adder for signal <best_distance$addsub0000> created at line 226.
+    Found 21-bit comparator less for signal <best_distance$cmp_lt0000> created at line 224.
+    Found 5-bit register for signal <curr_ultrasound>.
+    Found 5-bit adder for signal <curr_ultrasound$addsub0000> created at line 236.
+    Found 20-bit register for signal <distance_count>.
+    Found 20-bit adder for signal <distance_count$addsub0000> created at line 128.
+    Found 20-bit register for signal <distance_pass_1>.
+    Found 20-bit register for signal <distance_pass_2>.
+    Found 20-bit register for signal <distance_pass_3>.
+    Found 1-bit register for signal <max_time_reached>.
+    Found 25-bit register for signal <power_cycle_timer>.
+    Found 25-bit adder for signal <power_cycle_timer$addsub0000> created at line 171.
+    Found 2-bit register for signal <repeat_counter>.
+    Found 2-bit adder for signal <repeat_counter$addsub0000> created at line 203.
+    Found 1-bit register for signal <saw_0>.
+    Found 9-bit register for signal <trigger_count>.
+    Found 9-bit adder for signal <trigger_count$addsub0000> created at line 112.
     Summary:
-	inferred   1 Finite State Machine(s).
-	inferred   1 Counter(s).
-	inferred  16 D-type flip-flop(s).
-	inferred  13 Adder/Subtractor(s).
-	inferred   2 Comparator(s).
-Unit <ir_transmitter> synthesized.
+	inferred 172 D-type flip-flop(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <ultrasound_location_calculator> synthesized.
 
 
 Synthesizing Unit <orientation_math>.
     Related source file is "../Sources/Main FPGA/orientation_math.v".
-    Found finite state machine <FSM_2> for signal <state>.
+    Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 11                                             |
     | Transitions        | 15                                             |
@@ -1275,21 +1156,84 @@ Synthesizing Unit <orientation_math>.
 Unit <orientation_math> synthesized.
 
 
-Synthesizing Unit <orientation_path_calculator>.
-    Related source file is "../Sources/Main FPGA/orientation_path_calculator.v".
-WARNING:Xst:1305 - Output <missed_target> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <reached_target> is never assigned. Tied to value 0.
+Synthesizing Unit <timer>.
+    Related source file is "../Sources/Shared/timer.v".
+    Found 10-bit up counter for signal <count>.
+    Found 10-bit register for signal <count_length>.
+    Found 1-bit register for signal <counting>.
+    Found 10-bit comparator equal for signal <expired$cmp_eq0000> created at line 39.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  11 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <timer> synthesized.
+
+
+Synthesizing Unit <main_fsm>.
+    Related source file is "../Sources/Main FPGA/main_fsm.v".
 WARNING:Xst:647 - Input <target_location> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <ultrasound_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <move_command_t> is used but never assigned. This sourceless signal will be automatically connected to value 000000000000.
+WARNING:Xst:646 - Signal <move_command_calc_helper_enable> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <move_command_calc_helper_done> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <location_reached_helper_enable> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <location_reached_helper_done> is used but never assigned. This sourceless signal will be automatically connected to value 0.
     Found 4-bit register for signal <state>.
-    Found 1-bit register for signal <orientation_done>.
+    Found 1-bit register for signal <transmit_ir>.
     Found 12-bit register for signal <move_command>.
-    Found 1-bit register for signal <move_ready>.
-    Found 1-bit register for signal <orientation_helper_enable>.
+    Found 12-bit register for signal <rover_location>.
     Found 12-bit register for signal <original_location>.
     Found 12-bit register for signal <updated_location>.
+    Found 34-bit register for signal <move_delay_timer>.
+    Found 34-bit subtractor for signal <move_delay_timer$addsub0000>.
+    Found 1-bit register for signal <orientation_helper_enable>.
+    Found 1-bit register for signal <run_ultrasound>.
     Summary:
-	inferred  43 D-type flip-flop(s).
-Unit <orientation_path_calculator> synthesized.
+	inferred  89 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <main_fsm> synthesized.
+
+
+Synthesizing Unit <ir_transmitter>.
+    Related source file is "../Sources/Main FPGA/ir_transmitter.v".
+    Found finite state machine <FSM_2> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 12                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit register for signal <cur_bit>.
+    Found 4-bit adder for signal <cur_bit$addsub0000> created at line 84.
+    Found 12-bit register for signal <cur_value>.
+    Found 11-bit up counter for signal <mod_count>.
+    Found 11-bit comparator less for signal <signal_out$cmp_lt0000> created at line 108.
+    Found 5-bit comparator not equal for signal <start_timer>.
+    Found 4-bit adder for signal <sum_ones>.
+    Found 2-bit adder for signal <sum_ones$addsub0001> created at line 32.
+    Found 3-bit adder for signal <sum_ones$addsub0003> created at line 32.
+    Found 3-bit adder for signal <sum_ones$addsub0004> created at line 32.
+    Found 3-bit adder for signal <sum_ones$addsub0005> created at line 32.
+    Found 4-bit adder for signal <sum_ones$addsub0007> created at line 32.
+    Found 4-bit adder for signal <sum_ones$addsub0008> created at line 32.
+    Found 4-bit adder for signal <sum_ones$addsub0009> created at line 32.
+    Found 1-bit adder carry out for signal <sum_ones$addsub0010> created at line 32.
+    Found 2-bit adder carry out for signal <sum_ones$addsub0011> created at line 32.
+    Found 3-bit adder carry out for signal <sum_ones$addsub0012> created at line 32.
+    Found 10-bit adder for signal <WAIT_TO_45MS>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  16 D-type flip-flop(s).
+	inferred  13 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <ir_transmitter> synthesized.
 
 
 Synthesizing Unit <labkit>.
@@ -1570,6 +1514,7 @@ WARNING:Xst:647 - Input <mouse_clock> is never used. This port will be preserved
 WARNING:Xst:647 - Input <ac97_bit_clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user3<30>> is never assigned.
+WARNING:Xst:646 - Signal <reached_target> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <ir_signal> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <db_switch<7:4>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <btnU_db> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -1593,7 +1538,7 @@ Macro Statistics
 # ROMs                                                 : 3
  16x40-bit ROM                                         : 1
  4x12-bit ROM                                          : 2
-# Multipliers                                          : 23
+# Multipliers                                          : 22
  12x12-bit multiplier                                  : 2
  12x6-bit multiplier                                   : 2
  12x7-bit multiplier                                   : 1
@@ -1603,7 +1548,6 @@ Macro Statistics
  8x10-bit multiplier                                   : 2
  8x12-bit multiplier                                   : 1
  8x13-bit multiplier                                   : 1
- 8x26-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 3
  8x8-bit multiplier                                    : 6
 # Adders/Subtractors                                   : 119
@@ -1645,19 +1589,19 @@ Macro Statistics
  19-bit up counter                                     : 6
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 169
- 1-bit register                                        : 81
+# Registers                                            : 168
+ 1-bit register                                        : 79
  10-bit register                                       : 4
- 12-bit register                                       : 18
+ 12-bit register                                       : 19
  2-bit register                                        : 3
  20-bit register                                       : 4
  24-bit register                                       : 12
  25-bit register                                       : 1
- 3-bit register                                        : 3
+ 3-bit register                                        : 2
  32-bit register                                       : 10
  34-bit register                                       : 1
  4-bit register                                        : 5
- 5-bit register                                        : 8
+ 5-bit register                                        : 9
  64-bit register                                       : 1
  8-bit register                                        : 11
  9-bit register                                        : 7
@@ -1691,21 +1635,12 @@ Macro Statistics
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 3
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 27
+# Multiplexers                                         : 5
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 4-to-1 multiplexer                              : 1
  1-bit 40-to-1 multiplexer                             : 1
- 1-bit 8-to-1 multiplexer                              : 11
- 2-bit 8-to-1 multiplexer                              : 1
- 20-bit 8-to-1 multiplexer                             : 4
- 25-bit 8-to-1 multiplexer                             : 1
  3-bit 4-to-1 multiplexer                              : 1
- 3-bit 8-to-1 multiplexer                              : 1
  4-bit 16-to-1 multiplexer                             : 1
- 4-bit 8-to-1 multiplexer                              : 1
- 5-bit 8-to-1 multiplexer                              : 1
- 8-bit 8-to-1 multiplexer                              : 1
- 9-bit 8-to-1 multiplexer                              : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
 
@@ -1716,7 +1651,18 @@ Macro Statistics
 =========================================================================
 
 Analyzing FSM <FSM_2> for best encoding.
-Optimizing FSM <opc/om/state/FSM> on signal <state[1:4]> with sequential encoding.
+Optimizing FSM <transmitter/state/FSM> on signal <state[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 011
+ 011   | 010
+ 100   | 110
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <msfm/om/state/FSM> on signal <state[1:4]> with sequential encoding.
 -------------------
  State | Encoding
 -------------------
@@ -1732,17 +1678,6 @@ Optimizing FSM <opc/om/state/FSM> on signal <state[1:4]> with sequential encodin
  1001  | 1010
  1111  | 0100
 -------------------
-Analyzing FSM <FSM_1> for best encoding.
-Optimizing FSM <transmitter/state/FSM> on signal <state[1:3]> with gray encoding.
--------------------
- State | Encoding
--------------------
- 000   | 000
- 001   | 001
- 010   | 011
- 011   | 010
- 100   | 110
--------------------
 Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
 ----------------------
@@ -1757,10 +1692,8 @@ Optimizing FSM <disp/state/FSM> on signal <state[1:3]> with sequential encoding.
  00000110 | 110
 ----------------------
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
-WARNING:Xst:2404 -  FFs/Latches <my_hex_data<63:60>> (without init value) have a constant value of 0 in block <labkit>.
 WARNING:Xst:2404 -  FFs/Latches <original_base_angle<4:4>> (without init value) have a constant value of 0 in block <orientation_math>.
 WARNING:Xst:2404 -  FFs/Latches <shortcut_quadrant_adjust<4:4>> (without init value) have a constant value of 0 in block <orientation_math>.
-WARNING:Xst:2404 -  FFs/Latches <move_command<11:3>> (without init value) have a constant value of 0 in block <orientation_path_calculator>.
 
 Synthesizing (advanced) Unit <calc_abs7rtan_00_75_15>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rtan_15deg_mult0000 by adding 1 register level(s).
@@ -1769,12 +1702,6 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rtan_75deg_mult0000 by adding 1 register level(s).
 Unit <calc_abs7rtan_00_75_15> synthesized (advanced).
 
-Synthesizing (advanced) Unit <calc_rsin_15_165_30>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_15deg_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_75deg_mult0000 by adding 1 register level(s).
-Unit <calc_rsin_15_165_30> synthesized (advanced).
-
 Synthesizing (advanced) Unit <grid>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_r_e_mult0001 by adding 1 register level(s).
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_15deg_mult0000 by adding 1 register level(s).
@@ -1782,9 +1709,17 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_r_e_mult0000 by adding 1 register level(s).
 Unit <grid> synthesized (advanced).
 
-Synthesizing (advanced) Unit <main_fsm>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_move_delay_timer_mult0000 by adding 2 register level(s).
-Unit <main_fsm> synthesized (advanced).
+Synthesizing (advanced) Unit <polar_to_cartesian>.
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_15deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_15deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_15deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_75deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_75deg_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_75deg_mult0000 by adding 1 register level(s).
+Unit <polar_to_cartesian> synthesized (advanced).
 
 Synthesizing (advanced) Unit <triangle>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_30_mult0000 by adding 1 register level(s).
@@ -1803,8 +1738,14 @@ INFO:Xst:2261 - The FF/Latch <test_75deg_14> in Unit <grid> is equivalent to the
 INFO:Xst:2261 - The FF/Latch <r_e_24> in Unit <grid> is equivalent to the following 7 FFs/Latches, which will be removed : <r_e_25> <r_e_26> <r_e_27> <r_e_28> <r_e_29> <r_e_30> <r_e_31> 
 INFO:Xst:2261 - The FF/Latch <test_15deg_11> in Unit <grid> is equivalent to the following 20 FFs/Latches, which will be removed : <test_15deg_12> <test_15deg_13> <test_15deg_14> <test_15deg_15> <test_15deg_16> <test_15deg_17> <test_15deg_18> <test_15deg_19> <test_15deg_20> <test_15deg_21> <test_15deg_22> <test_15deg_23> <test_15deg_24> <test_15deg_25> <test_15deg_26> <test_15deg_27> <test_15deg_28> <test_15deg_29> <test_15deg_30> <test_15deg_31> 
 INFO:Xst:2261 - The FF/Latch <pixel_0> in Unit <grid> is equivalent to the following 23 FFs/Latches, which will be removed : <pixel_1> <pixel_2> <pixel_3> <pixel_4> <pixel_5> <pixel_6> <pixel_7> <pixel_8> <pixel_9> <pixel_10> <pixel_11> <pixel_12> <pixel_13> <pixel_14> <pixel_15> <pixel_16> <pixel_17> <pixel_18> <pixel_19> <pixel_20> <pixel_21> <pixel_22> <pixel_23> 
-WARNING:Xst:2677 - Node <orientation2_1> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation2_2> of sequential type is unconnected in block <triangle>.
+WARNING:Xst:1710 - FF/Latch <pixel_8> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_9> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_10> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_11> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_12> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_13> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_14> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_15> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <orientation2_3> of sequential type is unconnected in block <triangle>.
 WARNING:Xst:2677 - Node <orientation2_4> of sequential type is unconnected in block <triangle>.
 WARNING:Xst:2677 - Node <orientation_quadrant_2> of sequential type is unconnected in block <triangle>.
@@ -1837,7 +1778,8 @@ WARNING:Xst:2677 - Node <orientation_quadrant_28> of sequential type is unconnec
 WARNING:Xst:2677 - Node <orientation_quadrant_29> of sequential type is unconnected in block <triangle>.
 WARNING:Xst:2677 - Node <orientation_quadrant_30> of sequential type is unconnected in block <triangle>.
 WARNING:Xst:2677 - Node <orientation_quadrant_31> of sequential type is unconnected in block <triangle>.
-INFO:Xst:2261 - The FF/Latch <pixel_8> in Unit <triangle> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_9> <pixel_10> <pixel_11> <pixel_12> <pixel_13> <pixel_14> <pixel_15> 
+WARNING:Xst:2677 - Node <orientation3_3> of sequential type is unconnected in block <triangle>.
+WARNING:Xst:2677 - Node <orientation3_4> of sequential type is unconnected in block <triangle>.
 INFO:Xst:2261 - The FF/Latch <pixel_0> in Unit <triangle> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_1> <pixel_2> <pixel_3> <pixel_4> <pixel_5> <pixel_6> <pixel_7> 
 INFO:Xst:2261 - The FF/Latch <pixel_16> in Unit <triangle> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_17> <pixel_18> <pixel_19> <pixel_20> <pixel_21> <pixel_22> <pixel_23> 
 WARNING:Xst:1710 - FF/Latch <rover_x_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
@@ -1845,37 +1787,40 @@ INFO:Xst:2261 - The FF/Latch <rover_x_9> in Unit <vga_writer> is equivalent to t
 WARNING:Xst:1710 - FF/Latch <shortcut_quadrant_adjust_0> (without init value) has a constant value of 0 in block <orientation_math>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <shortcut_quadrant_adjust_1> (without init value) has a constant value of 0 in block <orientation_math>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <shortcut_quadrant_adjust_2> in Unit <orientation_math> is equivalent to the following FF/Latch, which will be removed : <shortcut_quadrant_adjust_3> 
-WARNING:Xst:1710 - FF/Latch <move_command_1> (without init value) has a constant value of 0 in block <orientation_path_calculator>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <move_command_0> in Unit <orientation_path_calculator> is equivalent to the following FF/Latch, which will be removed : <move_command_2> 
-WARNING:Xst:1710 - FF/Latch <state_3> (without init value) has a constant value of 0 in block <orientation_path_calculator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <move_command_1> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_3> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_4> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_5> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_6> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_7> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_8> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_9> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_10> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <move_command_11> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <my_hex_data_47> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_46> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_45> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_43> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_42> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_41> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_39> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_38> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_37> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_35> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_31> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_30> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_29> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_19> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_18> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_17> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_34> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_33> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_31> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_30> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_29> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_28> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_15> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_14> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_13> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_12> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_11> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_10> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_9> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_8> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_7> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_6> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_5> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_4> (without init value) has a constant value of 1 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_23> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -1886,56 +1831,55 @@ WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_12> (without init value) has a con
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_10> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_9> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_8> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_7> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_6> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_5> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <cur_value_4> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cur_value_3> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <abs_dx_tan60_9> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <abs_dx_tan15_7> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <y_final_8> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <y_original_8> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_4> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_5> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_6> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_7> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_8> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_9> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <cur_value_10> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cur_value_11> (without init value) has a constant value of 0 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <y_original_8> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <y_final_8> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <abs_dx_tan15_7> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <abs_dx_tan60_9> (without init value) has a constant value of 0 in block <om>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_9> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_10> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_11> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_12> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <rover_pixel_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_16> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_17> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <rover_pixel_noO2_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <target_pixel2_23> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_22> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_21> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_20> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_19> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <target_pixel2_18> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_12> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_11> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_10> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_9> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_17> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_16> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <target_pixel2_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_23> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_9> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_10> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_11> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_12> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -1944,6 +1888,8 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_16> (
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_17> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_18> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_19> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_20> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -1953,23 +1899,21 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO3_0>
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_23> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_22> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_21> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel3_20> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_9> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_10> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_11> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_12> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_15> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_14> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_13> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_12> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_11> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_10> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_9> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_16> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_17> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_18> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -1978,6 +1922,8 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_20> (
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_21> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_22> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel4_23> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_8> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -1985,12 +1931,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_4>
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <rover_pixel_noO4_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_23> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_22> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_21> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
@@ -2002,6 +1943,10 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_16> (
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_7> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_6> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_5> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_4> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_3> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -2010,7 +1955,7 @@ Macro Statistics
 # ROMs                                                 : 3
  16x40-bit ROM                                         : 1
  4x12-bit ROM                                          : 2
-# Multipliers                                          : 23
+# Multipliers                                          : 22
  12x12-bit multiplier                                  : 2
  12x6-bit multiplier                                   : 2
  12x7-bit multiplier                                   : 1
@@ -2020,7 +1965,6 @@ Macro Statistics
  8x10-bit multiplier                                   : 2
  8x12-bit multiplier                                   : 1
  8x13-bit multiplier                                   : 1
- 8x26-bit multiplier                                   : 1
  8x7-bit multiplier                                    : 3
  8x8-bit multiplier                                    : 6
 # Adders/Subtractors                                   : 119
@@ -2062,8 +2006,8 @@ Macro Statistics
  19-bit up counter                                     : 6
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 1190
- Flip-Flops                                            : 1190
+# Registers                                            : 1218
+ Flip-Flops                                            : 1218
 # Comparators                                          : 92
  10-bit comparator equal                               : 1
  10-bit comparator greatequal                          : 2
@@ -2094,21 +2038,12 @@ Macro Statistics
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 3
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 27
+# Multiplexers                                         : 5
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 4-to-1 multiplexer                              : 1
  1-bit 40-to-1 multiplexer                             : 1
- 1-bit 8-to-1 multiplexer                              : 11
- 2-bit 8-to-1 multiplexer                              : 1
- 20-bit 8-to-1 multiplexer                             : 4
- 25-bit 8-to-1 multiplexer                             : 1
  3-bit 4-to-1 multiplexer                              : 1
- 3-bit 8-to-1 multiplexer                              : 1
  4-bit 16-to-1 multiplexer                             : 1
- 4-bit 8-to-1 multiplexer                              : 1
- 5-bit 8-to-1 multiplexer                              : 1
- 8-bit 8-to-1 multiplexer                              : 1
- 9-bit 8-to-1 multiplexer                              : 1
 # Xors                                                 : 6
  1-bit xor2                                            : 6
 
@@ -2235,11 +2170,15 @@ Optimizing unit <labkit> ...
 
 Optimizing unit <xvga> ...
 
-Optimizing unit <main_fsm> ...
-
 Optimizing unit <display_16hex_labkit> ...
 
 Optimizing unit <median_3> ...
+
+Optimizing unit <polar_to_cartesian> ...
+
+Optimizing unit <abs_diff_7> ...
+
+Optimizing unit <abs_diff_9> ...
 
 Optimizing unit <grid> ...
 
@@ -2247,27 +2186,33 @@ Optimizing unit <triangle> ...
 
 Optimizing unit <alpha_blend> ...
 
-Optimizing unit <abs_diff_7> ...
-
-Optimizing unit <abs_diff_9> ...
+Optimizing unit <vga_writer> ...
 
 Optimizing unit <ultrasound_location_calculator> ...
 
-Optimizing unit <polar_to_cartesian> ...
+Optimizing unit <orientation_math> ...
 
 Optimizing unit <timer> ...
 
-Optimizing unit <vga_writer> ...
+Optimizing unit <main_fsm> ...
+WARNING:Xst:1710 - FF/Latch <state_3> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <ir_transmitter> ...
-
-Optimizing unit <orientation_math> ...
-
-Optimizing unit <orientation_path_calculator> ...
 WARNING:Xst:1710 - FF/Latch <vg/rover_y_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_23> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <opc/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <opc/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_15> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_14> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_13> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_12> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_11> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_63> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <msfm/transmit_ir> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <msfm/move_command_2> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <msfm/move_command_0> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <transmitter/t/count_length_0> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <transmitter/t/count_length_1> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <transmitter/t/count_length_2> of sequential type is unconnected in block <labkit>.
@@ -2333,13 +2278,15 @@ WARNING:Xst:2677 - Node <transmitter/cur_bit_0> of sequential type is unconnecte
 
 Mapping all equations...
 Building and optimizing final netlist ...
-INFO:Xst:2261 - The FF/Latch <vg/rover_pixel_15> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/rover_pixel_14> <vg/rover_pixel_13> <vg/rover_pixel_12> <vg/rover_pixel_11> <vg/rover_pixel_10> <vg/rover_pixel_9> <vg/rover_pixel_8> 
 INFO:Xst:2261 - The FF/Latch <vg/rover_pixel_23> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/rover_pixel_22> <vg/rover_pixel_21> <vg/rover_pixel_20> <vg/rover_pixel_19> <vg/rover_pixel_18> <vg/rover_pixel_17> <vg/rover_pixel_16> 
 INFO:Xst:2261 - The FF/Latch <vg/grid_pixel2_23> in Unit <labkit> is equivalent to the following 23 FFs/Latches, which will be removed : <vg/grid_pixel2_22> <vg/grid_pixel2_21> <vg/grid_pixel2_20> <vg/grid_pixel2_19> <vg/grid_pixel2_18> <vg/grid_pixel2_17> <vg/grid_pixel2_16> <vg/grid_pixel2_15> <vg/grid_pixel2_14> <vg/grid_pixel2_13> <vg/grid_pixel2_12> <vg/grid_pixel2_11> <vg/grid_pixel2_10> <vg/grid_pixel2_9> <vg/grid_pixel2_8> <vg/grid_pixel2_7> <vg/grid_pixel2_6> <vg/grid_pixel2_5> <vg/grid_pixel2_4> <vg/grid_pixel2_3> <vg/grid_pixel2_2> <vg/grid_pixel2_1> <vg/grid_pixel2_0> 
 INFO:Xst:2261 - The FF/Latch <vg/rover_yesO/delta_x_0> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <vg/grid/x_value_e_0> 
 INFO:Xst:2261 - The FF/Latch <vg/rover_pixel_7> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/rover_pixel_6> <vg/rover_pixel_5> <vg/rover_pixel_4> <vg/rover_pixel_3> <vg/rover_pixel_2> <vg/rover_pixel_1> <vg/rover_pixel_0> 
+INFO:Xst:2261 - The FF/Latch <vg/pixel_7> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_6> <vg/pixel_5> <vg/pixel_4> <vg/pixel_3> <vg/pixel_2> <vg/pixel_1> <vg/pixel_0> 
 INFO:Xst:2261 - The FF/Latch <vg/rover_yesO/delta_x2_0> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <vg/grid/test_45deg_0> 
-Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 6.
+INFO:Xst:2261 - The FF/Latch <vg/pixel_15> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_14> <vg/pixel_13> <vg/pixel_12> <vg/pixel_11> <vg/pixel_10> <vg/pixel_9> <vg/pixel_8> 
+INFO:Xst:2261 - The FF/Latch <vg/pixel_23> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_22> <vg/pixel_21> <vg/pixel_20> <vg/pixel_19> <vg/pixel_18> <vg/pixel_17> <vg/pixel_16> 
+Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 5.
 
 Final Macro Processing ...
 
@@ -2348,7 +2295,9 @@ Processing Unit <labkit> :
 	Found 7-bit shift register for signal <disp/control_22>.
 	Found 7-bit shift register for signal <disp/control_14>.
 	Found 7-bit shift register for signal <disp/control_6>.
-	Found 2-bit shift register for signal <vg/rover_yesO/orientation3>.
+	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_0>.
+	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_1>.
+	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_2>.
 	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_1>.
 	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_2>.
 	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_3>.
@@ -2385,10 +2334,10 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 906
- Flip-Flops                                            : 906
-# Shift Registers                                      : 35
- 2-bit shift register                                  : 27
+# Registers                                            : 904
+ Flip-Flops                                            : 904
+# Shift Registers                                      : 37
+ 2-bit shift register                                  : 29
  3-bit shift register                                  : 1
  5-bit shift register                                  : 3
  7-bit shift register                                  : 4
@@ -2420,34 +2369,34 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 6685
+# BELS                             : 6067
 #      GND                         : 1
-#      INV                         : 561
-#      LUT1                        : 585
+#      INV                         : 563
+#      LUT1                        : 544
 #      LUT2                        : 581
 #      LUT2_D                      : 1
-#      LUT3                        : 631
+#      LUT3                        : 482
 #      LUT3_D                      : 1
 #      LUT3_L                      : 1
-#      LUT4                        : 1043
+#      LUT4                        : 894
 #      LUT4_D                      : 3
 #      LUT4_L                      : 15
-#      MUXCY                       : 1911
-#      MUXF5                       : 270
-#      MUXF6                       : 29
-#      MUXF7                       : 1
+#      MUXCY                       : 1864
+#      MUXF5                       : 91
+#      MUXF6                       : 10
+#      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 1050
+#      XORCY                       : 1013
 # FlipFlops/Latches                : 951
-#      FD                          : 261
-#      FDE                         : 258
-#      FDR                         : 195
-#      FDRE                        : 185
-#      FDRS                        : 26
-#      FDS                         : 15
+#      FD                          : 278
+#      FDE                         : 214
+#      FDR                         : 201
+#      FDRE                        : 160
+#      FDRS                        : 73
+#      FDS                         : 14
 #      FDSE                        : 11
-# Shift Registers                  : 36
-#      SRL16                       : 30
+# Shift Registers                  : 38
+#      SRL16                       : 32
 #      SRL16E                      : 6
 # Clock Buffers                    : 3
 #      BUFG                        : 3
@@ -2457,8 +2406,8 @@ Cell Usage :
 #      OBUF                        : 260
 # DCMs                             : 1
 #      DCM                         : 1
-# MULTs                            : 24
-#      MULT18X18                   : 24
+# MULTs                            : 22
+#      MULT18X18                   : 22
 =========================================================================
 
 Device utilization summary:
@@ -2466,14 +2415,14 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                     1823  out of  33792     5%  
+ Number of Slices:                     1649  out of  33792     4%  
  Number of Slice Flip Flops:            951  out of  67584     1%  
- Number of 4 input LUTs:               3458  out of  67584     5%  
-    Number used as logic:              3422
-    Number used as Shift registers:      36
+ Number of 4 input LUTs:               3123  out of  67584     4%  
+    Number used as logic:              3085
+    Number used as Shift registers:      38
  Number of IOs:                         576
  Number of bonded IOBs:                 277  out of    684    40%  
- Number of MULT18X18s:                   24  out of    144    16%  
+ Number of MULT18X18s:                   22  out of    144    15%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
 
@@ -2498,8 +2447,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 585   |
-clock_27mhz                        | vclk1:CLKFX            | 359   |
+clock_27mhz                        | IBUFG+BUFG             | 606   |
+clock_27mhz                        | vclk1:CLKFX            | 340   |
 disp/clock1                        | BUFG                   | 43    |
 -----------------------------------+------------------------+-------+
 
@@ -2511,8 +2460,8 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 37.976ns (Maximum Frequency: 26.332MHz)
-   Minimum input arrival time before clock: 9.233ns
+   Minimum period: 37.884ns (Maximum Frequency: 26.396MHz)
+   Minimum input arrival time before clock: 7.548ns
    Maximum output required time after clock: 6.771ns
    Maximum combinational path delay: No path found
 
@@ -2522,34 +2471,34 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 37.976ns (frequency: 26.332MHz)
-  Total number of paths / destination ports: 3954397 / 1782
+  Clock period: 37.884ns (frequency: 26.396MHz)
+  Total number of paths / destination ports: 7071821 / 1791
 -------------------------------------------------------------------------
-Delay:               9.494ns (Levels of Logic = 3)
-  Source:            ul/rover_location_7 (FF)
+Delay:               9.471ns (Levels of Logic = 3)
+  Source:            msfm/rover_location_7 (FF)
   Destination:       vg/rover_y_7 (FF)
   Source Clock:      clock_27mhz rising
   Destination Clock: clock_27mhz rising 2.4X
 
-  Data Path: ul/rover_location_7 to vg/rover_y_7
+  Data Path: msfm/rover_location_7 to vg/rover_y_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.568   0.793  ul/rover_location_7 (ul/rover_location_7)
-     MULT18X18:A7->P14     2   6.009   0.741  vg/ptc/helper/Mmult_rsin_15deg_mult0000 (vg/ptc/rsin_15<6>)
-     LUT4_L:I3->LO         1   0.439   0.134  vg/ptc/y_value<6>_SW0 (N425)
+     FDE:C->Q              5   0.568   0.771  msfm/rover_location_7 (msfm/rover_location_7)
+     MULT18X18:A7->P14     2   6.009   0.741  vg/ptc/Mmult_rsin_15deg_mult0000 (vg/ptc/rsin_15deg_mult0000<14>)
+     LUT4_L:I3->LO         1   0.439   0.134  vg/ptc/y_value<6>_SW0 (N402)
      LUT3:I2->O            1   0.439   0.000  vg/ptc/y_value<6> (vg/temp_rover_y<6>)
      FDRE:D                    0.370          vg/rover_y_7
     ----------------------------------------
-    Total                      9.494ns (7.825ns logic, 1.669ns route)
-                                       (82.4% logic, 17.6% route)
+    Total                      9.471ns (7.825ns logic, 1.646ns route)
+                                       (82.6% logic, 17.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 15.354ns (frequency: 65.128MHz)
-  Total number of paths / destination ports: 5407 / 74
+  Clock period: 16.235ns (frequency: 61.597MHz)
+  Total number of paths / destination ports: 6370 / 74
 -------------------------------------------------------------------------
-Delay:               15.354ns (Levels of Logic = 15)
+Delay:               16.235ns (Levels of Logic = 16)
   Source:            disp/char_index_0 (FF)
   Destination:       disp/disp_data_out (FF)
   Source Clock:      disp/clock1 rising
@@ -2559,53 +2508,52 @@ Delay:               15.354ns (Levels of Logic = 15)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             23   0.568   1.343  disp/char_index_0 (disp/char_index_0)
-     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_10 (disp/Mmux_nibble_10)
-     MUXF5:I1->O           1   0.436   0.552  disp/Mmux_nibble_9_f5 (disp/Mmux_nibble_9_f5)
-     LUT4:I2->O            2   0.439   0.910  disp/char_index<3>_SW0 (N261)
-     LUT3:I1->O           29   0.439   1.365  disp/char_index<3> (disp/nibble<0>)
-     LUT4:I0->O            2   0.439   0.910  disp/Mrom_dots171 (disp/Mrom_dots17)
-     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_151 (disp/Mmux__varindex0000_151)
+     FDE:C->Q             35   0.568   1.380  disp/char_index_0 (disp/char_index_0)
+     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_11 (disp/Mmux_nibble_11)
+     MUXF5:I1->O           2   0.436   0.910  disp/Mmux_nibble_10_f5 (disp/Mmux_nibble_10_f5)
+     LUT2:I1->O            1   0.439   0.000  disp/char_index<3>1113 (disp/char_index<3>1112)
+     MUXF5:I0->O           3   0.436   0.759  disp/char_index<3>111_f5 (disp/char_index<3>11)
+     LUT3:I2->O           28   0.439   1.362  disp/char_index<3>291 (disp/nibble<1>)
+     LUT4:I0->O            2   0.439   0.742  disp/Mrom_dots2811 (disp/Mrom_dots29)
+     LUT4:I3->O            1   0.439   0.551  disp/Mrom_dots28 (disp/Mrom_dots28)
+     LUT3:I2->O            1   0.439   0.000  disp/Mmux__varindex0000_151 (disp/Mmux__varindex0000_151)
      MUXF5:I1->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           2   0.447   0.741  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
-     LUT4:I3->O            1   0.439   0.000  disp/disp_data_out_mux0000331 (disp/disp_data_out_mux0000331)
-     MUXF5:I1->O           1   0.436   0.557  disp/disp_data_out_mux000033_f5 (disp/disp_data_out_mux000033)
+     MUXF6:I0->O           1   0.447   0.557  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
+     LUT4:I3->O            1   0.439   0.557  disp/disp_data_out_mux000033 (disp/disp_data_out_mux000033)
      LUT4:I3->O            1   0.439   0.552  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N567)
+     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N569)
      MUXF5:I1->O           2   0.436   0.910  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
      LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux00001682 (disp/disp_data_out_mux00001681)
      MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000168_f5 (disp/disp_data_out_mux0000)
      FDE:D                     0.370          disp/disp_data_out
     ----------------------------------------
-    Total                     15.354ns (7.516ns logic, 7.838ns route)
+    Total                     16.235ns (7.955ns logic, 8.280ns route)
                                        (49.0% logic, 51.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 909 / 196
+  Total number of paths / destination ports: 358 / 160
 -------------------------------------------------------------------------
-Offset:              9.233ns (Levels of Logic = 9)
+Offset:              7.548ns (Levels of Logic = 7)
   Source:            user3<29> (PAD)
-  Destination:       ul/distance_count_18 (FF)
+  Destination:       msfm/ul/distance_count_1 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: user3<29> to ul/distance_count_18
+  Data Path: user3<29> to msfm/ul/distance_count_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.825   0.909  user3_29_IBUF (user3_29_IBUF)
-     LUT3:I1->O            1   0.439   0.000  ul/Mmux__COND_3_9 (ul/Mmux__COND_3_9)
-     MUXF5:I0->O           1   0.436   0.000  ul/Mmux__COND_3_7_f5 (ul/Mmux__COND_3_7_f5)
-     MUXF6:I0->O           3   0.447   0.932  ul/Mmux__COND_3_5_f6 (ul/Mmux__COND_3_5_f6)
-     LUT3:I1->O           42   0.439   1.399  ul/curr_ultrasound<3> (ul/_COND_3)
-     LUT4:I0->O            1   0.439   0.557  ul/distance_count_mux0002<1>1 (ul/distance_count_mux0002<1>)
-     LUT4:I3->O            1   0.439   0.000  ul/Mmux_distance_count_mux0000_69 (ul/Mmux_distance_count_mux0000_69)
-     MUXF5:I1->O           1   0.436   0.725  ul/Mmux_distance_count_mux0000_5_f5_8 (ul/Mmux_distance_count_mux0000_5_f59)
-     LUT4:I1->O            1   0.439   0.000  ul/state<2>911 (ul/distance_count_mux0000<18>)
-     FDR:D                     0.370          ul/distance_count_1
+     IBUF:I->O             1   0.825   0.726  user3_29_IBUF (user3_29_IBUF)
+     LUT3:I1->O            1   0.439   0.000  msfm/ul/Mmux__COND_3_9 (msfm/ul/Mmux__COND_3_9)
+     MUXF5:I0->O           1   0.436   0.000  msfm/ul/Mmux__COND_3_7_f5 (msfm/ul/Mmux__COND_3_7_f5)
+     MUXF6:I0->O           2   0.447   0.910  msfm/ul/Mmux__COND_3_5_f6 (msfm/ul/Mmux__COND_3_5_f6)
+     LUT3:I1->O            3   0.439   0.759  msfm/ul/curr_ultrasound<3> (msfm/ul/_COND_3)
+     LUT4:I2->O           19   0.439   1.320  msfm/ul/distance_count_mux0000<12>11 (msfm/ul/N21)
+     LUT3:I0->O            1   0.439   0.000  msfm/ul/distance_count_mux0000<18>1 (msfm/ul/distance_count_mux0000<18>1)
+     FDRS:D                    0.370          msfm/ul/distance_count_1
     ----------------------------------------
-    Total                      9.233ns (4.709ns logic, 4.524ns route)
-                                       (51.0% logic, 49.0% route)
+    Total                      7.548ns (3.834ns logic, 3.714ns route)
+                                       (50.8% logic, 49.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
@@ -2649,15 +2597,15 @@ Offset:              5.630ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 45.00 secs
-Total CPU time to Xst completion: 43.15 secs
+Total REAL time to Xst completion: 43.00 secs
+Total CPU time to Xst completion: 42.08 secs
  
 --> 
 
 
-Total memory usage is 550600 kilobytes
+Total memory usage is 546204 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  668 (   0 filtered)
-Number of infos    :   62 (   0 filtered)
+Number of warnings :  694 (   0 filtered)
+Number of infos    :   69 (   0 filtered)
 

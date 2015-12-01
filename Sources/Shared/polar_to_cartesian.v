@@ -19,41 +19,47 @@ module polar_to_cartesian
 	parameter POS = 1'b0;
 	parameter NEG = 1'b1;
 	
-   // use helper module to do the math
-   wire [7:0] rsin_15;
-   wire [7:0] rsin_45;
-   wire [7:0] rsin_75;
-   // we don't need the other outputs so we will allow them to be attached to nothing
-   calc_rsin_15_165_30 helper (.r(r_theta[7:0]),.rsin_15(rsin_15),.rsin_45(rsin_45),.rsin_75(rsin_75));
+   // do the math
+   // sin 15 = cos 75 = sin 165 = - cos 105 // is about 66/256
+   // sin 45 = cos 45 = sin 135 = - cos 135 // is about 181/256
+   // sin 75 = cos 15 = sin 105 = - cos 165 // is about 247/256
+   wire [31:0] rsin_15deg; // large bit size to multiply and shift
+   wire [31:0] rsin_45deg; // large bit size to multiply and shift
+   wire [31:0] rsin_75deg; // large bit size to multiply and shift   
+   assign rsin_15deg = (r_theta[7:0]*66) >> 8;  
+   assign rsin_45deg = (r_theta[7:0]*181) >> 8;             
+   assign rsin_75deg = (r_theta[7:0]*247) >> 8;
    
    always @(*) begin
       // use a case statement to continuously assign the correct value to the output
       // note right now when we are doing the 15 + 30n up to 165 we have 6 different possible angles
       // but note that the theta is defined in 15 degree incriments and so we need to check on the right values
+		// also note that after the math only the lower 8 bits can possibly matter anyway so
+		// nothing is lost in the math
       case (r_theta[11:8])
          4'h1: begin // 15deg
-            x_value = {POS,rsin_75}; 
-            y_value = {POS,rsin_15};
+            x_value = {POS,rsin_75deg[7:0]}; 
+            y_value = {POS,rsin_15deg[7:0]};
          end
          4'h3: begin // 45deg
-            x_value = {POS,rsin_45}; 
-            y_value = {POS,rsin_45};
+            x_value = {POS,rsin_45deg[7:0]}; 
+            y_value = {POS,rsin_45deg[7:0]};
          end
          4'h5: begin // 75deg
-            x_value = {POS,rsin_15}; 
-            y_value = {POS,rsin_75};
+            x_value = {POS,rsin_15deg[7:0]}; 
+            y_value = {POS,rsin_75deg[7:0]};
          end
          4'h7: begin // 105deg
-            x_value = {NEG,rsin_15}; 
-            y_value = {POS,rsin_75};
+            x_value = {NEG,rsin_15deg[7:0]}; 
+            y_value = {POS,rsin_75deg[7:0]};
          end
          4'h9: begin // 135deg
-            x_value = {NEG,rsin_45}; 
-            y_value = {POS,rsin_45};
+            x_value = {NEG,rsin_45deg[7:0]}; 
+            y_value = {POS,rsin_45deg[7:0]};
          end
          default: begin // 165deg
-            x_value = {NEG,rsin_75}; 
-            y_value = {POS,rsin_15};
+            x_value = {NEG,rsin_75deg[7:0]}; 
+            y_value = {POS,rsin_15deg[7:0]};
          end
       endcase
    end
