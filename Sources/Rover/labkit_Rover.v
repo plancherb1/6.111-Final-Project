@@ -93,7 +93,10 @@ module labkit(
 							 .command(move_data),.motor_l(motor_l),.motor_r(motor_r));
 	
     //  instantiate 7-segment display; use for debugging
-    wire [31:0] data = {3'h7,move_ready,move_data,16'hfff};
+    wire [31:0] data = {2'h0,move_data, // 14 bits
+                        3'h0,move_ready,
+                        3'h0,ir_in,
+                        8'hff};
     wire [7:0] segments;
     display_8hex_nexys4 display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));     // digit strobe
     assign SEG[7:0] = segments;

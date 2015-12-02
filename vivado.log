@@ -1,0 +1,175 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Wed Dec  2 13:15:37 2015
+# Process ID: 25673
+# Log file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.log
+# Journal file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vivado/2014.4/data/ip'.
+open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 5710.523 ; gain = 81.422 ; free physical = 4275 ; free virtual = 14423
+add_files -norecurse /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v
+update_compile_order -fileset sources_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 13:21:21 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 13:22:45 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 13:23:35 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 13:30:06 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+launch_runs impl_1
+[Wed Dec  2 13:31:44 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream
+[Wed Dec  2 13:38:31 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2014.4
+  **** Build date : Feb 19 2015-15:59:51
+    ** Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+open_hw_target [lindex [get_hw_targets -of_objects [get_hw_servers localhost]] 0]
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292645629A
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/labkit.bit} [lindex [get_hw_devices] 0]
+set_property PROBES.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+set_property PROBES.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/labkit.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+reset_run synth_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 13:42:05 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+launch_runs impl_1
+[Wed Dec  2 13:44:03 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream
+[Wed Dec  2 13:46:14 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+set_property PROBES.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/labkit.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+reset_run synth_1
+launch_runs synth_1
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:1]
+INFO: [HDL 9-2216] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v" into library work [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:1]
+[Wed Dec  2 15:44:00 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+launch_runs impl_1
+[Wed Dec  2 15:45:14 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream
+[Wed Dec  2 15:46:42 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+set_property PROBES.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/labkit.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+[Wed Dec  2 15:49:19 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+[Wed Dec  2 15:49:19 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+set_property PROBES.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/labkit.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Dec  2 15:58:28 2015...

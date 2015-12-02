@@ -18,6 +18,10 @@ module motor_signal_stream(
 	// output [15:0] analyzer_data // for debug only
    );
    
+   parameter OFF = 1'b0;
+   parameter ON = 1'b1;
+   
+   // fsm states and parameters
    reg [2:0] state;
    parameter IDLE = 2'b00;
    parameter TURNING = 2'b10;
@@ -28,7 +32,7 @@ module motor_signal_stream(
    // synchronize on clock
 	always @(posedge clock) begin
 		// if we see reset update all to default
-		if (reset == ACTIVE) begin
+		if (reset == ON) begin
 			state <= IDLE;
 			motor_l <= 0;
 			motor_r <= 0;
@@ -38,7 +42,7 @@ module motor_signal_stream(
 			case (state)
 				// don't move until command is ready
 				IDLE: begin
-					if (command_ready <= ACTIVE) begin
+					if (command_ready <= ON) begin
 						state <= TURNING;
 						angle <= command[11:7];
 						distance <= command[6:0];

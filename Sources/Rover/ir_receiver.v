@@ -12,7 +12,7 @@ module ir_receiver(
 	input reset,
 	input data_in,
 	output reg done,
-	output reg [11:0] move_data,
+	output reg [13:0] move_data,
 	output reg [3:0] state // output for debug
 	// output analyzer_clock, // for debug only
 	// output [15:0] analyzer_data // for debug only
@@ -35,13 +35,14 @@ module ir_receiver(
 	parameter HIGH_THRESHOLD = 8'h02;
 	parameter LOW_THRESHOLD = 8'h02;
 	parameter START_THRESHOLD = 8'h02;
-	parameter COMMAND_BITS = 8'h0F;
+	parameter COMMAND_BITS = 8'h11;
 	reg [3:0] bits_seen;
 	reg [7:0] positive_samples;
 	
 	// get our divider
 	wire enable;
-	divider_600us d1(.clk(clock),.reset(reset),.enable(enable)); // for simulation replace with assign enable = 1; //
+	parameter COUNT_GOAL = 1875; // counts at 25mhz for 600us
+	divider_600us #(.COUNT_GOAL(COUNT_GOAL)) d1(.clk(clock),.reset(reset),.enable(enable)); // for simulation replace with assign enable = 1; //
 	
 	// set up debug
 	// assign analyzer_clock = enable;
@@ -55,7 +56,7 @@ module ir_receiver(
 			done <= 0;
 			bits_seen <= 0;
 			positive_samples <= 0;
-			state <= WAIT_START;
+			state <= STATE_WAIT_START;
 		end
 		// else enter states
 		else begin
