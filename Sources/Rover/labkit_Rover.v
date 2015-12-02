@@ -26,7 +26,7 @@ module labkit(
    output[3:0] VGA_R, 
    output[3:0] VGA_B, 
    output[3:0] VGA_G,
-   output[7:0] JA, 
+   inout[7:0] JA, 
    output VGA_HS, 
    output VGA_VS, 
    output[15:0] LED,
@@ -50,26 +50,26 @@ module labkit(
     wire db_BTNL;
     wire db_BTNR;
     wire db_BTND;
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[1]), .out(db_SW[1]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[2]), .out(db_SW[2]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[3]), .out(db_SW[3]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[4]), .out(db_SW[4]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[5]), .out(db_SW[5]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[6]), .out(db_SW[6]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[7]), .out(db_SW[7]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[8]), .out(db_SW[8]));
-    synchronize dbsw15 (.clk(clock_25mhz), .in(SW[9]), .out(db_SW[9]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[10]), .out(db_SW[10]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[11]), .out(db_SW[11]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[12]), .out(db_SW[12]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[13]), .out(db_SW[13]));
-	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[14]), .out(db_SW[14]));
+	synchronize dbsw1 (.clk(clock_25mhz), .in(SW[1]), .out(db_SW[1]));
+	synchronize dbsw2 (.clk(clock_25mhz), .in(SW[2]), .out(db_SW[2]));
+	synchronize dbsw3 (.clk(clock_25mhz), .in(SW[3]), .out(db_SW[3]));
+	synchronize dbsw4 (.clk(clock_25mhz), .in(SW[4]), .out(db_SW[4]));
+	synchronize dbsw5 (.clk(clock_25mhz), .in(SW[5]), .out(db_SW[5]));
+	synchronize dbsw6 (.clk(clock_25mhz), .in(SW[6]), .out(db_SW[6]));
+	synchronize dbsw7 (.clk(clock_25mhz), .in(SW[7]), .out(db_SW[7]));
+	synchronize dbsw8 (.clk(clock_25mhz), .in(SW[8]), .out(db_SW[8]));
+    synchronize dbsw9 (.clk(clock_25mhz), .in(SW[9]), .out(db_SW[9]));
+	synchronize dbsw10 (.clk(clock_25mhz), .in(SW[10]), .out(db_SW[10]));
+	synchronize dbsw11 (.clk(clock_25mhz), .in(SW[11]), .out(db_SW[11]));
+	synchronize dbsw12 (.clk(clock_25mhz), .in(SW[12]), .out(db_SW[12]));
+	synchronize dbsw13 (.clk(clock_25mhz), .in(SW[13]), .out(db_SW[13]));
+	synchronize dbsw14 (.clk(clock_25mhz), .in(SW[14]), .out(db_SW[14]));
 	synchronize dbsw15 (.clk(clock_25mhz), .in(SW[15]), .out(db_SW[15]));
-    debounce dbbtnc #(.DELAY(250000))(.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNC), .clean(db_BTNC));
-    debounce dbbtnu #(.DELAY(250000))(.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNU), .clean(db_BTNU));
-    debounce dbbtnl #(.DELAY(250000))(.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNL), .clean(db_BTNL));
-    debounce dbbtnr #(.DELAY(250000))(.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNR), .clean(db_BTNR));
-    debounce dbbtnd #(.DELAY(250000))(.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTND), .clean(db_BTND));
+    debounce #(.DELAY(250000)) dbbtnc (.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNC), .clean(db_BTNC));
+    debounce #(.DELAY(250000)) dbbtnu (.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNU), .clean(db_BTNU));
+    debounce #(.DELAY(250000)) dbbtnl (.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNL), .clean(db_BTNL));
+    debounce #(.DELAY(250000)) dbbtnr (.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTNR), .clean(db_BTNR));
+    debounce #(.DELAY(250000)) dbbtnd (.reset(db_SW[15]), .clock(clock_25mhz), .noisy(BTND), .clean(db_BTND));
 	// assign reset
 	wire reset;
 	assign reset = db_SW[15];
@@ -77,23 +77,23 @@ module labkit(
 //////////////////////////////////////////////////////////////////////////////////
    
 	wire ir_in;
-	// link it to something assign ir_in = X;
+	assign ir_in = ~JA[0];
 	wire motor_l;
-	// link it to something assign motor_l = X;
+	assign JA[1] = motor_l;
 	wire motor_r;
-	// link it to something assign motor_r = X;
-	wire [3:0] state;
+	assign JA[2] = motor_r;
+	wire [3:0] ir_state;
 	wire move_ready;
 	wire [11:0] move_data;
 	
 	// link up the IR Receiver to the Motor Control
-	ir_receiver ir1(.clock(clock_25mhz,.reset(reset),.data_in(ir_in),.done(move_ready),
-					.move_data(move_data),.state(state));
+	ir_receiver ir1(.clock(clock_25mhz),.reset(reset),.data_in(ir_in),.done(move_ready),
+					.move_data(move_data),.state(ir_state));
 	motor_signal_stream mss1(.clock(clock_25mhz),.reset(reset),.command_ready(move_ready),
 							 .command(move_data),.motor_l(motor_l),.motor_r(motor_r));
 	
     //  instantiate 7-segment display; use for debugging
-    wire [31:0] data = {32'hfff};
+    wire [31:0] data = {3'h7,move_ready,move_data,16'hfff};
     wire [7:0] segments;
     display_8hex_nexys4 display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));     // digit strobe
     assign SEG[7:0] = segments;

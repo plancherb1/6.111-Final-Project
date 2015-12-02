@@ -59,4 +59,5 @@ module motor_signal_stream(
 				
 			endcase
 		end
+	end
 endmodule
