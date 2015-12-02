@@ -5,10 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;../Sources/Main FPGA/orientation_math.v&quot; line 116 </arg>Connection to input port &apos;<arg fmt="%s" index="2">y</arg>&apos; does not match port size
-</msg>
-
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;../Sources/Main FPGA/orientation_math.v&quot; line 117 </arg>Connection to input port &apos;<arg fmt="%s" index="2">y</arg>&apos; does not match port size
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;../Sources/Main FPGA/labkit_mainFPGA.v&quot; line 518 </arg>Too many digits specified in hex constant
 </msg>
 
 <msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;../Sources/Main FPGA/labkit_mainFPGA.v&quot; line 382:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">CLKFX_DIVIDE</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
@@ -53,73 +50,10 @@
 <msg type="info" file="Xst" num="2561" delta="unknown" >Always blocking tristate driving signal &lt;<arg fmt="%s" index="1">tv_in_i2c_data</arg>&gt; in unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is removed.
 </msg>
 
-<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">move_command_calc_helper_enable</arg>&gt; in unit &lt;<arg fmt="%s" index="2">main_fsm</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
-</msg>
-
-<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">reached_target</arg>&gt; in unit &lt;<arg fmt="%s" index="2">main_fsm</arg>&gt; has a constant value of <arg fmt="%s" index="3">0</arg> during circuit operation. The register is replaced by logic.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rsin_75deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rsin_45deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rsin_15deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rtan_75deg&lt;31:10&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rtan_60deg&lt;31:10&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rtan_30deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rtan_15deg&lt;31:8&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">orientation_quadrant&lt;31:2&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">orientation3&lt;4:3&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">move_command</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">max_y</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">max_x</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">target_location</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">move_command_t</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">000000000000</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">move_command_calc_helper_enable</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">move_command_calc_helper_done</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">location_reached_helper_enable</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">location_reached_helper_done</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
-</msg>
-
 <msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">button0</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">button1</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">button2</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">daughtercard&lt;10&gt;</arg>&gt; is never assigned.
@@ -941,13 +875,79 @@
 <msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">user3&lt;30&gt;</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_state</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">vsync</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">reached_target</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">vcount</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ir_signal</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">updated_location</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_state</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_signals</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_power</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0000000000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_done</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ultrasound_commands</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0000000000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">transmit_ir</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">target_location</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">run_ultrasound</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rover_orientation</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">00000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">rover_location</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">000000000000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">reached_target</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">pvsync</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">pixel</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">000000000000000000000000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">phsync</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">pblank</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">original_location</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">orientation_done</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">move_command</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">master_on</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">main_state</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0000</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">hsync</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">hcount</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">db_switch&lt;7:4&gt;</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -965,316 +965,38 @@
 <msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">btnD_db</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">btn2_db</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">btn1_db</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">btn0_db</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">blank</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
 <msg type="info" file="Xst" num="1767" delta="unknown" >HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">original_base_angle</arg>&lt;<arg fmt="%d" index="2">4</arg>:<arg fmt="%d" index="3">4</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">orientation_math</arg>&gt;.
+<msg type="warning" file="Xst" num="524" delta="unknown" >All outputs of the instance &lt;<arg fmt="%s" index="1">e1</arg>&gt; of the block &lt;<arg fmt="%s" index="2">edge_detect</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;.
+This instance will be removed from the design along with all underlying logic
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">shortcut_quadrant_adjust</arg>&lt;<arg fmt="%d" index="2">4</arg>:<arg fmt="%d" index="3">4</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">orientation_math</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">my_hex_data</arg>&lt;<arg fmt="%d" index="2">63</arg>:<arg fmt="%d" index="3">32</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">labkit</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rtan_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">cur_value</arg>&lt;<arg fmt="%d" index="2">11</arg>:<arg fmt="%d" index="3">11</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">ir_transmitter</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rtan_30deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">cur_value</arg>&lt;<arg fmt="%d" index="2">10</arg>:<arg fmt="%d" index="3">10</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">ir_transmitter</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rtan_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">cur_value</arg>&lt;<arg fmt="%d" index="2">9</arg>:<arg fmt="%d" index="3">9</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">ir_transmitter</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rtan_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">ir_transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_r_e_mult0001</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_r_e_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_on_30_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_on_15_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_on_60_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_on_75_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_orientation_quadrant_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="0" delta="unknown" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_target_x_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
-<msg type="info" file="Xst" num="0" delta="unknown" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_target_y_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_45deg_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">20 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_45deg_12&gt; &lt;test_45deg_13&gt; &lt;test_45deg_14&gt; &lt;test_45deg_15&gt; &lt;test_45deg_16&gt; &lt;test_45deg_17&gt; &lt;test_45deg_18&gt; &lt;test_45deg_19&gt; &lt;test_45deg_20&gt; &lt;test_45deg_21&gt; &lt;test_45deg_22&gt; &lt;test_45deg_23&gt; &lt;test_45deg_24&gt; &lt;test_45deg_25&gt; &lt;test_45deg_26&gt; &lt;test_45deg_27&gt; &lt;test_45deg_28&gt; &lt;test_45deg_29&gt; &lt;test_45deg_30&gt; &lt;test_45deg_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_75deg_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">17 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_75deg_15&gt; &lt;test_75deg_16&gt; &lt;test_75deg_17&gt; &lt;test_75deg_18&gt; &lt;test_75deg_19&gt; &lt;test_75deg_20&gt; &lt;test_75deg_21&gt; &lt;test_75deg_22&gt; &lt;test_75deg_23&gt; &lt;test_75deg_24&gt; &lt;test_75deg_25&gt; &lt;test_75deg_26&gt; &lt;test_75deg_27&gt; &lt;test_75deg_28&gt; &lt;test_75deg_29&gt; &lt;test_75deg_30&gt; &lt;test_75deg_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">r_e_24</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;r_e_25&gt; &lt;r_e_26&gt; &lt;r_e_27&gt; &lt;r_e_28&gt; &lt;r_e_29&gt; &lt;r_e_30&gt; &lt;r_e_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_15deg_11</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">20 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_15deg_12&gt; &lt;test_15deg_13&gt; &lt;test_15deg_14&gt; &lt;test_15deg_15&gt; &lt;test_15deg_16&gt; &lt;test_15deg_17&gt; &lt;test_15deg_18&gt; &lt;test_15deg_19&gt; &lt;test_15deg_20&gt; &lt;test_15deg_21&gt; &lt;test_15deg_22&gt; &lt;test_15deg_23&gt; &lt;test_15deg_24&gt; &lt;test_15deg_25&gt; &lt;test_15deg_26&gt; &lt;test_15deg_27&gt; &lt;test_15deg_28&gt; &lt;test_15deg_29&gt; &lt;test_15deg_30&gt; &lt;test_15deg_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">23 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_1&gt; &lt;pixel_2&gt; &lt;pixel_3&gt; &lt;pixel_4&gt; &lt;pixel_5&gt; &lt;pixel_6&gt; &lt;pixel_7&gt; &lt;pixel_8&gt; &lt;pixel_9&gt; &lt;pixel_10&gt; &lt;pixel_11&gt; &lt;pixel_12&gt; &lt;pixel_13&gt; &lt;pixel_14&gt; &lt;pixel_15&gt; &lt;pixel_16&gt; &lt;pixel_17&gt; &lt;pixel_18&gt; &lt;pixel_19&gt; &lt;pixel_20&gt; &lt;pixel_21&gt; &lt;pixel_22&gt; &lt;pixel_23&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">pixel_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_1&gt; &lt;pixel_2&gt; &lt;pixel_3&gt; &lt;pixel_4&gt; &lt;pixel_5&gt; &lt;pixel_6&gt; &lt;pixel_7&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_17&gt; &lt;pixel_18&gt; &lt;pixel_19&gt; &lt;pixel_20&gt; &lt;pixel_21&gt; &lt;pixel_22&gt; &lt;pixel_23&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_x_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_x_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_x_10&gt; &lt;rover_x_11&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">shortcut_quadrant_adjust_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">orientation_math</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">shortcut_quadrant_adjust_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">orientation_math</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">shortcut_quadrant_adjust_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">orientation_math</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;shortcut_quadrant_adjust_3&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">move_command_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">move_command_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_47</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_46</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_45</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_39</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_38</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_37</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_35</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_34</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_33</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_31</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_31</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_30</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -1284,6 +1006,39 @@
 </msg>
 
 <msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_28</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_27</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_26</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_25</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_24</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -1298,1000 +1053,202 @@
 <msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">t</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">t</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">t</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">t</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">t</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">db_3</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">db_S0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">db_S1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">db_S2</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">db_S3</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">hblank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">xvga1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">hsync</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">xvga1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">blank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">xvga1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">cur_value_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">transmitter</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">vblank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">xvga1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">y_original_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">om</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">vsync</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">xvga1</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">y_final_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">om</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">count_length_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">timer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;count_length_1&gt; &lt;count_length_2&gt; &lt;count_length_7&gt; &lt;count_length_9&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">abs_dx_tan15_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">om</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">count_length_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">timer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;count_length_8&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">abs_dx_tan60_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">om</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">count_length_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">timer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S3/clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S3/new</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S2/clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S2/new</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S1/clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S1/new</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S0/clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_S0/new</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_3/clean</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">db_3/new</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vcount_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hcount_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vsync</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/vblank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/blank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hsync</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vg</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_pixel2_9&gt; &lt;target_pixel2_10&gt; &lt;target_pixel2_11&gt; &lt;target_pixel2_12&gt; &lt;target_pixel2_13&gt; &lt;target_pixel2_14&gt; &lt;target_pixel2_15&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO2_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_pixel_noO2_17&gt; &lt;rover_pixel_noO2_18&gt; &lt;rover_pixel_noO2_19&gt; &lt;rover_pixel_noO2_20&gt; &lt;rover_pixel_noO2_21&gt; &lt;rover_pixel_noO2_22&gt; &lt;rover_pixel_noO2_23&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">31 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_pixel2_1&gt; &lt;target_pixel2_2&gt; &lt;target_pixel2_3&gt; &lt;target_pixel2_4&gt; &lt;target_pixel2_5&gt; &lt;target_pixel2_6&gt; &lt;target_pixel2_7&gt; &lt;target_pixel2_16&gt; &lt;target_pixel2_17&gt; &lt;target_pixel2_18&gt; &lt;target_pixel2_19&gt; &lt;target_pixel2_20&gt; &lt;target_pixel2_21&gt; &lt;target_pixel2_22&gt; &lt;target_pixel2_23&gt; &lt;rover_pixel_noO2_0&gt; &lt;rover_pixel_noO2_1&gt; &lt;rover_pixel_noO2_2&gt; &lt;rover_pixel_noO2_3&gt; &lt;rover_pixel_noO2_4&gt; &lt;rover_pixel_noO2_5&gt; &lt;rover_pixel_noO2_6&gt; &lt;rover_pixel_noO2_7&gt; &lt;rover_pixel_noO2_8&gt; &lt;rover_pixel_noO2_9&gt; &lt;rover_pixel_noO2_10&gt; &lt;rover_pixel_noO2_11&gt; &lt;rover_pixel_noO2_12&gt; &lt;rover_pixel_noO2_13&gt; &lt;rover_pixel_noO2_14&gt; &lt;rover_pixel_noO2_15&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">abs_dx_tan15_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">orientation_math</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;abs_dx_tan60_9&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_pixel2_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_23</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_22</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_21</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_20</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_pixel3_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_pixel3_9&gt; &lt;target_pixel3_10&gt; &lt;target_pixel3_11&gt; &lt;target_pixel3_12&gt; &lt;target_pixel3_13&gt; &lt;target_pixel3_14&gt; &lt;target_pixel3_15&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO3_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_pixel_noO3_17&gt; &lt;rover_pixel_noO3_18&gt; &lt;rover_pixel_noO3_19&gt; &lt;rover_pixel_noO3_20&gt; &lt;rover_pixel_noO3_21&gt; &lt;rover_pixel_noO3_22&gt; &lt;rover_pixel_noO3_23&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_pixel4_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_pixel4_9&gt; &lt;target_pixel4_10&gt; &lt;target_pixel4_11&gt; &lt;target_pixel4_12&gt; &lt;target_pixel4_13&gt; &lt;target_pixel4_14&gt; &lt;target_pixel4_15&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_pixel_noO4_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_pixel_noO4_17&gt; &lt;rover_pixel_noO4_18&gt; &lt;rover_pixel_noO4_19&gt; &lt;rover_pixel_noO4_20&gt; &lt;rover_pixel_noO4_21&gt; &lt;rover_pixel_noO4_22&gt; &lt;rover_pixel_noO4_23&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_pixel5_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_pixel5_9&gt; &lt;target_pixel5_10&gt; &lt;target_pixel5_11&gt; &lt;target_pixel5_12&gt; &lt;target_pixel5_13&gt; &lt;target_pixel5_14&gt; &lt;target_pixel5_15&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">abs_dx_tan15_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">orientation_math</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">target_x_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_x_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_4</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_y_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_60_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">17 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_60_15&gt; &lt;test_on_60_16&gt; &lt;test_on_60_17&gt; &lt;test_on_60_18&gt; &lt;test_on_60_19&gt; &lt;test_on_60_20&gt; &lt;test_on_60_21&gt; &lt;test_on_60_22&gt; &lt;test_on_60_23&gt; &lt;test_on_60_24&gt; &lt;test_on_60_25&gt; &lt;test_on_60_26&gt; &lt;test_on_60_27&gt; &lt;test_on_60_28&gt; &lt;test_on_60_29&gt; &lt;test_on_60_30&gt; &lt;test_on_60_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_75_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">16 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_75_16&gt; &lt;test_on_75_17&gt; &lt;test_on_75_18&gt; &lt;test_on_75_19&gt; &lt;test_on_75_20&gt; &lt;test_on_75_21&gt; &lt;test_on_75_22&gt; &lt;test_on_75_23&gt; &lt;test_on_75_24&gt; &lt;test_on_75_25&gt; &lt;test_on_75_26&gt; &lt;test_on_75_27&gt; &lt;test_on_75_28&gt; &lt;test_on_75_29&gt; &lt;test_on_75_30&gt; &lt;test_on_75_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_15_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_15_13&gt; &lt;test_on_15_14&gt; &lt;test_on_15_15&gt; &lt;test_on_15_16&gt; &lt;test_on_15_17&gt; &lt;test_on_15_18&gt; &lt;test_on_15_19&gt; &lt;test_on_15_20&gt; &lt;test_on_15_21&gt; &lt;test_on_15_22&gt; &lt;test_on_15_23&gt; &lt;test_on_15_24&gt; &lt;test_on_15_25&gt; &lt;test_on_15_26&gt; &lt;test_on_15_27&gt; &lt;test_on_15_28&gt; &lt;test_on_15_29&gt; &lt;test_on_15_30&gt; &lt;test_on_15_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_30_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">18 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_30_14&gt; &lt;test_on_30_15&gt; &lt;test_on_30_16&gt; &lt;test_on_30_17&gt; &lt;test_on_30_18&gt; &lt;test_on_30_19&gt; &lt;test_on_30_20&gt; &lt;test_on_30_21&gt; &lt;test_on_30_22&gt; &lt;test_on_30_23&gt; &lt;test_on_30_24&gt; &lt;test_on_30_25&gt; &lt;test_on_30_26&gt; &lt;test_on_30_27&gt; &lt;test_on_30_28&gt; &lt;test_on_30_29&gt; &lt;test_on_30_30&gt; &lt;test_on_30_31&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">rover_y_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;rover_y_11&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_x_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_x_10&gt; &lt;target_x_11&gt; </arg>
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">state_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_y_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">my_hex_data_63</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">msfm/om/y_original_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">msfm/om/y_final_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">labkit</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">msfm/transmit_ir</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">msfm/move_command_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">msfm/move_command_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_length_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/counting</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/sc/count_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/t/count_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/mod_count_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/state_FSM_FFd2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/state_FSM_FFd1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/state_FSM_FFd3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_value_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_bit_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_bit_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_bit_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">transmitter/cur_bit_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/rover_pixel_22&gt; &lt;vg/rover_pixel_21&gt; &lt;vg/rover_pixel_20&gt; &lt;vg/rover_pixel_19&gt; &lt;vg/rover_pixel_18&gt; &lt;vg/rover_pixel_17&gt; &lt;vg/rover_pixel_16&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/grid_pixel2_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">23 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/grid_pixel2_22&gt; &lt;vg/grid_pixel2_21&gt; &lt;vg/grid_pixel2_20&gt; &lt;vg/grid_pixel2_19&gt; &lt;vg/grid_pixel2_18&gt; &lt;vg/grid_pixel2_17&gt; &lt;vg/grid_pixel2_16&gt; &lt;vg/grid_pixel2_15&gt; &lt;vg/grid_pixel2_14&gt; &lt;vg/grid_pixel2_13&gt; &lt;vg/grid_pixel2_12&gt; &lt;vg/grid_pixel2_11&gt; &lt;vg/grid_pixel2_10&gt; &lt;vg/grid_pixel2_9&gt; &lt;vg/grid_pixel2_8&gt; &lt;vg/grid_pixel2_7&gt; &lt;vg/grid_pixel2_6&gt; &lt;vg/grid_pixel2_5&gt; &lt;vg/grid_pixel2_4&gt; &lt;vg/grid_pixel2_3&gt; &lt;vg/grid_pixel2_2&gt; &lt;vg/grid_pixel2_1&gt; &lt;vg/grid_pixel2_0&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_yesO/delta_x_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/grid/x_value_e_0&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_pixel_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/rover_pixel_6&gt; &lt;vg/rover_pixel_5&gt; &lt;vg/rover_pixel_4&gt; &lt;vg/rover_pixel_3&gt; &lt;vg/rover_pixel_2&gt; &lt;vg/rover_pixel_1&gt; &lt;vg/rover_pixel_0&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/pixel_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/pixel_6&gt; &lt;vg/pixel_5&gt; &lt;vg/pixel_4&gt; &lt;vg/pixel_3&gt; &lt;vg/pixel_2&gt; &lt;vg/pixel_1&gt; &lt;vg/pixel_0&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/rover_yesO/delta_x2_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/grid/test_45deg_0&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/pixel_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/pixel_14&gt; &lt;vg/pixel_13&gt; &lt;vg/pixel_12&gt; &lt;vg/pixel_11&gt; &lt;vg/pixel_10&gt; &lt;vg/pixel_9&gt; &lt;vg/pixel_8&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">vg/pixel_23</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">labkit</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;vg/pixel_22&gt; &lt;vg/pixel_21&gt; &lt;vg/pixel_20&gt; &lt;vg/pixel_19&gt; &lt;vg/pixel_18&gt; &lt;vg/pixel_17&gt; &lt;vg/pixel_16&gt; </arg>
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">xvga1/hblank</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">labkit</arg>&gt;.
 </msg>
 
 </messages>

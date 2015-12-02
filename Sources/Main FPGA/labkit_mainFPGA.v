@@ -359,7 +359,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   //debounce #(.DELAY(270000)) db_R (.reset(reset), .clock(clock_27mhz), .noisy(~button_right), .clean(btnR_db));
   //debounce #(.DELAY(270000)) db_0 (.reset(reset), .clock(clock_27mhz), .noisy(~button0), .clean(btn0_db));
   //debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
-  //debounce #(.DELAY(270000)) db_2 (.reset(reset), .clock(clock_27mhz), .noisy(~button2), .clean(btn2_db));
+  debounce #(.DELAY(270000)) db_2 (.reset(reset), .clock(clock_27mhz), .noisy(~button2), .clean(btn2_db));
   debounce #(.DELAY(270000)) db_3 (.reset(reset), .clock(clock_27mhz), .noisy(~button3), .clean(btn3_db));
   debounce #(.DELAY(270000)) db_S0 (.reset(reset), .clock(clock_27mhz), .noisy(switch[0]), .clean(db_switch[0]));
   debounce #(.DELAY(270000)) db_S1 (.reset(reset), .clock(clock_27mhz), .noisy(switch[1]), .clean(db_switch[1]));
@@ -429,7 +429,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [9:0] ultrasound_power;
   
   // assignments of some of those variables to inputs and outputs
-  assign ir_signal = user3[31];
+  assign user3[31] = ir_signal;
   // we only want one high when the button is pressed
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
   // need two ways to run ultrasound both the start manually and from the orientation / path
@@ -490,9 +490,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
                                .reset(reset),
-                               .address(move_command[11:7]), // angle
-                               .command(move_command[6:0]), // distance
-                               .transmit(transmit_ir),
+                               .address(5'h01),//.address(move_command[11:7]), // angle
+                               .command(7'h11),//.command(move_command[6:0]), // distance
+                               .transmit(btn2_db),//.transmit(transmit_ir),
                                .signal_out(ir_signal));					  
 
   // use this to display on hex display for debug
@@ -508,10 +508,15 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								//3'b0, reached_target,
 								//4'hF,
 								//move_command // 12 bits
-								4'hF,
-								original_location, // 12 bits
-								4'hF,
-								updated_location // 12 bits
+								
+								//4'hF,
+								//original_location, // 12 bits
+								//4'hF,
+								//updated_location // 12 bits
+								8'hFF,
+								3'b0,btn2_db,
+								4'hFF,
+								16'hFFFF								
 							};
   end
 	

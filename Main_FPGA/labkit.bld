@@ -29,6 +29,9 @@ Done...
 Checking Partitions ...
 
 Checking expanded design ...
+WARNING:NgdBuild:470 - bidirect pad net 'user3<29>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<5>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<8>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<10>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'flash_data<10>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<11>' has no legal driver
@@ -274,8 +277,14 @@ WARNING:NgdBuild:470 - bidirect pad net 'ram1_data<9>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram0_data<34>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram0_data<29>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram0_data<35>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<11>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<14>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<20>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<17>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<23>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user3<30>' has no legal driver
-WARNING:NgdBuild:470 - bidirect pad net 'user3<31>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<26>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user3<2>' has no legal driver
 
 Partition Implementation Status
 -------------------------------
@@ -286,9 +295,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 247
+  Number of warnings: 256
 
-Total memory usage is 245072 kilobytes
+Total memory usage is 228716 kilobytes
 
 Writing NGD file "labkit.ngd" ...
 

@@ -1,7 +1,7 @@
 #Release 10.1.03 - par K.39 (lin64)
 #Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 
-#Tue Dec  1 15:33:09 2015
+#Tue Dec  1 19:29:08 2015
 
 #
 ## NOTE: This file is designed to be imported into a spreadsheet program
@@ -553,7 +553,7 @@ G8,user3<16>,IOB,IO_L05P_1,OUTPUT,LVTTL*,1,12,SLOW,NONE**,,,LOCATED,,NO,NONE,
 G9,user1<25>,IOB,IO_L20P_1,INPUT,LVTTL*,1,,,,NONE,,LOCATED,,NO,NONE,
 G10,user3<25>,IOB,IO_L20N_1,OUTPUT,LVTTL*,1,12,SLOW,NONE**,,,LOCATED,,NO,NONE,
 G11,,DIFFM,IO_L52P_1,UNUSED,,1,,,,,,,,,,
-G12,user3<31>,IOB,IO_L52N_1,INPUT,LVTTL*,1,,,,NONE,,LOCATED,,NO,NONE,
+G12,user3<31>,IOB,IO_L52N_1,OUTPUT,LVTTL*,1,12,SLOW,NONE**,,,LOCATED,,NO,NONE,
 G13,,,GND,,,,,,,,,,,,,
 G14,user3<28>,IOB,IO_L92P_1,OUTPUT,LVTTL*,1,12,SLOW,NONE**,,,LOCATED,,NO,NONE,
 G15,user1<29>,IOB,IO_L92N_1,INPUT,LVTTL*,1,,,,NONE,,LOCATED,,NO,NONE,
