@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../../Sources/Rover/motor_signal_stream.v"
+verilog xil_defaultlib  "../../../../Test Fixtures/Rover/motor_signal_stream_tb.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"

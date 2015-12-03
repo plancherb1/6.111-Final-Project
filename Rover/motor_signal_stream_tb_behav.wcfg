@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="motor_signal_stream_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="motor_signal_stream_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="16" />
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/command_ready">
+      <obj_property name="ElementShortName">command_ready</obj_property>
+      <obj_property name="ObjectShortName">command_ready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/command">
+      <obj_property name="ElementShortName">command[11:0]</obj_property>
+      <obj_property name="ObjectShortName">command[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/motor_l">
+      <obj_property name="ElementShortName">motor_l</obj_property>
+      <obj_property name="ObjectShortName">motor_l</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/motor_r">
+      <obj_property name="ElementShortName">motor_r</obj_property>
+      <obj_property name="ObjectShortName">motor_r</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/state">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/test_sub_counter">
+      <obj_property name="ElementShortName">test_sub_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">test_sub_counter[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/test_counter">
+      <obj_property name="ElementShortName">test_counter[11:0]</obj_property>
+      <obj_property name="ObjectShortName">test_counter[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/uut/motor_l">
+      <obj_property name="ElementShortName">motor_l</obj_property>
+      <obj_property name="ObjectShortName">motor_l</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/motor_signal_stream_tb/uut/motor_r">
+      <obj_property name="ElementShortName">motor_r</obj_property>
+      <obj_property name="ObjectShortName">motor_r</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/angle_count">
+      <obj_property name="ElementShortName">angle_count[5:0]</obj_property>
+      <obj_property name="ObjectShortName">angle_count[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/angle_sub_count">
+      <obj_property name="ElementShortName">angle_sub_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">angle_sub_count[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/distance_count">
+      <obj_property name="ElementShortName">distance_count[6:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_count[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/distance_sub_count">
+      <obj_property name="ElementShortName">distance_sub_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">distance_sub_count[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/motor_signal_stream_tb/uut/pause_count">
+      <obj_property name="ElementShortName">pause_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pause_count[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

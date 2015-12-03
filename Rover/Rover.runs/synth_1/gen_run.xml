@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1449089358">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1449115519">
   <File Type="VDS-TIMING-PB" Name="labkit_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="labkit_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="labkit.dcp"/>
@@ -21,6 +21,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../Sources/Rover/display_8hex_nexys4.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../Sources/Rover/motor_signal_stream.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -35,13 +42,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../Sources/Rover/display_8hex_nexys4.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../Sources/Shared/debounce.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -50,6 +50,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../Sources/Shared/synchronize.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../Sources/Rover/rover_main_fsm.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -78,6 +85,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/../Sources/Rover/Nexys4DDR_Master_lab4.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
