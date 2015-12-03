@@ -19,15 +19,11 @@ module path_math
      input enable,
      input reset,
      output reg done,
-     output reg [11:0] move_command);
+     output reg [11:0] move_command); // distance is [6:0] and angle is [11:7]
 	  
 	// learning from the VGA and orientation I will pipeline this from the start
    // our goal is to solve distance of move = delta_y / sin(orientation)
-   // we also know that angle of move = 
-   
-   
-   ////// NEED TO CALC THE ANGLE THEN THIS WORKS!!!! :)
-   
+   // we also know that angle of move = orientation of move - theta of location
 	
 	// Helper Angles
 	parameter DEG360 = 5'h18;
@@ -36,14 +32,15 @@ module path_math
 	// FSM states
 	reg [3:0] state;
 	parameter IDLE 			 	= 4'h0;
-	parameter PTC					= 4'h1;
+	parameter PTC_AND_ANGLE 	= 4'h1;
 	parameter DELTAS				= 4'h2;
 	parameter ABS_DELTA_QUAD 	= 4'h3;
    parameter ORIENT_BASE_ANGLE= 4'h4;
 	parameter ABS_DY_DIV_SIN	= 4'h5;
 	parameter REPORT			 	= 4'hF;
 	
-	// PTC helpers
+	// PTC_AND_ANGLE helpers
+   reg [4:0] angle;
 	reg signed [8:0] x_location;
 	reg signed [8:0] y_location;
 	reg signed [8:0] x_target;
@@ -74,7 +71,7 @@ module path_math
 	reg [2:0] base_angle;
    
 	// ABS_DY_DIV_SIN helpers
-	reg [7:0] distance;
+	reg [6:0] distance;
    wire [7:0] distance_t;
 	//use a helper function for the math
 	calc_r_y_theta calcr (.y(abs_delta_y),.x(abs_delta_x),.theta(base_angle),.r(distance_t));
@@ -83,13 +80,26 @@ module path_math
       if (reset) begin
          state <= IDLE;
          done <= 0;
-			orientation <= 5'h00;
+			angle <= 0;
+         x_location <= 0;
+         y_location <= 0;
+         x_target <= 0;
+         y_target <= 0;
+         delta_x <= 0;
+         delta_y <= 0;
+         abs_delta_x <= 0;
+         abs_delta_y <= 0;
+         quadrant <= 0;
+         base_angle <= 0
+         distance <= 0;
+         move_command <= 0;
       end
       else begin
          case(state)
 				
 				// we begin the pipeline with the Polar to Cartesian (PTC) calc
-				PTC: begin
+				PTC_AND_ANGLE: begin
+               angle <= orientation - location[11:8];
 					x_location <= x_location_t;
 					y_location <= y_location_t;
 					x_target <= x_target_t;
@@ -128,7 +138,9 @@ module path_math
             
             // then we need to find ABS(DeltaY/sin(base_angle))
 				ABS_DY_DIV_SIN: begin
-					distance <= distance_t
+               // we know max distance for our purposes is 9 bits shifted down 2 is 7
+               // since max move is (-128,0) to (128,255)
+					distance <= distance_t[6:0];
 					state <= REPORT;
 				end
 				
@@ -142,7 +154,7 @@ module path_math
 				// default to IDLE
 				default: begin
 					if (enable) begin
-						state <= PTC;
+						state <= PTC_AND_ANGLE;
 						done <= 0;
 					end
 				end

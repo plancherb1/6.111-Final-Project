@@ -43,18 +43,22 @@ module main_fsm(
 	 parameter RUN_ULTRASOUND_2		= 4'h4;
 	 parameter ORIENTATION_PHASE_2	= 4'h5;
 	 parameter ORIENTATION_PHASE_3	= 4'h6;
-	 parameter CALC_MOVE_COMMAND		= 4'h7;
-	 parameter MOVE_MOVE					= 4'h8;
-	 parameter RUN_ULTRASOUND_3		= 4'h9;
-	 parameter ARE_WE_DONE				= 4'hA;
+	 parameter CALC_MOVE_COMMAND_1	= 4'h7;
+    parameter CALC_MOVE_COMMAND_2	= 4'h8;
+    parameter CALC_MOVE_COMMAND_3	= 4'h9;
+    parameter CALC_MOVE_COMMAND_4	= 4'hA;
+	 parameter MOVE_MOVE				   = 4'hB;
+	 parameter RUN_ULTRASOUND_3		= 4'hC;
+	 parameter ARE_WE_DONE				= 4'hF;
 	
     // ORIENTATION_PHASE_1/2/3 helper memory and paramenters for orientation and path
     reg [31:0] delay_count;
 	 parameter LOCATION_DELAY = 27000000; // delay a second just to be safe for this to clear because
 														// weird things are happening
-	 parameter ORIENTATION_MOVE = 12'h005;
+	 parameter ORIENTATION_MOVE = 12'h002;
     reg orientation_helper_enable;
-    orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation),
+    wire [4:0] orientation_t;
+    orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation_t),
                         .enable(orientation_helper_enable),.done(orientation_done),.reset(reset),.clock(clock));
 	 
 	 // ORIENTATION_MOVE and MOVE_MOVE helpers
@@ -63,17 +67,23 @@ module main_fsm(
 	 parameter ORIENTATION_DELAY = MOVE_DELAY_FACTOR * ORIENTATION_MOVE[7:0];
     
     // MOVE_COMMAND_CALC helpers
-    wire move_command_calc_helper_done;
-    reg move_command_calc_helper_enable;
+    parameter MOVE_SEND_TIME = 27000000; // one second
+    reg [31:0] move_command_counter;
+    wire move_command_helper_done;
+    reg move_command_helper_enable;
     wire [11:0] move_command_t;
-    
-    // MAKE MODULE TO DO THE MATH HERE
+    reg [11:0] current_location;
+    reg [4:0] move_orientation;
+    path_math pm (.location(current_location),.target(target_location),.orientation(move_orientation),
+                  .enable(move_command_helper_enable),.clock(clock),.reset(reset),
+                  .done(move_command_helper_done),.move_command(move_command_t));
     
     // ARE_WE_DONE helpers
     wire location_reached_helper_done;
     reg location_reached_helper_enable;
-    
-    // MAKE MODULE TO DO THE MATH HERE
+    roughly_equal_locations rel (.clock(clock),.reset(reset),.loc_1(rover_location),.loc_2(target_location),
+                                 .done(location_reached_helper_done),.enable(location_reached_helper_enable),
+                                 .equal(reached_target));
 	 
 	 // for debug only
 	 //assign analyzer_clock = clock;
@@ -87,11 +97,12 @@ module main_fsm(
 			updated_location <= 12'h000;
 			orientation_helper_enable <= OFF;
 			move_delay_timer <= 34'h0_0000_0000;
-		   move_command_calc_helper_enable  <= OFF;
+		   move_command_helper_enable  <= OFF;
 			move_command <= 12'h000;
 			transmit_ir <= OFF;
 			reached_target <= OFF;
 			location_reached_helper_enable  <= OFF;
+         move_command_counter <= 32'h0000_0000;
 		end
 		else begin
 			case (state)
@@ -163,20 +174,50 @@ module main_fsm(
 					// for now we ignore the move because its a stretch goal
 					// and bypass the next few states
 					if (orientation_done) begin
+                  orientation <= orientation_t;
 						state <= IDLE;
-						//initiate the helper to calculate the move command
-                  //state <= CALC_MOVE_COMMAND;
-                  //move_command_calc_helper_enable <= ON;
+						//then move to calc the move command
+                  //state <= CALC_MOVE_COMMAND_1;
 					end
 				end
             
-            // use the helper to calculate the move command
-				CALC_MOVE_COMMAND: begin
-               if (move_command_calc_helper_done) begin
+            // first we need the orientation between the end and the target
+				CALC_MOVE_COMMAND_1: begin
+               original_location <= updated_location;
+               updated_location <= target_location;
+               current_location <= updated_location;
+               orientation_helper_enable <= ON;
+               state <= CALC_MOVE_COMMAND_2;
+            end
+            
+            // then we save that orientation and calc the move command with it
+            CALC_MOVE_COMMAND_2: begin
+               // make sure our new orientation clears
+               if (orientation_done) begin
+                  move_orientation <= orientation_t;
+                  move_command_helper_enable <= ON;
+                  state <= CALC_MOVE_COMMAND_3;
+               end
+            end
+            
+            // then we have a move command so prep to send it via ir
+            CALC_MOVE_COMMAND_3: begin
+               if (move_command_helper_done) begin
                   move_command <= move_command_t;
                   transmit_ir <= ON;
-                  move_delay_timer <= MOVE_DELAY_FACTOR * move_command_t[7:0];
+                  state <= CALC_MOVE_COMMAND_4;
+               end
+            end
+            
+            // send for 1 second so that we make sure the rover receives it
+            CALC_MOVE_COMMAND_4: begin
+               if (move_command_counter == MOVE_SEND_TIME) begin
                   state <= MOVE_MOVE;
+                  // set the delay for 1 second per angle and distance to travel
+                  move_delay_timer <= MOVE_DELAY_FACTOR * (move_command[7:0] + move_command[11:8]);
+               end
+               else begin
+                  move_command_counter <= move_command_counter + 1;
                end
             end
             
@@ -207,23 +248,26 @@ module main_fsm(
 					location_reached_helper_enable <= OFF;
 					// wait for the helper to finish
                if (location_reached_helper_done) begin
+                  // currently we just do one shot so commented out
                   // if we are there then done
-                  if (reached_target) begin
+                  //if (reached_target) begin
                      state <= IDLE;
-                  end
+                  //end
                   // else restart from orientation step and try again
-                  else begin
-                     state <= RUN_ULTRASOUND_1;
-                     run_ultrasound <= ON;
-							original_location <= 12'h000;
-							updated_location <= 12'h000;
-							orientation_helper_enable <= OFF;
-							move_delay_timer <= 34'h0_0000_0000;
-							move_command_calc_helper_enable  <= OFF;
-							move_command <= 12'h000;
-							transmit_ir <= OFF;
-							reached_target <= OFF;
-							location_reached_helper_enable  <= OFF;
+                  //else begin
+                     //state <= RUN_ULTRASOUND_1;
+                     //run_ultrasound <= ON;
+							//original_location <= 12'h000;
+							//updated_location <= 12'h000;
+                     //current_location <= 12'h000;
+							//orientation_helper_enable <= OFF;
+							//move_delay_timer <= 34'h0_0000_0000;
+							//move_command_helper_enable  <= OFF;
+							//move_command <= 12'h000;
+							//transmit_ir <= OFF;
+							//reached_target <= OFF;
+							//location_reached_helper_enable  <= OFF;
+                     //move_command_counter <= 32'h0000_0000;
 
 						end
 					end
@@ -240,11 +284,12 @@ module main_fsm(
 						updated_location <= 12'h000;
 						orientation_helper_enable <= OFF;
 						move_delay_timer <= 34'h0_0000_0000;
-						move_command_calc_helper_enable  <= OFF;
+						move_command_helper_enable  <= OFF;
 						move_command <= 12'h000;
 						transmit_ir <= OFF;
 						reached_target <= OFF;
 						location_reached_helper_enable  <= OFF;
+                  move_command_counter <= 32'h0000_0000;
 					end
 				end
 			
