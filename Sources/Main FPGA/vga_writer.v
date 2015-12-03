@@ -14,7 +14,7 @@ module vga_writer (
    input [11:0] location,		// input location of the Rover
    input [11:0] move_command,  // move command to the rover (if applicable)
    input [4:0] orientation,		// orientation of the rover
-   input [3:0] target_location,// location of the target based on switches
+   input [11:0] target_location,// location of the target
    input new_data,					// ready to re-draw and use the new location
    input orientation_ready,   	// ready to draw the orientation
    input [10:0] hcount,			// horizontal index of current pixel (0..1023)
@@ -71,6 +71,10 @@ module vga_writer (
    // helpers for the rover and target position update on VSYNC
    reg signed [11:0] target_x;
    reg signed [11:0] target_y;
+   wire signed [8:0] temp_target_x;
+   wire signed [8:0] temp_target_y;
+   wire signed [11:0] sized_temp_target_x;
+	wire signed [11:0] sized_temp_target_y;
    reg signed [11:0] rover_x;
    reg signed [11:0] rover_y;
    wire signed [8:0] temp_rover_x;
@@ -78,9 +82,12 @@ module vga_writer (
 	wire signed [11:0] sized_temp_rover_x;
 	wire signed [11:0] sized_temp_rover_y;
    // helper to compute the polar to cartesian
-   polar_to_cartesian ptc (.r_theta(location),.x_value(temp_rover_x),.y_value(temp_rover_y));
+   polar_to_cartesian ptcr (.r_theta(location),.x_value(temp_rover_x),.y_value(temp_rover_y));
    assign sized_temp_rover_x = {temp_rover_x[8],temp_rover_x[8],temp_rover_x[8],temp_rover_x};
 	assign sized_temp_rover_y = {temp_rover_y[8],temp_rover_y[8],temp_rover_y[8],temp_rover_y};
+   polar_to_cartesian ptct (.r_theta(target_location),.x_value(temp_target_x),.y_value(temp_target_y));
+   assign sized_temp_target_x = {temp_target_x[8],temp_target_x[8],temp_target_x[8],temp_target_x};
+	assign sized_temp_target_y = {temp_target_y[8],temp_target_y[8],temp_target_y[8],temp_target_y};
    // scaling factor is how big we make the distance between each arc
 	// we default to 2 but can change it according to the rover and target location
 	// that is, the rover and target need to be in the grid so therefore scale is the
@@ -155,18 +162,8 @@ module vga_writer (
 					rover_y <= (sized_temp_rover_y * scale_factor) + GRID_BOTTOM_BORDER;		
 				end
 				// always update the target to the state of the switches
-				case(target_location[1:0])
-					2'h1: target_x <= 0;
-					2'h2: target_x <= GRID_LEFT_BORDER;
-					2'h3: target_x <= GRID_RIGHT_BORDER;
-					default: target_x <= GRID_RIGHT_BORDER/2;
-				endcase
-				case(target_location[3:2])
-					2'h1: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/4 + GRID_BOTTOM_BORDER;
-					2'h2: target_y <= (GRID_TOP_BORDER-GRID_BOTTOM_BORDER)/2 + GRID_BOTTOM_BORDER;
-					2'h3: target_y <= GRID_TOP_BORDER;
-					default: target_y <= GRID_BOTTOM_BORDER;
-				endcase
+            target_x <= sized_temp_target_x * scale_factor;
+				target_y <= (sized_temp_target_y * scale_factor) + GRID_BOTTOM_BORDER;
 				
 				// UPDATE THE SCALE FACTOR ???? ----- STRETCH GOAL WOULD GO HERE USING MAXX AND MAXY
 				

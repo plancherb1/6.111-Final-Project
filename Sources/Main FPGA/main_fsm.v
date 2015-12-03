@@ -16,7 +16,7 @@ module main_fsm(
 	 input clock,
 	 input reset,
 	 input enable,
-	 input [3:0] target_location,
+	 input [11:0] target_location, // r is [7:0] theta is [11:8]
 	 input ultrasound_done,
 	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
 	 output reg run_ultrasound,

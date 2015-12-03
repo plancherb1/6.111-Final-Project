@@ -423,7 +423,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location; // theta == [11:8], r == [7:0]
   wire [4:0] rover_orientation; // every 15 degrees around the circle
-  wire [3:0] target_location;
+  wire [2:0] target_switches;
+  wire [11:0] target_location; // theta == [11:8], r == [7:0]
   wire [9:0] ultrasound_commands;
   wire [9:0] ultrasound_signals;
   wire [9:0] ultrasound_power;
@@ -433,7 +434,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // we only want one high when the button is pressed
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
   // need two ways to run ultrasound both the start manually and from the orientation / path
-  assign target_location = db_switch[3:0];
+  assign target_switches = db_switch[2:0];
   // assign command, power, signal, to 0,1,2 + 3n
   assign {user3[0],user3[3],user3[6],user3[9],user3[12],
 			 user3[15],user3[18],user3[21],user3[24],user3[27]} = ultrasound_commands;
@@ -441,6 +442,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 			 user3[16],user3[19],user3[22],user3[25],user3[28]} = ultrasound_power;
   assign ultrasound_signals = {user3[2],user3[5],user3[8],user3[11],user3[14],
 										  user3[17],user3[20],user3[23],user3[26],user3[29]};
+  
+  // target location selector logic
+  target_location_selector tls (.switches(target_switches),.location(target_location));
   
   wire [3:0] main_state;
   wire [11:0] original_location;
