@@ -33,13 +33,12 @@ module motor_signal_stream(
    parameter TESTING_DELAY = 4'hF; // for testing mode only
    
    // parameters for distance and angle move times
-   
-   // CALC THESE WITH TEST MODE WHICH IS ENABLED------------------------------------------
-   
-   parameter FIFTEEN_DEG = 15;
-   parameter FOUR_INCHES = 4;
-   
-   // CALC THESE WITH TEST MODE WHICH IS ENABLED -----------------------------------------
+   parameter FIFTEEN_DEG = 7692307;
+   // it goes about 13 inches per second all loaded up so to go four inches we need
+   // 4/13 of a second which at 25mhz is 7,692,307 clock cycles
+   parameter FOUR_INCHES = 4166666;
+   // it goes about 1 rotation in 4 seconds all loaded up so to go fifteen deg we need
+   // 1/6 of a second which at 25mhz is 4,166,666 clock cycles
    
    parameter PAUSE_TIME = 25000000; // one second // set to 5 for simulation
    reg [5:0] angle;
@@ -164,28 +163,47 @@ module motor_signal_stream(
                 default: begin
                     move_done <= 0;
                     if (command_ready) begin
-                        //state <= TURNING;
-                        //motor_l_f <= ON;
-                        //motor_r_f <= OFF;
-                        //motor_l_b <= OFF
-                        //motor_r_b <= ON;
-                        //angle <= command[11:7];
-                        //distance <= command[6:0];
-                        //angle_count <= 0;
-                        //angle_sub_count <= 0;
-                        //distance_count <= 0;
-                        //distance_sub_count <= 0;
-                        //pause_count <= 0;
-                        //move_done <= 0;
+                        // check to make sure distance isn't zero
+                        if (command[6:0] == 7'h00) begin
+                            state <= IDLE;
+                            move_done <= 1;
+                        end
+                        // else do the move
+                        else begin
+                            angle <= command[11:7];
+                            distance <= command[6:0];
+                            angle_count <= 0;
+                            angle_sub_count <= 0;
+                            distance_count <= 0;
+                            distance_sub_count <= 0;
+                            pause_count <= 0;
+                            move_done <= 0;
+                            // if angle is zero go straight to move forward
+                            if (command[11:7] == 5'h00) begin
+                                state <= MOVING;
+                                motor_l_f <= ON;
+                                motor_r_f <= ON;
+                                motor_l_b <= OFF;
+                                motor_r_b <= OFF;
+                            end
+                            // else go to turning
+                            else begin
+                                state <= TURNING;
+                                motor_l_f <= OFF;
+                                motor_r_f <= ON;
+                                motor_l_b <= OFF;
+                                motor_r_b <= OFF;
+                            end
+                        end
                         
                         // testing mode code below
-                        test_counter <= 0;
-                        test_sub_counter <= 1;
-                        motor_l_f <= ON;
-                        motor_r_f <= ON;
-                        motor_l_b <= OFF;
-                        motor_r_b <= OFF;
-                        state <= TESTING_DELAY;
+                        //test_counter <= 0;
+                        //test_sub_counter <= 1;
+                        //motor_l_f <= OFF;
+                        //motor_r_f <= ON;
+                        //motor_l_b <= OFF;
+                        //motor_r_b <= OFF;
+                        //state <= TESTING_DELAY;
                         // end testing block
                     end
                 end

@@ -98,33 +98,34 @@ module labkit(
     wire [3:0] motor_state;
     wire [11:0] move_data;
     wire start_move;
+    wire move_done;
 	motor_signal_stream mss1(.clock(clock_25mhz),.reset(reset),
 	                         .command_ready(start_move),
 							 .command(move_data),
 							 .motor_l_f(motor_l_f),.motor_r_f(motor_r_f),
 							 .motor_l_b(motor_l_b),.motor_r_b(motor_r_b),
-							 .state(motor_state));
+							 .move_done(move_done),.state(motor_state));
 	
 	// link up the main fsm
 	wire [3:0] master_state;
 	rover_main_fsm fsm1(.clock(clock_25mhz),.reset(reset),.move_done(move_done),
 	                    .move_ready(move_ready),.move_data_t(move_data_t),
-	                    //.start_move(start_move),.move_data(move_data), // comment out this line for testing mode
+	                    .start_move(start_move),.move_data(move_data), // comment out this line for testing mode
 	                    .state(master_state));	
 	
     // for testing and determining lengths to travel
-    assign move_data = {4'h0,db_SW[7:0]};
-    assign start_move = db_BTNC;
+    //assign move_data = {4'h0,db_SW[7:0]};
+    //assign start_move = db_BTNC;
     // end testing block
 	
     //  instantiate 7-segment display; use for debugging
-    wire [31:0] data = {3'h0,move_ready,
-                        move_data_t, // 12 bits
-                        3'h0,start_move,
-                        3'h0,motor_l_f,
-                        3'h0,motor_r_f,
-                        3'h0,motor_l_b,
-                        3'h0,motor_r_b};
+    wire [31:0] data = {move_data[8:0],
+                        move_data_t[8:0],
+                        motor_l_f,motor_l_b,motor_r_f,motor_r_b,
+                        master_state[0],motor_state[2:0],
+                        ir_state,
+                        2'h0,move_ready,move_done
+                        };
     
     // hex display for debug
     wire [7:0] segments;

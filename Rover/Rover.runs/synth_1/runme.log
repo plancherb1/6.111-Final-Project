@@ -10,6 +10,7 @@
 
 source labkit.tcl
 # set_param gui.test TreeTableDev
+# set_param xicom.use_bs_reader 1
 # debug::add_scope template.lib 1
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
@@ -40,11 +41,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 908.105 ; gain = 143.738 ; free physical = 2643 ; free virtual = 14020
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 909.113 ; gain = 144.738 ; free physical = 1222 ; free virtual = 9036
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'labkit' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:22]
-INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:136]
-INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:136]
+INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:137]
+INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:137]
 INFO: [Synth 8-638] synthesizing module 'synchronize' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:2]
 	Parameter NSYNC bound to: 2 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'synchronize' (2#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v:2]
@@ -55,16 +56,16 @@ INFO: [Synth 8-638] synthesizing module 'ir_receiver' [/afs/athena.mit.edu/user/
 	Parameter ACTIVE bound to: 1'b1 
 	Parameter IDLE bound to: 1'b0 
 	Parameter WILDCARD bound to: 1'bz 
-	Parameter STATE_WAIT_START bound to: 4'b0001 
-	Parameter STATE_COMMAND bound to: 4'b0010 
-	Parameter STATE_WAIT_1 bound to: 4'b0011 
-	Parameter HIGH_PULSES bound to: 8'b00010000 
-	Parameter LOW_PULSES bound to: 8'b00001000 
-	Parameter START_PULSES bound to: 8'b00100000 
-	Parameter HIGH_THRESHOLD bound to: 8'b00000010 
-	Parameter LOW_THRESHOLD bound to: 8'b00000010 
-	Parameter START_THRESHOLD bound to: 8'b00000010 
-	Parameter COMMAND_BITS bound to: 8'b00001111 
+	Parameter STATE_WAIT_START bound to: 4'b0000 
+	Parameter STATE_COMMAND bound to: 4'b0001 
+	Parameter STATE_WAIT_1 bound to: 4'b0010 
+	Parameter HIGH_PULSES bound to: 16 - type: integer 
+	Parameter LOW_PULSES bound to: 8 - type: integer 
+	Parameter START_PULSES bound to: 32 - type: integer 
+	Parameter HIGH_THRESHOLD bound to: 2 - type: integer 
+	Parameter LOW_THRESHOLD bound to: 2 - type: integer 
+	Parameter START_THRESHOLD bound to: 2 - type: integer 
+	Parameter COMMAND_BITS bound to: 12 - type: integer 
 	Parameter COUNT_GOAL bound to: 1875 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'divider_600us' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v:6]
 	Parameter COUNT_GOAL bound to: 1875 - type: integer 
@@ -78,30 +79,27 @@ INFO: [Synth 8-638] synthesizing module 'motor_signal_stream' [/afs/athena.mit.e
 	Parameter MOVING bound to: 4'b0010 
 	Parameter PAUSE bound to: 4'b0011 
 	Parameter TESTING_DELAY bound to: 4'b1111 
-	Parameter FIFTEEN_DEG bound to: 15 - type: integer 
-	Parameter FOUR_INCHES bound to: 4 - type: integer 
+	Parameter FIFTEEN_DEG bound to: 7692307 - type: integer 
+	Parameter FOUR_INCHES bound to: 4166666 - type: integer 
 	Parameter PAUSE_TIME bound to: 25000000 - type: integer 
 	Parameter COUNT_GOAL bound to: 2500000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'motor_signal_stream' (6#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:10]
-WARNING: [Synth 8-350] instance 'mss1' of module 'motor_signal_stream' requires 10 connections, but only 9 given [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:101]
 INFO: [Synth 8-638] synthesizing module 'rover_main_fsm' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/rover_main_fsm.v:10]
 	Parameter ON bound to: 1'b1 
 	Parameter OFF bound to: 1'b0 
 	Parameter WAITING bound to: 4'b0000 
 	Parameter MOVING bound to: 4'b0001 
 INFO: [Synth 8-256] done synthesizing module 'rover_main_fsm' (7#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/rover_main_fsm.v:10]
-WARNING: [Synth 8-350] instance 'fsm1' of module 'rover_main_fsm' requires 8 connections, but only 6 given [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:110]
 INFO: [Synth 8-638] synthesizing module 'display_8hex_nexys4' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:16]
 	Parameter bits bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'display_8hex_nexys4' (8#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v:16]
-WARNING: [Synth 8-689] width (8) of port connection 'seg' does not match port width (7) of module 'display_8hex_nexys4' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:131]
+WARNING: [Synth 8-689] width (8) of port connection 'seg' does not match port width (7) of module 'display_8hex_nexys4' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:132]
 WARNING: [Synth 8-3848] Net VGA_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:26]
 WARNING: [Synth 8-3848] Net VGA_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:27]
 WARNING: [Synth 8-3848] Net VGA_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:28]
 WARNING: [Synth 8-3848] Net VGA_HS in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:30]
 WARNING: [Synth 8-3848] Net VGA_VS in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:31]
 WARNING: [Synth 8-3848] Net LED in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:32]
-WARNING: [Synth 8-3848] Net move_done in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:110]
 INFO: [Synth 8-256] done synthesizing module 'labkit' (9#1) [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:22]
 WARNING: [Synth 8-3331] design labkit has unconnected port VGA_R[3]
 WARNING: [Synth 8-3331] design labkit has unconnected port VGA_R[2]
@@ -149,7 +147,7 @@ WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 2602 ; free virtual = 13982
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.355 ; gain = 179.980 ; free physical = 1193 ; free virtual = 9008
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -158,9 +156,8 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin fsm1:move_done to constant 0 [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:110]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 2602 ; free virtual = 13982
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.355 ; gain = 179.980 ; free physical = 1192 ; free virtual = 9007
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -198,53 +195,54 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1266.586 ; gain = 0.000 ; free physical = 2368 ; free virtual = 13789
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1266.594 ; gain = 0.000 ; free physical = 1005 ; free virtual = 8818
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2326 ; free virtual = 13783
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 994 ; free virtual = 8809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2327 ; free virtual = 13782
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 994 ; free virtual = 8809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2329 ; free virtual = 13782
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 994 ; free virtual = 8808
 ---------------------------------------------------------------------------------
 ROM "count" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
 ROM "clean" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
 ROM "done" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
 ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
 ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
-INFO: [Synth 8-4471] merging register 'motor_r_f_reg' into 'motor_l_f_reg' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:65]
-INFO: [Synth 8-4471] merging register 'motor_r_b_reg' into 'motor_l_b_reg' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:67]
+INFO: [Synth 8-4471] merging register 'motor_r_b_reg' into 'motor_l_b_reg' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:66]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'motor_signal_stream'
 ROM "state" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "motor_l_f" won't be mapped to RAM because it is too sparse.
+ROM "motor_l_f" won't be mapped to RAM because it is too sparse.
 ROM "angle_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "angle_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "distance_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "distance_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "pause_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "move_done" won't be mapped to RAM because it is too sparse.
 ROM "test_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "test_sub_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "angle_sub_count" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
-ROM "distance_sub_count" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "test_sub_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "state" won't be mapped to RAM because it is too sparse.
 ROM "start_move" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
 ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'motor_signal_stream'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'motor_signal_stream'
 WARNING: [Synth 8-3848] Net VGA_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:26]
 WARNING: [Synth 8-3848] Net VGA_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:27]
 WARNING: [Synth 8-3848] Net VGA_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:28]
 WARNING: [Synth 8-3848] Net VGA_HS in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:30]
 WARNING: [Synth 8-3848] Net VGA_VS in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:31]
 WARNING: [Synth 8-3848] Net LED in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:32]
-WARNING: [Synth 8-3848] Net move_done in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:110]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2308 ; free virtual = 13766
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 982 ; free virtual = 8793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -257,8 +255,7 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 6     
-	   2 Input     12 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 7     
 	   2 Input     11 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 	   2 Input      7 Bit       Adders := 1     
@@ -266,27 +263,37 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit       Adders := 1     
 	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	               12 Bit    Registers := 3     
+	               32 Bit    Registers := 4     
+	               12 Bit    Registers := 2     
 	               11 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                7 Bit    Registers := 3     
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 3     
-	                1 Bit    Registers := 27    
+	                1 Bit    Registers := 28    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 5     
-	   2 Input     12 Bit        Muxes := 8     
+	   2 Input     32 Bit        Muxes := 4     
+	   7 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 5     
+	   3 Input     12 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 8     
 	   2 Input      6 Bit        Muxes := 1     
-	   3 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 3     
-	   2 Input      2 Bit        Muxes := 5     
-	   2 Input      1 Bit        Muxes := 42    
+	   4 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 36    
+	   3 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 13    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -331,31 +338,38 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 6     
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 5     
+	   3 Input     12 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 3     
-	   2 Input      2 Bit        Muxes := 5     
-	   2 Input      1 Bit        Muxes := 13    
+	   2 Input      2 Bit        Muxes := 4     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 5     
 Module motor_signal_stream 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 6     
-	   2 Input     12 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 7     
 	   2 Input      7 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	               12 Bit    Registers := 1     
+	               32 Bit    Registers := 4     
 	                7 Bit    Registers := 2     
 	                6 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 5     
-	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 4     
+	   7 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 2     
 	   2 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
-	   3 Input      6 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 16    
+	   4 Input      6 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 15    
+	   4 Input      1 Bit        Muxes := 13    
 Module rover_main_fsm 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -384,20 +398,22 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2309 ; free virtual = 13766
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 981 ; free virtual = 8792
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 ROM "dbbtnc/count" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
 ROM "dbbtnc/clean" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
-ROM "mss1/angle_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/state" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/distance_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/angle_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/distance_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/pause_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-ROM "mss1/test_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "mss1/test_sub_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/test_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/move_done" won't be mapped to RAM because it is too sparse.
+ROM "mss1/pause_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/motor_l_f" won't be mapped to RAM because it is too sparse.
+ROM "mss1/distance_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/distance_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/angle_sub_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/angle_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "mss1/state" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 WARNING: [Synth 8-3331] design labkit has unconnected port VGA_R[3]
 WARNING: [Synth 8-3331] design labkit has unconnected port VGA_R[2]
 WARNING: [Synth 8-3331] design labkit has unconnected port VGA_R[1]
@@ -439,14 +455,22 @@ WARNING: [Synth 8-3331] design labkit has unconnected port SW[11]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[10]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[9]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[8]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[0]
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNU
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2296 ; free virtual = 13766
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 993 ; free virtual = 8805
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 2296 ; free virtual = 13766
+Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 993 ; free virtual = 8805
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -459,125 +483,97 @@ Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 Finished RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ir1/state_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\fsm1/state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mss1/angle_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ir1/state_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/new_reg ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[8] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[9] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[10] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[11] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[12] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[13] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[14] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[15] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[16] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[17] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\dbbtnc/count_reg[18] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\ir1/state_reg[3] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\ir1/state_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\ir1/done_reg ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[8] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[9] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[10] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_counter_reg[11] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[31] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[30] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[29] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[28] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[27] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[26] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[25] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[24] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[23] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[22] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[21] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[20] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[19] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[18] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[17] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[16] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[15] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[14] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[13] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[12] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[11] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[10] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[9] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[8] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[0] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_count_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[31] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[30] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[29] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[28] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[27] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[26] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[25] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[24] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[23] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[22] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[21] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[20] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[19] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[18] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[17] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[16] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[15] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[14] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[13] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[12] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[11] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[10] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[9] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[8] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[7] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[6] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_count_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[6] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[7] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[8] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[9] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[10] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[11] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[12] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[13] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[14] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[15] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[16] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[17] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[18] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[19] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[20] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[21] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[22] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[23] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[24] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[25] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[26] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[27] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[28] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[29] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[30] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/pause_count_reg[31] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[6] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[6] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[4] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[3] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[2] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[1] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_count_reg[0] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[31] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[30] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[29] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[28] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[27] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[26] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/distance_sub_count_reg[25] ) is unused and will be removed from module labkit.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (\mss1/motor_l_b_reg ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[1] ) is unused and will be removed from module labkit.
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2272 ; free virtual = 13750
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 966 ; free virtual = 8780
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2272 ; free virtual = 13750
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 966 ; free virtual = 8780
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2272 ; free virtual = 13750
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 966 ; free virtual = 8780
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2272 ; free virtual = 13750
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 966 ; free virtual = 8780
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -585,10 +581,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2145 ; free virtual = 13676
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 933 ; free virtual = 8746
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2145 ; free virtual = 13676
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 933 ; free virtual = 8746
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -600,7 +596,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2132 ; free virtual = 13663
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 917 ; free virtual = 8730
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -624,7 +620,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2132 ; free virtual = 13664
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 912 ; free virtual = 8725
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -637,7 +633,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2132 ; free virtual = 13664
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 914 ; free virtual = 8727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -649,7 +645,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2132 ; free virtual = 13664
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 914 ; free virtual = 8727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -672,50 +668,41 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |    23|
-|3     |LUT1   |    78|
-|4     |LUT2   |    34|
-|5     |LUT3   |    40|
-|6     |LUT4   |    19|
-|7     |LUT5   |    25|
-|8     |LUT6   |    72|
-|9     |MUXF7  |     1|
-|10    |FDRE   |   147|
-|11    |FDSE   |    11|
-|12    |IBUF   |    12|
-|13    |OBUF   |    20|
-|14    |OBUFT  |    30|
+|2     |CARRY4 |    34|
+|3     |LUT1   |   109|
+|4     |LUT2   |    19|
+|5     |LUT3   |    21|
+|6     |LUT4   |   100|
+|7     |LUT5   |    79|
+|8     |LUT6   |   107|
+|9     |MUXF7  |     3|
+|10    |FDRE   |   212|
+|11    |IBUF   |     3|
+|12    |OBUF   |    20|
+|13    |OBUFT  |    30|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+-----------+----------------------+------+
 |      |Instance   |Module                |Cells |
 +------+-----------+----------------------+------+
-|1     |top        |                      |   514|
+|1     |top        |                      |   739|
 |2     |  clockgen |clock_quarter_divider |     4|
-|3     |  dbbtnc   |debounce              |    58|
-|4     |  dbsw0    |synchronize           |     3|
-|5     |  dbsw1    |synchronize_0         |     4|
-|6     |  dbsw15   |synchronize_1         |     3|
-|7     |  dbsw2    |synchronize_2         |     5|
-|8     |  dbsw3    |synchronize_3         |     2|
-|9     |  dbsw4    |synchronize_4         |     2|
-|10    |  dbsw5    |synchronize_5         |     4|
-|11    |  dbsw6    |synchronize_6         |     3|
-|12    |  dbsw7    |synchronize_7         |    13|
-|13    |  display  |display_8hex_nexys4   |    56|
-|14    |  ir1      |ir_receiver           |   132|
-|15    |    d1     |divider_600us         |    34|
-|16    |  mss1     |motor_signal_stream   |   161|
+|3     |  dbsw15   |synchronize           |     3|
+|4     |  display  |display_8hex_nexys4   |    64|
+|5     |  fsm1     |rover_main_fsm        |    36|
+|6     |  ir1      |ir_receiver           |   125|
+|7     |    d1     |divider_600us         |    36|
+|8     |  mss1     |motor_signal_stream   |   452|
 +------+-----------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2132 ; free virtual = 13664
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 914 ; free virtual = 8727
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 182 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1266.590 ; gain = 87.238 ; free physical = 2130 ; free virtual = 13663
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 2129 ; free virtual = 13663
+Synthesis finished with 0 errors, 0 critical warnings and 130 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1266.598 ; gain = 87.238 ; free physical = 914 ; free virtual = 8727
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 914 ; free virtual = 8727
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 37 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
@@ -725,10 +712,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 214 Warnings, 6 Critical Warnings and 0 Errors encountered.
+36 Infos, 188 Warnings, 6 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1266.590 ; gain = 409.484 ; free physical = 2107 ; free virtual = 13655
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.598 ; gain = 409.484 ; free physical = 906 ; free virtual = 8720
 # write_checkpoint -noxdef labkit.dcp
 # catch { report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1266.590 ; gain = 0.000 ; free physical = 2106 ; free virtual = 13654
-INFO: [Common 17-206] Exiting Vivado at Thu Dec  3 19:51:27 2015...
+report_utilization: Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.26 . Memory (MB): peak = 1266.598 ; gain = 0.000 ; free physical = 906 ; free virtual = 8718
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  3 23:38:31 2015...

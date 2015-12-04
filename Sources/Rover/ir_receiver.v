@@ -24,18 +24,18 @@ module ir_receiver(
 	parameter WILDCARD = 1'b?;
 	
 	// fsm controls
-	parameter STATE_WAIT_START  		= 4'h1;
-	parameter STATE_COMMAND 			= 4'h2;
-	parameter STATE_WAIT_1				= 4'h3;
+	parameter STATE_WAIT_START  		= 4'h0;
+	parameter STATE_COMMAND 			= 4'h1;
+	parameter STATE_WAIT_1				= 4'h2;
 	
 	// for tracking what we have seen
-	parameter HIGH_PULSES = 8'h10; // 2*8*dividerpulses
-	parameter LOW_PULSES = 8'h08; // 1*8*dividerpulses
-	parameter START_PULSES = 8'h20; // 4*8*dividerpulses
-	parameter HIGH_THRESHOLD = 8'h02;
-	parameter LOW_THRESHOLD = 8'h02;
-	parameter START_THRESHOLD = 8'h02;
-	parameter COMMAND_BITS = 8'h0F;
+	parameter HIGH_PULSES = 16; // 2*8*dividerpulses
+	parameter LOW_PULSES = 8; // 1*8*dividerpulses
+	parameter START_PULSES = 32; // 4*8*dividerpulses
+	parameter HIGH_THRESHOLD = 2;
+	parameter LOW_THRESHOLD = 2;
+	parameter START_THRESHOLD = 2;
+	parameter COMMAND_BITS = 12;
 	reg [3:0] bits_seen;
 	reg [7:0] positive_samples;
 	
