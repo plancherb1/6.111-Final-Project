@@ -55,7 +55,7 @@ module main_fsm(
     reg [31:0] delay_count;
 	 parameter LOCATION_DELAY = 27000000; // delay a second just to be safe for this to clear because
 														// weird things are happening
-	 parameter ORIENTATION_MOVE = 12'h002;
+	 parameter ORIENTATION_MOVE = 12'h00A;
     reg orientation_helper_enable;
     wire [4:0] orientation_t;
     orientation_math om (.r_theta_original(original_location),.r_theta_final(updated_location),.orientation(orientation_t),

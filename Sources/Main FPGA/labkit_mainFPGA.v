@@ -494,9 +494,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
                                .reset(reset),
-                               .address(5'h01),//.address(move_command[11:7]), // angle
-                               .command(7'h11),//.command(move_command[6:0]), // distance
-                               .transmit(btn2_db),//.transmit(transmit_ir),
+                               .address(move_command[11:7]), // angle
+                               .command(move_command[6:0]), // distance
+                               .transmit(transmit_ir),
                                .signal_out(ir_signal));					  
 
   // use this to display on hex display for debug
@@ -513,14 +513,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								//4'hF,
 								//move_command // 12 bits
 								
-								//4'hF,
-								//original_location, // 12 bits
-								//4'hF,
-								//updated_location // 12 bits
-								8'hFF,
-								3'b0,btn2_db,
 								4'hF,
-								16'hFFFF								
+								original_location, // 12 bits
+								4'hF,
+								updated_location // 12 bits							
 							};
   end
 	
