@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn polar_to_cartesian.prj
+-ifmt mixed

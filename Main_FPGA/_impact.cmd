@@ -10,8 +10,18 @@ setMode -bs
 setMode -bs
 setMode -bs
 setMode -bs
-assignFile -p 2 -file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/labkit.bit"
-setCable -port auto
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
+Program -p 2 
 Program -p 2 
 Program -p 2 
 Program -p 2 

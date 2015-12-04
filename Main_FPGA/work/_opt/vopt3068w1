@@ -2,8 +2,9 @@ library verilog;
 use verilog.vl_types.all;
 entity polar_to_cartesian is
     generic(
-        POS             : integer := 0;
-        NEG             : integer := 1
+        POS             : integer := 1;
+        NEG             : integer := -1;
+        ZERO            : integer := 0
     );
     port(
         r_theta         : in     vl_logic_vector(11 downto 0);

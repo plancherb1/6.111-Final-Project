@@ -8,12 +8,12 @@ entity ultrasound_location_calculator is
         TRIGGER         : integer := 1;
         WAIT_FOR1       : integer := 2;
         WAIT_FOR0       : integer := 3;
-        REPEAT          : integer := 4;
-        REPORT_1        : integer := 5;
-        REPORT_2        : integer := 6;
-        POWER_CYCLE     : integer := 7;
-        ERROR_CORRECT_REPEAT: integer := 8;
-        TOTAL_ULTRASOUNDS: integer := 1;
+        ERROR_CORRECT_REPEAT: integer := 4;
+        REPEAT          : integer := 5;
+        REPORT_1        : integer := 6;
+        REPORT_2        : integer := 7;
+        POWER_CYCLE     : integer := 8;
+        TOTAL_ULTRASOUNDS: integer := 6;
         TRIGGER_TARGET  : integer := 5;
         DISTANCE_MAX    : integer := 50;
         POWER_CYCLE_TIME: integer := 12;
@@ -28,6 +28,7 @@ entity ultrasound_location_calculator is
         rover_location  : out    vl_logic_vector(11 downto 0);
         ultrasound_commands: out    vl_logic_vector(9 downto 0);
         ultrasound_power: out    vl_logic_vector(9 downto 0);
-        state           : out    vl_logic_vector(3 downto 0)
+        state           : out    vl_logic_vector(3 downto 0);
+        curr_ultrasound : out    vl_logic_vector(3 downto 0)
     );
 end ultrasound_location_calculator;

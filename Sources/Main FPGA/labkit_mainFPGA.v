@@ -292,14 +292,14 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 */
 
    // Buttons, Switches, and Individual LEDs
-   assign led = 8'hFF;
+   //assign led = 8'hFF;
    // button0, button1, button2, button3, button_enter, button_right,
    // button_left, button_down, button_up, and switches are inputs
 
    // User I/Os
-   assign user1 = 32'hZ;
+   //assign user1 = 32'hZ;
    assign user2 = 32'hZ;
-   // assign user3 [30:0] = 31'hZ;
+   assign user3 = 32'hZ;
    assign user4 = 32'hZ;
 
    // Daughtercard Connectors
@@ -420,6 +420,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire ultrasound_done; // flag for new location ready
   wire orientation_done; // flag for new orientation ready
   wire reached_target; // flag for reached target
+  wire clear_us; // we need to reset this module a lot so seperate wire
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location; // theta == [11:8], r == [7:0]
   wire [4:0] rover_orientation; // every 15 degrees around the circle
@@ -430,18 +431,18 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [9:0] ultrasound_power;
   
   // assignments of some of those variables to inputs and outputs
-  assign user3[31] = ir_signal;
+  assign user1[31] = ir_signal;
   // we only want one high when the button is pressed
   edge_detect e1 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(master_on));
   // need two ways to run ultrasound both the start manually and from the orientation / path
   assign target_switches = db_switch[2:0];
   // assign command, power, signal, to 0,1,2 + 3n
-  assign {user3[0],user3[3],user3[6],user3[9],user3[12],
-			 user3[15],user3[18],user3[21],user3[24],user3[27]} = ultrasound_commands;
-  assign {user3[1],user3[4],user3[7],user3[10],user3[13],
-			 user3[16],user3[19],user3[22],user3[25],user3[28]} = ultrasound_power;
-  assign ultrasound_signals = {user3[2],user3[5],user3[8],user3[11],user3[14],
-										  user3[17],user3[20],user3[23],user3[26],user3[29]};
+  assign {user1[0],user1[3],user1[6],user1[9],user1[12],
+			 user1[15],user1[18],user1[21],user1[24],user1[27]} = ultrasound_commands;
+  assign {user1[1],user1[4],user1[7],user1[10],user1[13],
+			 user1[16],user1[19],user1[22],user1[25],user1[28]} = ultrasound_power;
+  assign ultrasound_signals = {user1[2],user1[5],user1[8],user1[11],user1[14],
+										  user1[17],user1[20],user1[23],user1[26],user1[29]};
   
   // target location selector logic
   target_location_selector tls (.switches(target_switches),.location(target_location));
@@ -459,6 +460,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 						.orientation(rover_orientation),
 						.move_command(move_command),
 						.transmit_ir(transmit_ir),
+						.clear_us(clear_us),
                   //.analyzer_clock(analyzer3_clock),
                   //.analyzer_data(analyzer3_data),
                   .reached_target(reached_target),
@@ -468,13 +470,19 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	 
   // Ultrasound Block
   wire [3:0] ultrasound_state;
-  ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(reset),
-												.calculate(run_ultrasound),
+  wire [3:0] curr_ultrasound;
+  wire us_reset;
+  assign us_reset = reset | clear_us;
+  assign led = ~{ultrasound_state,curr_ultrasound};
+  ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(us_reset),
+												//.calculate(run_ultrasound),
+												.calculate(btn2_db), // for testing
 												.rover_location(rover_location),
 												.done(ultrasound_done),
 												//.analyzer_clock(analyzer3_clock),
 												//.analyzer_data(analyzer3_data),
 												.state(ultrasound_state),
+												.curr_ultrasound(curr_ultrasound),
 												.ultrasound_signals(ultrasound_signals),
 												.ultrasound_commands(ultrasound_commands),
 												.ultrasound_power(ultrasound_power));
@@ -504,27 +512,36 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   always @(posedge clock_27mhz) begin
 		my_hex_data <= {	main_state, // 4 bits
 								rover_location,// 12 bits
+								
 								3'b0,rover_orientation, // 8 bits
-								//8'hFF,
-								3'b0, ultrasound_done,
-								3'b0, orientation_done,
+								3'b0, ultrasound_done,4'hF,
+								
+								6'hFF,ultrasound_signals, // 10 bits
+								6'hFF,ultrasound_power // 10 bits
+								
+								//3'b0, orientation_done,
 								//3'b0, transmit_ir,
 								//3'b0, reached_target,
 								//4'hF,
 								//move_command // 12 bits
 								
-								4'hF,
-								orient_location_1, // 12 bits
-								4'hF,
-								orient_location_2 // 12 bits							
+								//4'hF,
+								//ultrasound_state,
+								//curr_ultrasound,
+								//4'hF
+								
+								//4'hF,
+								//orient_location_1, // 12 bits
+								//4'hF,
+								//orient_location_2 // 12 bits							
 							};
   end
 	
-	
+
   display_16hex_labkit disp(reset, clock_27mhz,my_hex_data,
 										disp_blank, disp_clock, disp_rs, disp_ce_b,
 										disp_reset_b, disp_data_out);
-
+  
 
   // display waveform on logic analyzer for debug (if needed)
   //assign analyzer3_data = 16'hFFFF;

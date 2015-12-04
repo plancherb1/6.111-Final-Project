@@ -20,6 +20,7 @@ module main_fsm(
 	 input ultrasound_done,
 	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
 	 output reg run_ultrasound,
+	 output reg clear_us,
 	 output orientation_done,
 	 output reg [4:0] orientation,
 	 output reg [11:0] move_command,
@@ -39,7 +40,7 @@ module main_fsm(
 	 parameter IDLE 						= 4'h0;
 	 parameter RUN_ULTRASOUND_1		= 4'h1;
 	 parameter ORIENTATION_PHASE_1 	= 4'h2;
-    parameter IR_TRANSMIT_DELAY_1   = 4'h3;
+    parameter IR_TRANSMIT_DELAY_1  = 4'h3;
 	 parameter ORIENTATION_MOVE_S		= 4'h4;
 	 parameter RUN_ULTRASOUND_2		= 4'h5;
 	 parameter ORIENTATION_PHASE_2	= 4'h6;
@@ -99,16 +100,16 @@ module main_fsm(
 			state <= IDLE;
          // ultrasound resets
 			run_ultrasound <= OFF;
-			original_location <= 12'h000;
-			updated_location <= 12'h000;
+			orient_location_1 <= 12'h000;
+			orient_location_2 <= 12'h000;
          delay_count <= 32'h0000_0000;
+			clear_us <= 0;
          // orientation resets
 			orientation_helper_enable <= OFF;
          orientation <= 4'h0;
          // ir resets
 			move_command <= 12'h000;
 			transmit_ir <= OFF;
-         move_command_counter <= 32'h0000_0000;
          ir_transmit_delay_counter <= 22'h00_0000;
          // move resets
 			move_delay_timer <= 32'h0000_0000;
@@ -155,13 +156,17 @@ module main_fsm(
                   ir_transmit_delay_counter <= 0;
                   transmit_ir <= OFF;
                end
-               else
-                  ir_transmit_delay_counter = ir_transmit_delay_counter + 1;
+               else begin
+                  ir_transmit_delay_counter <= ir_transmit_delay_counter + 1;
                end
+					// now that we have the location clear the ultrasound
+					clear_us <= 1;
             end
 				
 				// we then wait for the move to complete
 				ORIENTATION_MOVE_S: begin
+					// get the ultrasound ready as we count down
+					clear_us <= 0;
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
@@ -216,7 +221,7 @@ module main_fsm(
             
             // first we need the orientation between the end and the target
 				CALC_MOVE_COMMAND_1: begin
-               orient_location_1 <= updated_location;
+               orient_location_1 <= rover_location;
                orient_location_2 <= target_location;
                orientation_helper_enable <= ON;
                state <= CALC_MOVE_COMMAND_2;
@@ -255,13 +260,17 @@ module main_fsm(
                   ir_transmit_delay_counter <= 0;
                   transmit_ir <= OFF;
                end
-               else
-                  ir_transmit_delay_counter = ir_transmit_delay_counter + 1;
+               else begin
+                  ir_transmit_delay_counter <= ir_transmit_delay_counter + 1;
                end
+					// now that we have the location clear the ultrasound
+					clear_us <= 1;
             end
             
 				// we then wait for the move to complete
 				MOVE_MOVE: begin
+					// get the ultrasound ready as we count down
+					clear_us <= 0;
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
@@ -294,34 +303,37 @@ module main_fsm(
                if (location_reached_helper_done) begin
                   // currently we just do one shot so commented out
 						reached_target <= reached_target_t;
+						state <= IDLE;
+						/*
                   // if we are there then done
-                  //if (reached_target_t) begin
+                  if (reached_target_t) begin
                      state <= IDLE;
-                  //end
+                  end
                   // else restart from orientation step and try again
-                  //else begin
-                     //state <= RUN_ULTRASOUND_1;
-                     //run_ultrasound <= ON;
+                  else begin
+                     state <= RUN_ULTRASOUND_1;
+                     run_ultrasound <= ON;
                      // ultrasound resets
-                     //original_location <= 12'h000;
-                     //updated_location <= 12'h000;
-                     //delay_count <= 32'h0000_0000;
+                     orient_location_1 <= 12'h000;
+                     orient_location_2 <= 12'h000;
+                     delay_count <= 32'h0000_0000;
+							clear_us <= 0;
                      // orientation resets
-                     //orientation_helper_enable <= OFF;
-                     //orientation <= 4'h0;
+                     orientation_helper_enable <= OFF;
+                     orientation <= 4'h0;
                      // ir resets
-                     //move_command <= 12'h000;
-                     //transmit_ir <= OFF;
-                     //move_command_counter <= 32'h0000_0000;
-                     //ir_transmit_delay_counter <= 22'h00_0000;
+                     move_command <= 12'h000;
+                     transmit_ir <= OFF;
+                     ir_transmit_delay_counter <= 22'h00_0000;
                      // move resets
-                     //move_delay_timer <= 32'h0000_0000;
-                     //move_delay_inner_timer <= 32'h0000_0000;
-                     //move_command_helper_enable  <= OFF;
+                     move_delay_timer <= 32'h0000_0000;
+                     move_delay_inner_timer <= 32'h0000_0000;
+                     move_command_helper_enable  <= OFF;
                      // other resets
-                     //reached_target <= OFF;
-                     //location_reached_helper_enable  <= OFF;
-						//end
+                     reached_target <= OFF;
+                     location_reached_helper_enable  <= OFF;
+						end
+						*/
 					end
 				end
 				
@@ -333,16 +345,16 @@ module main_fsm(
 						state <= RUN_ULTRASOUND_1;
 						run_ultrasound <= ON;
                   // ultrasound resets
-                  original_location <= 12'h000;
-                  updated_location <= 12'h000;
+                  orient_location_1 <= 12'h000;
+                  orient_location_2 <= 12'h000;
                   delay_count <= 32'h0000_0000;
+						clear_us <= 0;
                   // orientation resets
                   orientation_helper_enable <= OFF;
                   orientation <= 4'h0;
                   // ir resets
                   move_command <= 12'h000;
                   transmit_ir <= OFF;
-                  move_command_counter <= 32'h0000_0000;
                   ir_transmit_delay_counter <= 22'h00_0000;
                   // move resets
                   move_delay_timer <= 32'h0000_0000;

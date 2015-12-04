@@ -147,10 +147,7 @@ module vga_writer (
 		// when we reset move the rover off of the screen and wait for ultrasound to update
 		if (reset) begin
             rover_x <= 0; 
-            rover_y <= GRID_BOTTOM_BORDER;
-            
-            // UPDATE THESE ONCE YOU ARE DONE DEBUGGING TO THE ACTUALLY RESET POSITION---------------------
-            
+            rover_y <= GRID_BOTTOM_BORDER/2;
       end
 		else begin
 			// only actually update the position every screen refresh for both the target and the rover

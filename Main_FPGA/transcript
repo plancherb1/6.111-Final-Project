@@ -1,4 +1,4 @@
-# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-94-generic
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-95-generic
 # //
 # //  Copyright 1991-2008 Mentor Graphics Corporation
 # //              All Rights Reserved.
@@ -36,7 +36,28 @@
 # Loading work.ultrasound_location_calculator(fast)
 # Loading work.median_3(fast)
 # Loading work.glbl(fast)
+# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
+#         Region: /ultrasound_location_calculator_tb/uut
+# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-run 3000ns
+restart -f
+# Loading work.ultrasound_location_calculator_tb(fast)
+# Loading work.ultrasound_location_calculator(fast)
+# Loading work.median_3(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
+#         Region: /ultrasound_location_calculator_tb/uut
+# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
+run 10000ns
+run 15000ns
+restart -f
+# Loading work.ultrasound_location_calculator_tb(fast)
+# Loading work.ultrasound_location_calculator(fast)
+# Loading work.median_3(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
+#         Region: /ultrasound_location_calculator_tb/uut
+# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
+run 20000ns

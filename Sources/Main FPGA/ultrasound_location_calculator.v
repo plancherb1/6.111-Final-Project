@@ -19,7 +19,8 @@ module ultrasound_location_calculator(
 	output reg [9:0] ultrasound_power, // can use up to 10 ultrasounds
    //output analyzer_clock, // for debug only
    //output [15:0] analyzer_data, // for debug only
-   output reg [3:0] state // made output for debug
+	output reg [3:0] state, // made output for debug
+	output reg [3:0] curr_ultrasound // made output for debug
    );
 	
 	// parameter for the physical device
@@ -31,22 +32,21 @@ module ultrasound_location_calculator(
 	parameter TRIGGER 					= 4'h1; // trigger the module
 	parameter WAIT_FOR1 					= 4'h2; // waiting for distance value
 	parameter WAIT_FOR0 					= 4'h3; // getting in distance value 0 marks end
-	parameter REPEAT 						= 4'h4; // cylce to next module if needed
-	parameter REPORT_1 					= 4'h5; // when done send out value
-	parameter REPORT_2					= 4'h6; // delay for timing constraint
-	parameter POWER_CYCLE 				= 4'h7; // make sure to power cycle in case stuck
-	parameter ERROR_CORRECT_REPEAT 	= 4'h8; // run each ultrasound a couple times to be safe
+	parameter ERROR_CORRECT_REPEAT 	= 4'h4; // run each ultrasound a couple times to be safe
+	parameter REPEAT 						= 4'h5; // cylce to next module if needed
+	parameter REPORT_1 					= 4'h6; // when done send out value
+	parameter REPORT_2					= 4'h7; // delay for timing constraint
+	parameter POWER_CYCLE 				= 4'h8; // make sure to power cycle in case stuck
 	
 	// distance calcing parameters and regs
-	reg [4:0] curr_ultrasound;
-	parameter TOTAL_ULTRASOUNDS = 6;
-	reg [8:0] trigger_count;
+	parameter TOTAL_ULTRASOUNDS = 1;
 	parameter TRIGGER_TARGET = 275; // about 10 us with a little extra per spec -- set to 5 for test
-	reg [19:0] distance_count; // 20 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
 	parameter DISTANCE_MAX = 1048576; // spec says distance in 150us to 25ms with 38ms as -- set to 50 for test
 												  // nothing found which is about 2^20 clock cycles
    parameter POWER_CYCLE_TIME = 27000000; // one second just to make sure it flushes it self -- set to 12 for test
-   reg [24:0] power_cycle_timer; // as sized for one milisecond in counting
+	reg [8:0] trigger_count;
+	reg [19:0] distance_count; // 20 bit to allow for multiplication and shift later of max size DISTANCE_MAX*7
+   reg [25:0] power_cycle_timer; // as sized for one second in counting
 	reg [7:0] best_distance;
 	reg [3:0] best_angle;
 	
@@ -218,6 +218,9 @@ module ultrasound_location_calculator(
 							state <= TRIGGER;
 							ultrasound_commands[curr_ultrasound+1] <= 1;
 							trigger_count <= 1;
+							distance_pass_1 <= 0;
+							distance_pass_2 <= 0;
+							distance_pass_3 <= 0;
 						end
 					end
 				end
@@ -242,9 +245,8 @@ module ultrasound_location_calculator(
 					state <= IDLE;
 				end
 				
-				// default to IDLE state
-				default: begin
-					done <= 0;
+				// not default to IDLE state because glitchy adn default to an escape state
+				IDLE: begin
 					// if we see a run_program then begin the calculation else stay in IDLE
 					if (calculate) begin
 						state <= TRIGGER;
@@ -261,6 +263,14 @@ module ultrasound_location_calculator(
                   distance_pass_2 <= 0;
                   distance_pass_3 <= 0;
 					end
+				end
+				
+				// if we glitched assume it was a bad pass and power cycle
+				default: begin
+					state <= POWER_CYCLE;
+					distance_count <= NOTHING_FOUND;
+					ultrasound_power[curr_ultrasound] <= 0;
+					power_cycle_timer <= 1;
 				end
 			
 			endcase

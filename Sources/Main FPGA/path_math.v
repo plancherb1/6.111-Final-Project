@@ -129,10 +129,10 @@ module path_math
 				// find the base angle
 				ORIENT_BASE_ANGLE: begin
                case (quadrant)
-                  1: base_angle <= (DEG180 - orientation);
-                  2: base_angle <= (orientation - DEG180);
-                  3: base_angle <= (DEG360 - orientation);
-                  default: base_angle <= orientation[3:0];
+                  1: base_angle <= (DEG180 - needed_orientation);
+                  2: base_angle <= (needed_orientation - DEG180);
+                  3: base_angle <= (DEG360 - needed_orientation);
+                  default: base_angle <= needed_orientation[3:0];
                endcase
                state <= ABS_DY_DIV_SIN;
 				end

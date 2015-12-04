@@ -97,8 +97,86 @@ module ultrasound_location_calculator_tb;
 		ultrasound_signals = 0;
 		// loaded in a 22 for #3 so median is 20
 		#50;
-		// we should now be done
+		// we should now be done with number one time for number 2
 		
+		#100; // triggered
+		ultrasound_signals[1] = 1;
+		#450; // loaded in a 22 for #1
+		ultrasound_signals[1] = 0;
+		#70;// onto pass 2
+		ultrasound_signals[1] = 1;
+		#450; // loaded in a 22 for #2
+		ultrasound_signals[1] = 0;
+		#70;// onto pass 3
+		ultrasound_signals[1] = 1;
+		#450; // loaded in a 22 for #3 so median is 22
+		ultrasound_signals[1] = 0;
+		#50;
+		// we should now be done with number one time for number 3
+		
+		#100; // triggered
+		ultrasound_signals[2] = 1;
+		#450; // loaded in a 22 for #1
+		ultrasound_signals[2] = 0;
+		#70;// onto pass 2
+		ultrasound_signals[2] = 1;
+		#450; // loaded in a 22 for #2
+		ultrasound_signals[2] = 0;
+		#70;// onto pass 3
+		ultrasound_signals[2] = 1;
+		#450; // loaded in a 22 for #3 so median is 22
+		ultrasound_signals[2] = 0;
+		#50;
+		// we should now be done with number one time for number 4
+		
+		#100; // triggered
+		ultrasound_signals[3] = 1;
+		#280; // loaded in a 14 for #1
+		ultrasound_signals[3] = 0;
+		#70;// onto pass 2
+		ultrasound_signals[3] = 1;
+		#280; // loaded in a 14 for #2
+		ultrasound_signals[3] = 0;
+		#70;// onto pass 3
+		ultrasound_signals[3] = 1;
+		#280; // loaded in a 14 for #3 so median is 14
+		ultrasound_signals[3] = 0;
+		#50;
+		// we should now be done with number one time for number 5
+		
+				#100; // triggered
+		ultrasound_signals[4] = 1;
+		#1010; // loaded in a way too long so shit
+		ultrasound_signals[4] = 0;
+		#60;// power cyckle
+		#70; // onto pass 2
+		ultrasound_signals[4] = 1;
+		#1010; // loaded in a way too long so shit
+		ultrasound_signals[4] = 0;
+		#60;// power cyckle
+		#70; // onto pass 3
+		ultrasound_signals[4] = 1;
+		#1010; // loaded in a way too long so shit
+		ultrasound_signals[4] = 0;
+		#60;// power cyckle
+		#50;
+		// we should now be done with number one time for number 6
+		
+						#100; // triggered
+		ultrasound_signals[5] = 1;
+		#450; // loaded in a 22 for #1
+		ultrasound_signals[5] = 0;
+		#70;// onto pass 2
+		ultrasound_signals[5] = 1;
+		#450; // loaded in a 22 for #2
+		ultrasound_signals[5] = 0;
+		#70;// onto pass 3
+		ultrasound_signals[5] = 1;
+		#450; // loaded in a 22 for #3 so median is 22
+		ultrasound_signals[5] = 0;
+		#50;
+		
+		// answer is #4 and 14+5 = 19 whcih is 713
 	end
       
 endmodule

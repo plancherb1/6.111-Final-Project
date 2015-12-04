@@ -47,6 +47,8 @@ module polar_to_cartesian_tb;
         
 		// Add stimulus here
 		r_theta = 12'h1_64; // angle of 15 radius of 100 should get(97,26)
+		#10;
+		r_theta = 12'hB_64; // angle of 165 radius of 100 should get(-97,26)
 
 	end
       
