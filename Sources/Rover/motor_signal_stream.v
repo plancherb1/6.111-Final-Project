@@ -12,8 +12,10 @@ module motor_signal_stream(
 	input reset,
 	input command_ready,
 	input [11:0] command,
-	output reg motor_l,
-	output reg motor_r,
+	output reg motor_l_f,
+    output reg motor_r_f,
+	output reg motor_l_b,
+	output reg motor_r_b,
 	output reg move_done,
 	// output analyzer_clock, // for debug only
     // output [15:0] analyzer_data // for debug only
@@ -59,8 +61,10 @@ module motor_signal_stream(
 		// if we see reset update all to default
 		if (reset == ON) begin
 			state <= IDLE;
-			motor_l <= OFF;
-			motor_r <= OFF;
+			motor_l_f <= OFF;
+            motor_r_f <= OFF;
+			motor_l_b <= OFF;
+			motor_r_b <= OFF;
 			angle <= 0;
 			angle_count <= 0;
 			angle_sub_count <= 0;
@@ -79,8 +83,10 @@ module motor_signal_stream(
 					// turn until you have finished the angle then go to MOVING
 					if (angle_sub_count == FIFTEEN_DEG - 1) begin
                        if (angle_count == angle - 1) begin
-                           motor_l <= OFF;
-                           motor_r <= OFF;
+                           motor_l_f <= OFF;
+                           motor_r_f <= OFF;
+                           motor_l_b <= OFF;
+                           motor_r_b <= OFF;
                            state <= PAUSE;
                            angle_count <= 0;
                            angle_sub_count <= 0;
@@ -98,8 +104,10 @@ module motor_signal_stream(
 				// then pause to let the motors reset
 				PAUSE: begin
 				    if (pause_count == PAUSE_TIME - 1) begin
-				        motor_l <= ON;
-                        motor_r <= ON;
+                        motor_l_f <= ON;
+                        motor_r_f <= ON;
+                        motor_l_b <= OFF;
+                        motor_r_b <= OFF;;
                         state <= MOVING;
 				    end
 				    else begin
@@ -112,8 +120,10 @@ module motor_signal_stream(
 					// move until you have finished the distance then go to IDLE
                     if (distance_sub_count == FOUR_INCHES - 1) begin
                         if (distance_count == distance - 1) begin
-                           motor_l <= OFF;
-                           motor_r <= OFF;
+                           motor_l_f <= OFF;
+                           motor_r_f <= OFF;
+                           motor_l_b <= OFF;
+                           motor_r_b <= OFF;
                            state <= IDLE;
                            distance_count <= 0;
                            distance_sub_count <= 0;
@@ -133,8 +143,10 @@ module motor_signal_stream(
                 // the value passed in from move command which is simply 0.1 second increments
 				TESTING_DELAY: begin
 				    if (test_counter == command - 1) begin
-                        motor_l <= OFF;
-                        motor_r <= OFF;
+                        motor_l_f <= OFF;
+                        motor_r_f <= OFF;
+                        motor_l_b <= OFF;
+                        motor_r_b <= OFF;
                         test_counter <= 0;
                         test_sub_counter <= 0;
                         state <= IDLE;
@@ -153,8 +165,10 @@ module motor_signal_stream(
                     move_done <= 0;
                     if (command_ready) begin
                         //state <= TURNING;
-                        //motor_l <= ON;
-                        //motor_r <= OFF;
+                        //motor_l_f <= ON;
+                        //motor_r_f <= OFF;
+                        //motor_l_b <= OFF
+                        //motor_r_b <= ON;
                         //angle <= command[11:7];
                         //distance <= command[6:0];
                         //angle_count <= 0;
@@ -167,8 +181,10 @@ module motor_signal_stream(
                         // testing mode code below
                         test_counter <= 0;
                         test_sub_counter <= 1;
-                        motor_l <= ON;
-                        motor_r <= ON;
+                        motor_l_f <= ON;
+                        motor_r_f <= ON;
+                        motor_l_b <= OFF;
+                        motor_r_b <= OFF;
                         state <= TESTING_DELAY;
                         // end testing block
                     end

@@ -519,7 +519,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								//updated_location // 12 bits
 								8'hFF,
 								3'b0,btn2_db,
-								4'hFF,
+								4'hF,
 								16'hFFFF								
 							};
   end

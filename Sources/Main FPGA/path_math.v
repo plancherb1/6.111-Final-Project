@@ -90,7 +90,7 @@ module path_math
          abs_delta_x <= 0;
          abs_delta_y <= 0;
          quadrant <= 0;
-         base_angle <= 0
+         base_angle <= 0;
          distance <= 0;
          move_command <= 0;
       end
@@ -109,8 +109,8 @@ module path_math
 				
 				// then lets find the deltas in x and y
 				DELTAS: begin
-					delta_x <= x_final - x_original;
-					delta_y <= y_final - y_original;
+					delta_x <= x_target - x_location;
+					delta_y <= y_target - y_location;
 					state <= ABS_DELTA_QUAD;
 				end
 				
@@ -129,9 +129,9 @@ module path_math
 				ORIENT_BASE_ANGLE: begin
                case (quadrant)
                   1: base_angle <= (DEG180 - orientation);
-                  2: base_angle <= (orientation - DEG180)
-                  3: base_angle <= (DEG360 - orientation)
-                  default: base_angle <= orientation[3:0]
+                  2: base_angle <= (orientation - DEG180);
+                  3: base_angle <= (DEG360 - orientation);
+                  default: base_angle <= orientation[3:0];
                endcase
                state <= ABS_DY_DIV_SIN;
 				end
@@ -148,7 +148,7 @@ module path_math
 				REPORT: begin
 					done <= 1;
 					state <= IDLE;
-					move_command = {angle,distance};
+					move_command <= {angle,distance};
 				end
 				
 				// default to IDLE

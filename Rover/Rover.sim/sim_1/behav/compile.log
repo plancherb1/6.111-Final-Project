@@ -1,7 +1,0 @@
-Determining compilation order of HDL files.
-INFO: [VRFC 10-2263] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module motor_signal_stream
-INFO: [VRFC 10-2263] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Test Fixtures/Rover/motor_signal_stream_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module motor_signal_stream_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.sim/sim_1/behav/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

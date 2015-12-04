@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Wed Dec  2 23:07:28 2015
+| Date             : Thu Dec  3 19:38:09 2015
 | Host             : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.113 |
-| Dynamic (W)              | 0.016 |
+| Total On-Chip Power (W)  | 0.109 |
+| Dynamic (W)              | 0.012 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.5  |
@@ -50,16 +50,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      416 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      162 |     63400 |            0.25 |
+| Slice Logic    |    <0.001 |      401 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      147 |     63400 |            0.23 |
 |   CARRY4       |    <0.001 |       23 |     15850 |            0.14 |
-|   Register     |    <0.001 |      154 |    126800 |            0.12 |
+|   Register     |    <0.001 |      153 |    126800 |            0.12 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.12 |
+|   F7/F8 Muxes  |    <0.001 |        1 |     63400 |           <0.01 |
 |   Others       |     0.000 |       29 |       --- |             --- |
-| Signals        |    <0.001 |      327 |       --- |             --- |
-| I/O            |     0.014 |       30 |       210 |           14.28 |
+| Signals        |    <0.001 |      318 |       --- |             --- |
+| I/O            |     0.010 |       32 |       210 |           15.23 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.113 |          |           |                 |
+| Total          |     0.109 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.017 |       0.002 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
+| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,7 +139,7 @@ Table of Contents
 +------------+-----------+
 | Name       | Power (W) |
 +------------+-----------+
-| labkit     |     0.016 |
+| labkit     |     0.012 |
 |   clockgen |    <0.001 |
 |   dbbtnc   |    <0.001 |
 |   dbsw0    |    <0.001 |

@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module target_location_selector
     (input [2:0] switches,
-     output [11:0] location); // r is [7:0] theta is [11:8]
+     output reg [11:0] location); // r is [7:0] theta is [11:8]
 	 
     parameter DEFAULT_LOCATION = {5'h06,7'h18}; //90 degrees 24 inches out
     parameter LOC_1 = {5'h01,7'h20}; //15 degrees 32 inches out
@@ -22,14 +22,14 @@ module target_location_selector
     
 	 always @(*) begin
 		case(switches)
-         1: location <= LOC_1;
-         2: location <= LOC_2;
-         3: location <= LOC_3;
-         4: location <= LOC_4;
-         //5: location <= LOC_5;
-         //6: location <= LOC_6;
-         //7: location <= LOC_7;
-         default: location <= DEFAULT_LOCATION;
+         1: location = LOC_1;
+         2: location = LOC_2;
+         3: location = LOC_3;
+         4: location = LOC_4;
+         //5: location = LOC_5;
+         //6: location = LOC_6;
+         //7: location = LOC_7;
+         default: location = DEFAULT_LOCATION;
       endcase
 	 end
 

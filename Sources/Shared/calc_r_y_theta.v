@@ -17,7 +17,7 @@ module calc_r_y_theta(
    input [7:0] y,
    input [7:0] x, // need x incase angle is 0 and then all in x
    input [3:0] theta,
-   output [7:0] r);
+   output reg [7:0] r);
    
    // if 0 then all x
    // 1/sin 15 is about 989/256 ~ 4
@@ -39,11 +39,11 @@ module calc_r_y_theta(
    
    always @(*) begin
       case(theta)
-         1: r = r_15deg;
-         2: r = r_30deg;
-         3: r = r_45deg;
-         4: r = r_60deg;
-         5: r = r_75deg;
+         1: r = r_15deg[7:0];
+         2: r = r_30deg[7:0];
+         3: r = r_45deg[7:0];
+         4: r = r_60deg[7:0];
+         5: r = r_75deg[7:0];
          6: r = y; // 90
          default: r = x; // 0
       endcase

@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Wed Dec  2 23:06:51 2015
+| Date         : Thu Dec  3 19:37:33 2015
 | Host         : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
            Max violations: <unlimited>
-         Violations found: 5
+         Violations found: 7
 
 2. REPORT DETAILS
 -----------------
@@ -55,6 +55,16 @@ Related violations: <none>
 RPBF-3#3 Warning
 IO port buffering is incomplete  
 Device port JA[2] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#4 Warning
+IO port buffering is incomplete  
+Device port JA[3] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#5 Warning
+IO port buffering is incomplete  
+Device port JA[4] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 

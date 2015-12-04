@@ -21,7 +21,7 @@ module main_fsm(
 	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
 	 output reg run_ultrasound,
 	 output orientation_done,
-	 output [4:0] orientation,
+	 output reg [4:0] orientation,
 	 output reg [11:0] move_command,
 	 output reg transmit_ir,
     output reg reached_target,
@@ -62,7 +62,7 @@ module main_fsm(
                         .enable(orientation_helper_enable),.done(orientation_done),.reset(reset),.clock(clock));
 	 
 	 // ORIENTATION_MOVE and MOVE_MOVE helpers
-	 reg [33:0] move_delay_timer; // 34 bits for max of 255 seconds
+	 reg [34:0] move_delay_timer; // 35 bits for max of 255*2 seconds
 	 parameter MOVE_DELAY_FACTOR = 27000000;
 	 parameter ORIENTATION_DELAY = MOVE_DELAY_FACTOR * ORIENTATION_MOVE[7:0];
     
@@ -80,10 +80,11 @@ module main_fsm(
     
     // ARE_WE_DONE helpers
     wire location_reached_helper_done;
-    reg location_reached_helper_enable;
-    roughly_equal_locations rel (.clock(clock),.reset(reset),.loc_1(rover_location),.loc_2(target_location),
+	 reg location_reached_helper_enable;
+	 wire reached_target_t;
+	 roughly_equal_locations rel (.clock(clock),.reset(reset),.loc_1(rover_location),.loc_2(target_location),
                                  .done(location_reached_helper_done),.enable(location_reached_helper_enable),
-                                 .equal(reached_target));
+                                 .equal(reached_target_t));
 	 
 	 // for debug only
 	 //assign analyzer_clock = clock;
@@ -103,6 +104,7 @@ module main_fsm(
 			reached_target <= OFF;
 			location_reached_helper_enable  <= OFF;
          move_command_counter <= 32'h0000_0000;
+			orientation <= 4'h0;
 		end
 		else begin
 			case (state)
@@ -249,8 +251,9 @@ module main_fsm(
 					// wait for the helper to finish
                if (location_reached_helper_done) begin
                   // currently we just do one shot so commented out
+						reached_target <= reached_target_t;
                   // if we are there then done
-                  //if (reached_target) begin
+                  //if (reached_target_t) begin
                      state <= IDLE;
                   //end
                   // else restart from orientation step and try again
@@ -268,8 +271,8 @@ module main_fsm(
 							//reached_target <= OFF;
 							//location_reached_helper_enable  <= OFF;
                      //move_command_counter <= 32'h0000_0000;
-
-						end
+							//orientation <= 4'h0;
+						//end
 					end
 				end
 				
@@ -288,8 +291,9 @@ module main_fsm(
 						move_command <= 12'h000;
 						transmit_ir <= OFF;
 						reached_target <= OFF;
-						location_reached_helper_enable  <= OFF;
+						location_reached_helper_enable <= OFF;
                   move_command_counter <= 32'h0000_0000;
+						orientation <= 4'h0;
 					end
 				end
 			

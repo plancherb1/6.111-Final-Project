@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Wed Dec  2 23:06:56 2015
+| Date         : Thu Dec  3 19:37:37 2015
 | Host         : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
 | Design       : labkit
@@ -22,8 +22,8 @@ Table of Contents
 +-------------------------------------------------------------------+-------+
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
-| Number of unique control sets                                     |     9 |
-| Minimum Number of register sites lost to control set restrictions |    38 |
+| Number of unique control sets                                     |    11 |
+| Minimum Number of register sites lost to control set restrictions |    47 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,9 +33,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              52 |           30 |
+| No           | No                    | No                     |              43 |           21 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              26 |           11 |
+| No           | Yes                   | No                     |              34 |           18 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              76 |           19 |
@@ -45,18 +45,20 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+-------------------------------+------------------+------------------+----------------+
-|     Clock Signal     |         Enable Signal         | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+----------------------+-------------------------------+------------------+------------------+----------------+
-|  clock_25mhz_BUFG    | dbsw7/E[0]                    | dbsw15/reset     |                1 |              2 |
-|  CLK100MHZ_IBUF_BUFG |                               |                  |                1 |              2 |
-|  clock_25mhz_BUFG    | ir1/d1/O5                     | dbsw15/reset     |                2 |              4 |
-|  clock_25mhz_BUFG    | ir1/d1/E[0]                   | dbsw15/reset     |                2 |              8 |
-|  clock_25mhz_BUFG    | mss1/n_0_test_counter[11]_i_2 | dbbtnc/O2        |                2 |             12 |
-|  clock_25mhz_BUFG    | dbbtnc/n_0_count[0]_i_2       | dbsw15/O1        |                5 |             19 |
-|  clock_25mhz_BUFG    |                               | dbsw15/reset     |               11 |             26 |
-|  clock_25mhz_BUFG    | dbbtnc/O1                     | dbsw15/O2        |                7 |             31 |
-|  clock_25mhz_BUFG    |                               |                  |               29 |             50 |
-+----------------------+-------------------------------+------------------+------------------+----------------+
++----------------------+-------------------------------+---------------------------+------------------+----------------+
+|     Clock Signal     |         Enable Signal         |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
++----------------------+-------------------------------+---------------------------+------------------+----------------+
+|  clock_25mhz_BUFG    | dbsw7/E[0]                    | dbsw15/reset              |                1 |              2 |
+|  CLK100MHZ_IBUF_BUFG |                               |                           |                1 |              2 |
+|  clock_25mhz_BUFG    |                               | display/n_0_strobe[3]_i_1 |                3 |              4 |
+|  clock_25mhz_BUFG    | ir1/d1/O1                     | dbsw15/reset              |                1 |              4 |
+|  clock_25mhz_BUFG    |                               | display/O3                |                4 |              5 |
+|  clock_25mhz_BUFG    | ir1/d1/E[0]                   | dbsw15/reset              |                3 |              8 |
+|  clock_25mhz_BUFG    | mss1/n_0_test_counter[11]_i_2 | dbbtnc/O2                 |                2 |             12 |
+|  clock_25mhz_BUFG    | dbbtnc/n_0_count[0]_i_2       | dbbtnc/n_0_count[0]_i_1   |                5 |             19 |
+|  clock_25mhz_BUFG    |                               | dbsw15/reset              |               11 |             25 |
+|  clock_25mhz_BUFG    | dbbtnc/O1                     | dbsw15/O1                 |                7 |             31 |
+|  clock_25mhz_BUFG    |                               |                           |               20 |             41 |
++----------------------+-------------------------------+---------------------------+------------------+----------------+
 
 

@@ -87,17 +87,22 @@ module labkit(
 					.move_data(move_data_t),.state(ir_state));
     
     // link up the motor controller
-    wire motor_l;
-    assign JA[1] = motor_l;
-    wire motor_r;
-    assign JA[2] = motor_r;
+    wire motor_l_f;
+    wire motor_l_b;
+    wire motor_r_f;
+    wire motor_r_b;
+    assign JA[1] = motor_l_f;
+    assign JA[2] = motor_l_b;
+    assign JA[3] = motor_r_f;
+    assign JA[4] = motor_r_b;
     wire [3:0] motor_state;
     wire [11:0] move_data;
     wire start_move;
 	motor_signal_stream mss1(.clock(clock_25mhz),.reset(reset),
 	                         .command_ready(start_move),
 							 .command(move_data),
-							 .motor_l(motor_l),.motor_r(motor_r),
+							 .motor_l_f(motor_l_f),.motor_r_f(motor_r_f),
+							 .motor_l_b(motor_l_b),.motor_r_b(motor_r_b),
 							 .state(motor_state));
 	
 	// link up the main fsm
@@ -116,9 +121,10 @@ module labkit(
     wire [31:0] data = {3'h0,move_ready,
                         move_data_t, // 12 bits
                         3'h0,start_move,
-                        3'h0,motor_l,
-                        3'h0,motor_r,
-                        move_data[3:0]};
+                        3'h0,motor_l_f,
+                        3'h0,motor_r_f,
+                        3'h0,motor_l_b,
+                        3'h0,motor_r_b};
     
     // hex display for debug
     wire [7:0] segments;

@@ -13,14 +13,14 @@ module roughly_equal_locations(
    input enable,
    input [11:0] loc_1,
    input [11:0] loc_2,
-   output done,
-   output equal
+   output reg done,
+   output reg equal
    );
    
    // again we pipeline the math to be safe
    
    // fsm helpers
-   reg [4:0] state;
+   reg [3:0] state;
    parameter IDLE    = 4'h0;
    parameter PTC     = 4'h1;
    parameter DELTAS  = 4'h2;

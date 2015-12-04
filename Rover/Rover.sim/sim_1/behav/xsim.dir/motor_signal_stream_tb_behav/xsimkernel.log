@@ -1,7 +1,0 @@
-Running: xsim.dir/motor_signal_stream_tb_behav/xsimk -simmode gui -wdb motor_signal_stream_tb_behav.wdb -simrunnum 0 -socket 47284
-Design successfully loaded
-Design Loading Memory Usage: 125916 KB (Peak: 125940 KB)
-Design Loading CPU Usage: 90 ms
-Simulation completed
-Simulation Memory Usage: 200680 KB (Peak: 265188 KB)
-Simulation CPU Usage: 90 ms
