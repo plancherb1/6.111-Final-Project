@@ -14,7 +14,8 @@
 module path_math
     (input [11:0] location, // r is [7:0] theta is [11:8]
      input [11:0] target, // r is [7:0] theta is [11:8]
-     input [4:0] orientation, // angle = orientation * 15deg
+     input [4:0] current_orientation, // angle = orientation * 15deg
+     input [4:0] needed_orientation, // angle = orientation * 15deg
      input clock,
      input enable,
      input reset,
@@ -99,7 +100,7 @@ module path_math
 				
 				// we begin the pipeline with the Polar to Cartesian (PTC) calc
 				PTC_AND_ANGLE: begin
-               angle <= orientation - location[11:8];
+               angle <= needed_orientation - current_orientation + ((current_orientation > needed_orientation) ? DEG360 : 0);
 					x_location <= x_location_t;
 					y_location <= y_location_t;
 					x_target <= x_target_t;

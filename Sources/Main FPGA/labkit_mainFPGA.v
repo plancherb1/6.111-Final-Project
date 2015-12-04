@@ -447,10 +447,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   target_location_selector tls (.switches(target_switches),.location(target_location));
   
   wire [3:0] main_state;
-  wire [11:0] original_location;
-  wire [11:0] updated_location;
+  wire [11:0] orient_location_1;
+  wire [11:0] orient_location_2;
   // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
-  main_fsm msfm (.clock(clock_27mhz),.reset(reset),.enable(master_on),
+  main_fsm msfm (.clock(clock_27mhz),.reset(reset),.run_program(master_on),
 						.target_location(target_location),
                   .ultrasound_done(ultrasound_done),
 						.rover_location(rover_location),
@@ -462,8 +462,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
                   //.analyzer_clock(analyzer3_clock),
                   //.analyzer_data(analyzer3_data),
                   .reached_target(reached_target),
-						.original_location(original_location),
-						.updated_location(updated_location),
+						.orient_location_1(orient_location_1),
+						.orient_location_2(orient_location_2),
 						.state(main_state));
 	 
   // Ultrasound Block
@@ -514,9 +514,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								//move_command // 12 bits
 								
 								4'hF,
-								original_location, // 12 bits
+								orient_location_1, // 12 bits
 								4'hF,
-								updated_location // 12 bits							
+								orient_location_2 // 12 bits							
 							};
   end
 	
