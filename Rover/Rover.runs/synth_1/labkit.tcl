@@ -16,12 +16,12 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 read_verilog -library xil_defaultlib {
   /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/divider_600us.v
-  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v
+  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/rover_main_fsm.v
   /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v
   /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/ir_receiver.v
-  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v
+  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/display_8hex_nexys4.v
   /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/synchronize.v
-  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/rover_main_fsm.v
+  /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Shared/debounce.v
   /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v
 }
 read_xdc /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/Nexys4DDR_Master_lab4.xdc
