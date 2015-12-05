@@ -878,7 +878,6 @@ proc restore { { project_dir "" } } {
       "../Test Fixtures/Shared/calc_abs7rtan_00_75_15_tb.v" 
       "../Test Fixtures/Shared/find_min_5_vals_cascading_tb.v" 
       "../Test Fixtures/Shared/median_3_tb.v" 
-      "../Test Fixtures/Shared/median_5_tb.v" 
       "../Test Fixtures/Shared/polar_to_cartesian_tb.v"}
 
   HandleException {
@@ -900,7 +899,7 @@ proc restore { { project_dir "" } } {
       "A" "" "" "" "PROPEXT_xilxSynthAddBufg_virtex2" "16" 
       "A" "" "" "" "PROPEXT_xilxSynthMaxFanout_virtex2" "500" 
       "A" "" "" "" "PROP_AutoGenFile" "false" 
-      "A" "" "" "" "PROP_BehavioralSimTop" "Module|median_5_tb" 
+      "A" "" "" "" "PROP_BehavioralSimTop" "Module|abs_val_8_tb" 
       "A" "" "" "" "PROP_CPLDFitkeepio" "false" 
       "A" "" "" "" "PROP_CompxlibAbelLib" "true" 
       "A" "" "" "" "PROP_CompxlibCPLDDetLib" "true" 

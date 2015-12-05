@@ -45,15 +45,19 @@ module main_fsm(
 	 parameter ONE_CYCLE_DELAY_2		= 5'h06;
 	 parameter RUN_ULTRASOUND_2		= 5'h07;
 	 parameter ORIENTATION_PHASE_2	= 5'h08;
-	 parameter ORIENTATION_PHASE_3	= 5'h09;
-	 parameter CALC_MOVE_COMMAND_1	= 5'h0A;
-    parameter CALC_MOVE_COMMAND_2	= 5'h0B;
-    parameter CALC_MOVE_COMMAND_3	= 5'h0C;
-    parameter IR_TRANSMIT_DELAY_2	= 5'h0D;
-	 parameter MOVE_MOVE				   = 5'h0E;
-	 parameter ONE_CYCLE_DELAY_3		= 5'h0F;
-	 parameter RUN_ULTRASOUND_3		= 5'h10;
-	 parameter ARE_WE_DONE				= 5'h11;
+	 parameter ONE_CYCLE_DELAY_3		= 5'h0A;
+	 parameter ORIENTATION_PHASE_3	= 5'h0B;
+	 parameter CALC_MOVE_COMMAND_1	= 5'h0C;
+	 parameter ONE_CYCLE_DELAY_4		= 5'h0D;
+    parameter CALC_MOVE_COMMAND_2	= 5'h0E;
+	 parameter ONE_CYCLE_DELAY_5		= 5'h0F;
+    parameter CALC_MOVE_COMMAND_3	= 5'h10;
+    parameter IR_TRANSMIT_DELAY_2	= 5'h11;
+	 parameter MOVE_MOVE				   = 5'h12;
+	 parameter ONE_CYCLE_DELAY_6		= 5'h13;
+	 parameter RUN_ULTRASOUND_3		= 5'h14;
+	 parameter ONE_CYCLE_DELAY_7		= 5'h15;
+	 parameter ARE_WE_DONE				= 5'h16;
 	
     // ORIENTATION_PHASE_1/2/3 helper memory and paramenters for orientation and path
     reg [31:0] delay_count;
@@ -72,7 +76,7 @@ module main_fsm(
 	 // ORIENTATION_MOVE and MOVE_MOVE helpers
 	 reg [31:0] move_delay_timer; // large to make room for long moves
     reg [31:0] move_delay_inner_timer; // big for move_delay_factor 
-	 parameter MOVE_DELAY_FACTOR = 27000000;
+	 parameter MOVE_DELAY_FACTOR = 13500000; // 1/2 of a second per move
 	 parameter ORIENTATION_DELAY = ORIENTATION_MOVE[7:0];
     
     // MOVE_COMMAND_CALC helpers
@@ -198,7 +202,7 @@ module main_fsm(
 					if (delay_count == LOCATION_DELAY - 1) begin
 						orient_location_2 <= rover_location;
 						orientation_helper_enable <= ON;
-						state <= ORIENTATION_PHASE_3;
+						state <= ONE_CYCLE_DELAY_3;
 						delay_count <= 0;
 					end
 					else begin
@@ -206,6 +210,8 @@ module main_fsm(
 					end
 				end
             
+				ONE_CYCLE_DELAY_3: state <= ORIENTATION_PHASE_3;
+				
             // in phase 3 of orientation we wait for the helper to finish and then
 				// we send out the next move command to do the move
             ORIENTATION_PHASE_3: begin
@@ -214,9 +220,9 @@ module main_fsm(
 					// and bypass the next few states
 					if (orientation_done) begin
                   orientation <= orientation_t;
-						state <= IDLE;
+						//state <= IDLE;
 						//then move to calc the move command
-                  //state <= CALC_MOVE_COMMAND_1;
+                  state <= CALC_MOVE_COMMAND_1;
 					end
 				end
             
@@ -225,9 +231,11 @@ module main_fsm(
                orient_location_1 <= rover_location;
                orient_location_2 <= target_location;
                orientation_helper_enable <= ON;
-               state <= CALC_MOVE_COMMAND_2;
+               state <= ONE_CYCLE_DELAY_4;
             end
             
+				ONE_CYCLE_DELAY_4: state <= CALC_MOVE_COMMAND_2;
+				
             // then we save that orientation and calc the move command with it
             CALC_MOVE_COMMAND_2: begin
                orientation_helper_enable <= OFF;
@@ -235,9 +243,11 @@ module main_fsm(
                if (orientation_done) begin
                   needed_orientation <= orientation_t;
                   move_command_helper_enable <= ON;
-                  state <= CALC_MOVE_COMMAND_3;
+                  state <= ONE_CYCLE_DELAY_5;
                end
             end
+				
+				ONE_CYCLE_DELAY_5: state <= CALC_MOVE_COMMAND_3;
             
             // then we have a move command so prep to send it via ir
             CALC_MOVE_COMMAND_3: begin
@@ -271,7 +281,7 @@ module main_fsm(
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
-                     state <= ONE_CYCLE_DELAY_3;
+                     state <= ONE_CYCLE_DELAY_6;
                      run_ultrasound <= ON;
                   end
                   else begin
@@ -284,16 +294,18 @@ module main_fsm(
                end
 				end
 				
-				ONE_CYCLE_DELAY_3: state <= RUN_ULTRASOUND_3;
+				ONE_CYCLE_DELAY_6: state <= RUN_ULTRASOUND_3;
 				
 				// wait for ultrasound to finish then enable next move analysis
 				RUN_ULTRASOUND_3: begin
 					run_ultrasound <= OFF;
 					if (ultrasound_done) begin
-						state <= ARE_WE_DONE;
+						state <= ONE_CYCLE_DELAY_7;
 						location_reached_helper_enable <= ON;
 					end
 				end
+				
+				ONE_CYCLE_DELAY_7: state <= ARE_WE_DONE;
 				
 				// see if we are done else keep moving toward target
 				ARE_WE_DONE: begin

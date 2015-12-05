@@ -1,5 +1,5 @@
 NUM_USER_FILES
-44
+43
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -114,21 +114,6 @@ user_file_42
 s
 user_file_43
 ../Sources/Main FPGA/rover_location_calculator.v
-s
-user_file_44
-../Test Fixtures/Shared/median_5_tb.v
-s
-user_file_45
-../Sources/Shared/median_5.v
-s
-user_file_46
-../Sources/Shared/mid3_of5.v
-s
-user_file_47
-../Test Fixtures/Shared/median_5_tb.v
-s
-user_file_48
-../Test Fixtures/Shared/median_5_tb.v
 s
 user_file_5
 ../Sources/Main FPGA/xvga.v

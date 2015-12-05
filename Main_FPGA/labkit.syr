@@ -4,15 +4,15 @@ Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -195,31 +195,35 @@ Analyzing hierarchy for module <target_location_selector> in library <work> with
 	LOC_4 = "101101000000"
 
 Analyzing hierarchy for module <main_fsm> in library <work> with parameters.
-	ARE_WE_DONE = "10001"
-	CALC_MOVE_COMMAND_1 = "01010"
-	CALC_MOVE_COMMAND_2 = "01011"
-	CALC_MOVE_COMMAND_3 = "01100"
+	ARE_WE_DONE = "10110"
+	CALC_MOVE_COMMAND_1 = "01100"
+	CALC_MOVE_COMMAND_2 = "01110"
+	CALC_MOVE_COMMAND_3 = "10000"
 	IDLE = "00000"
 	IR_TRANSMIT_DELAY_1 = "00100"
-	IR_TRANSMIT_DELAY_2 = "01101"
+	IR_TRANSMIT_DELAY_2 = "10001"
 	IR_TRANSMIT_DELAY_COUNT = "00000000010011000100101101000000"
 	LOCATION_DELAY = "00000001100110111111110011000000"
-	MOVE_DELAY_FACTOR = "00000001100110111111110011000000"
-	MOVE_MOVE = "01110"
+	MOVE_DELAY_FACTOR = "00000000110011011111111001100000"
+	MOVE_MOVE = "10010"
 	OFF = "0"
 	ON = "1"
 	ONE_CYCLE_DELAY_1 = "00001"
 	ONE_CYCLE_DELAY_2 = "00110"
-	ONE_CYCLE_DELAY_3 = "01111"
+	ONE_CYCLE_DELAY_3 = "01010"
+	ONE_CYCLE_DELAY_4 = "01101"
+	ONE_CYCLE_DELAY_5 = "01111"
+	ONE_CYCLE_DELAY_6 = "10011"
+	ONE_CYCLE_DELAY_7 = "10101"
 	ORIENTATION_DELAY = "00001010"
 	ORIENTATION_MOVE = "000000001010"
 	ORIENTATION_MOVE_S = "00101"
 	ORIENTATION_PHASE_1 = "00011"
 	ORIENTATION_PHASE_2 = "01000"
-	ORIENTATION_PHASE_3 = "01001"
+	ORIENTATION_PHASE_3 = "01011"
 	RUN_ULTRASOUND_1 = "00010"
 	RUN_ULTRASOUND_2 = "00111"
-	RUN_ULTRASOUND_3 = "10000"
+	RUN_ULTRASOUND_3 = "10100"
 
 Analyzing hierarchy for module <rover_location_calculator> in library <work> with parameters.
 	IDLE = "0000"
@@ -453,31 +457,35 @@ Analyzing module <target_location_selector> in library <work>.
 Module <target_location_selector> is correct for synthesis.
  
 Analyzing module <main_fsm> in library <work>.
-	ARE_WE_DONE = 5'b10001
-	CALC_MOVE_COMMAND_1 = 5'b01010
-	CALC_MOVE_COMMAND_2 = 5'b01011
-	CALC_MOVE_COMMAND_3 = 5'b01100
+	ARE_WE_DONE = 5'b10110
+	CALC_MOVE_COMMAND_1 = 5'b01100
+	CALC_MOVE_COMMAND_2 = 5'b01110
+	CALC_MOVE_COMMAND_3 = 5'b10000
 	IDLE = 5'b00000
 	IR_TRANSMIT_DELAY_1 = 5'b00100
-	IR_TRANSMIT_DELAY_2 = 5'b01101
+	IR_TRANSMIT_DELAY_2 = 5'b10001
 	IR_TRANSMIT_DELAY_COUNT = 32'sb00000000010011000100101101000000
 	LOCATION_DELAY = 32'sb00000001100110111111110011000000
-	MOVE_DELAY_FACTOR = 32'sb00000001100110111111110011000000
-	MOVE_MOVE = 5'b01110
+	MOVE_DELAY_FACTOR = 32'sb00000000110011011111111001100000
+	MOVE_MOVE = 5'b10010
 	OFF = 1'b0
 	ON = 1'b1
 	ONE_CYCLE_DELAY_1 = 5'b00001
 	ONE_CYCLE_DELAY_2 = 5'b00110
-	ONE_CYCLE_DELAY_3 = 5'b01111
+	ONE_CYCLE_DELAY_3 = 5'b01010
+	ONE_CYCLE_DELAY_4 = 5'b01101
+	ONE_CYCLE_DELAY_5 = 5'b01111
+	ONE_CYCLE_DELAY_6 = 5'b10011
+	ONE_CYCLE_DELAY_7 = 5'b10101
 	ORIENTATION_DELAY = 8'b00001010
 	ORIENTATION_MOVE = 12'b000000001010
 	ORIENTATION_MOVE_S = 5'b00101
 	ORIENTATION_PHASE_1 = 5'b00011
 	ORIENTATION_PHASE_2 = 5'b01000
-	ORIENTATION_PHASE_3 = 5'b01001
+	ORIENTATION_PHASE_3 = 5'b01011
 	RUN_ULTRASOUND_1 = 5'b00010
 	RUN_ULTRASOUND_2 = 5'b00111
-	RUN_ULTRASOUND_3 = 5'b10000
+	RUN_ULTRASOUND_3 = 5'b10100
 Module <main_fsm> is correct for synthesis.
  
 Analyzing module <orientation_math> in library <work>.
@@ -1413,7 +1421,7 @@ Synthesizing Unit <main_fsm>.
     Found 32-bit subtractor for signal <move_delay_inner_timer$addsub0000>.
     Found 32-bit register for signal <move_delay_timer>.
     Found 32-bit subtractor for signal <move_delay_timer$addsub0000>.
-    Found 8-bit adder carry out for signal <move_delay_timer$addsub0001> created at line 250.
+    Found 8-bit adder carry out for signal <move_delay_timer$addsub0001> created at line 260.
     Found 5-bit register for signal <needed_orientation>.
     Found 1-bit register for signal <orientation_helper_enable>.
     Summary:
@@ -2576,374 +2584,3 @@ Optimizing unit <main_fsm> ...
 Optimizing unit <rover_location_calculator> ...
 
 Optimizing unit <ir_transmitter> ...
-WARNING:Xst:1710 - FF/Latch <vg/target_y_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_y_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_15> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_14> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_13> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_12> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_11> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_7> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_2> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_1> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_0> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_target_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_location_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <my_hex_data_51> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <msfm/pm/delta_x_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <msfm/pm/abs_delta_x_7> of sequential type is unconnected in block <labkit>.
-
-Mapping all equations...
-Building and optimizing final netlist ...
-INFO:Xst:2261 - The FF/Latch <vg/rover_pixel_23> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/rover_pixel_22> <vg/rover_pixel_21> <vg/rover_pixel_20> <vg/rover_pixel_19> <vg/rover_pixel_18> <vg/rover_pixel_17> <vg/rover_pixel_16> 
-INFO:Xst:2261 - The FF/Latch <vg/grid_pixel2_23> in Unit <labkit> is equivalent to the following 23 FFs/Latches, which will be removed : <vg/grid_pixel2_22> <vg/grid_pixel2_21> <vg/grid_pixel2_20> <vg/grid_pixel2_19> <vg/grid_pixel2_18> <vg/grid_pixel2_17> <vg/grid_pixel2_16> <vg/grid_pixel2_15> <vg/grid_pixel2_14> <vg/grid_pixel2_13> <vg/grid_pixel2_12> <vg/grid_pixel2_11> <vg/grid_pixel2_10> <vg/grid_pixel2_9> <vg/grid_pixel2_8> <vg/grid_pixel2_7> <vg/grid_pixel2_6> <vg/grid_pixel2_5> <vg/grid_pixel2_4> <vg/grid_pixel2_3> <vg/grid_pixel2_2> <vg/grid_pixel2_1> <vg/grid_pixel2_0> 
-INFO:Xst:2261 - The FF/Latch <vg/rover_yesO/delta_x_0> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <vg/grid/x_value_e_0> 
-INFO:Xst:2261 - The FF/Latch <vg/rover_pixel_7> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/rover_pixel_6> <vg/rover_pixel_5> <vg/rover_pixel_4> <vg/rover_pixel_3> <vg/rover_pixel_2> <vg/rover_pixel_1> <vg/rover_pixel_0> 
-INFO:Xst:2261 - The FF/Latch <vg/pixel_7> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_6> <vg/pixel_5> <vg/pixel_4> <vg/pixel_3> <vg/pixel_2> <vg/pixel_1> <vg/pixel_0> 
-INFO:Xst:2261 - The FF/Latch <vg/rover_yesO/delta_x2_0> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <vg/grid/test_45deg_0> 
-INFO:Xst:2261 - The FF/Latch <vg/pixel_15> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_14> <vg/pixel_13> <vg/pixel_12> <vg/pixel_11> <vg/pixel_10> <vg/pixel_9> <vg/pixel_8> 
-INFO:Xst:2261 - The FF/Latch <vg/pixel_23> in Unit <labkit> is equivalent to the following 7 FFs/Latches, which will be removed : <vg/pixel_22> <vg/pixel_21> <vg/pixel_20> <vg/pixel_19> <vg/pixel_18> <vg/pixel_17> <vg/pixel_16> 
-Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 6.
-FlipFlop db_S0/clean has been replicated 1 time(s)
-FlipFlop db_S1/clean has been replicated 1 time(s)
-FlipFlop db_S2/clean has been replicated 1 time(s)
-
-Final Macro Processing ...
-
-Processing Unit <labkit> :
-	Found 7-bit shift register for signal <disp/control_30>.
-	Found 7-bit shift register for signal <disp/control_22>.
-	Found 7-bit shift register for signal <disp/control_14>.
-	Found 7-bit shift register for signal <disp/control_6>.
-	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_0>.
-	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_1>.
-	Found 2-bit shift register for signal <vg/rover_yesO/orientation3_2>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_1>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_2>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_3>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_4>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_5>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_6>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_7>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_8>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_9>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_10>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_x2_11>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_0>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_1>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_2>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_3>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_4>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_5>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_6>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_7>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_8>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_9>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_10>.
-	Found 2-bit shift register for signal <vg/rover_yesO/delta_y2_11>.
-	Found 2-bit shift register for signal <vg/grid/on_border3>.
-	Found 2-bit shift register for signal <vg/grid/out_of_border3>.
-	Found 5-bit shift register for signal <vg/hdelay/shiftreg_4>.
-	Found 5-bit shift register for signal <vg/vdelay/shiftreg_4>.
-	Found 5-bit shift register for signal <vg/bdelay/shiftreg_4>.
-	Found 3-bit shift register for signal <vg/target_pixel5_8>.
-	Found 2-bit shift register for signal <vg/rover_pixel_noO4_16>.
-Unit <labkit> processed.
-
-=========================================================================
-Final Register Report
-
-Macro Statistics
-# Registers                                            : 1159
- Flip-Flops                                            : 1159
-# Shift Registers                                      : 37
- 2-bit shift register                                  : 29
- 3-bit shift register                                  : 1
- 5-bit shift register                                  : 3
- 7-bit shift register                                  : 4
-
-=========================================================================
-
-=========================================================================
-*                           Partition Report                             *
-=========================================================================
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-=========================================================================
-*                            Final Report                               *
-=========================================================================
-Final Results
-RTL Top Level Output File Name     : labkit.ngr
-Top Level Output File Name         : labkit
-Output Format                      : NGC
-Optimization Goal                  : Speed
-Keep Hierarchy                     : NO
-
-Design Statistics
-# IOs                              : 576
-
-Cell Usage :
-# BELS                             : 7369
-#      GND                         : 1
-#      INV                         : 599
-#      LUT1                        : 634
-#      LUT2                        : 644
-#      LUT2_D                      : 7
-#      LUT3                        : 539
-#      LUT3_D                      : 2
-#      LUT3_L                      : 9
-#      LUT4                        : 1543
-#      LUT4_D                      : 7
-#      LUT4_L                      : 29
-#      MUXCY                       : 1977
-#      MUXF5                       : 218
-#      MUXF6                       : 16
-#      MUXF7                       : 2
-#      VCC                         : 1
-#      XORCY                       : 1141
-# FlipFlops/Latches                : 1206
-#      FD                          : 283
-#      FDE                         : 269
-#      FDR                         : 273
-#      FDRE                        : 269
-#      FDRS                        : 90
-#      FDRSE                       : 1
-#      FDS                         : 10
-#      FDSE                        : 11
-# Shift Registers                  : 38
-#      SRL16                       : 32
-#      SRL16E                      : 6
-# Clock Buffers                    : 3
-#      BUFG                        : 3
-# IO Buffers                       : 266
-#      IBUF                        : 12
-#      IBUFG                       : 1
-#      OBUF                        : 253
-# DCMs                             : 1
-#      DCM                         : 1
-# MULTs                            : 41
-#      MULT18X18                   : 41
-=========================================================================
-
-Device utilization summary:
----------------------------
-
-Selected Device : 2v6000bf957-4 
-
- Number of Slices:                     2120  out of  33792     6%  
- Number of Slice Flip Flops:           1206  out of  67584     1%  
- Number of 4 input LUTs:               4051  out of  67584     5%  
-    Number used as logic:              4013
-    Number used as Shift registers:      38
- Number of IOs:                         576
- Number of bonded IOBs:                 266  out of    684    38%  
- Number of MULT18X18s:                   41  out of    144    28%  
- Number of GCLKs:                         3  out of     16    18%  
- Number of DCMs:                          1  out of     12     8%  
-
----------------------------
-Partition Resource Summary:
----------------------------
-
-  No Partitions were found in this design.
-
----------------------------
-
-
-=========================================================================
-TIMING REPORT
-
-NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
-      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
-      GENERATED AFTER PLACE-and-ROUTE.
-
-Clock Information:
-------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 850   |
-clock_27mhz                        | vclk1:CLKFX            | 351   |
-disp/clock1                        | BUFG                   | 43    |
------------------------------------+------------------------+-------+
-
-Asynchronous Control Signals Information:
-----------------------------------------
-No asynchronous control signals found in this design
-
-Timing Summary:
----------------
-Speed Grade: -4
-
-   Minimum period: 57.948ns (Maximum Frequency: 17.257MHz)
-   Minimum input arrival time before clock: 8.575ns
-   Maximum output required time after clock: 9.444ns
-   Maximum combinational path delay: No path found
-
-Timing Detail:
---------------
-All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'clock_27mhz'
-  Clock period: 57.948ns (frequency: 17.257MHz)
-  Total number of paths / destination ports: 158299 / 2423
--------------------------------------------------------------------------
-Delay:               14.487ns (Levels of Logic = 7)
-  Source:            db_S0/clean_1 (FF)
-  Destination:       vg/target_x_8 (FF)
-  Source Clock:      clock_27mhz rising
-  Destination Clock: clock_27mhz rising 2.4X
-
-  Data Path: db_S0/clean_1 to vg/target_x_8
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              5   0.568   1.056  db_S0/clean_1 (db_S0/clean_1)
-     LUT3:I0->O           16   0.439   1.000  tls/location<3>1 (target_location<3>)
-     MULT18X18:A3->P12     3   5.595   0.759  vg/ptct/Mmult_rsin_15deg_mult0000 (vg/ptct/rsin_15deg_mult0000<12>)
-     LUT4:I2->O            1   0.439   0.557  vg/ptct/x_value_mux0000<4>58_SW1 (N584)
-     LUT4:I3->O            5   0.439   1.056  vg/ptct/x_value_mux0000<4>58 (vg/ptct/Madd_x_value_addsub00008)
-     LUT4:I0->O            3   0.439   0.759  vg/ptct/x_value<6>212 (vg/ptct/N37)
-     LUT4_L:I2->LO         1   0.439   0.134  vg/ptct/x_value<7>42 (vg/ptct/x_value<7>42)
-     LUT4:I2->O            1   0.439   0.000  vg/ptct/x_value<7>55 (vg/temp_target_x<7>)
-     FDE:D                     0.370          vg/target_x_8
-    ----------------------------------------
-    Total                     14.487ns (9.167ns logic, 5.320ns route)
-                                       (63.3% logic, 36.7% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'disp/clock1'
-  Clock period: 14.837ns (frequency: 67.398MHz)
-  Total number of paths / destination ports: 5623 / 74
--------------------------------------------------------------------------
-Delay:               14.837ns (Levels of Logic = 14)
-  Source:            disp/char_index_0 (FF)
-  Destination:       disp/disp_data_out (FF)
-  Source Clock:      disp/clock1 rising
-  Destination Clock: disp/clock1 rising
-
-  Data Path: disp/char_index_0 to disp/disp_data_out
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q             31   0.568   1.370  disp/char_index_0 (disp/char_index_0)
-     LUT3:I0->O            1   0.439   0.000  disp/Mmux_nibble_112 (disp/Mmux_nibble_112)
-     MUXF5:I1->O           1   0.436   0.726  disp/Mmux_nibble_10_f5_1 (disp/Mmux_nibble_10_f52)
-     LUT4:I1->O            2   0.439   0.910  disp/char_index<3>212 (disp/char_index<3>212)
-     LUT4:I1->O           27   0.439   1.283  disp/char_index<3>221 (disp/nibble<3>)
-     LUT4:I1->O            1   0.439   0.726  disp/Mrom_dots41 (disp/Mrom_dots4)
-     LUT3:I1->O            1   0.439   0.000  disp/Mmux__varindex0000_16 (disp/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.000  disp/Mmux__varindex0000_14_f5 (disp/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
-     LUT4:I1->O            1   0.439   0.557  disp/disp_data_out_mux000033 (disp/disp_data_out_mux000033)
-     LUT4:I3->O            1   0.439   0.552  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N630)
-     MUXF5:I1->O           2   0.436   0.910  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
-     LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux00001682 (disp/disp_data_out_mux00001681)
-     MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000168_f5 (disp/disp_data_out_mux0000)
-     FDE:D                     0.370          disp/disp_data_out
-    ----------------------------------------
-    Total                     14.837ns (7.080ns logic, 7.757ns route)
-                                       (47.7% logic, 52.3% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 738 / 219
--------------------------------------------------------------------------
-Offset:              8.575ns (Levels of Logic = 7)
-  Source:            user1<29> (PAD)
-  Destination:       rlc1/gm3hcsr04/us_module/power_cycle_timer_25 (FF)
-  Destination Clock: clock_27mhz rising
-
-  Data Path: user1<29> to rlc1/gm3hcsr04/us_module/power_cycle_timer_25
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   0.825   0.726  user1_29_IBUF (user1_29_IBUF)
-     LUT3:I1->O            1   0.439   0.000  rlc1/gm3hcsr04/us_module/Mmux__COND_9_7 (rlc1/gm3hcsr04/us_module/Mmux__COND_9_7)
-     MUXF5:I0->O           3   0.436   0.932  rlc1/gm3hcsr04/us_module/Mmux__COND_9_5_f5 (rlc1/gm3hcsr04/us_module/Mmux__COND_9_5_f5)
-     LUT3:I1->O           14   0.439   1.012  rlc1/gm3hcsr04/us_module/curr_ultrasound<2> (rlc1/gm3hcsr04/us_module/_COND_9)
-     LUT4:I2->O            1   0.439   0.726  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<10>1_SW1 (N496)
-     LUT3:I1->O           25   0.439   1.354  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<10>1 (rlc1/gm3hcsr04/us_module/N0)
-     LUT4:I0->O            1   0.439   0.000  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<9>1 (rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<9>)
-     FDR:D                     0.370          rlc1/gm3hcsr04/us_module/power_cycle_timer_9
-    ----------------------------------------
-    Total                      8.575ns (3.826ns logic, 4.750ns route)
-                                       (44.6% logic, 55.4% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 54 / 41
--------------------------------------------------------------------------
-Offset:              9.444ns (Levels of Logic = 11)
-  Source:            transmitter/mod_count_0 (FF)
-  Destination:       user1<31> (PAD)
-  Source Clock:      clock_27mhz rising
-
-  Data Path: transmitter/mod_count_0 to user1<31>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDR:C->Q              3   0.568   1.010  transmitter/mod_count_0 (transmitter/mod_count_0)
-     LUT1:I0->O            1   0.439   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>_rt (transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>_rt)
-     MUXCY:S->O            1   0.298   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<0> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<1> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<1>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<2> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<2>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<3> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<3>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<4> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<4>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<5> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<5>)
-     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<6> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<6>)
-     MUXCY:CI->O           1   0.942   0.551  transmitter/Mcompar_signal_out_cmp_lt0000_cy<7> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<7>)
-     LUT4:I2->O            1   0.439   0.517  transmitter/signal_out1 (user1_31_OBUF)
-     OBUF:I->O                 4.361          user1_31_OBUF (user1<31>)
-    ----------------------------------------
-    Total                      9.444ns (7.365ns logic, 2.078ns route)
-                                       (78.0% logic, 22.0% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'disp/clock1'
-  Total number of paths / destination ports: 4 / 4
--------------------------------------------------------------------------
-Offset:              5.630ns (Levels of Logic = 1)
-  Source:            disp/disp_rs (FF)
-  Destination:       disp_rs (PAD)
-  Source Clock:      disp/clock1 rising
-
-  Data Path: disp/disp_rs to disp_rs
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              2   0.568   0.701  disp/disp_rs (disp/disp_rs)
-     OBUF:I->O                 4.361          disp_rs_OBUF (disp_rs)
-    ----------------------------------------
-    Total                      5.630ns (4.929ns logic, 0.701ns route)
-                                       (87.5% logic, 12.5% route)
-
-=========================================================================
-
-
-Total REAL time to Xst completion: 59.00 secs
-Total CPU time to Xst completion: 57.43 secs
- 
---> 
-
-
-Total memory usage is 573776 kilobytes
-
-Number of errors   :    0 (   0 filtered)
-Number of warnings :  664 (   0 filtered)
-Number of infos    :  142 (   0 filtered)
-
