@@ -8,56 +8,40 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {ultrasound_location_calculator_tb.fdo} 
+# do {median_5_tb.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module mid3_of5
+# 
+# Top level modules:
+# 	mid3_of5
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module median_3
 # 
 # Top level modules:
 # 	median_3
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module ultrasound_location_calculator
+# -- Compiling module median_5
 # 
 # Top level modules:
-# 	ultrasound_location_calculator
+# 	median_5
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module ultrasound_location_calculator_tb
+# -- Compiling module median_5_tb
 # 
 # Top level modules:
-# 	ultrasound_location_calculator_tb
+# 	median_5_tb
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps ultrasound_location_calculator_tb glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps median_5_tb glbl 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.ultrasound_location_calculator_tb(fast)
-# Loading work.ultrasound_location_calculator(fast)
+# Loading work.median_5_tb(fast)
+# Loading work.median_5(fast)
+# Loading work.mid3_of5(fast)
 # Loading work.median_3(fast)
 # Loading work.glbl(fast)
-# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
-#         Region: /ultrasound_location_calculator_tb/uut
-# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-restart -f
-# Loading work.ultrasound_location_calculator_tb(fast)
-# Loading work.ultrasound_location_calculator(fast)
-# Loading work.median_3(fast)
-# Loading work.glbl(fast)
-# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
-#         Region: /ultrasound_location_calculator_tb/uut
-# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
-run 10000ns
-run 15000ns
-restart -f
-# Loading work.ultrasound_location_calculator_tb(fast)
-# Loading work.ultrasound_location_calculator(fast)
-# Loading work.median_3(fast)
-# Loading work.glbl(fast)
-# ** Warning: (vsim-3017) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Too few port connections. Expected 10, found 9.
-#         Region: /ultrasound_location_calculator_tb/uut
-# ** Warning: (vsim-3722) ../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v(51): [TFMPC] - Missing connection for port 'curr_ultrasound'.
-run 20000ns

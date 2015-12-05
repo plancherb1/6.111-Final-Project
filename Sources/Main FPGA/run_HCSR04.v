@@ -102,7 +102,7 @@ module run_HCSR04(
                end
                // else if we hit max time go to power cycle and report nothing found
                else if (distance_count == DISTANCE_MAX - 1) begin
-                  distance_count <= NOTHING_FOUND;
+                  distance_count <= NOTHING_FOUND - DISTANCE_OFFSET;
                   state <= POWER_CYCLE;
                   power_cycle_timer <= 1;
                   ultrasound_power[curr_ultrasound] <= 0;
@@ -118,6 +118,7 @@ module run_HCSR04(
                // if we hit our desired time move to report
                if (power_cycle_timer == POWER_CYCLE_TIME - 1) begin
                   power_cycle_timer <= 0;
+						ultrasound_power[curr_ultrasound] <= 1;
                   state <= REPORT;
                end
                // else keep counting
@@ -128,10 +129,22 @@ module run_HCSR04(
             
             // report out the distance
             REPORT: begin
-               done <= 1;
-               rover_distance <= distance_count + DISTANCE_OFFSET;
-               distance_count <= 0;
-               state <= IDLE;
+					// if we got a distance of 0 then an error so try again
+					if (distance_count == 0) begin
+						state <= TRIGGER;
+						ultrasound_trigger[curr_ultrasound] <= 1;
+						done <= 0;
+                  trigger_count <= 1;
+                  distance_count <= 0;
+                  power_cycle_timer <= 0;
+					end
+					// else report
+					else begin
+						done <= 1;
+						rover_distance <= distance_count + DISTANCE_OFFSET;
+						distance_count <= 0;
+						state <= IDLE;
+					end
             end
             
             // default to IDLE state

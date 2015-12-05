@@ -104,6 +104,7 @@ WARNING:NgdBuild:470 - bidirect pad net 'user2<23>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<18>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<38>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<43>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user1<2>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user4<5>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<24>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<19>' has no legal driver
@@ -115,11 +116,13 @@ WARNING:NgdBuild:470 - bidirect pad net 'user2<25>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user4<7>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<26>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<31>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user1<5>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user4<8>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<27>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user4<9>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<28>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<29>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user1<8>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<0>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user4<10>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'daughtercard<1>' has no legal driver
@@ -182,6 +185,7 @@ WARNING:NgdBuild:470 - bidirect pad net 'systemace_data<5>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram1_data<18>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram0_data<9>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'user2<0>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'user1<11>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram0_data<10>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'ram1_data<24>' has no legal driver
 WARNING:NgdBuild:470 - bidirect pad net 'systemace_data<6>' has no legal driver
@@ -285,9 +289,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 246
+  Number of warnings: 250
 
-Total memory usage is 248196 kilobytes
+Total memory usage is 236156 kilobytes
 
 Writing NGD file "labkit.ngd" ...
 

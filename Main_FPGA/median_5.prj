@@ -1,0 +1,3 @@
+verilog work "../Sources/Shared/mid3_of5.v"
+verilog work "../Sources/Shared/median_3.v"
+verilog work "../Sources/Shared/median_5.v"

@@ -235,6 +235,9 @@
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">daughtercard&lt;43&gt;</arg>&apos; has no legal driver
 </msg>
 
+<msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user1&lt;2&gt;</arg>&apos; has no legal driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user4&lt;5&gt;</arg>&apos; has no legal driver
 </msg>
 
@@ -268,6 +271,9 @@
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user2&lt;31&gt;</arg>&apos; has no legal driver
 </msg>
 
+<msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user1&lt;5&gt;</arg>&apos; has no legal driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user4&lt;8&gt;</arg>&apos; has no legal driver
 </msg>
 
@@ -281,6 +287,9 @@
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user2&lt;29&gt;</arg>&apos; has no legal driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user1&lt;8&gt;</arg>&apos; has no legal driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">daughtercard&lt;0&gt;</arg>&apos; has no legal driver
@@ -467,6 +476,9 @@
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user2&lt;0&gt;</arg>&apos; has no legal driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">user1&lt;11&gt;</arg>&apos; has no legal driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="470" delta="unknown" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">ram0_data&lt;10&gt;</arg>&apos; has no legal driver

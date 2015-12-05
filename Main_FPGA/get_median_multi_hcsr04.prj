@@ -1,0 +1,5 @@
+verilog work "../Sources/Shared/mid3_of5.v"
+verilog work "../Sources/Shared/median_3.v"
+verilog work "../Sources/Shared/median_5.v"
+verilog work "../Sources/Main FPGA/run_HCSR04.v"
+verilog work "../Sources/Main FPGA/get_median_multi_hcsr04.v"

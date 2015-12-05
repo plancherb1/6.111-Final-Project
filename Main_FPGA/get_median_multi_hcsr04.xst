@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn get_median_multi_hcsr04.prj
+-ifmt mixed

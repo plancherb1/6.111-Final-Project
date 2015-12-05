@@ -292,7 +292,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 */
 
    // Buttons, Switches, and Individual LEDs
-   //assign led = 8'hFF;
+   assign led = 8'hFF;
    // button0, button1, button2, button3, button_enter, button_right,
    // button_left, button_down, button_up, and switches are inputs
 
@@ -509,14 +509,24 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   */
   
   // ultrasound testing block
+  wire [5:0] us_pow1;
+  wire [5:0] us_pow2;
+  wire [5:0] us_pow3;
+  assign ultrasound_power[5:0] = us_pow1 & us_pow2 & us_pow3;
+  wire [5:0] us_trig1;
+  wire [5:0] us_trig2;
+  wire [5:0] us_trig3;
+  assign ultrasound_commands[5:0] = us_trig1 | us_trig2 | us_trig3;
+  
   wire run_us;
   edge_detect ed0 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(run_us));
   wire hcsr04_done;
   wire [3:0] hcsr04_state;
   wire [7:0] rover_distance_t;
+  
   run_HCSR04 us_module (.clock(clock_27mhz),.reset(reset),.enable(run_us),
                          .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
-                         .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
+                         .ultrasound_trigger(us_trig1),.ultrasound_power(us_pow1),
                          .rover_distance(rover_distance_t),.done(hcsr04_done),.state(hcsr04_state));
   
   // 3 pass ultrasound testing block
@@ -525,12 +535,12 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire hcsr04_done_3;
   wire [3:0] hcsr04_state_3;
   wire [7:0] rover_distance_t_3;
-  /*
-  get_median_of_3_HCSR04_runs gm3hcsr04  (.clock(clock_27mhz),.reset(reset),.enable(run_us_3),
-                                          .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
-                                          .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
-                                          .rover_distance(rover_distance_t_3),.done(hcsr04_done_3),.state(hcsr04_state_3));
-  */
+  
+  get_median_multi_hcsr04 gmhcsr04  (.clock(clock_27mhz),.reset(reset),.enable(run_us_3),
+                                    .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
+                                    .ultrasound_trigger(us_trig2),.ultrasound_power(us_pow2),
+                                    .rover_distance(rover_distance_t_3),.done(hcsr04_done_3),.state(hcsr04_state_3));
+  
   // put it all together testing block
   wire run_us_full;
   edge_detect ed2 (.in(btn1_db),.clock(clock_27mhz),.reset(reset),.out(run_us_full));
@@ -538,16 +548,16 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [3:0] hcsr04_state_full;
   wire [11:0] rover_loc_full;
   wire [3:0] test_curr_ultrasound;
-  /*
+  
   rover_location_calculator rlc1 (.clock(clock_27mhz),.reset(reset),.enable(run_us_full),
                                   .ultrasound_response(ultrasound_signals[5:0]),
-                                  .ultrasound_trigger(ultrasound_commands[5:0]),
-                                  .ultrasound_power(ultrasound_power[5:0]),
+                                  .ultrasound_trigger(us_trig3),
+                                  .ultrasound_power(us_pow3),
                                   .rover_location(rover_loc_full),
                                   .done(hcsr04_done_full),
                                   .state(hcsr04_state_full),
                                   .curr_ultrasound(test_curr_ultrasound));
-  */ 
+   
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
   always @(posedge clock_27mhz) begin

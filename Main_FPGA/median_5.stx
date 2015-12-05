@@ -1,0 +1,37 @@
+Release 10.1.03 - xst K.39 (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../Sources/Shared/mid3_of5.v" in library work
+Compiling verilog file "../Sources/Shared/median_3.v" in library work
+Module <mid3_of5> compiled
+Compiling verilog file "../Sources/Shared/median_5.v" in library work
+Module <median_3> compiled
+Module <median_5> compiled
+No errors in compilation
+Analysis of file <"median_5.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> 
+
+
+Total memory usage is 283644 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

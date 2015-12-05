@@ -4,24 +4,24 @@ K3
 cModel Technology
 Z0 d/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA
 T_opt
-Z1 VNc<8>=UC^oJOo<]7m<g280
-Z2 04 21 4 work polar_to_cartesian_tb fast 0
+Z1 VLGOzGClTUZ:MOnMznc]D_2
+Z2 04 11 4 work mid3_of5_tb fast 0
 Z3 04 4 4 work glbl fast 0
-Z4 =1-f04da20f012d-5661dfec-31a39-d21
+Z4 =1-f04da20f012d-566354e5-6dd42-67a3
 Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
 Z6 OE;O;6.4a;39
 T_opt1
-Z7 V4kW;:ZdF3PoJniZV=j@280
-Z8 04 11 4 work triangle_tb fast 0
+VeiYA]`2Ej6?h`lF8c[@jH0
+Z7 04 11 4 work median_5_tb fast 0
 R3
-Z9 =1-f04da20f012d-565dd2ed-91be1-1101
+Z8 =1-f04da20f012d-566357ea-8a5e8-68fd
 R5
 R6
 T_opt2
-V_<Whk=Z>Xo@C1<eg7MX_K2
-Z10 04 33 4 work ultrasound_location_calculator_tb fast 0
+Z9 V:ITZOf2kFBIgSTND_M2g33
+Z10 04 11 4 work median_3_tb fast 0
 R3
-Z11 =1-f04da20f012d-56620669-34223-2e43
+Z11 =1-f04da20f012d-566355bf-6c130-67e8
 R5
 R6
 vabs_diff_7
@@ -102,146 +102,224 @@ r1
 R18
 Z47 !s100 D6EBk@9OYW:>?dDSGI7PU2
 !s85 0
+vfind_min_5_vals_cascading_tb
+Z48 IT7^zP1;Ei`UcKNm?[obM11
+Z49 VUUfj3gV9;U]g4DOim8Sif2
+Z50 w1448399851
+Z51 8../Test Fixtures/Shared/find_min_5_vals_cascading_tb.v
+Z52 F../Test Fixtures/Shared/find_min_5_vals_cascading_tb.v
+L0 11
+R17
+r1
+31
+R18
+Z53 !s100 V:Hck8VKPf1S[Pgj6Kgf61
+!s85 0
 vglbl
-Z48 IB;@1jEXmEfQXL`;Kf0IBZ3
-Z49 VnN]4Gon>inod6>M^M2[SV1
-Z50 w1202685744
-Z51 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
-Z52 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z54 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z55 VnN]4Gon>inod6>M^M2[SV1
+Z56 w1202685744
+Z57 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z58 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
 L0 5
 R17
 r1
 31
 R18
-Z53 !s100 T?5S;>bN`@zG_25]R_4A33
+Z59 !s100 T?5S;>bN`@zG_25]R_4A33
 !s85 0
 vmedian_3
-Z54 IGQ6ChFF?R9QDkkHl]d5621
-Z55 V0nzPLH:aB;28G:icIK8dU2
-Z56 w1447983817
-Z57 8../Sources/Shared/median_3.v
-Z58 F../Sources/Shared/median_3.v
+Z60 IGQ6ChFF?R9QDkkHl]d5621
+Z61 V0nzPLH:aB;28G:icIK8dU2
+Z62 w1447983817
+Z63 8../Sources/Shared/median_3.v
+Z64 F../Sources/Shared/median_3.v
 L0 11
 R17
 r1
 31
 R18
-Z59 !s100 o<oRO3^=_nF]X6fgKCjok3
+Z65 !s100 o<oRO3^=_nF]X6fgKCjok3
+!s85 0
+vmedian_3_tb
+Z66 IzoZgP@0GYIGLRnM`K<Hi81
+Z67 VADK;bROWOD:6[7>:7h3mX3
+Z68 w1447976897
+Z69 8../Test Fixtures/Shared/median_3_tb.v
+Z70 F../Test Fixtures/Shared/median_3_tb.v
+L0 25
+R17
+r1
+31
+R18
+Z71 !s100 chkT[h2OQP8fcjQR7QF2U2
+!s85 0
+vmedian_5
+Z72 I_UMV@2IZzc9lBReO25E3R0
+Z73 V7IomajiLg7_658O<h6bBH3
+Z74 w1449351091
+Z75 8../Sources/Shared/median_5.v
+Z76 F../Sources/Shared/median_5.v
+L0 11
+R17
+r1
+31
+R18
+Z77 !s100 Ue>JPSi98W0@4U2]ZbnJ[0
+!s85 0
+vmedian_5_tb
+Z78 IgCI7F_0>bcFCgEEb`Wd6l2
+Z79 VEW2TF:]BBX>llj^VPChGc2
+Z80 w1449351140
+Z81 8../Test Fixtures/Shared/median_5_tb.v
+Z82 F../Test Fixtures/Shared/median_5_tb.v
+L0 25
+R17
+r1
+31
+R18
+Z83 !s100 YJSzP]IfPGCd=1_@h3BEP0
+!s85 0
+vmid3_of5
+Z84 I;Mo2P@852dS=7eXF<BOT;3
+Z85 V[9Ka_<bM79R1P0edbc`313
+Z86 w1449350364
+Z87 8../Sources/Shared/mid3_of5.v
+Z88 F../Sources/Shared/mid3_of5.v
+L0 11
+R17
+r1
+31
+R18
+Z89 !s100 F23=g82gAE_jSTl]?8cNT1
+!s85 0
+vmid3_of5_tb
+Z90 IFWA`j8RdeeQLoF>zJhlU^3
+Z91 VfXcI2GFNSM7N]ON5;F`=@3
+Z92 w1449350177
+Z93 8mid3_of5_tb.v
+Z94 Fmid3_of5_tb.v
+L0 25
+R17
+r1
+31
+R18
+Z95 !s100 9Ao9_fQZ2_7dfOmzCNZ`A2
 !s85 0
 vorientation_math
-Z60 I5chlO9>P1;Ke;z:GADeKG0
-Z61 VX9j=a]WA]flU4^4TAKoFU3
-Z62 w1448942031
-Z63 8../Sources/Main FPGA/orientation_math.v
-Z64 F../Sources/Main FPGA/orientation_math.v
+Z96 I5chlO9>P1;Ke;z:GADeKG0
+Z97 VX9j=a]WA]flU4^4TAKoFU3
+Z98 w1448942031
+Z99 8../Sources/Main FPGA/orientation_math.v
+Z100 F../Sources/Main FPGA/orientation_math.v
 L0 14
 R17
 r1
 31
 R18
-Z65 !s100 N`gBKVHAQ9A0HPV1MnE2:1
+Z101 !s100 N`gBKVHAQ9A0HPV1MnE2:1
 !s85 0
 vorientation_math_tb
-Z66 I^iGEmgnajhhML90gNlUDf2
-Z67 VWQnH_?Q3Nc0hO2=`OG9<10
-Z68 w1448942082
-Z69 8../Test Fixtures/Main FPGA/orientation_math_tb.v
-Z70 F../Test Fixtures/Main FPGA/orientation_math_tb.v
+Z102 I^iGEmgnajhhML90gNlUDf2
+Z103 VWQnH_?Q3Nc0hO2=`OG9<10
+Z104 w1448942082
+Z105 8../Test Fixtures/Main FPGA/orientation_math_tb.v
+Z106 F../Test Fixtures/Main FPGA/orientation_math_tb.v
 L0 25
 R17
 r1
 31
 R18
-Z71 !s100 =8WHHzlM=]WMj:Ao5?>B[2
+Z107 !s100 =8WHHzlM=]WMj:Ao5?>B[2
 !s85 0
 vpolar_to_cartesian
-Z72 I>ElSHfKei48Dj9BnFRTW[0
-Z73 Vc=zK5m]__2UA]f95l_l[R3
-Z74 w1449254723
-Z75 8../Sources/Shared/polar_to_cartesian.v
-Z76 F../Sources/Shared/polar_to_cartesian.v
+Z108 I>ElSHfKei48Dj9BnFRTW[0
+Z109 Vc=zK5m]__2UA]f95l_l[R3
+Z110 w1449254723
+Z111 8../Sources/Shared/polar_to_cartesian.v
+Z112 F../Sources/Shared/polar_to_cartesian.v
 L0 14
 R17
 r1
 31
 R18
-Z77 !s100 KeAOZQMi=X^74fVS=VaV50
+Z113 !s100 KeAOZQMi=X^74fVS=VaV50
 !s85 0
 vpolar_to_cartesian_tb
-Z78 Ik1?P3le2O_5dVd9mm;7942
-Z79 Vl7LO>2W1W0?00<8<7I2XX3
-Z80 w1449254884
-Z81 8../Test Fixtures/Shared/polar_to_cartesian_tb.v
-Z82 F../Test Fixtures/Shared/polar_to_cartesian_tb.v
+Z114 Ik1?P3le2O_5dVd9mm;7942
+Z115 Vl7LO>2W1W0?00<8<7I2XX3
+Z116 w1449254884
+Z117 8../Test Fixtures/Shared/polar_to_cartesian_tb.v
+Z118 F../Test Fixtures/Shared/polar_to_cartesian_tb.v
 L0 25
 R17
 r1
 31
 R18
-Z83 !s100 X7HMX22CVXHHO4JK?kK`W2
+Z119 !s100 X7HMX22CVXHHO4JK?kK`W2
 !s85 0
 vquadrant
-Z84 ID90V3[>f6aaDhVYZD;Q:M3
-Z85 V?hZML_;>e4=Yc08Pn4>M:2
-Z86 w1448401379
-Z87 8../Sources/Shared/quadrant.v
-Z88 F../Sources/Shared/quadrant.v
+Z120 ID90V3[>f6aaDhVYZD;Q:M3
+Z121 V?hZML_;>e4=Yc08Pn4>M:2
+Z122 w1448401379
+Z123 8../Sources/Shared/quadrant.v
+Z124 F../Sources/Shared/quadrant.v
 L0 10
 R17
 r1
 31
 R18
-Z89 !s100 eWD@kfgiU0PLoC:aB6eTT1
+Z125 !s100 eWD@kfgiU0PLoC:aB6eTT1
 !s85 0
 vtriangle
-Z90 I@Tk<i6@SFYEmfmnQZF<IS2
-Z91 VFgPVW8<jI8_2?lB3_Un342
-Z92 w1448988831
-Z93 8../Sources/Main FPGA/triangle.v
-Z94 F../Sources/Main FPGA/triangle.v
+Z126 I@Tk<i6@SFYEmfmnQZF<IS2
+Z127 VFgPVW8<jI8_2?lB3_Un342
+Z128 w1448988831
+Z129 8../Sources/Main FPGA/triangle.v
+Z130 F../Sources/Main FPGA/triangle.v
 L0 11
 R17
 r1
 31
 R18
-Z95 !s100 gY>?2:NGFc]anEBM]8@7c3
+Z131 !s100 gY>?2:NGFc]anEBM]8@7c3
 !s85 0
 vtriangle_tb
-Z96 ImaCC`5=RIgheiko2YFY@^2
-Z97 V]<;:MiK;ad2ZhUnWSOU0l0
-Z98 w1448989412
-Z99 8../Test Fixtures/Main FPGA/triangle_tb.v
-Z100 F../Test Fixtures/Main FPGA/triangle_tb.v
+Z132 ImaCC`5=RIgheiko2YFY@^2
+Z133 V]<;:MiK;ad2ZhUnWSOU0l0
+Z134 w1448989412
+Z135 8../Test Fixtures/Main FPGA/triangle_tb.v
+Z136 F../Test Fixtures/Main FPGA/triangle_tb.v
 L0 25
 R17
 r1
 31
 R18
-Z101 !s100 IC>mL^KUK305YcjR6YiQD1
+Z137 !s100 IC>mL^KUK305YcjR6YiQD1
 !s85 0
 vultrasound_location_calculator
-Z102 IH;;K<cLBX6^5cWEQXcJ^11
-Z103 V95b0g^alAIj2MXPkl9HIX2
-Z104 w1449264561
-Z105 8../Sources/Main FPGA/ultrasound_location_calculator.v
-Z106 F../Sources/Main FPGA/ultrasound_location_calculator.v
+Z138 IH;;K<cLBX6^5cWEQXcJ^11
+Z139 V95b0g^alAIj2MXPkl9HIX2
+Z140 w1449264561
+Z141 8../Sources/Main FPGA/ultrasound_location_calculator.v
+Z142 F../Sources/Main FPGA/ultrasound_location_calculator.v
 L0 11
 R17
 r1
 31
 R18
-Z107 !s100 1MO;2C1lbOl2dofnV96eY2
+Z143 !s100 1MO;2C1lbOl2dofnV96eY2
 !s85 0
 vultrasound_location_calculator_tb
-Z108 IE:Y>=hF0a@;UabBkZS2jD2
-Z109 VUzRVl:JU8JdJ?n=PFgX3L1
-Z110 w1449264741
-Z111 8../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
-Z112 F../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+Z144 IE:Y>=hF0a@;UabBkZS2jD2
+Z145 VUzRVl:JU8JdJ?n=PFgX3L1
+Z146 w1449264741
+Z147 8../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
+Z148 F../Test Fixtures/Main FPGA/ultrasound_location_calculator_tb.v
 L0 25
 R17
 r1
 31
 R18
-Z113 !s100 65Y=k`=bW2QBOYcR?cn4I3
+Z149 !s100 65Y=k`=bW2QBOYcR?cn4I3
 !s85 0
