@@ -358,7 +358,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   //debounce #(.DELAY(270000)) db_L (.reset(reset), .clock(clock_27mhz), .noisy(~button_left), .clean(btnL_db));
   //debounce #(.DELAY(270000)) db_R (.reset(reset), .clock(clock_27mhz), .noisy(~button_right), .clean(btnR_db));
   //debounce #(.DELAY(270000)) db_0 (.reset(reset), .clock(clock_27mhz), .noisy(~button0), .clean(btn0_db));
-  //debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
+  debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
   debounce #(.DELAY(270000)) db_2 (.reset(reset), .clock(clock_27mhz), .noisy(~button2), .clean(btn2_db));
   debounce #(.DELAY(270000)) db_3 (.reset(reset), .clock(clock_27mhz), .noisy(~button3), .clean(btn3_db));
   debounce #(.DELAY(270000)) db_S0 (.reset(reset), .clock(clock_27mhz), .noisy(switch[0]), .clean(db_switch[0]));
@@ -420,7 +420,6 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire ultrasound_done; // flag for new location ready
   wire orientation_done; // flag for new orientation ready
   wire reached_target; // flag for reached target
-  wire clear_us; // we need to reset this module a lot so seperate wire
   wire [11:0] move_command; // angle == [11:7], distance == [6:0]
   wire [11:0] rover_location; // theta == [11:8], r == [7:0]
   wire [4:0] rover_orientation; // every 15 degrees around the circle
@@ -444,7 +443,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign ultrasound_signals = {user1[2],user1[5],user1[8],user1[11],user1[14],
 										  user1[17],user1[20],user1[23],user1[26],user1[29]};
   
-  // target location selector logic
+  /* target location selector logic
   target_location_selector tls (.switches(target_switches),.location(target_location));
   
   wire [3:0] main_state;
@@ -460,15 +459,15 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 						.orientation(rover_orientation),
 						.move_command(move_command),
 						.transmit_ir(transmit_ir),
-						.clear_us(clear_us),
                   //.analyzer_clock(analyzer3_clock),
                   //.analyzer_data(analyzer3_data),
                   .reached_target(reached_target),
 						.orient_location_1(orient_location_1),
 						.orient_location_2(orient_location_2),
 						.state(main_state));
-	 
-  // Ultrasound Block
+  */
+  
+  /* Ultrasound Block
   wire [3:0] ultrasound_state;
   wire [3:0] curr_ultrasound;
   wire us_reset;
@@ -476,7 +475,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign led = ~{ultrasound_state,curr_ultrasound};
   ultrasound_location_calculator ul(.clock(clock_27mhz),.reset(us_reset),
 												//.calculate(run_ultrasound),
-												.calculate(btn2_db), // for testing
+												.calculate(run_ultrasound), // for testing
 												.rover_location(rover_location),
 												.done(ultrasound_done),
 												//.analyzer_clock(analyzer3_clock),
@@ -486,8 +485,9 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 												.ultrasound_signals(ultrasound_signals),
 												.ultrasound_commands(ultrasound_commands),
 												.ultrasound_power(ultrasound_power));
+  */
   
-  // VGA Display Block
+  /* VGA Display Block
   // feed XVGA signals to our VGA logic module
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),
                 .move_command(move_command),.location(rover_location),
@@ -506,19 +506,71 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
                                .command(move_command[6:0]), // distance
                                .transmit(transmit_ir),
                                .signal_out(ir_signal));					  
-
+  */
+  
+  // ultrasound testing block
+  reg run_us;
+  edge_detect ed0 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(run_us));
+  reg hcsro04_done;
+  reg [3:0] hcsro04_state;
+  reg [7:0] rover_distance_t;
+  run_HCSR04 us_module (.clock(clock_27mhz),.reset(reset),.enable(run_us),
+                         .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
+                         .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
+                         .rover_distance(rover_distance_t),.done(hcsro04_done),.state(hcsro04_state));
+  
+  // 3 pass ultrasound testing block
+  reg run_us_3;
+  edge_detect ed1 (.in(btn2_db),.clock(clock_27mhz),.reset(reset),.out(run_us_3));
+  reg hcsro04_done_3;
+  reg [3:0] hcsro04_state_3;
+  reg [7:0] rover_distance_t_3;
+  get_median_of_3_HCSR04_runs gm3hcsr04  (.clock(clock_27mhz),.reset(reset),.enable(run_us_3),
+                                          .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
+                                          .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
+                                          .rover_distance(rover_distance_t_3),.done(hcsro04_done_3),.state(hcsro04_state_3))
+  
+  // put it all together testing block
+  reg run_us_full;
+  edge_detect ed2 (.in(btn1_db),.clock(clock_27mhz),.reset(reset),.out(run_us_full));
+  reg hcsro04_done_full;
+  reg [3:0] hcsro04_state_full;
+  reg [11:0] rover_loc_full;
+  reg [3:0] test_curr_ultrasound;
+  rover_location_calculator rlc1 (.clock(clock_27mhz),.reset(reset),.enable(run_us_full),
+                                  .ultrasound_response(ultrasound_signals[5:0]),
+                                  .ultrasound_trigger(ultrasound_commands[5:0]),
+                                  .ultrasound_power(ultrasound_power[5:0]),
+                                  .rover_location(rover_loc_full),
+                                  .done(hcsro04_done_full),
+                                  .state(hcsro04_state_full),
+                                  .curr_ultrasound(test_curr_ultrasound));
+   
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
   always @(posedge clock_27mhz) begin
-		my_hex_data <= {	main_state, // 4 bits
-								rover_location,// 12 bits
+		my_hex_data <= {	//main_state, // 4 bits
+								//rover_location,// 12 bits
 								
-								3'b0,rover_orientation, // 8 bits
-								3'b0, ultrasound_done,4'hF,
+								//3'b0,rover_orientation, // 8 bits
+								//3'b0, ultrasound_done,4'hF,
 								
-								6'hFF,ultrasound_signals, // 10 bits
-								6'hFF,ultrasound_power // 10 bits
+                        hcsro04_state, //4bits
+                        3'b0,hcsro04_done,
+                        rover_distance_t, //8bits
+                        
+                        hcsro04_state_3, //4bits
+                        3'b0,hcsro04_done_3,
+                        rover_distance_t_3, //8bits
+                        
+                        4'hF,
+                        hcsro04_state_full, //4bits
+                        3'b0,hcsro04_done_full,
+                        test_curr_ultrasound, //4bits
 								
+                        4'hF,
+                        rover_loc_full //12bits
+                        
 								//3'b0, orientation_done,
 								//3'b0, transmit_ir,
 								//3'b0, reached_target,

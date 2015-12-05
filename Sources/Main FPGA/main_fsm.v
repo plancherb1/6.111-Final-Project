@@ -20,7 +20,6 @@ module main_fsm(
 	 input ultrasound_done,
 	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
 	 output reg run_ultrasound,
-	 output reg clear_us,
 	 output orientation_done,
 	 output reg [4:0] orientation,
 	 output reg [11:0] move_command,
@@ -103,7 +102,6 @@ module main_fsm(
 			orient_location_1 <= 12'h000;
 			orient_location_2 <= 12'h000;
          delay_count <= 32'h0000_0000;
-			clear_us <= 0;
          // orientation resets
 			orientation_helper_enable <= OFF;
          orientation <= 4'h0;
@@ -159,14 +157,10 @@ module main_fsm(
                else begin
                   ir_transmit_delay_counter <= ir_transmit_delay_counter + 1;
                end
-					// now that we have the location clear the ultrasound
-					clear_us <= 1;
             end
 				
 				// we then wait for the move to complete
 				ORIENTATION_MOVE_S: begin
-					// get the ultrasound ready as we count down
-					clear_us <= 0;
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
@@ -263,14 +257,10 @@ module main_fsm(
                else begin
                   ir_transmit_delay_counter <= ir_transmit_delay_counter + 1;
                end
-					// now that we have the location clear the ultrasound
-					clear_us <= 1;
             end
             
 				// we then wait for the move to complete
 				MOVE_MOVE: begin
-					// get the ultrasound ready as we count down
-					clear_us <= 0;
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
@@ -317,7 +307,6 @@ module main_fsm(
                      orient_location_1 <= 12'h000;
                      orient_location_2 <= 12'h000;
                      delay_count <= 32'h0000_0000;
-							clear_us <= 0;
                      // orientation resets
                      orientation_helper_enable <= OFF;
                      orientation <= 4'h0;
@@ -348,7 +337,6 @@ module main_fsm(
                   orient_location_1 <= 12'h000;
                   orient_location_2 <= 12'h000;
                   delay_count <= 32'h0000_0000;
-						clear_us <= 0;
                   // orientation resets
                   orientation_helper_enable <= OFF;
                   orientation <= 4'h0;
