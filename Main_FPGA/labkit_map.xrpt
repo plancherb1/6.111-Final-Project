@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Sat Dec  5 16:46:11 2015">
+  <application stringID="Map" timeStamp="Sat Dec  5 17:43:17 2015">
     <task stringID="MAP_PACK_REPORT">
       <section stringID="MAP_DESIGN_INFORMATION">
         <item stringID="MAP_PART" value="2v6000bf957-4"/>
@@ -17,30 +17,30 @@
       <section stringID="MAP_DESIGN_SUMMARY">
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_WARNINGS" value="305"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="511860"/>
-        <item stringID="MAP_TOTAL_REAL_TIME" value="5 secs "/>
-        <item stringID="MAP_TOTAL_CPU_TIME" value="4 secs "/>
+        <item dataType="int" stringID="MAP_NUM_WARNINGS" value="313"/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="556960"/>
+        <item stringID="MAP_TOTAL_REAL_TIME" value="9 secs "/>
+        <item stringID="MAP_TOTAL_CPU_TIME" value="8 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING"/>
       <section stringID="MAP_LOGIC_UTILIZATION">
-        <item dataType="int" stringID="MAP_NUM_SLICE_FF" value="655"/>
+        <item dataType="int" stringID="MAP_NUM_SLICE_FF" value="1206"/>
         <item dataType="int" stringID="MAP_NUM_SLICE_LATCH" value="0"/>
         <item dataType="int" stringID="MAP_NUM_SLICE" value="33792"/>
         <item dataType="int" stringID="MAP_FLOPS_PER_SLICE" value="2"/>
-        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="1381"/>
-        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="1381"/>
+        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="3412"/>
+        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="3412"/>
       </section>
       <section stringID="MAP_LOGIC_DISTRIBUTION">
-        <item dataType="int" stringID="MAP_AGG_SLICE" value="947"/>
+        <item dataType="int" stringID="MAP_AGG_SLICE" value="2245"/>
         <item dataType="int" stringID="MAP_NUM_SLICE_UNRELATED" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="1645"/>
-        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="264"/>
+        <item dataType="int" stringID="MAP_NUM_4_INPUT_LUT" value="4051"/>
+        <item dataType="int" stringID="MAP_NUM_LUT_RT" value="639"/>
         <item dataType="int" stringID="MAP_NUM_DP_RAM" value="0"/>
         <item dataType="int" stringID="MAP_NUM_RAM32" value="0"/>
         <item dataType="int" stringID="MAP_NUM_RAM16" value="0"/>
         <item dataType="int" stringID="MAP_NUM_ROM16" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_SHIFT" value="5"/>
+        <item dataType="int" stringID="MAP_NUM_SHIFT" value="38"/>
       </section>
       <section stringID="MAP_IOB_REPORTING">
         <item AVAILABLE="684" dataType="int" stringID="MAP_AGG_BONDED_IO" value="576"/>
@@ -2812,18 +2812,14 @@
           <row stringID="row" value="420">
             <item stringID="IOB_Name" value="user1&lt;0>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="421">
             <item stringID="IOB_Name" value="user1&lt;1>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="422">
             <item stringID="IOB_Name" value="user1&lt;2>"/>
@@ -2834,18 +2830,14 @@
           <row stringID="row" value="423">
             <item stringID="IOB_Name" value="user1&lt;3>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="424">
             <item stringID="IOB_Name" value="user1&lt;4>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="425">
             <item stringID="IOB_Name" value="user1&lt;5>"/>
@@ -2856,18 +2848,14 @@
           <row stringID="row" value="426">
             <item stringID="IOB_Name" value="user1&lt;6>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="427">
             <item stringID="IOB_Name" value="user1&lt;7>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="428">
             <item stringID="IOB_Name" value="user1&lt;8>"/>
@@ -2878,18 +2866,14 @@
           <row stringID="row" value="429">
             <item stringID="IOB_Name" value="user1&lt;9>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="430">
             <item stringID="IOB_Name" value="user1&lt;10>"/>
             <item stringID="TYPE" value="IOB"/>
-            <item stringID="DIRECTION" value="OUTPUT"/>
+            <item stringID="DIRECTION" value="INPUT"/>
             <item stringID="IO_STANDARD" value="LVTTL"/>
-            <item stringID="DRIVE_STRENGTH" value="12"/>
-            <item stringID="SLEW_RATE" value="SLOW"/>
           </row>
           <row stringID="row" value="431">
             <item stringID="IOB_Name" value="user1&lt;11>"/>
@@ -3855,7 +3839,7 @@
       </section>
       <section stringID="MAP_RPM_MACROS">
         <section stringID="MAP_SHAPE_SECTION">
-          <item dataType="int" stringID="MAP_NUM_SHAPE" value="78"/>
+          <item dataType="int" stringID="MAP_NUM_SHAPE" value="171"/>
         </section>
       </section>
       <section stringID="MAP_GUIDE_REPORT"/>

@@ -29,28 +29,31 @@ module main_fsm(
 	 // output [15:0] analyzer_data // for debug only
 	 output reg [11:0] orient_location_1, // exposed for debug
 	 output reg [11:0] orient_location_2, // exposed for debug
-	 output reg [3:0] state // exposed for debug
+	 output reg [4:0] state // exposed for debug
 	 );
 		
 	 // on/off parameters
 	 parameter OFF 						= 1'b0;
 	 parameter ON 							= 1'b1;
 	 // state parameters
-	 parameter IDLE 						= 4'h0;
-	 parameter RUN_ULTRASOUND_1		= 4'h1;
-	 parameter ORIENTATION_PHASE_1 	= 4'h2;
-    parameter IR_TRANSMIT_DELAY_1  = 4'h3;
-	 parameter ORIENTATION_MOVE_S		= 4'h4;
-	 parameter RUN_ULTRASOUND_2		= 4'h5;
-	 parameter ORIENTATION_PHASE_2	= 4'h6;
-	 parameter ORIENTATION_PHASE_3	= 4'h7;
-	 parameter CALC_MOVE_COMMAND_1	= 4'h8;
-    parameter CALC_MOVE_COMMAND_2	= 4'h9;
-    parameter CALC_MOVE_COMMAND_3	= 4'hA;
-    parameter IR_TRANSMIT_DELAY_2   = 4'hB;
-	 parameter MOVE_MOVE				   = 4'hC;
-	 parameter RUN_ULTRASOUND_3		= 4'hD;
-	 parameter ARE_WE_DONE				= 4'hE;
+	 parameter IDLE 						= 5'h00;
+	 parameter ONE_CYCLE_DELAY_1		= 5'h01;
+	 parameter RUN_ULTRASOUND_1		= 5'h02;
+	 parameter ORIENTATION_PHASE_1 	= 5'h03;
+    parameter IR_TRANSMIT_DELAY_1  = 5'h04;
+	 parameter ORIENTATION_MOVE_S		= 5'h05;
+	 parameter ONE_CYCLE_DELAY_2		= 5'h06;
+	 parameter RUN_ULTRASOUND_2		= 5'h07;
+	 parameter ORIENTATION_PHASE_2	= 5'h08;
+	 parameter ORIENTATION_PHASE_3	= 5'h09;
+	 parameter CALC_MOVE_COMMAND_1	= 5'h0A;
+    parameter CALC_MOVE_COMMAND_2	= 5'h0B;
+    parameter CALC_MOVE_COMMAND_3	= 5'h0C;
+    parameter IR_TRANSMIT_DELAY_2	= 5'h0D;
+	 parameter MOVE_MOVE				   = 5'h0E;
+	 parameter ONE_CYCLE_DELAY_3		= 5'h0F;
+	 parameter RUN_ULTRASOUND_3		= 5'h10;
+	 parameter ARE_WE_DONE				= 5'h11;
 	
     // ORIENTATION_PHASE_1/2/3 helper memory and paramenters for orientation and path
     reg [31:0] delay_count;
@@ -120,6 +123,8 @@ module main_fsm(
 		else begin
 			case (state)
 				
+				ONE_CYCLE_DELAY_1: state <= RUN_ULTRASOUND_1;
+				
 				// wait for ultrasound to finish then save the location for orientation
 				RUN_ULTRASOUND_1: begin
 					run_ultrasound <= OFF;
@@ -164,7 +169,7 @@ module main_fsm(
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
-                     state <= RUN_ULTRASOUND_2;
+                     state <= ONE_CYCLE_DELAY_2;
                      run_ultrasound <= ON;
                   end
                   else begin
@@ -176,6 +181,8 @@ module main_fsm(
                   move_delay_inner_timer <= move_delay_inner_timer - 1;
                end
 				end
+				
+				ONE_CYCLE_DELAY_2: state <= RUN_ULTRASOUND_2;
 				
 				// wait for ultrasound to finish then save the location for orientation math phase
 				RUN_ULTRASOUND_2: begin
@@ -264,7 +271,7 @@ module main_fsm(
                if (move_delay_inner_timer == 1) begin
                   if (move_delay_timer == 1) begin
                      // now we are done moving so go get figure out where it went
-                     state <= RUN_ULTRASOUND_3;
+                     state <= ONE_CYCLE_DELAY_3;
                      run_ultrasound <= ON;
                   end
                   else begin
@@ -276,6 +283,8 @@ module main_fsm(
                   move_delay_inner_timer <= move_delay_inner_timer - 1;
                end
 				end
+				
+				ONE_CYCLE_DELAY_3: state <= RUN_ULTRASOUND_3;
 				
 				// wait for ultrasound to finish then enable next move analysis
 				RUN_ULTRASOUND_3: begin
@@ -331,7 +340,7 @@ module main_fsm(
 				default: begin
 					if (run_program) begin
 						// when enabled start the process by doing a run_ultrasound and reset all else
-						state <= RUN_ULTRASOUND_1;
+						state <= ONE_CYCLE_DELAY_1;
 						run_ultrasound <= ON;
                   // ultrasound resets
                   orient_location_1 <= 12'h000;
