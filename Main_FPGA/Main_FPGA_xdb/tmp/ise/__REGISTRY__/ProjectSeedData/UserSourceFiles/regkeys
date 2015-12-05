@@ -1,5 +1,5 @@
 NUM_USER_FILES
-41
+44
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -108,6 +108,15 @@ user_file_40
 s
 user_file_41
 ../Sources/Shared/calc_r_y_theta.v
+s
+user_file_42
+../Sources/Main FPGA/run_HCSR04.v
+s
+user_file_43
+../Sources/Main FPGA/get_median_of_3_HCSR04_runs.v
+s
+user_file_44
+../Sources/Main FPGA/rover_location_calculator.v
 s
 user_file_5
 ../Sources/Main FPGA/vga_writer.v

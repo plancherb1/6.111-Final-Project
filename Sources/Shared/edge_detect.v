@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Edge Detect
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 /////////////////////////////////////////////////////////////////////////////////
 module edge_detect(

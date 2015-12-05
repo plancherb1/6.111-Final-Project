@@ -509,43 +509,45 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   */
   
   // ultrasound testing block
-  reg run_us;
+  wire run_us;
   edge_detect ed0 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(run_us));
-  reg hcsro04_done;
-  reg [3:0] hcsro04_state;
-  reg [7:0] rover_distance_t;
+  wire hcsr04_done;
+  wire [3:0] hcsr04_state;
+  wire [7:0] rover_distance_t;
   run_HCSR04 us_module (.clock(clock_27mhz),.reset(reset),.enable(run_us),
                          .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
                          .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
-                         .rover_distance(rover_distance_t),.done(hcsro04_done),.state(hcsro04_state));
+                         .rover_distance(rover_distance_t),.done(hcsr04_done),.state(hcsr04_state));
   
   // 3 pass ultrasound testing block
-  reg run_us_3;
+  wire run_us_3;
   edge_detect ed1 (.in(btn2_db),.clock(clock_27mhz),.reset(reset),.out(run_us_3));
-  reg hcsro04_done_3;
-  reg [3:0] hcsro04_state_3;
-  reg [7:0] rover_distance_t_3;
+  wire hcsr04_done_3;
+  wire [3:0] hcsr04_state_3;
+  wire [7:0] rover_distance_t_3;
+  /*
   get_median_of_3_HCSR04_runs gm3hcsr04  (.clock(clock_27mhz),.reset(reset),.enable(run_us_3),
                                           .curr_ultrasound(db_switch[3:0]),.ultrasound_response(ultrasound_signals[5:0]),
                                           .ultrasound_trigger(ultrasound_commands[5:0]),.ultrasound_power(ultrasound_power[5:0]),
-                                          .rover_distance(rover_distance_t_3),.done(hcsro04_done_3),.state(hcsro04_state_3))
-  
+                                          .rover_distance(rover_distance_t_3),.done(hcsr04_done_3),.state(hcsr04_state_3));
+  */
   // put it all together testing block
-  reg run_us_full;
+  wire run_us_full;
   edge_detect ed2 (.in(btn1_db),.clock(clock_27mhz),.reset(reset),.out(run_us_full));
-  reg hcsro04_done_full;
-  reg [3:0] hcsro04_state_full;
-  reg [11:0] rover_loc_full;
-  reg [3:0] test_curr_ultrasound;
+  wire hcsr04_done_full;
+  wire [3:0] hcsr04_state_full;
+  wire [11:0] rover_loc_full;
+  wire [3:0] test_curr_ultrasound;
+  /*
   rover_location_calculator rlc1 (.clock(clock_27mhz),.reset(reset),.enable(run_us_full),
                                   .ultrasound_response(ultrasound_signals[5:0]),
                                   .ultrasound_trigger(ultrasound_commands[5:0]),
                                   .ultrasound_power(ultrasound_power[5:0]),
                                   .rover_location(rover_loc_full),
-                                  .done(hcsro04_done_full),
-                                  .state(hcsro04_state_full),
+                                  .done(hcsr04_done_full),
+                                  .state(hcsr04_state_full),
                                   .curr_ultrasound(test_curr_ultrasound));
-   
+  */ 
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
   always @(posedge clock_27mhz) begin
@@ -555,17 +557,17 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								//3'b0,rover_orientation, // 8 bits
 								//3'b0, ultrasound_done,4'hF,
 								
-                        hcsro04_state, //4bits
-                        3'b0,hcsro04_done,
+                        hcsr04_state, //4bits
+                        3'b0,hcsr04_done,
                         rover_distance_t, //8bits
                         
-                        hcsro04_state_3, //4bits
-                        3'b0,hcsro04_done_3,
+                        hcsr04_state_3, //4bits
+                        3'b0,hcsr04_done_3,
                         rover_distance_t_3, //8bits
                         
                         4'hF,
-                        hcsro04_state_full, //4bits
-                        3'b0,hcsro04_done_full,
+                        hcsr04_state_full, //4bits
+                        3'b0,hcsr04_done_full,
                         test_curr_ultrasound, //4bits
 								
                         4'hF,

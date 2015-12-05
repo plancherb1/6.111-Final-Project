@@ -11,28 +11,28 @@
 //        reports the closest angle assuming they are located at 15 + 30n degrees
 //
 //////////////////////////////////////////////////////////////////////////////////
-module rover_location_calculator(
+rover_location_calculator(
    input clock,
    input reset,
    input enable,
    input [5:0] ultrasound_response, // uses 6 ultrasounds
-   output [5:0] ultrasound_trigger, // uses 6 ultrasounds
-	output [5:0] ultrasound_power, // uses 6 ultrasounds
+   output reg [5:0] ultrasound_trigger, // uses 6 ultrasounds
+	output reg [5:0] ultrasound_power, // uses 6 ultrasounds
    output reg [11:0] rover_location, // {4 bits for angle, 8 for distance}
-   output reg done,
+   output reg done
    output reg [3:0] state, // exposed for debug
    output reg [3:0] curr_ultrasound // exposed for debug
    );
    
    // connect our module which will compute the distances for each ultrasound
    reg run_hcsr04;
-   wire hcsr04_done;
-   wire [4:0] hcsr04_state;
-   wire [7:0] rover_distance_t;
+   reg hcsro04_done;
+   reg [4:0] hcsro04_state;
+   reg [7:0] rover_distance_t;
    get_median_of_3_HCSR04_runs gm3hcsr04 (.clock(clock),.reset(reset),.enable(run_hcsr04),
                                           .curr_ultrasound(curr_ultrasound),.ultrasound_response(ultrasound_response),
                                           .ultrasound_trigger(ultrasound_trigger),.ultrasound_power(ultrasound_power),
-                                          .rover_distance(rover_distance_t),.done(hcsr04_done),.state(hcsr04_state));
+                                          .rover_distance(rover_distance_t),.done(hcsro04_done),.state(hcsro04_state))
    
    // keep track of the values
    reg [7:0] best_distance;
@@ -40,7 +40,6 @@ module rover_location_calculator(
    parameter TOTAL_ULTRASOUNDS = 6;
    
    // fsm parameters
-	parameter IDLE 	= 4'h0;
    parameter RUN    = 4'h1;
    parameter PAUSE  = 4'h2; // induce a 1 cycle delay to allow the module to get out of the done state
    parameter WAIT   = 4'h3;
@@ -63,7 +62,7 @@ module rover_location_calculator(
          
             // run the helper module to calc the vale for the curr ultrasound
             RUN: begin
-               run_hcsr04 <= 1;
+               run_HCSR04 <= 1;
                state <= PAUSE;
             end
             
@@ -73,7 +72,7 @@ module rover_location_calculator(
             // wait for the helper to finish and then potentially save the value
             WAIT: begin
                run_hcsr04 <= 0;
-               if (hcsr04_done) begin
+               if (hcsro04_done) begin
                   // if this is the new best value save it
                   if ((best_distance == 0) || (rover_distance_t < best_distance)) begin
 							best_distance <= rover_distance_t;

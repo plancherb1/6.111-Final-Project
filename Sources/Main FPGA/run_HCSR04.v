@@ -58,9 +58,9 @@ module run_HCSR04(
 		if (reset) begin
          state <= IDLE;
 			done <= 0;
-			rover_location <= 12'h000;
-			ultrasound_commands <= 10'h000;
-         ultrasound_power <= 10'h3FF;
+			rover_distance <= 8'h00;
+			ultrasound_trigger <= 6'h00;
+         ultrasound_power <= 6'hFF;
          trigger_count <= 0;
          distance_count <= 0;
          power_cycle_timer <= 0;
@@ -149,4 +149,5 @@ module run_HCSR04(
             
          endcase
       end
+	end
 endmodule
