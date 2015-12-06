@@ -447,8 +447,11 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [4:0] main_state;
   wire [11:0] orient_location_1;
   wire [11:0] orient_location_2;
+  wire run_move;
+  edge_detect e2 (.in(btn2_db),.clock(clock_27mhz),.reset(reset),.out(run_move));
   // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
-  main_fsm msfm (.clock(clock_27mhz),.reset(reset),.run_program(master_on),
+  main_fsm msfm (.clock(clock_27mhz),.reset(reset),
+						.run_program(master_on),.run_move(run_move),
 						.target_location(target_location),
                   .ultrasound_done(ultrasound_done),
 						.rover_location(rover_location),
@@ -468,7 +471,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire [3:0] ultrasound_state;
   wire [3:0] curr_ultrasound;
   wire run_ultrasound_manual;
-  edge_detect e2 (.in(btn2_db),.clock(clock_27mhz),.reset(reset),.out(run_ultrasound_manual));
+  edge_detect e3 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(run_ultrasound_manual));
   assign run_ultrasound = run_ultrasound_fsm | run_ultrasound_manual;
   rover_location_calculator rlc1 (.clock(clock_27mhz),.reset(reset),.enable(run_ultrasound),
                                   .ultrasound_response(ultrasound_response),
@@ -502,21 +505,24 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
   always @(posedge clock_27mhz) begin
-		my_hex_data <= {	rover_location,// 12 bits
-								3'b0, ultrasound_done, // 4 bits
+		my_hex_data <= {	
+								//3'b0, ultrasound_done, // 4 bits
 								
-								ultrasound_state, // 4 bits
-								curr_ultrasound, // 4 bits
-								3'b0,main_state, // 8 bits
+								main_state[3:0], // 8 bits
 								
-								3'b0,rover_orientation, // 8 bits				
-                        3'b0, orientation_done, // 4 bits
+								//ultrasound_state, // 4 bits
+								//curr_ultrasound, // 4 bits
+								//3'b0,rover_orientation, // 8 bits																
+                        //3'b0, orientation_done, // 4 bits
+								
+								rover_location,// 12 bits
+								target_location, // 12 bits
+								orient_location_1, // 12 bits
+								orient_location_2, // 12 bits							
 								
 								//3'b0, transmit_ir,
 								//3'b0, reached_target,
-
-								orient_location_1, // 12 bits
-								orient_location_2 // 12 bits							
+								move_command // 12 bits
 							};
   end
 	

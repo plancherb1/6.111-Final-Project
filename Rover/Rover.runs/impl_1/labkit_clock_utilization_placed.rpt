@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Thu Dec  3 23:39:06 2015
-| Host         : eecs-digital-09 running 64-bit Ubuntu 12.04.5 LTS
+| Date         : Sat Dec  5 18:57:55 2015
+| Host         : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_clock_utilization -file labkit_clock_utilization_placed.rpt
 | Design       : labkit
 | Device       : xc7a100t
@@ -48,7 +48,7 @@ Table of Contents
 | Index | BUFG Cell                | Net Name            | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 |     1 | CLK100MHZ_IBUF_BUFG_inst | CLK100MHZ_IBUF_BUFG |    2 |     1 |    no |         1.324 |     0.078 |
-|     2 | clock_25mhz_BUFG_inst    | clock_25mhz_BUFG    |  210 |    89 |    no |         1.440 |     0.177 |
+|     2 | clock_BUFG_inst          | clock_BUFG          |  227 |    81 |    no |         1.440 |     0.187 |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 
 
@@ -74,9 +74,9 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y0              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     0 |    0 |     0 |    0 |     0 |    0 | 12000 |    0 |  2200 |    0 |    40 |    0 |    20 |    0 |    40 |
-| X0Y1              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  142 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X0Y1              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  223 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    2 |    20 |
 | X1Y1              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    2 | 15200 |    0 |  2600 |    0 |    60 |    0 |    30 |    0 |    40 |
-| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   68 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    2 | 16000 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 15200 |    0 |  2600 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 | 20800 |    0 |  2400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y3              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     5 |    0 |     1 |    0 |     0 |    0 |     0 |    0 | 10800 |    0 |  2000 |    0 |    30 |    0 |    15 |    0 |    40 |
@@ -87,11 +87,11 @@ Table of Contents
 8. Net wise resources used in clock region X0Y1
 -----------------------------------------------
 
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name  |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 142 |     0 |        0 | clock_25mhz_BUFG |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 223 |     0 |        2 | clock_BUFG     |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 
 
 9. Net wise resources used in clock region X1Y1
@@ -107,17 +107,17 @@ Table of Contents
 10. Net wise resources used in clock region X0Y2
 ------------------------------------------------
 
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |  Clock Net Name  |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  68 |     0 |        0 | clock_25mhz_BUFG |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+------------------+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |   2 |     0 |        0 | clock_BUFG     |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 
 
 
 # Location of BUFG Primitives 
 set_property LOC BUFGCTRL_X0Y16 [get_cells CLK100MHZ_IBUF_BUFG_inst]
-set_property LOC BUFGCTRL_X0Y0 [get_cells clock_25mhz_BUFG_inst]
+set_property LOC BUFGCTRL_X0Y0 [get_cells clock_BUFG_inst]
 
 # Location of IO Clock Primitives
 
@@ -143,9 +143,9 @@ add_cells_to_pblock [get_pblocks  CLKAG_CLK100MHZ_IBUF_BUFG] [get_cells  -filter
 resize_pblock [get_pblocks CLKAG_CLK100MHZ_IBUF_BUFG] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
 #endgroup
 
-# Clock net "clock_25mhz_BUFG" driven by instance "clock_25mhz_BUFG_inst" located at site "BUFGCTRL_X0Y0"
+# Clock net "clock_BUFG" driven by instance "clock_BUFG_inst" located at site "BUFGCTRL_X0Y0"
 #startgroup
-create_pblock CLKAG_clock_25mhz_BUFG
-add_cells_to_pblock [get_pblocks  CLKAG_clock_25mhz_BUFG] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clock_25mhz_BUFG"}]]]
-resize_pblock [get_pblocks CLKAG_clock_25mhz_BUFG] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
+create_pblock CLKAG_clock_BUFG
+add_cells_to_pblock [get_pblocks  CLKAG_clock_BUFG] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clock_BUFG"}]]]
+resize_pblock [get_pblocks CLKAG_clock_BUFG] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
 #endgroup

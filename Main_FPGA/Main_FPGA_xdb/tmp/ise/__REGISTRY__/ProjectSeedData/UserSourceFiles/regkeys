@@ -1,5 +1,5 @@
 NUM_USER_FILES
-43
+45
 s
 user_file_1
 ../Sources/Main FPGA/blob.v
@@ -114,6 +114,12 @@ user_file_42
 s
 user_file_43
 ../Sources/Main FPGA/rover_location_calculator.v
+s
+user_file_44
+../Test Fixtures/Main FPGA/path_math_tb.v
+s
+user_file_45
+../Test Fixtures/Main FPGA/main_fsm_tb.v
 s
 user_file_5
 ../Sources/Main FPGA/xvga.v

@@ -1,7 +1,7 @@
 Release 10.1.03 par K.39 (lin64)
 Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 
-eecs-digital-19::  Sat Dec 05 17:43:29 2015
+eecs-digital-19::  Sat Dec 05 20:57:31 2015
 
 par -w -intstyle ise -ol std -t 1 labkit_map.ncd labkit.ncd labkit.pcf 
 
@@ -36,7 +36,7 @@ Device Utilization Summary:
       Number of LOCed IOBs                 576 out of 576   100%
 
    Number of MULT18X18s                     41 out of 144    28%
-   Number of SLICEs                       2245 out of 33792   6%
+   Number of SLICEs                       2244 out of 33792   6%
 
 
 Overall effort level (-ol):   Standard 
@@ -358,27 +358,27 @@ WARNING:Par:288 - The signal daughtercard<9>_IBUF has no load.  PAR will not att
 Starting Placer
 
 Phase 1.1
-Phase 1.1 (Checksum:180f21a) REAL time: 5 secs 
+Phase 1.1 (Checksum:180e6e9) REAL time: 5 secs 
 
 Phase 2.7
-Phase 2.7 (Checksum:180f21a) REAL time: 5 secs 
+Phase 2.7 (Checksum:180e6e9) REAL time: 5 secs 
 
 Phase 3.31
-Phase 3.31 (Checksum:180f21a) REAL time: 5 secs 
+Phase 3.31 (Checksum:180e6e9) REAL time: 5 secs 
 
 Phase 4.2
 
 ......
-Phase 4.2 (Checksum:182e03e) REAL time: 6 secs 
+Phase 4.2 (Checksum:182d50d) REAL time: 6 secs 
 
 Phase 5.30
-Phase 5.30 (Checksum:182e03e) REAL time: 6 secs 
+Phase 5.30 (Checksum:182d50d) REAL time: 6 secs 
 
 Phase 6.3
-Phase 6.3 (Checksum:182e03e) REAL time: 6 secs 
+Phase 6.3 (Checksum:182d50d) REAL time: 6 secs 
 
 Phase 7.5
-Phase 7.5 (Checksum:182e03e) REAL time: 6 secs 
+Phase 7.5 (Checksum:182d50d) REAL time: 6 secs 
 
 Phase 8.8
 ........................................
@@ -387,23 +387,23 @@ Phase 8.8
 .
 .......
 .
-.
-Phase 8.8 (Checksum:69e553b) REAL time: 19 secs 
+..
+Phase 8.8 (Checksum:79979c2) REAL time: 19 secs 
 
 Phase 9.5
-Phase 9.5 (Checksum:69e553b) REAL time: 19 secs 
+Phase 9.5 (Checksum:79979c2) REAL time: 19 secs 
 
 Phase 10.18
-Phase 10.18 (Checksum:6a283d6) REAL time: 26 secs 
+Phase 10.18 (Checksum:79f29eb) REAL time: 26 secs 
 
 Phase 11.5
-Phase 11.5 (Checksum:6a283d6) REAL time: 26 secs 
+Phase 11.5 (Checksum:79f29eb) REAL time: 27 secs 
 
 Phase 12.27
-Phase 12.27 (Checksum:6a283d6) REAL time: 27 secs 
+Phase 12.27 (Checksum:79f29eb) REAL time: 27 secs 
 
 Phase 13.24
-Phase 13.24 (Checksum:6a283d6) REAL time: 27 secs 
+Phase 13.24 (Checksum:79f29eb) REAL time: 27 secs 
 
 REAL time consumed by placer: 27 secs 
 CPU  time consumed by placer: 27 secs 
@@ -411,19 +411,19 @@ Writing design to file labkit.ncd
 
 
 Total REAL time to Placer completion: 28 secs 
-Total CPU time to Placer completion: 27 secs 
+Total CPU time to Placer completion: 28 secs 
 
 Starting Router
 
-Phase 1: 15795 unrouted;       REAL time: 38 secs 
+Phase 1: 15792 unrouted;       REAL time: 38 secs 
 
-Phase 2: 13623 unrouted;       REAL time: 40 secs 
+Phase 2: 13645 unrouted;       REAL time: 40 secs 
 
-Phase 3: 3187 unrouted;       REAL time: 41 secs 
+Phase 3: 3045 unrouted;       REAL time: 41 secs 
 
-Phase 4: 3187 unrouted; (171070)      REAL time: 41 secs 
+Phase 4: 3045 unrouted; (208752)      REAL time: 41 secs 
 
-Phase 5: 3225 unrouted; (0)      REAL time: 41 secs 
+Phase 5: 3127 unrouted; (0)      REAL time: 42 secs 
 
 Phase 6: 0 unrouted; (0)      REAL time: 43 secs 
 
@@ -433,11 +433,11 @@ Phase 8: 0 unrouted; (0)      REAL time: 45 secs
 
 Phase 9: 0 unrouted; (0)      REAL time: 45 secs 
 
-Phase 10: 0 unrouted; (0)      REAL time: 46 secs 
+Phase 10: 0 unrouted; (0)      REAL time: 47 secs 
 
 
 Total REAL time to Router completion: 47 secs 
-Total CPU time to Router completion: 46 secs 
+Total CPU time to Router completion: 47 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -455,11 +455,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|   clock_27mhz_IBUFG |     BUFGMUX3P| No   |  564 |  0.451     |  2.479      |
+|   clock_27mhz_IBUFG |     BUFGMUX3P| No   |  563 |  0.312     |  2.340      |
 +---------------------+--------------+------+------+------------+-------------+
-|         clock_65mhz |     BUFGMUX5P| No   |  204 |  0.467     |  2.495      |
+|         clock_65mhz |     BUFGMUX5P| No   |  204 |  0.466     |  2.511      |
 +---------------------+--------------+------+------+------------+-------------+
-|          disp/clock |     BUFGMUX4S| No   |   32 |  0.152     |  2.287      |
+|          disp/clock |     BUFGMUX4S| No   |   30 |  0.221     |  2.339      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -478,14 +478,14 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
                                             |         |    Slack   | Achievable | Errors |    Score   
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clo | SETUP   |         N/A|    14.623ns|     N/A|           0
-  ck_27mhz_IBUFG                            | HOLD    |     1.290ns|            |       0|           0
+  Autotimespec constraint for clock net clo | SETUP   |         N/A|    14.830ns|     N/A|           0
+  ck_27mhz_IBUFG                            | HOLD    |     1.338ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clo | SETUP   |         N/A|    13.425ns|     N/A|           0
-  ck_65mhz                                  | HOLD    |     1.324ns|            |       0|           0
+  Autotimespec constraint for clock net clo | SETUP   |         N/A|    13.745ns|     N/A|           0
+  ck_65mhz                                  | HOLD    |     1.351ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net dis | SETUP   |         N/A|    11.962ns|     N/A|           0
-  p/clock                                   | HOLD    |     1.348ns|            |       0|           0
+  Autotimespec constraint for clock net dis | SETUP   |         N/A|    10.918ns|     N/A|           0
+  p/clock                                   | HOLD    |     1.333ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
 
 

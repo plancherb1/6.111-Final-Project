@@ -102,6 +102,7 @@ module labkit(
 	motor_signal_stream mss1(.clock(clock_25mhz),.reset(reset),
 	                         .command_ready(start_move),
 							 .command(move_data),
+							 .adjustors(db_SW[7:0]),
 							 .motor_l_f(motor_l_f),.motor_r_f(motor_r_f),
 							 .motor_l_b(motor_l_b),.motor_r_b(motor_r_b),
 							 .move_done(move_done),.state(motor_state));

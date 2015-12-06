@@ -60,6 +60,14 @@ module orientation_math_tb;
         
 		// Add stimulus here
 		
+		// for help testing path math
+		enable = 1;
+		#10;
+		r_theta_final = {4'h7,8'h30};//105 degrees 48 inches out
+		r_theta_original = {4'h1,8'h20}; //15 degrees 32 inches out
+		enable = 0;
+		#150;
+		
 		// test shortcut
 		enable = 1;
 		#10;

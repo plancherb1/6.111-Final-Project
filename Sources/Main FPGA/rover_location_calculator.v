@@ -113,7 +113,6 @@ module rover_location_calculator(
                if (enable) begin
                   state <= RUN;
                   done <= 0;
-                  rover_location <= 12'h000;
                   best_distance <= 0;
                   best_angle <= 0;
                   curr_ultrasound <= 0;

@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Thu Dec  3 23:39:07 2015
-| Host         : eecs-digital-09 running 64-bit Ubuntu 12.04.5 LTS
+| Date         : Sat Dec  5 18:57:56 2015
+| Host         : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
 | Design       : labkit
 | Device       : xc7a100t
@@ -23,7 +23,7 @@ Table of Contents
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
 | Number of unique control sets                                     |    12 |
-| Minimum Number of register sites lost to control set restrictions |    28 |
+| Minimum Number of register sites lost to control set restrictions |    21 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,33 +33,33 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              34 |           16 |
+| No           | No                    | No                     |              50 |           25 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              33 |           18 |
+| No           | Yes                   | No                     |              32 |           16 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             145 |           56 |
+| Yes          | Yes                   | No                     |             145 |           39 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+-------------------------------------+------------------+------------------+----------------+
-|     Clock Signal     |            Enable Signal            | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+----------------------+-------------------------------------+------------------+------------------+----------------+
-|  CLK100MHZ_IBUF_BUFG |                                     |                  |                1 |              2 |
-|  clock_25mhz_BUFG    | ir1/d1/O6[0]                        | dbsw15/reset     |                1 |              4 |
-|  clock_25mhz_BUFG    | mss1/n_0_angle_count[5]_i_1         | dbsw15/reset     |                3 |              6 |
-|  clock_25mhz_BUFG    | mss1/n_0_distance_count[6]_i_1      | dbsw15/reset     |                4 |              7 |
-|  clock_25mhz_BUFG    | ir1/d1/E[0]                         | dbsw15/reset     |                4 |              8 |
-|  clock_25mhz_BUFG    | mss1/n_0_distance[6]_i_1            | dbsw15/reset     |                4 |             12 |
-|  clock_25mhz_BUFG    | ir1/E[0]                            | dbsw15/SR[0]     |                4 |             12 |
-|  clock_25mhz_BUFG    |                                     |                  |               15 |             32 |
-|  clock_25mhz_BUFG    | mss1/n_0_distance_sub_count[31]_i_1 | dbsw15/reset     |               13 |             32 |
-|  clock_25mhz_BUFG    | mss1/n_0_angle_sub_count[31]_i_1    | dbsw15/reset     |               12 |             32 |
-|  clock_25mhz_BUFG    | mss1/n_0_pause_count[31]_i_1        | dbsw15/reset     |               11 |             32 |
-|  clock_25mhz_BUFG    |                                     | dbsw15/reset     |               18 |             33 |
-+----------------------+-------------------------------------+------------------+------------------+----------------+
++----------------------+----------------------------------+------------------+------------------+----------------+
+|     Clock Signal     |           Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------------+----------------------------------+------------------+------------------+----------------+
+|  CLK100MHZ_IBUF_BUFG |                                  |                  |                1 |              2 |
+|  clock_BUFG          | ir1/d1/O2[0]                     | dbsw15/reset     |                2 |              4 |
+|  clock_BUFG          | mss1/n_0_angle_count[5]_i_1      | dbsw15/reset     |                2 |              6 |
+|  clock_BUFG          | mss1/n_0_distance_count[6]_i_1   | dbsw15/reset     |                3 |              7 |
+|  clock_BUFG          | ir1/d1/E[0]                      | dbsw15/reset     |                2 |              8 |
+|  clock_BUFG          | fsm1/O8                          | dbsw15/reset     |                4 |             12 |
+|  clock_BUFG          | ir1/I13[0]                       | dbsw15/SR[0]     |                5 |             12 |
+|  clock_BUFG          |                                  | dbsw15/reset     |               16 |             32 |
+|  clock_BUFG          | fsm1/E[0]                        | dbsw15/reset     |                8 |             32 |
+|  clock_BUFG          | mss1/n_0_pause_count[31]_i_1     | dbsw15/reset     |                7 |             32 |
+|  clock_BUFG          | mss1/n_0_angle_sub_count[31]_i_1 | dbsw15/reset     |                6 |             32 |
+|  clock_BUFG          |                                  |                  |               24 |             48 |
++----------------------+----------------------------------+------------------+------------------+----------------+
 
 

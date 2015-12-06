@@ -16,11 +16,12 @@ module main_fsm(
 	 input clock,
 	 input reset,
 	 input run_program,
+	 input run_move,
 	 input [11:0] target_location, // r is [7:0] theta is [11:8]
 	 input ultrasound_done,
 	 input [11:0] rover_location, // r is [7:0] theta is [11:8]
 	 output reg run_ultrasound,
-	 output orientation_done,
+	 output reg orientation_done,
 	 output reg [4:0] orientation,
 	 output reg [11:0] move_command,
 	 output reg transmit_ir,
@@ -37,46 +38,47 @@ module main_fsm(
 	 parameter ON 							= 1'b1;
 	 // state parameters
 	 parameter IDLE 						= 5'h00;
-	 parameter ONE_CYCLE_DELAY_1		= 5'h01;
-	 parameter RUN_ULTRASOUND_1		= 5'h02;
-	 parameter ORIENTATION_PHASE_1 	= 5'h03;
-    parameter IR_TRANSMIT_DELAY_1  = 5'h04;
-	 parameter ORIENTATION_MOVE_S		= 5'h05;
-	 parameter ONE_CYCLE_DELAY_2		= 5'h06;
-	 parameter RUN_ULTRASOUND_2		= 5'h07;
-	 parameter ORIENTATION_PHASE_2	= 5'h08;
-	 parameter ONE_CYCLE_DELAY_3		= 5'h0A;
-	 parameter ORIENTATION_PHASE_3	= 5'h0B;
-	 parameter CALC_MOVE_COMMAND_1	= 5'h0C;
-	 parameter ONE_CYCLE_DELAY_4		= 5'h0D;
-    parameter CALC_MOVE_COMMAND_2	= 5'h0E;
-	 parameter ONE_CYCLE_DELAY_5		= 5'h0F;
-    parameter CALC_MOVE_COMMAND_3	= 5'h10;
+	 parameter ONE_CYCLE_DELAY_1		= 5'h11;
+	 parameter RUN_ULTRASOUND_1		= 5'h01;
+	 parameter ORIENTATION_PHASE_1 	= 5'h02;
+    parameter IR_TRANSMIT_DELAY_1  = 5'h03;
+	 parameter ORIENTATION_MOVE_S		= 5'h04;
+	 parameter ONE_CYCLE_DELAY_2		= 5'h12;
+	 parameter RUN_ULTRASOUND_2		= 5'h05;
+	 parameter ORIENTATION_PHASE_2	= 5'h06;
+	 parameter ONE_CYCLE_DELAY_3		= 5'h13;
+	 parameter ORIENTATION_PHASE_3	= 5'h07;
+	 parameter CALC_MOVE_COMMAND_1	= 5'h08;
+	 parameter ONE_CYCLE_DELAY_4		= 5'h14;
+    parameter CALC_MOVE_COMMAND_2	= 5'h09;
+	 parameter ONE_CYCLE_DELAY_5		= 5'h15;
+    parameter CALC_MOVE_COMMAND_3	= 5'h0A;
     parameter IR_TRANSMIT_DELAY_2	= 5'h11;
-	 parameter MOVE_MOVE				   = 5'h12;
-	 parameter ONE_CYCLE_DELAY_6		= 5'h13;
-	 parameter RUN_ULTRASOUND_3		= 5'h14;
-	 parameter ONE_CYCLE_DELAY_7		= 5'h15;
-	 parameter ARE_WE_DONE				= 5'h16;
+	 parameter MOVE_MOVE				   = 5'h0B;
+	 parameter ONE_CYCLE_DELAY_6		= 5'h16;
+	 parameter RUN_ULTRASOUND_3		= 5'h0C;
+	 parameter ONE_CYCLE_DELAY_7		= 5'h17;
+	 parameter ARE_WE_DONE				= 5'h0F;
 	
     // ORIENTATION_PHASE_1/2/3 helper memory and paramenters for orientation and path
     reg [31:0] delay_count;
-	 parameter LOCATION_DELAY = 27000000; // delay a second just to be safe for this to clear because
+	 parameter LOCATION_DELAY = 2;//27000000; // delay a second just to be safe for this to clear because
 														// weird things are happening
-	 parameter ORIENTATION_MOVE = 12'h00A;
+	 parameter ORIENTATION_MOVE = 12'h010;
     reg orientation_helper_enable;
     wire [4:0] orientation_t;
+	 wire orientation_done_t;
     orientation_math om (.r_theta_original(orient_location_1),.r_theta_final(orient_location_2),.orientation(orientation_t),
-                        .enable(orientation_helper_enable),.done(orientation_done),.reset(reset),.clock(clock));
+                        .enable(orientation_helper_enable),.done(orientation_done_t),.reset(reset),.clock(clock));
 	 
     // IR Transmit Helpers
     reg [22:0] ir_transmit_delay_counter;
-    parameter IR_TRANSMIT_DELAY_COUNT = 5000000; // 1/5 of a second need 23 bits
+    parameter IR_TRANSMIT_DELAY_COUNT = 2;//5000000; // 1/5 of a second need 23 bits
     
 	 // ORIENTATION_MOVE and MOVE_MOVE helpers
 	 reg [31:0] move_delay_timer; // large to make room for long moves
     reg [31:0] move_delay_inner_timer; // big for move_delay_factor 
-	 parameter MOVE_DELAY_FACTOR = 13500000; // 1/2 of a second per move
+	 parameter MOVE_DELAY_FACTOR = 2;//13500000; // 1/2 of a second per move
 	 parameter ORIENTATION_DELAY = ORIENTATION_MOVE[7:0];
     
     // MOVE_COMMAND_CALC helpers
@@ -112,6 +114,7 @@ module main_fsm(
          // orientation resets
 			orientation_helper_enable <= OFF;
          orientation <= 4'h0;
+			orientation_done <= 0;
          // ir resets
 			move_command <= 12'h000;
 			transmit_ir <= OFF;
@@ -218,20 +221,23 @@ module main_fsm(
 					orientation_helper_enable <= OFF;
 					// for now we ignore the move because its a stretch goal
 					// and bypass the next few states
-					if (orientation_done) begin
+					if (orientation_done_t) begin
                   orientation <= orientation_t;
+						orientation_done <= 1; 
 						//state <= IDLE;
 						//then move to calc the move command
-                  state <= CALC_MOVE_COMMAND_1;
+						if (run_move) begin
+							state <= CALC_MOVE_COMMAND_1;
+						end
 					end
 				end
             
             // first we need the orientation between the end and the target
 				CALC_MOVE_COMMAND_1: begin
-               orient_location_1 <= rover_location;
-               orient_location_2 <= target_location;
-               orientation_helper_enable <= ON;
-               state <= ONE_CYCLE_DELAY_4;
+					orient_location_1 <= rover_location;
+					orient_location_2 <= target_location;
+					orientation_helper_enable <= ON;
+					state <= ONE_CYCLE_DELAY_4;
             end
             
 				ONE_CYCLE_DELAY_4: state <= CALC_MOVE_COMMAND_2;
@@ -283,6 +289,7 @@ module main_fsm(
                      // now we are done moving so go get figure out where it went
                      state <= ONE_CYCLE_DELAY_6;
                      run_ultrasound <= ON;
+							orientation_done <= 0;
                   end
                   else begin
                      move_delay_timer <= move_delay_timer - 1;
@@ -361,6 +368,7 @@ module main_fsm(
                   // orientation resets
                   orientation_helper_enable <= OFF;
                   orientation <= 4'h0;
+						orientation_done <= 0;
                   // ir resets
                   move_command <= 12'h000;
                   transmit_ir <= OFF;
