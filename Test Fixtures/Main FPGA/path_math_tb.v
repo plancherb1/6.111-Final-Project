@@ -28,13 +28,13 @@ module path_math_tb;
 	reg [11:0] location;
 	reg [11:0] target;
 	reg [4:0] current_orientation;
-	reg [4:0] needed_orientation;
 	reg clock;
 	reg enable;
 	reg reset;
 
 	// Outputs
 	wire done;
+	wire [4:0] needed_orientation;
 	wire [11:0] move_command;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -56,7 +56,6 @@ module path_math_tb;
 		location = 0;
 		target = 0;
 		current_orientation = 0;
-		needed_orientation = 0;
 		clock = 0;
 		enable = 0;
 		reset = 0;
@@ -69,9 +68,11 @@ module path_math_tb;
         
 		// Add stimulus here
 		target = {4'h7,8'h30};//105 degrees 48 inches out
-		location = {4'h1,8'h20}; //15 degrees 32 inches out
+		//location = {4'h1,8'h21}; //15 degrees 31 inches out
+		//current_orientation = 5'h01;
+		//needed_orientation = 5'h09;
+		location = {4'h1,8'h22};
 		current_orientation = 5'h01;
-		needed_orientation = 5'h09;
 		enable = 1;
 		#10;
 		enable = 0;

@@ -8,7 +8,7 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {main_fsm_tb.fdo} 
+# do {path_math_tb.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module quadrant
@@ -25,11 +25,6 @@
 # 
 # Top level modules:
 # 	find_min_5_vals_cascading
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module calc_r_y_theta
-# 
-# Top level modules:
-# 	calc_r_y_theta
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module calc_abs7rtan_00_75_15
 # 
@@ -51,42 +46,37 @@
 # Top level modules:
 # 	abs_diff_7
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module roughly_equal_locations
+# -- Compiling module calc_r_y_theta
 # 
 # Top level modules:
-# 	roughly_equal_locations
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module path_math
-# 
-# Top level modules:
-# 	path_math
+# 	calc_r_y_theta
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module orientation_math
 # 
 # Top level modules:
 # 	orientation_math
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module main_fsm
+# -- Compiling module path_math
 # 
 # Top level modules:
-# 	main_fsm
+# 	path_math
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module main_fsm_tb
+# -- Compiling module path_math_tb
 # 
 # Top level modules:
-# 	main_fsm_tb
+# 	path_math_tb
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps main_fsm_tb glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps path_math_tb glbl 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: ../Sources/Main FPGA/orientation_math.v(116): (vopt-2241) Connection width does not match width of port 'y'.
 # ** Warning: ../Sources/Main FPGA/orientation_math.v(117): (vopt-2241) Connection width does not match width of port 'y'.
-# ** Warning: ../Sources/Main FPGA/path_math.v(78): (vopt-2241) Connection width does not match width of port 'theta'.
-# Loading work.main_fsm_tb(fast)
-# Loading work.main_fsm(fast)
+# ** Warning: ../Sources/Main FPGA/path_math.v(88): (vopt-2241) Connection width does not match width of port 'theta'.
+# Loading work.path_math_tb(fast)
+# Loading work.path_math(fast)
 # Loading work.orientation_math(fast)
 # Loading work.polar_to_cartesian(fast)
 # Loading work.abs_val_8(fast)
@@ -95,16 +85,14 @@
 # Loading work.abs_diff_7(fast)
 # Loading work.abs_diff_9(fast)
 # Loading work.find_min_5_vals_cascading(fast)
-# Loading work.path_math(fast)
 # Loading work.calc_r_y_theta(fast)
-# Loading work.roughly_equal_locations(fast)
 # Loading work.glbl(fast)
 # ** Warning: (vsim-3015) ../Sources/Main FPGA/orientation_math.v(116): [PCDPC] - Port size (10 or 10) does not match connection size (72) for port 'y'.
-#         Region: /main_fsm_tb/uut/om/abdiff60
+#         Region: /path_math_tb/uut/om/abdiff60
 # ** Warning: (vsim-3015) ../Sources/Main FPGA/orientation_math.v(117): [PCDPC] - Port size (10 or 10) does not match connection size (72) for port 'y'.
-#         Region: /main_fsm_tb/uut/om/abdiff75
-# ** Warning: (vsim-3015) ../Sources/Main FPGA/path_math.v(78): [PCDPC] - Port size (4 or 4) does not match connection size (3) for port 'theta'.
-#         Region: /main_fsm_tb/uut/pm/calcr
+#         Region: /path_math_tb/uut/om/abdiff75
+# ** Warning: (vsim-3015) ../Sources/Main FPGA/path_math.v(88): [PCDPC] - Port size (4 or 4) does not match connection size (3) for port 'theta'.
+#         Region: /path_math_tb/uut/calcr
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs

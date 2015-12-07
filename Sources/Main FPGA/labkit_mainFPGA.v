@@ -357,8 +357,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   //debounce #(.DELAY(270000)) db_D (.reset(reset), .clock(clock_27mhz), .noisy(~button_down), .clean(btnD_db));
   //debounce #(.DELAY(270000)) db_L (.reset(reset), .clock(clock_27mhz), .noisy(~button_left), .clean(btnL_db));
   //debounce #(.DELAY(270000)) db_R (.reset(reset), .clock(clock_27mhz), .noisy(~button_right), .clean(btnR_db));
-  //debounce #(.DELAY(270000)) db_0 (.reset(reset), .clock(clock_27mhz), .noisy(~button0), .clean(btn0_db));
-  //debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
+  debounce #(.DELAY(270000)) db_0 (.reset(reset), .clock(clock_27mhz), .noisy(~button0), .clean(btn0_db));
+  debounce #(.DELAY(270000)) db_1 (.reset(reset), .clock(clock_27mhz), .noisy(~button1), .clean(btn1_db));
   debounce #(.DELAY(270000)) db_2 (.reset(reset), .clock(clock_27mhz), .noisy(~button2), .clean(btn2_db));
   debounce #(.DELAY(270000)) db_3 (.reset(reset), .clock(clock_27mhz), .noisy(~button3), .clean(btn3_db));
   debounce #(.DELAY(270000)) db_S0 (.reset(reset), .clock(clock_27mhz), .noisy(switch[0]), .clean(db_switch[0]));
@@ -445,8 +445,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   target_location_selector tls (.switches(target_switches),.location(target_location));
   
   wire [4:0] main_state;
+  wire [4:0] needed_orientation;
   wire [11:0] orient_location_1;
   wire [11:0] orient_location_2;
+  wire [11:0] move_command_t;
   wire run_move;
   edge_detect e2 (.in(btn2_db),.clock(clock_27mhz),.reset(reset),.out(run_move));
   // master FSM to control all modules (ultrasound and orientation/path and commands for IR)
@@ -465,13 +467,15 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
                   .reached_target(reached_target),
 						.orient_location_1(orient_location_1),
 						.orient_location_2(orient_location_2),
+						.needed_orientation(needed_orientation),
+						.move_command_t(move_command_t),
 						.state(main_state));
   
   // Ultrasound Block
   wire [3:0] ultrasound_state;
   wire [3:0] curr_ultrasound;
   wire run_ultrasound_manual;
-  edge_detect e3 (.in(btn3_db),.clock(clock_27mhz),.reset(reset),.out(run_ultrasound_manual));
+  edge_detect e3 (.in(btn1_db),.clock(clock_27mhz),.reset(reset),.out(run_ultrasound_manual));
   assign run_ultrasound = run_ultrasound_fsm | run_ultrasound_manual;
   rover_location_calculator rlc1 (.clock(clock_27mhz),.reset(reset),.enable(run_ultrasound),
                                   .ultrasound_response(ultrasound_response),
@@ -493,14 +497,18 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 					 //.analyzer_data(analyzer3_data),
                 .hcount(hcount),.vcount(vcount),.hsync(hsync),.vsync(vsync),.blank(blank),
 			       .phsync(phsync),.pvsync(pvsync),.pblank(pblank),.pixel(pixel));
-								  
+  
+  wire ir_manual;
+  assign ir_manual = btn0_db;
+  wire run_ir;
+  assign run_ir = ir_signal|ir_manual;
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
                                .reset(reset),
                                .address(move_command[11:7]), // angle
                                .command(move_command[6:0]), // distance
                                .transmit(transmit_ir),
-                               .signal_out(ir_signal));					  
+                               .signal_out(run_ir));					  
    
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;
@@ -508,20 +516,22 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		my_hex_data <= {	
 								//3'b0, ultrasound_done, // 4 bits
 								
-								main_state[3:0], // 8 bits
+								3'h0,main_state, // 5 bits
+								//3'h0,needed_orientation, // 5 bits
 								
 								//ultrasound_state, // 4 bits
 								//curr_ultrasound, // 4 bits
-								//3'b0,rover_orientation, // 8 bits																
+								3'b0,rover_orientation, // 8 bits																
                         //3'b0, orientation_done, // 4 bits
 								
 								rover_location,// 12 bits
 								target_location, // 12 bits
-								orient_location_1, // 12 bits
-								orient_location_2, // 12 bits							
+								//orient_location_1, // 12 bits
+								//orient_location_2, // 12 bits							
 								
 								//3'b0, transmit_ir,
 								//3'b0, reached_target,
+								move_command_t,//12bits
 								move_command // 12 bits
 							};
   end
