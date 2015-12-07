@@ -245,9 +245,6 @@
 <msg type="warning" file="Par" num="288" delta="unknown" >The signal <arg fmt="%s" index="1">tv_in_ycrcb&lt;9&gt;_IBUF</arg> has no load.  PAR will not attempt to route this signal.
 </msg>
 
-<msg type="warning" file="Par" num="288" delta="unknown" >The signal <arg fmt="%s" index="1">button0_IBUF</arg> has no load.  PAR will not attempt to route this signal.
-</msg>
-
 <msg type="warning" file="Par" num="288" delta="unknown" >The signal <arg fmt="%s" index="1">tv_in_data_valid_IBUF</arg> has no load.  PAR will not attempt to route this signal.
 </msg>
 
@@ -937,11 +934,11 @@
 
 <msg type="info" file="Timing" num="2761" delta="unknown" >N/A entries in the Constraints list may indicate that the constraint does not cover any paths or that it has no requested value.</msg>
 
-<msg type="warning" file="Par" num="283" delta="unknown" >There are <arg fmt="%d" index="1">309</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+<msg type="warning" file="Par" num="283" delta="unknown" >There are <arg fmt="%d" index="1">308</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 </msg>
 
-<msg type="warning" file="ParHelpers" num="361" delta="unknown" >There are <arg fmt="%d" index="1">309</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+<msg type="warning" file="ParHelpers" num="361" delta="unknown" >There are <arg fmt="%d" index="1">308</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 </msg>
 

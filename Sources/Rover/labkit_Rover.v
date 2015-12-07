@@ -120,12 +120,10 @@ module labkit(
     // end testing block
 	
     //  instantiate 7-segment display; use for debugging
-    wire [31:0] data = {move_data[8:0],
-                        move_data_t[8:0],
-                        motor_l_f,motor_l_b,motor_r_f,motor_r_b,
-                        master_state[0],motor_state[2:0],
-                        ir_state,
-                        2'h0,move_ready,move_done
+    wire [31:0] data = {move_data,//3
+                        move_data_t,//3
+                        master_state[0],motor_state[2:0],//1
+                        ir_state[1:0],move_ready,move_done//1
                         };
     
     // hex display for debug

@@ -501,14 +501,14 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire ir_manual;
   assign ir_manual = btn0_db;
   wire run_ir;
-  assign run_ir = ir_signal|ir_manual;
+  assign run_ir = transmit_ir | ir_manual;
   // Transmitter (from Lab5b hijacked to send IR)
   ir_transmitter transmitter (.clk(clock_27mhz),
                                .reset(reset),
                                .address(move_command[11:7]), // angle
                                .command(move_command[6:0]), // distance
-                               .transmit(transmit_ir),
-                               .signal_out(run_ir));					  
+                               .transmit(run_ir),
+                               .signal_out(ir_signal));					  
    
   // use this to display on hex display for debug
   reg [63:0] my_hex_data;

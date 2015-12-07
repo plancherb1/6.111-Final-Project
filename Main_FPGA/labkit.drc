@@ -156,8 +156,6 @@ WARNING:PhysDesignRules:367 - The signal <tv_in_ycrcb<8>_IBUF> is incomplete.
    The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <tv_in_ycrcb<9>_IBUF> is incomplete.
    The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <button0_IBUF> is incomplete. The
-   signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <tv_in_data_valid_IBUF> is incomplete.
    The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <button_up_IBUF> is incomplete. The
@@ -619,5 +617,5 @@ WARNING:PhysDesignRules:367 - The signal <daughtercard<9>_IBUF> is incomplete.
 INFO:PhysDesignRules:772 - To achieve optimal frequency synthesis performance
    with the CLKFX and CLKFX180 outputs of the DCM comp vclk1, consult the device
    Interactive Data Sheet.
-DRC detected 0 errors and 309 warnings.  Please see the previously displayed
+DRC detected 0 errors and 308 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

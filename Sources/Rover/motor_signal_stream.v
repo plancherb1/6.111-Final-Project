@@ -34,10 +34,10 @@ module motor_signal_stream(
    parameter TESTING_DELAY = 4'hF; // for testing mode only
    
    // parameters for distance and angle move times
-   parameter FIFTEEN_DEG = 7692307;
+   parameter FOUR_INCHES = 4166666;//7692307;
    // it goes about 13 inches per second all loaded up so to go four inches we need
    // 4/13 of a second which at 25mhz is 7,692,307 clock cycles
-   parameter FOUR_INCHES = 4166666;
+   parameter FIFTEEN_DEG = 4166666;
    // it goes about 1 rotation in 4 seconds all loaded up so to go fifteen deg we need
    // 1/6 of a second which at 25mhz is 4,166,666 clock cycles
    reg [31:0] angle_sub_goal;
@@ -75,8 +75,8 @@ module motor_signal_stream(
 			distance_sub_count <= 0;
 			pause_count <= 0;
 			move_done <= 0;
-			angle_sub_goal <= FIFTEEN_DEG*(adjustors[3:0] + 1);
-			distance_sub_goal <= FOUR_INCHES*(adjustors[7:4] + 1);
+			angle_sub_goal <= FIFTEEN_DEG+(1000000*adjustors[3:0]);
+			distance_sub_goal <= FOUR_INCHES+(1000000*adjustors[7:4]);
 		end
 		// else enter states
 		else begin

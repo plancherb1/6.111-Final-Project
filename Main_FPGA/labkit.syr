@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: labkit.prj
@@ -214,8 +214,8 @@ Analyzing hierarchy for module <main_fsm> in library <work> with parameters.
 	ONE_CYCLE_DELAY_5 = "10101"
 	ONE_CYCLE_DELAY_6 = "10110"
 	ONE_CYCLE_DELAY_X = "11111"
-	ORIENTATION_DELAY = "00010000"
-	ORIENTATION_MOVE = "000000010000"
+	ORIENTATION_DELAY = "00001010"
+	ORIENTATION_MOVE = "000000001010"
 	ORIENTATION_MOVE_S = "00100"
 	ORIENTATION_PHASE_1 = "00010"
 	ORIENTATION_PHASE_2 = "00110"
@@ -513,8 +513,8 @@ Analyzing module <main_fsm> in library <work>.
 	ONE_CYCLE_DELAY_5 = 5'b10101
 	ONE_CYCLE_DELAY_6 = 5'b10110
 	ONE_CYCLE_DELAY_X = 5'b11111
-	ORIENTATION_DELAY = 8'b00010000
-	ORIENTATION_MOVE = 12'b000000010000
+	ORIENTATION_DELAY = 8'b00001010
+	ORIENTATION_MOVE = 12'b000000001010
 	ORIENTATION_MOVE_S = 5'b00100
 	ORIENTATION_PHASE_1 = 5'b00010
 	ORIENTATION_PHASE_2 = 5'b00110
@@ -1823,12 +1823,10 @@ WARNING:Xst:2565 - Inout <user3<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<3>> is never assigned.
 WARNING:Xst:646 - Signal <ultrasound_state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <run_ir> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <reached_target> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <orient_location_2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <orient_location_1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <needed_orientation> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <ir_signal> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <db_switch<7:3>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <curr_ultrasound> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <btnU_db> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -2379,7 +2377,6 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_3> (w
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_2> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_1> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_pixel5_0> (without init value) has a constant value of 0 in block <vg>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <db_0>.
 WARNING:Xst:2677 - Node <reached_target> of sequential type is unconnected in block <msfm>.
 WARNING:Xst:2677 - Node <location_reached_helper_enable> of sequential type is unconnected in block <msfm>.
 WARNING:Xst:2677 - Node <abs_delta_x_7> of sequential type is unconnected in block <pm>.
@@ -2493,8 +2490,8 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <my_hex_data_28> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <my_hex_data_34> 
 INFO:Xst:2261 - The FF/Latch <my_hex_data_24> in Unit <labkit> is equivalent to the following 2 FFs/Latches, which will be removed : <my_hex_data_26> <my_hex_data_31> 
+INFO:Xst:2261 - The FF/Latch <my_hex_data_28> in Unit <labkit> is equivalent to the following FF/Latch, which will be removed : <my_hex_data_34> 
 INFO:Xst:2261 - The FF/Latch <target_pixel2_8> in Unit <vga_writer> is equivalent to the following 7 FFs/Latches, which will be removed : <target_pixel2_9> <target_pixel2_10> <target_pixel2_11> <target_pixel2_12> <target_pixel2_13> <target_pixel2_14> <target_pixel2_15> 
 INFO:Xst:2261 - The FF/Latch <rover_pixel_noO2_16> in Unit <vga_writer> is equivalent to the following 7 FFs/Latches, which will be removed : <rover_pixel_noO2_17> <rover_pixel_noO2_18> <rover_pixel_noO2_19> <rover_pixel_noO2_20> <rover_pixel_noO2_21> <rover_pixel_noO2_22> <rover_pixel_noO2_23> 
 INFO:Xst:2261 - The FF/Latch <rover_pixel_noO2_0> in Unit <vga_writer> is equivalent to the following 31 FFs/Latches, which will be removed : <rover_pixel_noO2_1> <rover_pixel_noO2_2> <rover_pixel_noO2_3> <rover_pixel_noO2_4> <rover_pixel_noO2_5> <rover_pixel_noO2_6> <rover_pixel_noO2_7> <rover_pixel_noO2_8> <rover_pixel_noO2_9> <rover_pixel_noO2_10> <rover_pixel_noO2_11> <rover_pixel_noO2_12> <rover_pixel_noO2_13> <rover_pixel_noO2_14> <rover_pixel_noO2_15> <target_pixel2_0> <target_pixel2_1> <target_pixel2_2> <target_pixel2_3> <target_pixel2_4> <target_pixel2_5> <target_pixel2_6> <target_pixel2_7> <target_pixel2_16> <target_pixel2_17> <target_pixel2_18> <target_pixel2_19> <target_pixel2_20> <target_pixel2_21> <target_pixel2_22> <target_pixel2_23> 
@@ -2589,8 +2586,6 @@ WARNING:Xst:1710 - FF/Latch <abs_dx_tan15_7> (without init value) has a constant
 WARNING:Xst:1710 - FF/Latch <reached_target> (without init value) has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <location_reached_helper_enable> of sequential type is unconnected in block <main_fsm>.
 WARNING:Xst:1710 - FF/Latch <my_hex_data_24> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <db_0/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db_0/new> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:1710 - FF/Latch <rover_y_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_y_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <test_on_60_14> in Unit <triangle> is equivalent to the following 17 FFs/Latches, which will be removed : <test_on_60_15> <test_on_60_16> <test_on_60_17> <test_on_60_18> <test_on_60_19> <test_on_60_20> <test_on_60_21> <test_on_60_22> <test_on_60_23> <test_on_60_24> <test_on_60_25> <test_on_60_26> <test_on_60_27> <test_on_60_28> <test_on_60_29> <test_on_60_30> <test_on_60_31> 
@@ -2649,77 +2644,19 @@ WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_11> (without init value) has a const
 WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_10> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <vg/rover_pixel_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_location_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_target_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_length_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/counting> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/sc/count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/t/count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/mod_count_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/state_FSM_FFd3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_11> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_10> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_9> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_8> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_6> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_5> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_4> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_value_0> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_3> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_2> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_1> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <transmitter/cur_bit_0> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/om/y_original_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/om/y_final_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_target_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <msfm/pm/y_location_8> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_9> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_7> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_2> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_1> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <transmitter/t/count_length_0> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <msfm/pm/delta_x_7> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <msfm/pm/abs_delta_x_7> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <msfm/transmit_ir> of sequential type is unconnected in block <labkit>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -2790,8 +2727,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1308
- Flip-Flops                                            : 1308
+# Registers                                            : 1387
+ Flip-Flops                                            : 1387
 # Shift Registers                                      : 37
  2-bit shift register                                  : 29
  3-bit shift register                                  : 1
@@ -2825,31 +2762,31 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 7976
+# BELS                             : 8241
 #      GND                         : 1
-#      INV                         : 609
-#      LUT1                        : 619
-#      LUT2                        : 759
+#      INV                         : 617
+#      LUT1                        : 670
+#      LUT2                        : 766
 #      LUT2_D                      : 5
-#      LUT3                        : 641
+#      LUT3                        : 669
 #      LUT3_D                      : 3
 #      LUT3_L                      : 3
-#      LUT4                        : 1729
+#      LUT4                        : 1788
 #      LUT4_D                      : 11
 #      LUT4_L                      : 34
-#      MUXCY                       : 2101
-#      MUXF5                       : 247
+#      MUXCY                       : 2166
+#      MUXF5                       : 243
 #      MUXF6                       : 16
 #      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 1195
-# FlipFlops/Latches                : 1355
+#      XORCY                       : 1246
+# FlipFlops/Latches                : 1434
 #      FD                          : 285
-#      FDE                         : 406
-#      FDR                         : 255
-#      FDRE                        : 298
-#      FDRS                        : 89
-#      FDRSE                       : 1
+#      FDE                         : 429
+#      FDR                         : 279
+#      FDRE                        : 327
+#      FDRS                        : 91
+#      FDRSE                       : 2
 #      FDS                         : 10
 #      FDSE                        : 11
 # Shift Registers                  : 38
@@ -2857,8 +2794,8 @@ Cell Usage :
 #      SRL16E                      : 6
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 267
-#      IBUF                        : 13
+# IO Buffers                       : 268
+#      IBUF                        : 14
 #      IBUFG                       : 1
 #      OBUF                        : 253
 # DCMs                             : 1
@@ -2872,13 +2809,13 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                     2340  out of  33792     6%  
- Number of Slice Flip Flops:           1355  out of  67584     2%  
- Number of 4 input LUTs:               4451  out of  67584     6%  
-    Number used as logic:              4413
+ Number of Slices:                     2420  out of  33792     7%  
+ Number of Slice Flip Flops:           1434  out of  67584     2%  
+ Number of 4 input LUTs:               4604  out of  67584     6%  
+    Number used as logic:              4566
     Number used as Shift registers:      38
  Number of IOs:                         576
- Number of bonded IOBs:                 267  out of    684    39%  
+ Number of bonded IOBs:                 268  out of    684    39%  
  Number of MULT18X18s:                   53  out of    144    36%  
  Number of GCLKs:                         3  out of     16    18%  
  Number of DCMs:                          1  out of     12     8%  
@@ -2904,7 +2841,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | IBUFG+BUFG             | 999   |
+clock_27mhz                        | IBUFG+BUFG             | 1078  |
 clock_27mhz                        | vclk1:CLKFX            | 351   |
 disp/clock1                        | BUFG                   | 43    |
 -----------------------------------+------------------------+-------+
@@ -2919,7 +2856,7 @@ Speed Grade: -4
 
    Minimum period: 56.374ns (Maximum Frequency: 17.739MHz)
    Minimum input arrival time before clock: 8.575ns
-   Maximum output required time after clock: 6.771ns
+   Maximum output required time after clock: 9.444ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -2929,7 +2866,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
   Clock period: 56.374ns (frequency: 17.739MHz)
-  Total number of paths / destination ports: 183154 / 2745
+  Total number of paths / destination ports: 189695 / 2934
 -------------------------------------------------------------------------
 Delay:               14.094ns (Levels of Logic = 7)
   Source:            db_S0/clean_1 (FF)
@@ -2980,7 +2917,7 @@ Delay:               14.922ns (Levels of Logic = 14)
      MUXF6:I0->O           1   0.447   0.726  disp/Mmux__varindex0000_12_f6 (disp/Mmux__varindex0000_12_f6)
      LUT4:I1->O            1   0.439   0.557  disp/disp_data_out_mux000033 (disp/disp_data_out_mux000033)
      LUT4:I3->O            1   0.439   0.552  disp/disp_data_out_mux000078 (disp/disp_data_out_mux000078)
-     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N744)
+     LUT3:I2->O            1   0.439   0.000  disp/disp_data_out_mux0000131_G (N794)
      MUXF5:I1->O           2   0.436   0.910  disp/disp_data_out_mux0000131 (disp/disp_data_out_mux0000131)
      LUT2:I1->O            1   0.439   0.000  disp/disp_data_out_mux00001682 (disp/disp_data_out_mux00001681)
      MUXF5:I0->O           1   0.436   0.000  disp/disp_data_out_mux0000168_f5 (disp/disp_data_out_mux0000)
@@ -2991,7 +2928,7 @@ Delay:               14.922ns (Levels of Logic = 14)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 761 / 242
+  Total number of paths / destination ports: 784 / 265
 -------------------------------------------------------------------------
 Offset:              8.575ns (Levels of Logic = 7)
   Source:            user1<29> (PAD)
@@ -3006,7 +2943,7 @@ Offset:              8.575ns (Levels of Logic = 7)
      LUT3:I1->O            1   0.439   0.000  rlc1/gm3hcsr04/us_module/Mmux__COND_9_7 (rlc1/gm3hcsr04/us_module/Mmux__COND_9_7)
      MUXF5:I0->O           3   0.436   0.932  rlc1/gm3hcsr04/us_module/Mmux__COND_9_5_f5 (rlc1/gm3hcsr04/us_module/Mmux__COND_9_5_f5)
      LUT3:I1->O           14   0.439   1.012  rlc1/gm3hcsr04/us_module/curr_ultrasound<2> (rlc1/gm3hcsr04/us_module/_COND_9)
-     LUT4:I2->O            1   0.439   0.726  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<10>1_SW1 (N565)
+     LUT4:I2->O            1   0.439   0.726  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<10>1_SW1 (N596)
      LUT3:I1->O           25   0.439   1.354  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<10>1 (rlc1/gm3hcsr04/us_module/N0)
      LUT4:I0->O            1   0.439   0.000  rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<9>1 (rlc1/gm3hcsr04/us_module/power_cycle_timer_mux0000<9>)
      FDR:D                     0.370          rlc1/gm3hcsr04/us_module/power_cycle_timer_9
@@ -3016,23 +2953,32 @@ Offset:              8.575ns (Levels of Logic = 7)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 40 / 40
+  Total number of paths / destination ports: 54 / 41
 -------------------------------------------------------------------------
-Offset:              6.771ns (Levels of Logic = 2)
-  Source:            disp/clock (FF)
-  Destination:       disp_clock (PAD)
+Offset:              9.444ns (Levels of Logic = 11)
+  Source:            transmitter/mod_count_0 (FF)
+  Destination:       user1<31> (PAD)
   Source Clock:      clock_27mhz rising
 
-  Data Path: disp/clock to disp_clock
+  Data Path: transmitter/mod_count_0 to user1<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             2   0.568   0.701  disp/clock (disp/clock1)
-     INV:I->O              2   0.439   0.701  disp/disp_clock1_INV_0 (disp_clock_OBUF)
-     OBUF:I->O                 4.361          disp_clock_OBUF (disp_clock)
+     FDR:C->Q              3   0.568   1.010  transmitter/mod_count_0 (transmitter/mod_count_0)
+     LUT1:I0->O            1   0.439   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>_rt (transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>_rt)
+     MUXCY:S->O            1   0.298   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<0> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<1> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<2> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<3> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<4> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<5> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.053   0.000  transmitter/Mcompar_signal_out_cmp_lt0000_cy<6> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.942   0.551  transmitter/Mcompar_signal_out_cmp_lt0000_cy<7> (transmitter/Mcompar_signal_out_cmp_lt0000_cy<7>)
+     LUT4:I2->O            1   0.439   0.517  transmitter/signal_out1 (user1_31_OBUF)
+     OBUF:I->O                 4.361          user1_31_OBUF (user1<31>)
     ----------------------------------------
-    Total                      6.771ns (5.368ns logic, 1.403ns route)
-                                       (79.3% logic, 20.7% route)
+    Total                      9.444ns (7.365ns logic, 2.078ns route)
+                                       (78.0% logic, 22.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'disp/clock1'
@@ -3056,15 +3002,15 @@ Offset:              5.630ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 64.00 secs
-Total CPU time to Xst completion: 62.10 secs
+Total REAL time to Xst completion: 65.00 secs
+Total CPU time to Xst completion: 63.52 secs
  
 --> 
 
 
-Total memory usage is 586848 kilobytes
+Total memory usage is 588552 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  730 (   0 filtered)
+Number of warnings :  667 (   0 filtered)
 Number of infos    :  144 (   0 filtered)
 

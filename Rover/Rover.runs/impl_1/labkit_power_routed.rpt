@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sat Dec  5 18:58:28 2015
+| Date             : Sun Dec  6 20:03:05 2015
 | Host             : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.115 |
-| Dynamic (W)              | 0.018 |
+| Total On-Chip Power (W)  | 0.114 |
+| Dynamic (W)              | 0.017 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.5  |
@@ -50,18 +50,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      638 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      259 |     63400 |            0.40 |
-|   CARRY4       |    <0.001 |       40 |     15850 |            0.25 |
+| Slice Logic    |    <0.001 |      742 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      298 |     63400 |            0.47 |
+|   CARRY4       |    <0.001 |       56 |     15850 |            0.35 |
+|   Register     |    <0.001 |      265 |    126800 |            0.20 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.12 |
-|   Register     |    <0.001 |      227 |    126800 |            0.17 |
-|   Others       |     0.000 |       30 |       --- |             --- |
-|   F7/F8 Muxes  |     0.000 |        2 |     63400 |           <0.01 |
-| Signals        |    <0.001 |      555 |       --- |             --- |
-| DSPs           |     0.001 |        2 |       240 |            0.83 |
-| I/O            |     0.015 |       31 |       210 |           14.76 |
+|   Others       |     0.000 |       29 |       --- |             --- |
+| Signals        |    <0.001 |      578 |       --- |             --- |
+| I/O            |     0.016 |       31 |       210 |           14.76 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.115 |          |           |                 |
+| Total          |     0.114 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +69,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.003 |      0.015 |
+| Vccint    |       1.000 |     0.017 |       0.002 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -140,7 +138,7 @@ Table of Contents
 +------------+-----------+
 | Name       | Power (W) |
 +------------+-----------+
-| labkit     |     0.018 |
+| labkit     |     0.017 |
 |   clockgen |    <0.001 |
 |   dbsw0    |    <0.001 |
 |   dbsw1    |    <0.001 |
@@ -155,7 +153,7 @@ Table of Contents
 |   fsm1     |    <0.001 |
 |   ir1      |    <0.001 |
 |     d1     |    <0.001 |
-|   mss1     |     0.002 |
+|   mss1     |    <0.001 |
 +------------+-----------+
 
 
