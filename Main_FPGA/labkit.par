@@ -1,7 +1,7 @@
 Release 10.1.03 par K.39 (lin64)
 Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 
-eecs-digital-19::  Mon Dec 07 13:56:05 2015
+eecs-digital-19::  Tue Dec 08 12:56:23 2015
 
 par -w -intstyle ise -ol std -t 1 labkit_map.ncd labkit.ncd labkit.pcf 
 
@@ -356,27 +356,27 @@ WARNING:Par:288 - The signal daughtercard<9>_IBUF has no load.  PAR will not att
 Starting Placer
 
 Phase 1.1
-Phase 1.1 (Checksum:199132f) REAL time: 6 secs 
+Phase 1.1 (Checksum:199132f) REAL time: 9 secs 
 
 Phase 2.7
-Phase 2.7 (Checksum:199132f) REAL time: 6 secs 
+Phase 2.7 (Checksum:199132f) REAL time: 9 secs 
 
 Phase 3.31
-Phase 3.31 (Checksum:199132f) REAL time: 6 secs 
+Phase 3.31 (Checksum:199132f) REAL time: 9 secs 
 
 Phase 4.2
 
 ......
-Phase 4.2 (Checksum:19b0153) REAL time: 6 secs 
+Phase 4.2 (Checksum:19b0153) REAL time: 10 secs 
 
 Phase 5.30
-Phase 5.30 (Checksum:19b0153) REAL time: 6 secs 
+Phase 5.30 (Checksum:19b0153) REAL time: 10 secs 
 
 Phase 6.3
-Phase 6.3 (Checksum:19b0153) REAL time: 6 secs 
+Phase 6.3 (Checksum:19b0153) REAL time: 10 secs 
 
 Phase 7.5
-Phase 7.5 (Checksum:19b0153) REAL time: 7 secs 
+Phase 7.5 (Checksum:19b0153) REAL time: 10 secs 
 
 Phase 8.8
 ........................................
@@ -386,55 +386,55 @@ Phase 8.8
 .....
 .
 .
-Phase 8.8 (Checksum:7717334) REAL time: 25 secs 
+Phase 8.8 (Checksum:7717334) REAL time: 28 secs 
 
 Phase 9.5
-Phase 9.5 (Checksum:7717334) REAL time: 25 secs 
+Phase 9.5 (Checksum:7717334) REAL time: 28 secs 
 
 Phase 10.18
-Phase 10.18 (Checksum:777509a) REAL time: 32 secs 
+Phase 10.18 (Checksum:777509a) REAL time: 35 secs 
 
 Phase 11.5
-Phase 11.5 (Checksum:777509a) REAL time: 32 secs 
+Phase 11.5 (Checksum:777509a) REAL time: 35 secs 
 
 Phase 12.27
-Phase 12.27 (Checksum:777509a) REAL time: 33 secs 
+Phase 12.27 (Checksum:777509a) REAL time: 36 secs 
 
 Phase 13.24
-Phase 13.24 (Checksum:777509a) REAL time: 33 secs 
+Phase 13.24 (Checksum:777509a) REAL time: 36 secs 
 
-REAL time consumed by placer: 33 secs 
+REAL time consumed by placer: 36 secs 
 CPU  time consumed by placer: 33 secs 
 Writing design to file labkit.ncd
 
 
-Total REAL time to Placer completion: 34 secs 
-Total CPU time to Placer completion: 34 secs 
+Total REAL time to Placer completion: 37 secs 
+Total CPU time to Placer completion: 33 secs 
 
 Starting Router
 
-Phase 1: 19962 unrouted;       REAL time: 44 secs 
+Phase 1: 19962 unrouted;       REAL time: 48 secs 
 
-Phase 2: 17107 unrouted;       REAL time: 46 secs 
+Phase 2: 17107 unrouted;       REAL time: 50 secs 
 
-Phase 3: 4320 unrouted;       REAL time: 48 secs 
+Phase 3: 4320 unrouted;       REAL time: 52 secs 
 
-Phase 4: 4320 unrouted; (368038)      REAL time: 48 secs 
+Phase 4: 4320 unrouted; (368038)      REAL time: 52 secs 
 
-Phase 5: 4369 unrouted; (0)      REAL time: 49 secs 
+Phase 5: 4369 unrouted; (0)      REAL time: 53 secs 
 
-Phase 6: 0 unrouted; (0)      REAL time: 51 secs 
+Phase 6: 0 unrouted; (0)      REAL time: 55 secs 
 
-Phase 7: 0 unrouted; (0)      REAL time: 53 secs 
+Phase 7: 0 unrouted; (0)      REAL time: 57 secs 
 
-Phase 8: 0 unrouted; (0)      REAL time: 53 secs 
+Phase 8: 0 unrouted; (0)      REAL time: 57 secs 
 
-Phase 9: 0 unrouted; (0)      REAL time: 53 secs 
+Phase 9: 0 unrouted; (0)      REAL time: 57 secs 
 
-Phase 10: 0 unrouted; (0)      REAL time: 55 secs 
+Phase 10: 0 unrouted; (0)      REAL time: 59 secs 
 
 
-Total REAL time to Router completion: 55 secs 
+Total REAL time to Router completion: 59 secs 
 Total CPU time to Router completion: 55 secs 
 
 Partition Implementation Status
@@ -498,7 +498,7 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 308 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 1 mins 6 secs 
+Total REAL time to PAR completion: 1 mins 11 secs 
 Total CPU time to PAR completion: 1 mins 2 secs 
 
 Peak Memory Usage:  698 MB

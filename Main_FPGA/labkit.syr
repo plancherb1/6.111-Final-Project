@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Fina
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: labkit.prj
@@ -138,12 +138,12 @@ Compiling verilog file "../Sources/Shared/roughly_equal_locations.v" in library 
 Module <timer> compiled
 Compiling verilog file "../Sources/Shared/delay.v" in library work
 Module <roughly_equal_locations> compiled
-Compiling verilog file "../Sources/Main FPGA/triangle.v" in library work
-Module <delayN> compiled
 Compiling verilog file "../Sources/Main FPGA/path_math.v" in library work
-Module <triangle> compiled
-Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
+Module <delayN> compiled
+Compiling verilog file "../Sources/Main FPGA/oriented_blob.v" in library work
 Module <path_math> compiled
+Compiling verilog file "../Sources/Main FPGA/grid.v" in library work
+Module <oriented_blob> compiled
 Compiling verilog file "../Sources/Main FPGA/get_median_of_3_HCSR04_runs.v" in library work
 Module <grid> compiled
 Compiling verilog file "../Sources/Main FPGA/blob.v" in library work
@@ -361,7 +361,7 @@ Analyzing hierarchy for module <blob> in library <work> with parameters.
 	WIDTH = "00000000000000000000000000010000"
 	WIDTH_D2 = "00000000000000000000000000001000"
 
-Analyzing hierarchy for module <triangle> in library <work> with parameters.
+Analyzing hierarchy for module <oriented_blob> in library <work> with parameters.
 	BLANK_COLOR = "000000000000000000000000"
 	COLOR = "000000000000000011111111"
 	D180 = "00000000000000000000000000001100"
@@ -700,7 +700,7 @@ Analyzing module <blob.2> in library <work>.
 	WIDTH_D2 = 32'sb00000000000000000000000000001000
 Module <blob.2> is correct for synthesis.
  
-Analyzing module <triangle> in library <work>.
+Analyzing module <oriented_blob> in library <work>.
 	BLANK_COLOR = 24'b000000000000000000000000
 	COLOR = 24'b000000000000000011111111
 	D180 = 32'sb00000000000000000000000000001100
@@ -712,7 +712,7 @@ Analyzing module <triangle> in library <work>.
 	ROUNDING_FACTOR_2 = 32'sb00000000000000000000000000000100
 	WIDTH = 32'sb00000000000000000000000000010000
 	WIDTH_D2 = 32'sb00000000000000000000000000001000
-Module <triangle> is correct for synthesis.
+Module <oriented_blob> is correct for synthesis.
  
 Analyzing module <alpha_blend> in library <work>.
 	ALPHA_M = 32'sb00000000000000000000000000000010
@@ -1123,8 +1123,8 @@ Synthesizing Unit <blob_2>.
 Unit <blob_2> synthesized.
 
 
-Synthesizing Unit <triangle>.
-    Related source file is "../Sources/Main FPGA/triangle.v".
+Synthesizing Unit <oriented_blob>.
+    Related source file is "../Sources/Main FPGA/oriented_blob.v".
 WARNING:Xst:646 - Signal <orientation_quadrant<31:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <orientation3<4:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 24-bit register for signal <pixel>.
@@ -1212,7 +1212,7 @@ WARNING:Xst:646 - Signal <orientation3<4:3>> is assigned but never used. This un
 	inferred   5 Multiplier(s).
 	inferred  19 Comparator(s).
 	inferred   4 Multiplexer(s).
-Unit <triangle> synthesized.
+Unit <oriented_blob> synthesized.
 
 
 Synthesizing Unit <alpha_blend>.
@@ -1237,7 +1237,6 @@ Unit <divider_600us> synthesized.
 
 Synthesizing Unit <vga_writer>.
     Related source file is "../Sources/Main FPGA/vga_writer.v".
-WARNING:Xst:647 - Input <move_command> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1780 - Signal <max_y> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 !!! ADJUST CONCAT SIZE AFTER UNARY MULT OPT !!!
@@ -1252,16 +1251,16 @@ WARNING:Xst:1780 - Signal <max_x> is never used or assigned. This unconnected si
     Found 24-bit register for signal <rover_pixel_noO4>.
     Found 12-bit register for signal <rover_x>.
     Found 12-bit register for signal <rover_y>.
-    Found 12-bit adder for signal <rover_y$add0000> created at line 159.
+    Found 12-bit adder for signal <rover_y$add0000> created at line 158.
     Found 24-bit register for signal <target_pixel2>.
     Found 24-bit register for signal <target_pixel3>.
     Found 24-bit register for signal <target_pixel4>.
     Found 24-bit register for signal <target_pixel5>.
     Found 12-bit register for signal <target_x>.
     Found 12-bit register for signal <target_y>.
-    Found 12-bit adder for signal <target_y$add0000> created at line 163.
+    Found 12-bit adder for signal <target_y$add0000> created at line 162.
     Found 12-bit subtractor for signal <x_value>.
-    Found 12-bit adder for signal <y_value$sub0000> created at line 46.
+    Found 12-bit adder for signal <y_value$sub0000> created at line 45.
     Summary:
 	inferred 288 D-type flip-flop(s).
 	inferred   4 Adder/Subtractor(s).
@@ -2063,6 +2062,19 @@ INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier 
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_r_e_mult0000 by adding 1 register level(s).
 Unit <grid> synthesized (advanced).
 
+Synthesizing (advanced) Unit <oriented_blob>.
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_30_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_15_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_60_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_75_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_orientation_quadrant_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_30_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_15_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_60_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_75_mult0000 by adding 1 register level(s).
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_orientation_quadrant_mult0000 by adding 1 register level(s).
+Unit <oriented_blob> synthesized (advanced).
+
 Synthesizing (advanced) Unit <polar_to_cartesian>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_rsin_45deg_mult0000 by adding 1 register level(s).
@@ -2138,69 +2150,56 @@ Synthesizing (advanced) Unit <roughly_equal_locations>.
 		- 1 pipeline level(s) found in a register connected to the multiplier macro output.
 		Pushing register(s) into the multiplier macro.
 Unit <roughly_equal_locations> synthesized (advanced).
-
-Synthesizing (advanced) Unit <triangle>.
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_30_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_15_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_60_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_75_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_orientation_quadrant_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_30_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_15_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_60_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_test_on_75_mult0000 by adding 1 register level(s).
-INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_orientation_quadrant_mult0000 by adding 1 register level(s).
-Unit <triangle> synthesized (advanced).
 WARNING:Xst:1710 - FF/Latch <state_3> (without init value) has a constant value of 0 in block <run_HCSR04>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <test_45deg_11> in Unit <grid> is equivalent to the following 20 FFs/Latches, which will be removed : <test_45deg_12> <test_45deg_13> <test_45deg_14> <test_45deg_15> <test_45deg_16> <test_45deg_17> <test_45deg_18> <test_45deg_19> <test_45deg_20> <test_45deg_21> <test_45deg_22> <test_45deg_23> <test_45deg_24> <test_45deg_25> <test_45deg_26> <test_45deg_27> <test_45deg_28> <test_45deg_29> <test_45deg_30> <test_45deg_31> 
 INFO:Xst:2261 - The FF/Latch <test_75deg_14> in Unit <grid> is equivalent to the following 17 FFs/Latches, which will be removed : <test_75deg_15> <test_75deg_16> <test_75deg_17> <test_75deg_18> <test_75deg_19> <test_75deg_20> <test_75deg_21> <test_75deg_22> <test_75deg_23> <test_75deg_24> <test_75deg_25> <test_75deg_26> <test_75deg_27> <test_75deg_28> <test_75deg_29> <test_75deg_30> <test_75deg_31> 
 INFO:Xst:2261 - The FF/Latch <r_e_24> in Unit <grid> is equivalent to the following 7 FFs/Latches, which will be removed : <r_e_25> <r_e_26> <r_e_27> <r_e_28> <r_e_29> <r_e_30> <r_e_31> 
 INFO:Xst:2261 - The FF/Latch <test_15deg_11> in Unit <grid> is equivalent to the following 20 FFs/Latches, which will be removed : <test_15deg_12> <test_15deg_13> <test_15deg_14> <test_15deg_15> <test_15deg_16> <test_15deg_17> <test_15deg_18> <test_15deg_19> <test_15deg_20> <test_15deg_21> <test_15deg_22> <test_15deg_23> <test_15deg_24> <test_15deg_25> <test_15deg_26> <test_15deg_27> <test_15deg_28> <test_15deg_29> <test_15deg_30> <test_15deg_31> 
 INFO:Xst:2261 - The FF/Latch <pixel_0> in Unit <grid> is equivalent to the following 23 FFs/Latches, which will be removed : <pixel_1> <pixel_2> <pixel_3> <pixel_4> <pixel_5> <pixel_6> <pixel_7> <pixel_8> <pixel_9> <pixel_10> <pixel_11> <pixel_12> <pixel_13> <pixel_14> <pixel_15> <pixel_16> <pixel_17> <pixel_18> <pixel_19> <pixel_20> <pixel_21> <pixel_22> <pixel_23> 
-WARNING:Xst:1710 - FF/Latch <pixel_8> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_9> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_10> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_11> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_12> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_13> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_14> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_15> (without init value) has a constant value of 0 in block <triangle>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <orientation2_3> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation2_4> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_2> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_3> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_4> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_5> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_6> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_7> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_8> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_9> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_10> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_11> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_12> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_13> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_14> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_15> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_16> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_17> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_18> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_19> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_20> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_21> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_22> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_23> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_24> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_25> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_26> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_27> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_28> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_29> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_30> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation_quadrant_31> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation3_3> of sequential type is unconnected in block <triangle>.
-WARNING:Xst:2677 - Node <orientation3_4> of sequential type is unconnected in block <triangle>.
-INFO:Xst:2261 - The FF/Latch <pixel_0> in Unit <triangle> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_1> <pixel_2> <pixel_3> <pixel_4> <pixel_5> <pixel_6> <pixel_7> 
-INFO:Xst:2261 - The FF/Latch <pixel_16> in Unit <triangle> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_17> <pixel_18> <pixel_19> <pixel_20> <pixel_21> <pixel_22> <pixel_23> 
+WARNING:Xst:1710 - FF/Latch <pixel_8> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_9> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_10> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_11> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_12> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_13> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_14> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <pixel_15> (without init value) has a constant value of 0 in block <oriented_blob>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <orientation2_3> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation2_4> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_2> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_3> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_4> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_5> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_6> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_7> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_8> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_9> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_10> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_11> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_12> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_13> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_14> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_15> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_16> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_17> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_18> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_19> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_20> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_21> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_22> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_23> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_24> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_25> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_26> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_27> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_28> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_29> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_30> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation_quadrant_31> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation3_3> of sequential type is unconnected in block <oriented_blob>.
+WARNING:Xst:2677 - Node <orientation3_4> of sequential type is unconnected in block <oriented_blob>.
+INFO:Xst:2261 - The FF/Latch <pixel_0> in Unit <oriented_blob> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_1> <pixel_2> <pixel_3> <pixel_4> <pixel_5> <pixel_6> <pixel_7> 
+INFO:Xst:2261 - The FF/Latch <pixel_16> in Unit <oriented_blob> is equivalent to the following 7 FFs/Latches, which will be removed : <pixel_17> <pixel_18> <pixel_19> <pixel_20> <pixel_21> <pixel_22> <pixel_23> 
 WARNING:Xst:1710 - FF/Latch <rover_x_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_x_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <rover_x_9> in Unit <vga_writer> is equivalent to the following 2 FFs/Latches, which will be removed : <rover_x_10> <rover_x_11> 
@@ -2561,10 +2560,10 @@ WARNING:Xst:1710 - FF/Latch <abs_dx_tan15_7> (without init value) has a constant
 WARNING:Xst:1710 - FF/Latch <my_hex_data_24> (without init value) has a constant value of 0 in block <labkit>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <rover_y_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <target_y_0> (without init value) has a constant value of 0 in block <vga_writer>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <test_on_60_14> in Unit <triangle> is equivalent to the following 17 FFs/Latches, which will be removed : <test_on_60_15> <test_on_60_16> <test_on_60_17> <test_on_60_18> <test_on_60_19> <test_on_60_20> <test_on_60_21> <test_on_60_22> <test_on_60_23> <test_on_60_24> <test_on_60_25> <test_on_60_26> <test_on_60_27> <test_on_60_28> <test_on_60_29> <test_on_60_30> <test_on_60_31> 
-INFO:Xst:2261 - The FF/Latch <test_on_75_15> in Unit <triangle> is equivalent to the following 16 FFs/Latches, which will be removed : <test_on_75_16> <test_on_75_17> <test_on_75_18> <test_on_75_19> <test_on_75_20> <test_on_75_21> <test_on_75_22> <test_on_75_23> <test_on_75_24> <test_on_75_25> <test_on_75_26> <test_on_75_27> <test_on_75_28> <test_on_75_29> <test_on_75_30> <test_on_75_31> 
-INFO:Xst:2261 - The FF/Latch <test_on_15_12> in Unit <triangle> is equivalent to the following 19 FFs/Latches, which will be removed : <test_on_15_13> <test_on_15_14> <test_on_15_15> <test_on_15_16> <test_on_15_17> <test_on_15_18> <test_on_15_19> <test_on_15_20> <test_on_15_21> <test_on_15_22> <test_on_15_23> <test_on_15_24> <test_on_15_25> <test_on_15_26> <test_on_15_27> <test_on_15_28> <test_on_15_29> <test_on_15_30> <test_on_15_31> 
-INFO:Xst:2261 - The FF/Latch <test_on_30_13> in Unit <triangle> is equivalent to the following 18 FFs/Latches, which will be removed : <test_on_30_14> <test_on_30_15> <test_on_30_16> <test_on_30_17> <test_on_30_18> <test_on_30_19> <test_on_30_20> <test_on_30_21> <test_on_30_22> <test_on_30_23> <test_on_30_24> <test_on_30_25> <test_on_30_26> <test_on_30_27> <test_on_30_28> <test_on_30_29> <test_on_30_30> <test_on_30_31> 
+INFO:Xst:2261 - The FF/Latch <test_on_60_14> in Unit <oriented_blob> is equivalent to the following 17 FFs/Latches, which will be removed : <test_on_60_15> <test_on_60_16> <test_on_60_17> <test_on_60_18> <test_on_60_19> <test_on_60_20> <test_on_60_21> <test_on_60_22> <test_on_60_23> <test_on_60_24> <test_on_60_25> <test_on_60_26> <test_on_60_27> <test_on_60_28> <test_on_60_29> <test_on_60_30> <test_on_60_31> 
+INFO:Xst:2261 - The FF/Latch <test_on_75_15> in Unit <oriented_blob> is equivalent to the following 16 FFs/Latches, which will be removed : <test_on_75_16> <test_on_75_17> <test_on_75_18> <test_on_75_19> <test_on_75_20> <test_on_75_21> <test_on_75_22> <test_on_75_23> <test_on_75_24> <test_on_75_25> <test_on_75_26> <test_on_75_27> <test_on_75_28> <test_on_75_29> <test_on_75_30> <test_on_75_31> 
+INFO:Xst:2261 - The FF/Latch <test_on_15_12> in Unit <oriented_blob> is equivalent to the following 19 FFs/Latches, which will be removed : <test_on_15_13> <test_on_15_14> <test_on_15_15> <test_on_15_16> <test_on_15_17> <test_on_15_18> <test_on_15_19> <test_on_15_20> <test_on_15_21> <test_on_15_22> <test_on_15_23> <test_on_15_24> <test_on_15_25> <test_on_15_26> <test_on_15_27> <test_on_15_28> <test_on_15_29> <test_on_15_30> <test_on_15_31> 
+INFO:Xst:2261 - The FF/Latch <test_on_30_13> in Unit <oriented_blob> is equivalent to the following 18 FFs/Latches, which will be removed : <test_on_30_14> <test_on_30_15> <test_on_30_16> <test_on_30_17> <test_on_30_18> <test_on_30_19> <test_on_30_20> <test_on_30_21> <test_on_30_22> <test_on_30_23> <test_on_30_24> <test_on_30_25> <test_on_30_26> <test_on_30_27> <test_on_30_28> <test_on_30_29> <test_on_30_30> <test_on_30_31> 
 INFO:Xst:2261 - The FF/Latch <target_y_10> in Unit <vga_writer> is equivalent to the following FF/Latch, which will be removed : <target_y_11> 
 INFO:Xst:2261 - The FF/Latch <rover_y_10> in Unit <vga_writer> is equivalent to the following FF/Latch, which will be removed : <rover_y_11> 
 
@@ -2588,7 +2587,7 @@ Optimizing unit <median_3> ...
 
 Optimizing unit <grid> ...
 
-Optimizing unit <triangle> ...
+Optimizing unit <oriented_blob> ...
 
 Optimizing unit <alpha_blend> ...
 
@@ -2986,15 +2985,15 @@ Offset:              5.630ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 69.00 secs
-Total CPU time to Xst completion: 67.79 secs
+Total REAL time to Xst completion: 70.00 secs
+Total CPU time to Xst completion: 66.92 secs
  
 --> 
 
 
-Total memory usage is 601820 kilobytes
+Total memory usage is 601728 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  638 (   0 filtered)
+Number of warnings :  637 (   0 filtered)
 Number of infos    :  146 (   0 filtered)
 

@@ -489,7 +489,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   // VGA Display Block
   // feed XVGA signals to our VGA logic module
   vga_writer vg(.vclock(clock_65mhz),.reset(reset),
-                .move_command(move_command),.location(rover_location),
+                .location(rover_location),
                 .orientation(rover_orientation),.target_location(target_location),
                 .orientation_ready(orientation_done),
 					 .new_data(ultrasound_done),

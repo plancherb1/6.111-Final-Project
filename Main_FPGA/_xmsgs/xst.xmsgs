@@ -131,9 +131,6 @@
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">orientation3&lt;4:3&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">move_command</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
 <msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">max_y</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
@@ -1121,198 +1118,6 @@
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_r_e_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
-<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
-</msg>
-
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_test_on_30_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
@@ -1341,6 +1146,198 @@
 </msg>
 
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_orientation_quadrant_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_45deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_15deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_60deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
+</msg>
+
+<msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_rsin_75deg_mult0000</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">state_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">run_HCSR04</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -1361,136 +1358,136 @@
 <msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">grid</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">23 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_1&gt; &lt;pixel_2&gt; &lt;pixel_3&gt; &lt;pixel_4&gt; &lt;pixel_5&gt; &lt;pixel_6&gt; &lt;pixel_7&gt; &lt;pixel_8&gt; &lt;pixel_9&gt; &lt;pixel_10&gt; &lt;pixel_11&gt; &lt;pixel_12&gt; &lt;pixel_13&gt; &lt;pixel_14&gt; &lt;pixel_15&gt; &lt;pixel_16&gt; &lt;pixel_17&gt; &lt;pixel_18&gt; &lt;pixel_19&gt; &lt;pixel_20&gt; &lt;pixel_21&gt; &lt;pixel_22&gt; &lt;pixel_23&gt; </arg>
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">pixel_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">pixel_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">triangle</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">pixel_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">oriented_blob</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation2_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation_quadrant_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">triangle</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">orientation3_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_1&gt; &lt;pixel_2&gt; &lt;pixel_3&gt; &lt;pixel_4&gt; &lt;pixel_5&gt; &lt;pixel_6&gt; &lt;pixel_7&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_1&gt; &lt;pixel_2&gt; &lt;pixel_3&gt; &lt;pixel_4&gt; &lt;pixel_5&gt; &lt;pixel_6&gt; &lt;pixel_7&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_17&gt; &lt;pixel_18&gt; &lt;pixel_19&gt; &lt;pixel_20&gt; &lt;pixel_21&gt; &lt;pixel_22&gt; &lt;pixel_23&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">pixel_16</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;pixel_17&gt; &lt;pixel_18&gt; &lt;pixel_19&gt; &lt;pixel_20&gt; &lt;pixel_21&gt; &lt;pixel_22&gt; &lt;pixel_23&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="1710" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">rover_x_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -2237,16 +2234,16 @@
 <msg type="warning" file="Xst" num="1895" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">target_y_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_writer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_60_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">17 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_60_15&gt; &lt;test_on_60_16&gt; &lt;test_on_60_17&gt; &lt;test_on_60_18&gt; &lt;test_on_60_19&gt; &lt;test_on_60_20&gt; &lt;test_on_60_21&gt; &lt;test_on_60_22&gt; &lt;test_on_60_23&gt; &lt;test_on_60_24&gt; &lt;test_on_60_25&gt; &lt;test_on_60_26&gt; &lt;test_on_60_27&gt; &lt;test_on_60_28&gt; &lt;test_on_60_29&gt; &lt;test_on_60_30&gt; &lt;test_on_60_31&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_60_14</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">17 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_60_15&gt; &lt;test_on_60_16&gt; &lt;test_on_60_17&gt; &lt;test_on_60_18&gt; &lt;test_on_60_19&gt; &lt;test_on_60_20&gt; &lt;test_on_60_21&gt; &lt;test_on_60_22&gt; &lt;test_on_60_23&gt; &lt;test_on_60_24&gt; &lt;test_on_60_25&gt; &lt;test_on_60_26&gt; &lt;test_on_60_27&gt; &lt;test_on_60_28&gt; &lt;test_on_60_29&gt; &lt;test_on_60_30&gt; &lt;test_on_60_31&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_75_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">16 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_75_16&gt; &lt;test_on_75_17&gt; &lt;test_on_75_18&gt; &lt;test_on_75_19&gt; &lt;test_on_75_20&gt; &lt;test_on_75_21&gt; &lt;test_on_75_22&gt; &lt;test_on_75_23&gt; &lt;test_on_75_24&gt; &lt;test_on_75_25&gt; &lt;test_on_75_26&gt; &lt;test_on_75_27&gt; &lt;test_on_75_28&gt; &lt;test_on_75_29&gt; &lt;test_on_75_30&gt; &lt;test_on_75_31&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_75_15</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">16 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_75_16&gt; &lt;test_on_75_17&gt; &lt;test_on_75_18&gt; &lt;test_on_75_19&gt; &lt;test_on_75_20&gt; &lt;test_on_75_21&gt; &lt;test_on_75_22&gt; &lt;test_on_75_23&gt; &lt;test_on_75_24&gt; &lt;test_on_75_25&gt; &lt;test_on_75_26&gt; &lt;test_on_75_27&gt; &lt;test_on_75_28&gt; &lt;test_on_75_29&gt; &lt;test_on_75_30&gt; &lt;test_on_75_31&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_15_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_15_13&gt; &lt;test_on_15_14&gt; &lt;test_on_15_15&gt; &lt;test_on_15_16&gt; &lt;test_on_15_17&gt; &lt;test_on_15_18&gt; &lt;test_on_15_19&gt; &lt;test_on_15_20&gt; &lt;test_on_15_21&gt; &lt;test_on_15_22&gt; &lt;test_on_15_23&gt; &lt;test_on_15_24&gt; &lt;test_on_15_25&gt; &lt;test_on_15_26&gt; &lt;test_on_15_27&gt; &lt;test_on_15_28&gt; &lt;test_on_15_29&gt; &lt;test_on_15_30&gt; &lt;test_on_15_31&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_15_12</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">19 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_15_13&gt; &lt;test_on_15_14&gt; &lt;test_on_15_15&gt; &lt;test_on_15_16&gt; &lt;test_on_15_17&gt; &lt;test_on_15_18&gt; &lt;test_on_15_19&gt; &lt;test_on_15_20&gt; &lt;test_on_15_21&gt; &lt;test_on_15_22&gt; &lt;test_on_15_23&gt; &lt;test_on_15_24&gt; &lt;test_on_15_25&gt; &lt;test_on_15_26&gt; &lt;test_on_15_27&gt; &lt;test_on_15_28&gt; &lt;test_on_15_29&gt; &lt;test_on_15_30&gt; &lt;test_on_15_31&gt; </arg>
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_30_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">triangle</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">18 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_30_14&gt; &lt;test_on_30_15&gt; &lt;test_on_30_16&gt; &lt;test_on_30_17&gt; &lt;test_on_30_18&gt; &lt;test_on_30_19&gt; &lt;test_on_30_20&gt; &lt;test_on_30_21&gt; &lt;test_on_30_22&gt; &lt;test_on_30_23&gt; &lt;test_on_30_24&gt; &lt;test_on_30_25&gt; &lt;test_on_30_26&gt; &lt;test_on_30_27&gt; &lt;test_on_30_28&gt; &lt;test_on_30_29&gt; &lt;test_on_30_30&gt; &lt;test_on_30_31&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">test_on_30_13</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">oriented_blob</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">18 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;test_on_30_14&gt; &lt;test_on_30_15&gt; &lt;test_on_30_16&gt; &lt;test_on_30_17&gt; &lt;test_on_30_18&gt; &lt;test_on_30_19&gt; &lt;test_on_30_20&gt; &lt;test_on_30_21&gt; &lt;test_on_30_22&gt; &lt;test_on_30_23&gt; &lt;test_on_30_24&gt; &lt;test_on_30_25&gt; &lt;test_on_30_26&gt; &lt;test_on_30_27&gt; &lt;test_on_30_28&gt; &lt;test_on_30_29&gt; &lt;test_on_30_30&gt; &lt;test_on_30_31&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">target_y_10</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_writer</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;target_y_11&gt; </arg>

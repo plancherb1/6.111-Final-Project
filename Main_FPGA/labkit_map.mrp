@@ -11,7 +11,7 @@ Target Device  : xc2v6000
 Target Package : bf957
 Target Speed   : -4
 Mapper Version : virtex2 -- $Revision: 1.46.12.2 $
-Mapped Date    : Mon Dec  7 13:55:42 2015
+Mapped Date    : Tue Dec  8 12:55:53 2015
 
 Design Summary
 --------------
@@ -35,7 +35,7 @@ Logic Distribution:
   Number of DCMs:                         1 out of      12    8%
 
 Peak Memory Usage:  558 MB
-Total REAL time to MAP completion:  10 secs 
+Total REAL time to MAP completion:  15 secs 
 Total CPU time to MAP completion:   9 secs 
 
 NOTES:
