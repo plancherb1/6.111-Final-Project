@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Roughly Equal Locations
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 //////////////////////////////////////////////////////////////////////////////////
 module roughly_equal_locations(
@@ -63,18 +63,21 @@ module roughly_equal_locations(
                loc_1_y <= loc_1_y_t;
                loc_2_x <= loc_2_x_t;
                loc_2_y <= loc_2_y_t;
+					state <= DELTAS;
             end
             
             // then get deltas
             DELTAS: begin
                dx <= (loc_1_x > loc_2_x) ? (loc_1_x - loc_2_x) : (loc_2_x - loc_1_x);
                dy <= (loc_1_y > loc_2_y) ? (loc_1_y - loc_2_y) : (loc_2_y - loc_1_y);
+					state <= D_2;
             end
             
             // then square for distance
             D_2: begin
                dx_2 <= dx*dx;
                dy_2 <= dy*dy;
+					state <= COMP;
             end
             
             // then compare sum of distance squared to our max distance

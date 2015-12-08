@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Orientation Math
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Notes: this relies on only using 6 angles values of 15deg + 30n up to 165
 //        if you want to use more or different angles you need to update the code

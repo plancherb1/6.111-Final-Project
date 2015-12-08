@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Median_3
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 //////////////////////////////////////////////////////////////////////////////////
 

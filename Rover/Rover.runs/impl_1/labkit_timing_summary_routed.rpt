@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date              : Sun Dec  6 20:03:04 2015
+| Date              : Mon Dec  7 18:52:02 2015
 | Host              : eecs-digital-19 running 64-bit Ubuntu 12.04.5 LTS
 | Command           : report_timing_summary -warn_on_violation -max_paths 10 -file labkit_timing_summary_routed.rpt -rpx labkit_timing_summary_routed.rpx
 | Design            : labkit
@@ -52,7 +52,7 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 263 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
+ There are 264 register/latch pins with no clock driven by root clock pin: clockgen/clock_25mhz_reg/C (HIGH)
 
 
 2. checking constant_clock
@@ -67,7 +67,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 623 pins that are not constrained for maximum delay. (HIGH)
+ There are 625 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -81,7 +81,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 17 ports with no output delay specified. (HIGH)
+ There are 18 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 

@@ -196,7 +196,7 @@ module motor_signal_stream(
                                 state <= TURNING;
                                 motor_l_f <= OFF;
                                 motor_r_f <= ON;
-                                motor_l_b <= OFF;
+                                motor_l_b <= ON;
                                 motor_r_b <= OFF;
                             end
                         end

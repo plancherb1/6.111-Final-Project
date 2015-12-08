@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Quadrant Calc
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 //////////////////////////////////////////////////////////////////////////////////
 module quadrant(

@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Calculate R from Y and Theta
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Note1: R = y / sin(theta)
 //

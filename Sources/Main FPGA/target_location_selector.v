@@ -3,8 +3,8 @@
 // Company:        MIT 6.111 Final Project
 // Engineer:       Brian Plancher
 //
-// Module Name: Target Location Selector
-// Project Name:   FPGA Phone Home
+// Module Name: 	 Target Location Selector
+// Project Name:   FPGA Radar Guidance
 //
 //////////////////////////////////////////////////////////////////////////////////
 module target_location_selector

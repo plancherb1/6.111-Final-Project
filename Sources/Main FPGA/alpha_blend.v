@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Alpha Blend
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 //////////////////////////////////////////////////////////////////////////////////   
    

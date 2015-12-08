@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Sun Dec  6 20:00:08 2015
+# Process ID: 15583
+# Log file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.log
+# Journal file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vivado/2014.4/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:06 . Memory (MB): peak = 5737.172 ; gain = 94.359 ; free physical = 2331 ; free virtual = 14155
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+[Sun Dec  6 20:01:14 2015] Launched synth_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/synth_1/runme.log
+[Sun Dec  6 20:01:14 2015] Launched impl_1...
+Run output will be captured here: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 20:17:26 2015...

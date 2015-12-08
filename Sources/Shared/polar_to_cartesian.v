@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Polar to Cartesian
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Notes: this relies on only using 12 angles values of 0deg + 15n up to 180
 //        if you want to use more or different angles you need to update the code

@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    main fsm
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Note: controls all of the modules and makes sure they only fire when needed
 //

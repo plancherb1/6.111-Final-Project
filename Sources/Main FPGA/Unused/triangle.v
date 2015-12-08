@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Triangle
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Notes: Based off of Blob from Lab3
 //////////////////////////////////////////////////////////////////////////////////

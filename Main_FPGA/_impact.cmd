@@ -13,8 +13,8 @@ setMode -bs
 Program -p 2 
 Program -p 2 
 Program -p 2 
+assignFile -p 2 -file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/labkit.bit"
 Program -p 2 
-saveProjectFile -file "/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Main_FPGA/Main_FPGA.ipf"
 setMode -bs
 deleteDevice -position 1
 deleteDevice -position 1

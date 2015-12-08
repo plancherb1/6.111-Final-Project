@@ -40,7 +40,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 908.105 ; gain = 143.738 ; free physical = 2161 ; free virtual = 13964
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 909.105 ; gain = 144.738 ; free physical = 4192 ; free virtual = 14365
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'labkit' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:22]
 INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:136]
@@ -146,7 +146,7 @@ WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 2123 ; free virtual = 13927
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 4147 ; free virtual = 14325
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -156,7 +156,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 2123 ; free virtual = 13927
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 4147 ; free virtual = 14325
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -194,33 +194,33 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1267.586 ; gain = 0.000 ; free physical = 1929 ; free virtual = 13733
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1267.586 ; gain = 0.000 ; free physical = 3960 ; free virtual = 14132
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1928 ; free virtual = 13732
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3945 ; free virtual = 14121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1928 ; free virtual = 13732
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3945 ; free virtual = 14121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1928 ; free virtual = 13732
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3921 ; free virtual = 14117
 ---------------------------------------------------------------------------------
 ROM "count" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
 ROM "clean" won't be mapped to RAM because address size (19) is larger than maximum supported(18) 
 ROM "done" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
 ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
 ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
-INFO: [Synth 8-4471] merging register 'motor_r_b_reg' into 'motor_l_b_reg' [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/motor_signal_stream.v:69]
 ROM "state" won't be mapped to RAM because it is too sparse.
 ROM "state" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "motor_l_f" won't be mapped to RAM because it is too sparse.
 ROM "motor_l_f" won't be mapped to RAM because it is too sparse.
+ROM "motor_l_b" won't be mapped to RAM because it is too sparse.
 ROM "pause_count" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "move_done" won't be mapped to RAM because it is too sparse.
 ROM "test_counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
@@ -235,7 +235,7 @@ WARNING: [Synth 8-3848] Net VGA_HS in module/entity labkit does not have driver.
 WARNING: [Synth 8-3848] Net VGA_VS in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:31]
 WARNING: [Synth 8-3848] Net LED in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Sources/Rover/labkit_Rover.v:32]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1913 ; free virtual = 13717
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3905 ; free virtual = 14102
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -264,7 +264,7 @@ Detailed RTL Component Info :
 	                7 Bit    Registers := 3     
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 4     
-	                1 Bit    Registers := 28    
+	                1 Bit    Registers := 29    
 +---Muxes : 
 	   5 Input     32 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 4     
@@ -284,9 +284,9 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 6     
 	   3 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 30    
+	   2 Input      1 Bit        Muxes := 31    
 	   3 Input      1 Bit        Muxes := 5     
-	   5 Input      1 Bit        Muxes := 13    
+	   5 Input      1 Bit        Muxes := 14    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -352,7 +352,7 @@ Detailed RTL Component Info :
 	                7 Bit    Registers := 2     
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	                1 Bit    Registers := 5     
 +---Muxes : 
 	   5 Input     32 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 4     
@@ -363,8 +363,8 @@ Detailed RTL Component Info :
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
 	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 9     
-	   5 Input      1 Bit        Muxes := 13    
+	   2 Input      1 Bit        Muxes := 10    
+	   5 Input      1 Bit        Muxes := 14    
 Module rover_main_fsm 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -393,7 +393,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1913 ; free virtual = 13717
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3905 ; free virtual = 14101
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -451,9 +451,9 @@ WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1913 ; free virtual = 13717
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3905 ; free virtual = 14101
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 1913 ; free virtual = 13717
+Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1267.586 ; gain = 503.219 ; free physical = 3905 ; free virtual = 14101
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -586,7 +586,7 @@ WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[2] ) is u
 WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[1] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\mss1/test_sub_counter_reg[0] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\mss1/angle_reg[5] ) is unused and will be removed from module labkit.
-WARNING: [Synth 8-3332] Sequential element (\mss1/motor_l_b_reg ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\mss1/motor_r_b_reg ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[3] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[2] ) is unused and will be removed from module labkit.
 WARNING: [Synth 8-3332] Sequential element (\fsm1/state_reg[1] ) is unused and will be removed from module labkit.
@@ -607,19 +607,19 @@ WARNING: [Synth 8-3332] Sequential element (\mss1/angle_sub_goal_reg[2] ) is unu
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1896 ; free virtual = 13701
+Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3898 ; free virtual = 14084
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1896 ; free virtual = 13701
+Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3898 ; free virtual = 14084
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1896 ; free virtual = 13701
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3898 ; free virtual = 14084
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1896 ; free virtual = 13701
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3898 ; free virtual = 14084
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -627,10 +627,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1857 ; free virtual = 13661
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3875 ; free virtual = 14053
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1857 ; free virtual = 13661
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3875 ; free virtual = 14053
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -642,7 +642,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13649
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -666,7 +666,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13649
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -679,7 +679,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13649
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -691,7 +691,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13649
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -717,21 +717,22 @@ Report Cell Usage:
 |2     |CARRY4 |    56|
 |3     |LUT1   |   155|
 |4     |LUT2   |    68|
-|5     |LUT3   |    92|
-|6     |LUT4   |    43|
-|7     |LUT5   |    43|
+|5     |LUT3   |    91|
+|6     |LUT4   |    45|
+|7     |LUT5   |    41|
 |8     |LUT6   |   114|
-|9     |FDRE   |   265|
-|10    |IBUF   |    11|
-|11    |OBUF   |    20|
-|12    |OBUFT  |    30|
+|9     |MUXF7  |     2|
+|10    |FDRE   |   266|
+|11    |IBUF   |    11|
+|12    |OBUF   |    20|
+|13    |OBUFT  |    30|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+-----------+----------------------+------+
 |      |Instance   |Module                |Cells |
 +------+-----------+----------------------+------+
-|1     |top        |                      |   899|
+|1     |top        |                      |   901|
 |2     |  clockgen |clock_quarter_divider |     4|
 |3     |  dbsw0    |synchronize           |     3|
 |4     |  dbsw1    |synchronize_0         |     4|
@@ -743,17 +744,17 @@ Report Instance Areas:
 |10    |  dbsw6    |synchronize_6         |     7|
 |11    |  dbsw7    |synchronize_7         |     4|
 |12    |  display  |display_8hex_nexys4   |    64|
-|13    |  fsm1     |rover_main_fsm        |    80|
+|13    |  fsm1     |rover_main_fsm        |    79|
 |14    |  ir1      |ir_receiver           |   148|
 |15    |    d1     |divider_600us         |    39|
-|16    |  mss1     |motor_signal_stream   |   501|
+|16    |  mss1     |motor_signal_stream   |   504|
 +------+-----------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13649
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 136 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1267.590 ; gain = 87.238 ; free physical = 1844 ; free virtual = 13648
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 1844 ; free virtual = 13648
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1267.590 ; gain = 87.238 ; free physical = 3863 ; free virtual = 14041
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1267.590 ; gain = 503.223 ; free physical = 3863 ; free virtual = 14041
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 67 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -765,10 +766,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-83 Infos, 194 Warnings, 6 Critical Warnings and 0 Errors encountered.
+82 Infos, 194 Warnings, 6 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1267.590 ; gain = 410.480 ; free physical = 1839 ; free virtual = 13643
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1267.590 ; gain = 410.480 ; free physical = 3859 ; free virtual = 14037
 # write_checkpoint -noxdef labkit.dcp
 # catch { report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1267.590 ; gain = 0.000 ; free physical = 1838 ; free virtual = 13643
-INFO: [Common 17-206] Exiting Vivado at Sun Dec  6 20:01:57 2015...
+report_utilization: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.25 . Memory (MB): peak = 1267.590 ; gain = 0.000 ; free physical = 3859 ; free virtual = 14037
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  7 18:50:55 2015...

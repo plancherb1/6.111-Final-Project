@@ -2,13 +2,19 @@
 # Vivado v2014.4.1 (64-bit)
 # SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
 # IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
-# Start of session at: Sun Dec  6 20:00:08 2015
-# Process ID: 15583
+# Start of session at: Mon Dec  7 18:12:31 2015
+# Process ID: 10452
 # Log file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.log
 # Journal file: /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project /afs/athena.mit.edu/user/p/l/plancher/Desktop/6.111-Final-Project/Rover/Rover.xpr
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1

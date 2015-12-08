@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    Grid
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Notes: Display the lines for the various angles (starting at 15 every 30) and
 //        6 circles of parameter defined radius that make up the background grid image

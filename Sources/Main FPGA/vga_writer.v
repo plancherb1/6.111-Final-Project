@@ -4,7 +4,7 @@
 // Engineer:       Brian Plancher
 // 
 // Module Name:    VGA Writer
-// Project Name:   FPGA Phone Home
+// Project Name:   FPGA Radar Guidance
 //
 // Notes: Based on Pong Game Logic
 //////////////////////////////////////////////////////////////////////////////////
@@ -12,7 +12,6 @@ module vga_writer (
    input vclock,						// 65MHz clock
    input reset,						// 1 to initialize module
    input [11:0] location,		// input location of the Rover
-   input [11:0] move_command,  // move command to the rover (if applicable)
    input [4:0] orientation,		// orientation of the rover
    input [11:0] target_location,// location of the target
    input new_data,					// ready to re-draw and use the new location
@@ -118,8 +117,8 @@ module vga_writer (
    
    //instantiate the triangle rover
    wire [23:0] rover_pixel_yesO;
-   triangle #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_ORIENTED_COLOR),
-				  .BLANK_COLOR(BLANK_COLOR),.INDICATOR_COLOR(ROVER_COLOR))
+   oriented_blob #(.WIDTH(ROVER_WIDTH),.HEIGHT(ROVER_HEIGHT),.COLOR(ROVER_ORIENTED_COLOR),
+						 .BLANK_COLOR(BLANK_COLOR),.INDICATOR_COLOR(ROVER_COLOR))
 		  rover_yesO(.center_x(rover_x),.center_y(rover_y),.x_value(x_value),.y_value(y_value),.pixel(rover_pixel_yesO),
 						 .orientation(orientation),.clock(vclock));
 	
